@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export function HeroTextMain() {
   return (
     <div className="flex flex-col gap-6">
@@ -14,7 +16,8 @@ export function HeroTextMain() {
       </div>
 
       <div className="flex justify-center items-center text-center gap-5">
-
+        <Button variant="cta">Our Portfolio</Button>
+        <Button>Free Quotation</Button>
       </div>
     </div>
   );
