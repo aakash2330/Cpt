@@ -49,7 +49,7 @@ export function LogoTicker() {
         <h2 className="text-center text-xl text-white/50">
           Trusted by the world's most innovative teams
         </h2>
-        <div className="relative mt-9 flex overflow-hidden">
+        <div className="relative mt-9 flex overflow-hidden before:left-0 before:top-0 before:z-10 before:h-full before:w-5 before:bg-[linear-gradient(to_right,#121212,rgba(0,0,0,0))] after:right-0 after:top-0 after:h-full after:w-5 after:bg-[linear-gradient(to_left,#121212,rgba(0,0,0,0))] sm:before:absolute sm:before:content-[''] sm:after:absolute sm:after:content-['']">
           <motion.div
             transition={{
               duration: 20,
