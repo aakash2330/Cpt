@@ -3,7 +3,7 @@ import { NavLinks } from "./Navlinks/Main";
 
 export function Navbar() {
   return (
-    <div className="w-full px-12 flex justify-between">
+    <div className="absolute top-0 w-full px-12 flex justify-between">
       <LogoMain></LogoMain>
       <NavLinks></NavLinks>
     </div>
