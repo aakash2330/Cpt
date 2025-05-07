@@ -6,7 +6,7 @@ export function ProjectsSection() {
   return (
     <div className="h-[150dvh] bg-background w-full flex flex-col gap-12 justify-center items-center">
       <div className="flex py-36 justify-center items-center gap-4">
-        <HeroNumbers count={16} title="Year experience"></HeroNumbers>
+        <HeroNumbers count={16} title="Year xperience"></HeroNumbers>
         <Separator orientation="vertical" className="bg-white/50"></Separator>
         <HeroNumbers count={528} title="Completed Projects"></HeroNumbers>
       </div>
@@ -14,7 +14,7 @@ export function ProjectsSection() {
       <div className="h-full space-y-3 px-24 w-full">
         <div className="h-1/2 space-x-3 flex w-full">
           <ProjectImage
-            clasName="w-1/2"
+            className="w-1/2"
             alt="project"
             url="/958ea0c2a5ec62b21d8c31254959f814c6c2a5dd.png"
           ></ProjectImage>
@@ -59,7 +59,7 @@ function ProjectImage({
 }: {
   url: string;
   alt: string;
-  className: string;
+  className?: string;
 }) {
   return (
     <div className={cn("relative w-full h-full", className)}>
