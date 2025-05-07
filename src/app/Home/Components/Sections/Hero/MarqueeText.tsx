@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import acmeLogo from "../../../../../public/acme.svg";
-import apexLogo from "../../../../../public/apex.svg";
-import celestiaLogo from "../../../../../public/celestia.svg";
-import echoLogo from "../../../../../public/echo.svg";
-import pulseLogo from "../../../../../public/pulse.svg";
-import quantumLogo from "../../../../../public/quantum.svg";
+import acmeLogo from "../../../../../../public/acme.svg";
+import apexLogo from "../../../../../../public/apex.svg";
+import celestiaLogo from "../../../../../../public/celestia.svg";
+import echoLogo from "../../../../../../public/echo.svg";
+import pulseLogo from "../../../../../../public/pulse.svg";
+import quantumLogo from "../../../../../../public/quantum.svg";
 import { useMediaQuery } from "@/app/Hooks/useMediaQuery";
 
 export const logosTickers: LogoTicker[] = [
