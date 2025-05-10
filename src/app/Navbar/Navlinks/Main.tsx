@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const NavOptions: { label: string; url: string }[] = [
-  { label: "Home", url: "/home" },
+  { label: "Home", url: "/landing" },
   { label: "Portfolio", url: "/portfolio" },
   { label: "Services", url: "/services" },
   { label: "Company", url: "/company" },
