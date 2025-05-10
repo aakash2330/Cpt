@@ -53,16 +53,23 @@ export type GlobeConfig = {
   };
   autoRotate?: boolean;
   autoRotateSpeed?: number;
+  // HexBin Layer specific configuration
+  hexBinResolution?: number;
+  hexMargin?: number;
+  hexAltitude?: (d: { sumWeight: number }) => number;
+  hexTopColor?: (d: { points: any[], sumWeight: number }) => string;
+  hexSideColor?: (d: { points: any[], sumWeight: number }) => string;
 };
 
 interface WorldProps {
   globeConfig: GlobeConfig;
   data: Position[];
+  hexBinPointsData?: { lat: number; lng: number; weight: number }[];
 }
 
 let numbersOfRings = [0];
 
-export function Globe({ globeConfig, data }: WorldProps) {
+export function Globe({ globeConfig, data, hexBinPointsData }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
   const groupRef = useRef(null);
   const [isInitialized, setIsInitialized] = useState(false);
@@ -81,6 +88,12 @@ export function Globe({ globeConfig, data }: WorldProps) {
     arcLength: 0.9,
     rings: 1,
     maxRings: 3,
+    // hexbin defaults
+    hexBinResolution: 3,
+    hexMargin: 0.2,
+    hexAltitude: ({ sumWeight }: { sumWeight: number }) => sumWeight * 0.01,
+    hexTopColor: () => '#00ff00',
+    hexSideColor: () => '#ffffff',
     ...globeConfig,
   };
 
@@ -159,38 +172,55 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .atmosphereAltitude(defaultProps.atmosphereAltitude)
       .hexPolygonColor(() => defaultProps.polygonColor);
 
-    globeRef.current
-      .arcsData(data)
-      .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
-      .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
-      .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
-      .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
-      .arcColor((e: any) => (e as { color: string }).color)
-      .arcAltitude((e) => (e as { arcAlt: number }).arcAlt * 1)
-      .arcStroke(() => [0.32, 0.28, 0.3][Math.round(Math.random() * 2)])
-      .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => (e as { order: number }).order * 1)
-      .arcDashGap(15)
-      .arcDashAnimateTime(() => defaultProps.arcTime);
+    if (hexBinPointsData && hexBinPointsData.length > 0) {
+      globeRef.current
+        .hexBinPointsData(hexBinPointsData)
+        .hexBinPointWeight('weight')
+        .hexBinResolution(defaultProps.hexBinResolution)
+        .hexMargin(defaultProps.hexMargin)
+        .hexAltitude(defaultProps.hexAltitude)
+        .hexTopColor(defaultProps.hexTopColor)
+        .hexSideColor(defaultProps.hexSideColor);
+        // Clear other layers if hexbin is active
+        globeRef.current.arcsData([]);
+        globeRef.current.pointsData([]);
+        globeRef.current.ringsData([]);
+    } else {
+      // Existing logic for arcs and points
+      globeRef.current
+        .arcsData(data)
+        .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
+        .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
+        .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
+        .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
+        .arcColor((e: any) => (e as { color: string }).color)
+        .arcAltitude((e) => (e as { arcAlt: number }).arcAlt * 1)
+        .arcStroke(() => [0.32, 0.28, 0.3][Math.round(Math.random() * 2)])
+        .arcDashLength(defaultProps.arcLength)
+        .arcDashInitialGap((e) => (e as { order: number }).order * 1)
+        .arcDashGap(15)
+        .arcDashAnimateTime(() => defaultProps.arcTime);
 
-    globeRef.current
-      .pointsData(filteredPoints)
-      .pointColor((e) => (e as { color: string }).color)
-      .pointsMerge(true)
-      .pointAltitude(0.0)
-      .pointRadius(2);
+      globeRef.current
+        .pointsData(filteredPoints)
+        .pointColor((e) => (e as { color: string }).color)
+        .pointsMerge(true)
+        .pointAltitude(0.0)
+        .pointRadius(2);
 
-    globeRef.current
-      .ringsData([])
-      .ringColor(() => defaultProps.polygonColor)
-      .ringMaxRadius(defaultProps.maxRings)
-      .ringPropagationSpeed(RING_PROPAGATION_SPEED)
-      .ringRepeatPeriod(
-        (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
-      );
+      globeRef.current
+        .ringsData([])
+        .ringColor(() => defaultProps.polygonColor)
+        .ringMaxRadius(defaultProps.maxRings)
+        .ringPropagationSpeed(RING_PROPAGATION_SPEED)
+        .ringRepeatPeriod(
+          (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings,
+        );
+    }
   }, [
     isInitialized,
     data,
+    hexBinPointsData,
     defaultProps.pointSize,
     defaultProps.showAtmosphere,
     defaultProps.atmosphereColor,
@@ -200,11 +230,16 @@ export function Globe({ globeConfig, data }: WorldProps) {
     defaultProps.arcTime,
     defaultProps.rings,
     defaultProps.maxRings,
+    defaultProps.hexBinResolution,
+    defaultProps.hexMargin,
+    defaultProps.hexAltitude,
+    defaultProps.hexTopColor,
+    defaultProps.hexSideColor,
   ]);
 
   // Handle rings animation with cleanup
   useEffect(() => {
-    if (!globeRef.current || !isInitialized || !data) return;
+    if (!globeRef.current || !isInitialized || !data || (hexBinPointsData && hexBinPointsData.length > 0)) return;
 
     const interval = setInterval(() => {
       if (!globeRef.current) return;
