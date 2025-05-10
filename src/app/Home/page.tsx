@@ -1,4 +1,4 @@
-import ExperienceSection from "./Components/Sections/Experience/page";
+import ExperienceSection from "./Components/Sections/Experience";
 import { HeroSection } from "./Components/Sections/Hero";
 import { HeroVideoSection } from "./Components/Sections/HeroVideo";
 import { ProjectsSection } from "./Components/Sections/Projects";
