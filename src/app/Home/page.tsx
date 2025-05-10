@@ -5,7 +5,7 @@ import { ProjectsSection } from "./Components/Sections/Projects";
 
 export default function Page() {
   return (
-    <div className="flex flex-col justify-center items-center pt-20">
+    <div className="flex flex-col justify-center items-center">
       <HeroSection></HeroSection>
       <HeroVideoSection></HeroVideoSection>
       <ProjectsSection></ProjectsSection>
