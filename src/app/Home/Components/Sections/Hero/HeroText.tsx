@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 export function HeroTextMain() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex mt-56 flex-col gap-6">
       <div className="flex justify-center items-center text-center gap-5">
         <HeroText title="YOUR" />
         <HeroVideo url=""></HeroVideo>
