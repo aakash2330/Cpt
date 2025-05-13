@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -9,17 +9,16 @@ const NavOptions = [
   { label: "Portfolio", url: "/portfolio" },
   { label: "Services", url: "/services" },
   { label: "Company", url: "/company" },
-  { label: "Sales", url: "/sales" },
-  { label: "FAQ", url: "/faq" },
-  { label: "Contact", url: "/contact" }
+  { label: "Subcontracter Resource", url: "/resource" },
+  { label: "Contact", url: "/contact" },
 ];
 
 export function NavLinks() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    setIsOpen(false)
-  }, [])
+    setIsOpen(false);
+  }, []);
 
   return (
     <div className="relative">
@@ -36,7 +35,7 @@ export function NavLinks() {
         initial={{ x: "100%" }}
         animate={{ x: isOpen ? "0%" : "100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className={`fixed top-0 right-0 h-screen w-64 bg-black text-white z-50 md:hidden ${isOpen ? 'block' : 'hidden'}`}
+        className={`fixed top-0 right-0 h-screen w-64 bg-black text-white z-50 md:hidden ${isOpen ? "block" : "hidden"}`}
       >
         <div className="flex flex-col gap-6 p-8 h-full relative">
           {NavOptions.map((item, index) => (
@@ -51,15 +50,20 @@ export function NavLinks() {
           ))}
         </div>
         <button
-          className='absolute top-4 right-4 text-white focus:outline-none'
-          onClick={() => setIsOpen(false)}>
+          className="absolute top-4 right-4 text-white focus:outline-none"
+          onClick={() => setIsOpen(false)}
+        >
           <X size={28} />
         </button>
       </motion.div>
 
       <div className="hidden md:flex justify-center items-center gap-4">
         {NavOptions.map((item, index) => (
-          <Link key={index} href={item.url} className="text-white hover:text-gray-400">
+          <Link
+            key={index}
+            href={item.url}
+            className="text-white hover:text-gray-400"
+          >
             {item.label}
           </Link>
         ))}
