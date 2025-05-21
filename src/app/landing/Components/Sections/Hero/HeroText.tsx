@@ -1,7 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 export function HeroTextMain() {
@@ -52,16 +57,16 @@ export function HeroVideo({
       setViewportHeight(window.innerHeight);
     };
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       handleResize(); // Initial set
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (viewportHeight > 0) {
-      if (latest >= 5 * viewportHeight) {
+      if (latest >= 4.5 * viewportHeight) {
         setIsHidden(true);
       } else {
         setIsHidden(false);
@@ -74,9 +79,9 @@ export function HeroVideo({
       ref={targetRef}
       style={{ scale, y, x }}
       className={cn(
-        " h-[58px] rounded-full w-24",
+        " h-[58px] rounded-full z-20 w-24",
         className,
-        isHidden ? "hidden" : ""
+        isHidden ? "hidden" : "",
       )}
     >
       <HeroVideoSection></HeroVideoSection>
