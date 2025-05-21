@@ -45,7 +45,7 @@ export function HeroVideo({
 }) {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress, scrollY } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 80]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 70]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 6000]);
   const x = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
