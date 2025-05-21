@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function ProjectsSection() {
   return (
-    <div className="h-[150dvh] bg-background w-full flex flex-col gap-12 justify-center items-center">
+    <div className="h-[150dvh] z-50 bg-background w-full flex flex-col gap-12 justify-center items-center">
       <div className="flex py-36 justify-center items-center gap-4">
         <HeroNumbers count={16} title="Year xperience"></HeroNumbers>
         <Separator orientation="vertical" className="bg-white/50"></Separator>

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased screen-image`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden  antialiased screen-image`}
       >
         <ThemeProvider
           attribute="class"
@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar></Navbar>
-          <main className="w-full h-full">{children}</main>
+          <main className="w-full  h-full">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

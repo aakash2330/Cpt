@@ -3,7 +3,7 @@ import { LogoMain } from "../Navbar/Logo";
 
 export async function Footer() {
     return (
-        <footer className="w-full text-white py-16 border-t-1 border-[#3E3E3E]">
+        <footer className="w-full z-50 bg-background text-white py-16 border-t-1 border-[#3E3E3E]">
             <div className="max-w-full mx-auto px-6 md:px-[80px]">
                 <div className="hidden md:flex flex-row justify-between">
                     <div className="max-w-sm">

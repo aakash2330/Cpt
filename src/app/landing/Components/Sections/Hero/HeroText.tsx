@@ -1,5 +1,8 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 export function HeroTextMain() {
   return (
@@ -13,7 +16,7 @@ export function HeroTextMain() {
       <div className="flex justify-center items-center text-center gap-5">
         <HeroText title="OUR" />
         <HeroText title="BLUEPRINT" />
-        <HeroVideo className="w-32" url=""></HeroVideo>
+        {/* <HeroVideo className="w-32" url=""></HeroVideo> */}
       </div>
 
       <div className="flex mt-8 justify-center  items-center text-center gap-5">
@@ -35,10 +38,49 @@ export function HeroVideo({
   url: string;
   className?: string;
 }) {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress, scrollY } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 45]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 5500]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, 50]);
+
+  const [isHidden, setIsHidden] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    if (typeof window !== 'undefined') {
+      handleResize(); // Initial set
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (viewportHeight > 0) {
+      if (latest >= 5 * viewportHeight) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+    }
+  });
+
   return (
-    <div className={cn(" h-[58px] rounded-full w-24", className)}>
+    <motion.div
+      ref={targetRef}
+      style={{ scale, y, x }}
+      className={cn(
+        " h-[58px] rounded-full w-24",
+        className,
+        isHidden ? "hidden" : ""
+      )}
+    >
       <HeroVideoSection></HeroVideoSection>
-    </div>
+    </motion.div>
   );
 }
 
