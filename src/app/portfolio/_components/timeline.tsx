@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useScroll } from "framer-motion";
+import { useRef, useState, useLayoutEffect } from "react";
 
 // Define TypeScript interfaces
 interface ProjectImage {
@@ -19,6 +23,7 @@ interface Project {
 }
 
 export default function ProjectTimeline() {
+  const { scrollYProgress } = useScroll();
   const projects: Project[] = [
     {
       id: "hampton-inn",
@@ -204,117 +209,142 @@ export default function ProjectTimeline() {
     },
   ];
 
+  const contentWrapperRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    const calculateHeight = () => {
+      if (contentWrapperRef.current) {
+        setContentHeight(contentWrapperRef.current.scrollHeight);
+      }
+    };
+
+    calculateHeight(); // Initial calculation
+
+    window.addEventListener('resize', calculateHeight);
+    return () => window.removeEventListener('resize', calculateHeight);
+  }, []); // Empty dependency array: projects data is static, effect runs once on mount + cleanup
+
   return (
-    <div className="text-white min-h-screen p-4 md:p-8">
+    <div className="text-white min-h-screen p-4 md:p-8 relative">
+      <motion.div
+        className="fixed left-1/2 -translate-x-1/2 top-0 w-px bg-[#FFFFFF] origin-top hidden lg:block z-50"
+        style={{
+          height: contentHeight, // Use measured height
+          scaleY: scrollYProgress,
+        }}
+      />
       <div className="max-w-6xl mx-auto">
         <div className="relative">
           <div className="absolute left-8 md:left-1/2 w-px h-full bg-[#FFFFFF] hidden lg:block"></div>
 
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`relative mb-24 md:mb-36 flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-            >
+          <div ref={contentWrapperRef} className="relative">
+            {projects.map((project, index) => (
               <div
-                className="absolute left-8 md:left-1/2 w-32 h-px bg-[#FFFFFF] transform -translate-y-1/2 hidden lg:block mt-[157px]"
-                style={{
-                  top: "350px",
-                  left: index % 2 === 0 ? "50%" : "calc(50% - 32px)",
-                  width: index % 2 === 0 ? "100px" : "32px",
-                }}
-              ></div>
-
-              <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-white rounded-full transform -translate-x-1/2 z-10 mt-[500px] hidden lg:block"></div>
-
-              <div
-                className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"} mb-4 md:mb-0 mt-[100px] lg:mt-[350px]`}
+                key={project.id}
+                className={`relative mb-24 md:mb-36 flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
               >
-                <div className="h-80">
-                  <div className="grid grid-cols-6 gap-1 h-[calc(50%-2px)]">
-                    <div className="overflow-hidden col-span-4 h-full relative rounded-tl-xl rounded-bl-xl">
-                      <Image
-                        src={project.images[0]?.src}
-                        alt={project.images[0]?.alt || "Project image"}
-                        className="object-cover"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={index === 0}
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    </div>
-                    <div className="overflow-hidden col-span-2 h-full relative rounded-tr-xl rounded-br-xl">
-                      <Image
-                        src={project.images[1]?.src}
-                        alt={project.images[1]?.alt || "Project image"}
-                        className="object-cover"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 16vw"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+                <div
+                  className="absolute left-8 md:left-1/2 w-32 h-px bg-[#FFFFFF] transform -translate-y-1/2 hidden lg:block mt-[157px]"
+                  style={{
+                    top: "350px",
+                    left: index % 2 === 0 ? "50%" : "calc(50% - 32px)",
+                    width: index % 2 === 0 ? "100px" : "32px",
+                  }}
+                ></div>
 
-                  {/* 4px spacing between rows */}
-                  <div className="h-1"></div>
+                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-white rounded-full transform -translate-x-1/2 z-10 mt-[500px] hidden lg:block"></div>
 
-                  {/* Bottom row - 3 images side by side with equal height but 4px taller */}
-                  <div className="grid grid-cols-8 gap-1 h-[calc(50%+2px)]">
-                    <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
-                      <Image
-                        src={project.images[2]?.src}
-                        alt={project.images[2]?.alt || "Project image"}
-                        className="object-cover"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 12vw"
-                        loading="lazy"
-                      />
+                <div
+                  className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"} mb-4 md:mb-0 mt-[100px] lg:mt-[350px]`}
+                >
+                  <div className="h-80">
+                    <div className="grid grid-cols-6 gap-1 h-[calc(50%-2px)]">
+                      <div className="overflow-hidden col-span-4 h-full relative rounded-tl-xl rounded-bl-xl">
+                        <Image
+                          src={project.images[0]?.src}
+                          alt={project.images[0]?.alt || "Project image"}
+                          className="object-cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          priority={index === 0}
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      </div>
+                      <div className="overflow-hidden col-span-2 h-full relative rounded-tr-xl rounded-br-xl">
+                        <Image
+                          src={project.images[1]?.src}
+                          alt={project.images[1]?.alt || "Project image"}
+                          className="object-cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 16vw"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
-                    <div className="overflow-hidden col-span-4 h-full relative">
-                      <Image
-                        src={project.images[3]?.src}
-                        alt={project.images[3]?.alt || "Project image"}
-                        className="object-cover"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 25vw"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="overflow-hidden col-span-2 h-full relative rounded-br-xl">
-                      <Image
-                        src={project.images[4]?.src}
-                        alt={project.images[4]?.alt || "Project image"}
-                        className="object-cover"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 12vw"
-                        loading="lazy"
-                      />
+
+                    {/* 4px spacing between rows */}
+                    <div className="h-1"></div>
+
+                    {/* Bottom row - 3 images side by side with equal height but 4px taller */}
+                    <div className="grid grid-cols-8 gap-1 h-[calc(50%+2px)]">
+                      <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
+                        <Image
+                          src={project.images[2]?.src}
+                          alt={project.images[2]?.alt || "Project image"}
+                          className="object-cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 12vw"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="overflow-hidden col-span-4 h-full relative">
+                        <Image
+                          src={project.images[3]?.src}
+                          alt={project.images[3]?.alt || "Project image"}
+                          className="object-cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 25vw"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="overflow-hidden col-span-2 h-full relative rounded-br-xl">
+                        <Image
+                          src={project.images[4]?.src}
+                          alt={project.images[4]?.alt || "Project image"}
+                          className="object-cover"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 12vw"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Project details */}
-              <div
-                className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pl-48" : "md:pl-12"} lg:mt-[400px]`}
-              >
-                <div className="p-4 pl-16 md:pl-4">
-                  <h2 className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
-                    {project.title}
-                  </h2>
-                  <p className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
-                    {project.location}
-                  </p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    {project.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="text-xs max-w-sm">
-                        {detail.text}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Project details */}
+                <div
+                  className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pl-48" : "md:pl-12"} lg:mt-[400px]`}
+                >
+                  <div className="p-4 pl-16 md:pl-4">
+                    <h2 className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
+                      {project.title}
+                    </h2>
+                    <p className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
+                      {project.location}
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {project.details.map((detail, detailIndex) => (
+                        <li key={detailIndex} className="text-xs max-w-sm">
+                          {detail.text}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
