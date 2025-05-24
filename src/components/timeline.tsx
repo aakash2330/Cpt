@@ -86,6 +86,8 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                     </div>
                   </div>
 
+                  <div className="h-1"></div>
+
                   <div className="grid grid-cols-8 gap-1 h-[calc(50%+2px)]">
                     <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
                       <Image
@@ -121,7 +123,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                 </div>
               </div>
             </div>
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-1/2">
+            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-[40%]">
               <h3
                 className={cn(
                   "hidden md:block text-xl w-full md:text-3xl font-bold text-neutral-500 dark:text-neutral-500",

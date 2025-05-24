@@ -22,7 +22,7 @@ export default function ServicePage() {
   const imageAnimation = useSpring({
     from: { transform: "translateY(-30px)", opacity: 0 },
     to: { transform: "translateY(0px)", opacity: 1 },
-    config: { tension: 170, friction: 26 },
+    config: { tension: 170, friction: 100 },
     delay: 100,
   });
 

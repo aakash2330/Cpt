@@ -53,7 +53,7 @@ export default function ServicePage() {
   const imageAnimation = useSpring({
     from: { transform: "translateY(-30px)", opacity: 0 },
     to: { transform: "translateY(0px)", opacity: 1 },
-    config: { tension: 170, friction: 26 },
+    config: { tension: 170, friction: 100 },
     delay: 100,
   });
 
@@ -67,7 +67,7 @@ export default function ServicePage() {
 
   return (
     <ReactLenis root>
-      <div className="w-full mb-72">
+      <div className="w-full bg-background mb-72">
         <div className="relative h-[60vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
           <AnimatedDiv
             style={imageAnimation}

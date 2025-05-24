@@ -175,10 +175,6 @@
     z-index: 10; /* Ensure it's on top */
     pointer-events: none; /* Make sure it doesn't interfere with mouse events */
   }
-
-  .bg-hero-orange-solid-80-right {
-    background: linear-gradient(to right, var(--color-hero-orange) 80%, transparent 80%);
-  }
 }
 
 .screen-image {
