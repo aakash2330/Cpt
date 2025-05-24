@@ -52,7 +52,7 @@ function HeroNumbers({ count, title }: { count: number; title: string }) {
     </div>
   );
 }
-function ProjectImage({
+export function ProjectImage({
   url,
   alt,
   className,

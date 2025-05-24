@@ -3,17 +3,20 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const NavOptions = [
   { label: "Home", url: "/landing" },
   { label: "Portfolio", url: "/portfolio" },
   { label: "Services", url: "/services" },
-  // { label: "Company", url: "/company" },
+  { label: "Company", url: "/company" },
   // { label: "Subcontracter", url: "/resource" },
   { label: "Contact", url: "/contact" },
 ];
 
 export function NavLinks() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -42,7 +45,10 @@ export function NavLinks() {
             <Link
               key={index}
               href={item.url}
-              className="text-lg hover:text-gray-400"
+              className={cn(
+                "text-lg hover:text-gray-400",
+                pathname == item.url && "text-hero-orange",
+              )}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
@@ -62,7 +68,10 @@ export function NavLinks() {
           <Link
             key={index}
             href={item.url}
-            className="text-white hover:text-gray-400"
+            className={cn(
+              "text-lg hover:text-gray-400",
+              pathname == item.url && "text-hero-orange",
+            )}
           >
             {item.label}
           </Link>

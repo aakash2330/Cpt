@@ -42,7 +42,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 70%"],
+    offset: ["start 10%", "end 50%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
@@ -133,12 +133,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
             </div>
             <div className="relative flex justify-center items-center pl-20 my-[200px] w-full pr-4 md:pl-4">
               <div className={`w-full`}>
-                <div
-                  className={cn(
-                    "px-20",
-                    index % 2 !== 0 && "text-right",
-                  )}
-                >
+                <div className={cn("px-20", index % 2 !== 0 && "text-right")}>
                   <h2 className="mb-0 text-sm sm:text-base font-semibold tracking-wide">
                     {project.title}
                   </h2>

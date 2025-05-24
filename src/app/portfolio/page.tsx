@@ -36,7 +36,7 @@ export default function ServicePage() {
 
   return (
     <ReactLenis root>
-      <div className="w-full mb-72">
+      <div className="w-full">
         <div className="relative h-[60vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
           <AnimatedDiv
             style={imageAnimation}
