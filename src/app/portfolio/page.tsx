@@ -5,6 +5,7 @@ import { useSpring, animated, config } from "@react-spring/web";
 import { useScroll } from "motion/react";
 import ReactLenis from "lenis/react";
 import ProjectTimeline from "./_components/timeline";
+import { TimelineDemo } from "./_components/timeline1";
 export default function ServicePage() {
   const [loaded, setLoaded] = useState(false);
 
@@ -66,7 +67,7 @@ export default function ServicePage() {
             </AnimatedDiv>
           </div>
         </div>
-        <ProjectTimeline />
+        <TimelineDemo></TimelineDemo>
       </div>
     </ReactLenis>
   );
