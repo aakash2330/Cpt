@@ -9,7 +9,7 @@ const NavOptions = [
   { label: "Portfolio", url: "/portfolio" },
   { label: "Services", url: "/services" },
   // { label: "Company", url: "/company" },
-  { label: "Subcontracter", url: "/resource" },
+  // { label: "Subcontracter", url: "/resource" },
   { label: "Contact", url: "/contact" },
 ];
 
