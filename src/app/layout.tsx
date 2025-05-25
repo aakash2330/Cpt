@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "./Navbar/Navbar";
 import { ThemeProvider } from "next-themes";
 import { Footer } from "./_footer/page";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +39,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar></Navbar>
+          <Suspense fallback={<Loading></Loading>}>
           <main className="w-full h-full">{children}</main>
+          </Suspense>
           <Footer />
         </ThemeProvider>
       </body>
