@@ -21,7 +21,7 @@ export default function CompanyPage() {
   const imageAnimation = useSpring({
     from: { transform: "translateY(-30px)", opacity: 0 },
     to: { transform: "translateY(0px)", opacity: 1 },
-    config: { tension: 170, friction: 26 },
+    config: { tension: 170, friction: 100 },
     delay: 100,
   });
 
@@ -42,7 +42,7 @@ export default function CompanyPage() {
             className="absolute inset-0 bg-black/20"
           >
             <Image
-              src="/service_bg.jpg"
+              src="/WhatsApp Image 2025-05-22 at 2.09.52 AM.jpeg"
               alt="Construction workers at site"
               fill
               className="object-cover -z-1"
@@ -53,12 +53,12 @@ export default function CompanyPage() {
           <div className="relative z-10 flex h-full items-end">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
+              className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
             >
-              <h2 className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
+              <h2 className="mb-2 text-sm sm:text-2xl font-semibold tracking-wide">
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base max-w-sm">
+              <p className="text-xs pl-1 xs:text-sm sm:text-base text-center">
                 City Professional Trades is a reliable construction service
                 catering to commercial and residential clients in Toronto,
                 Ontario, and its surrounding areas. We specialize in planning

@@ -29,9 +29,9 @@ export function GlobeDemo() {
     arcLength: 0.9,
     rings: 1,
     maxRings: 3,
-    initialPosition: { lat: 22.3193, lng: 114.1694 },
-    autoRotate: true,
-    autoRotateSpeed: 0.5,
+    initialPosition: { lat: 56.1304, lng: -106.3468 },
+    autoRotate: false,
+    autoRotateSpeed: 0,
     hexBinResolution: 3,
     hexMargin: 0.2,
     hexAltitude: ({ sumWeight }: { sumWeight: number }) => sumWeight * 0.04,
@@ -40,26 +40,26 @@ export function GlobeDemo() {
   };
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
   const hexData = [
-    { lat: 22.3193, lng: 114.1694, weight: Math.random() * 20 },
-    { lat: 34.0522, lng: -118.2437, weight: Math.random() * 20 },
-    { lat: 40.7128, lng: -74.006, weight: Math.random() * 20 },
-    { lat: 51.5074, lng: -0.1278, weight: Math.random() * 20 },
-    { lat: 48.8566, lng: 2.3522, weight: Math.random() * 20 },
-    { lat: 35.6895, lng: 139.6917, weight: Math.random() * 20 },
-    { lat: -33.8688, lng: 151.2093, weight: Math.random() * 20 },
-    { lat: -22.9068, lng: -43.1729, weight: Math.random() * 20 },
-    { lat: 28.6139, lng: 77.209, weight: Math.random() * 20 },
-    { lat: 30.0444, lng: 31.2357, weight: Math.random() * 20 },
-    { lat: 1.3521, lng: 103.8198, weight: Math.random() * 20 },
-    { lat: 55.7558, lng: 37.6173, weight: Math.random() * 20 },
-    { lat: 39.9042, lng: 116.4074, weight: Math.random() * 20 },
-    { lat: -34.6037, lng: -58.3816, weight: Math.random() * 20 },
-    { lat: 19.4326, lng: -99.1332, weight: Math.random() * 20 },
-    { lat: 4.711, lng: -74.0721, weight: Math.random() * 20 },
-    { lat: 6.5244, lng: 3.3792, weight: Math.random() * 20 },
-    { lat: -26.2041, lng: 28.0473, weight: Math.random() * 20 },
-    { lat: 37.7749, lng: -122.4194, weight: Math.random() * 20 },
-    { lat: 41.9028, lng: 12.4964, weight: Math.random() * 20 },
+    { lat: 45.4215, lng: -75.6972, weight: Math.random() * 20 }, // Ottawa
+    { lat: 43.6532, lng: -79.3832, weight: Math.random() * 20 }, // Toronto
+    { lat: 49.2827, lng: -123.1207, weight: Math.random() * 20 }, // Vancouver
+    { lat: 45.5017, lng: -73.5673, weight: Math.random() * 20 }, // Montreal
+    { lat: 53.5461, lng: -113.4938, weight: Math.random() * 20 }, // Edmonton
+    { lat: 52.1332, lng: -106.67, weight: Math.random() * 20 }, // Saskatoon
+    { lat: 49.8951, lng: -97.1384, weight: Math.random() * 20 }, // Winnipeg
+    { lat: 51.0447, lng: -114.0719, weight: Math.random() * 20 }, // Calgary
+    { lat: 46.8139, lng: -71.208, weight: Math.random() * 20 }, // Quebec City
+    { lat: 44.6488, lng: -63.5752, weight: Math.random() * 20 }, // Halifax
+    { lat: 62.454, lng: -114.3718, weight: Math.random() * 20 }, // Yellowknife
+    { lat: 60.7212, lng: -135.0568, weight: Math.random() * 20 }, // Whitehorse
+    { lat: 47.5615, lng: -52.7126, weight: Math.random() * 20 }, // St. John's
+    { lat: 50.4452, lng: -104.6189, weight: Math.random() * 20 }, // Regina
+    { lat: 46.2382, lng: -63.1311, weight: Math.random() * 20 }, // Charlottetown
+    { lat: 47.5605, lng: -52.7139, weight: Math.random() * 20 }, // Random Newfoundland
+    { lat: 58.7634, lng: -94.1529, weight: Math.random() * 20 }, // Random Nunavut/Manitoba border area
+    { lat: 70.4643, lng: -94.8281, weight: Math.random() * 20 }, // Random Nunavut
+    { lat: 55.9167, lng: -120.0167, weight: Math.random() * 20 }, // Random British Columbia
+    { lat: 54.0, lng: -68.0, weight: Math.random() * 20 }, // Random Quebec/Labrador
   ];
 
   return (

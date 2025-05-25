@@ -85,12 +85,12 @@ export default function ServicePage() {
           <div className="relative z-10 flex h-full items-end">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
+              className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
             >
-              <h2 className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
+              <h2 className="mb-2 text-sm sm:text-2xl font-semibold tracking-wide">
                 WHAT WE DO
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base max-w-sm">
+              <p className="text-xs pl-1 text-center xs:text-sm sm:text-base">
                 At City Professional Trades, we offer a comprehensive range of
                 construction services tailored to meet the unique needs of each
                 project. Our expertise spans:

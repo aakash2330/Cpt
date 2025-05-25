@@ -136,10 +136,10 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
             <div className="relative flex justify-center items-center pl-20 my-[200px] w-full pr-4 md:pl-4">
               <div className={`w-full`}>
                 <div className={cn("px-20", index % 2 !== 0 && "text-right")}>
-                  <h2 className="mb-0 text-sm sm:text-base font-semibold tracking-wide">
+                  <h2 className="mb-0 text-sm sm:text-2xl font-semibold tracking-wide">
                     {project.title}
                   </h2>
-                  <p className="mb-0 text-sm sm:text-base font-semibold tracking-wide">
+                  <p className="mb-0 text-sm sm:text-base text-xl font-semibold tracking-wide">
                     {project.location}
                   </p>
                   <ul
@@ -149,7 +149,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                     )}
                   >
                     {project.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="text-xs max-w-sm">
+                      <li key={detailIndex} className="text-base max-w-sm">
                         {detail.text}
                       </li>
                     ))}

@@ -8,6 +8,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 
 export function HeroTextMain() {
   return (
@@ -21,7 +22,15 @@ export function HeroTextMain() {
       <div className="flex justify-center items-center text-center gap-5">
         <HeroText title="OUR" />
         <HeroText title="BLUEPRINT" />
-        {/* <HeroVideo className="w-32" url=""></HeroVideo> */}
+        <div className={cn("relative w-32 h-full")}>
+          <Image
+            src="/WhatsApp Image 2025-05-22 at 2.09.52 AM.jpeg"
+            alt="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
+            fill
+            className="object-cover rounded-full"
+            priority
+          />
+        </div>
       </div>
 
       <div className="flex mt-8 justify-center  items-center text-center gap-5">
