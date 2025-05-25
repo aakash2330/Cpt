@@ -53,12 +53,12 @@ export default function CompanyPage() {
           <div className="relative z-10 flex h-full items-end">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
-              <h2 className="mb-2 text-sm sm:text-2xl font-semibold tracking-wide">
+              <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm sm:text-base font-semibold tracking-wide">
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
-              <p className="text-xs pl-1 xs:text-sm sm:text-base text-center">
+              <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-none sm:max-w-md lg:max-w-lg">
                 City Professional Trades is a reliable construction service
                 catering to commercial and residential clients in Toronto,
                 Ontario, and its surrounding areas. We specialize in planning
@@ -68,46 +68,55 @@ export default function CompanyPage() {
             </AnimatedDiv>
           </div>
         </div>
-        <div className="bg-background h-[100vh] flex justify-between pr-32 items-center">
-          <ProjectImage
-            className="w-1/2 h-1/2"
-            alt="project"
-            url="/3039a1af26a8a92b97f8cc3d71bb8088d296c635.png"
-          ></ProjectImage>
 
-          <div>
-            <h2 className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
-              ABOUT CITY PROFESSIONAL TRADES
-            </h2>
-            <p className="text-xs xs:text-sm sm:text-base max-w-sm">
-              City Professional Trades is a reliable construction service
-              catering to commercial and residential clients in Toronto,
-              Ontario, and its surrounding areas. We specialize in planning and
-              executing large-scale building projects. Whether you need property
-              design or remodeling services, we have you covered.
-            </p>
+        <div className="bg-background min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 xl:gap-16">
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+              <ProjectImage
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
+                alt="project"
+                url="/3039a1af26a8a92b97f8cc3d71bb8088d296c635.png"
+              />
+            </div>
+
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <h2 className="mb-4 sm:mb-6 text-sm sm:text-base font-semibold tracking-wide">
+                ABOUT CITY PROFESSIONAL TRADES
+              </h2>
+              <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                City Professional Trades is a reliable construction service
+                catering to commercial and residential clients in Toronto,
+                Ontario, and its surrounding areas. We specialize in planning and
+                executing large-scale building projects. Whether you need property
+                design or remodeling services, we have you covered.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="bg-background h-[100vh] flex justify-between pl-32 items-center">
-          <div>
-            <h2 className="mb-2 text-sm sm:text-base font-semibold tracking-wide">
-              ABOUT CITY PROFESSIONAL TRADES
-            </h2>
-            <p className="text-xs xs:text-sm sm:text-base max-w-sm">
-              City Professional Trades is a reliable construction service
-              catering to commercial and residential clients in Toronto,
-              Ontario, and its surrounding areas. We specialize in planning and
-              executing large-scale building projects. Whether you need property
-              design or remodeling services, we have you covered.
-            </p>
-          </div>
+        <div className="bg-background min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+          <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-8 lg:gap-12 xl:gap-16">
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+              <ProjectImage
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
+                alt="project"
+                url="/998213fe7d22125babfc46588e8561bf7f4697d5.png"
+              />
+            </div>
 
-          <ProjectImage
-            className="w-1/2 h-1/2"
-            alt="project"
-            url="/998213fe7d22125babfc46588e8561bf7f4697d5.png"
-          ></ProjectImage>
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <h2 className="mb-4 sm:mb-6 text-sm sm:text-base font-semibold tracking-wide">
+                ABOUT CITY PROFESSIONAL TRADES
+              </h2>
+              <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                City Professional Trades is a reliable construction service
+                catering to commercial and residential clients in Toronto,
+                Ontario, and its surrounding areas. We specialize in planning and
+                executing large-scale building projects. Whether you need property
+                design or remodeling services, we have you covered.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </ReactLenis>
