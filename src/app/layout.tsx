@@ -35,12 +35,11 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
           disableTransitionOnChange
         >
           <Navbar></Navbar>
           <Suspense fallback={<Loading></Loading>}>
-          <main className="w-full h-full">{children}</main>
+            <main className="w-full h-full">{children}</main>
           </Suspense>
           <Footer />
         </ThemeProvider>
