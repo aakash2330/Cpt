@@ -49,7 +49,10 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-12 bg-background font-sans" ref={containerRef}>
+    <div
+      className="w-full px-4 sm:px-6 md:px-12 bg-background font-sans"
+      ref={containerRef}
+    >
       <div ref={ref} className="relative w-full pb-20">
         {projects.map((project, index) => (
           <div key={index}>
@@ -145,19 +148,21 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
             </div>
 
             {/* Desktop Layout - Original with Animations */}
-            <div className={cn(
-              "hidden md:flex flex-row-reverse justify-center pt-10 md:pt-40",
-              index % 2 == 0 && "flex-row",
-            )}>
-              <div className="relative pl-20 my-[200px] w-full pr-4 md:pl-4">
+            <div
+              className={cn(
+                "hidden md:flex flex-row-reverse justify-center pt-10 md:pt-40",
+                index % 2 == 0 && "flex-row",
+              )}
+            >
+              <div className="relative pl-20 my-[50px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>
                   <div className="h-80">
-                    <div className="grid grid-cols-6 gap-1 h-[calc(50%-2px)]">
+                    <div className="grid grid-cols-6 gap-3 h-[calc(50%-2px)]">
                       <div className="overflow-hidden col-span-4 h-full relative rounded-tl-xl rounded-bl-xl">
                         <Image
                           src={project.images[0]?.src}
                           alt={project.images[0]?.alt || "Project image"}
-                          className="object-cover"
+                          className="object-cover rounded-[12px]"
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
                           priority={index === 0}
@@ -168,7 +173,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                         <Image
                           src={project.images[1]?.src}
                           alt={project.images[1]?.alt || "Project image"}
-                          className="object-cover"
+                          className="object-cover rounded-[12px]"
                           fill
                           sizes="(max-width: 768px) 100vw, 16vw"
                           loading="lazy"
@@ -176,14 +181,14 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                       </div>
                     </div>
 
-                    <div className="h-1"></div>
+                    <div className="h-3"></div>
 
-                    <div className="grid grid-cols-8 gap-1 h-[calc(50%+2px)]">
+                    <div className="grid grid-cols-8 gap-3 h-[calc(50%+2px)]">
                       <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
                         <Image
                           src={project.images[2]?.src}
                           alt={project.images[2]?.alt || "Project image"}
-                          className="object-cover"
+                          className="object-cover rounded-[12px]"
                           fill
                           sizes="(max-width: 768px) 100vw, 12vw"
                           loading="lazy"
@@ -193,7 +198,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                         <Image
                           src={project.images[3]?.src}
                           alt={project.images[3]?.alt || "Project image"}
-                          className="object-cover"
+                          className="object-cover rounded-[12px]"
                           fill
                           sizes="(max-width: 768px) 100vw, 25vw"
                           loading="lazy"
@@ -203,7 +208,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                         <Image
                           src={project.images[4]?.src}
                           alt={project.images[4]?.alt || "Project image"}
-                          className="object-cover"
+                          className="object-cover rounded-[12px]"
                           fill
                           sizes="(max-width: 768px) 100vw, 12vw"
                           loading="lazy"
@@ -213,33 +218,36 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                   </div>
                 </div>
               </div>
-              <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-[40%]">
-                <h3
-                  className={cn(
-                    "hidden md:block text-xl w-full md:text-3xl font-bold text-neutral-500 dark:text-neutral-500",
-                    index % 2 !== 0 ? "text-left" : "text-right",
-                  )}
-                >
-                  {project.year}
-                </h3>
+              <div className="sticky flex flex-col md:flex-row justify-center z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-[40%]">
+                <div className="h-7 w-7 rounded-full bg-neutral-200 dark:bg-white border border-neutral-300 dark:border-neutral-700 p-2" />
+                {/* <h3 */}
+                {/*   className={cn( */}
+                {/*     "hidden md:block text-xl w-full md:text-3xl font-bold text-neutral-500 dark:text-neutral-500", */}
+                {/*     index % 2 !== 0 ? "text-left" : "text-right", */}
+                {/*   )} */}
+                {/* > */}
+                {/*   {project.year} */}
+                {/* </h3> */}
               </div>
-              <div className="relative flex justify-center items-center pl-20 my-[200px] w-full pr-4 md:pl-4">
+              <div className="relative flex justify-center items-center pl-20 my-[50px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>
-                  <div className={cn("px-20", index % 2 !== 0 && "text-right")}>
-                    <h2 className="mb-0 text-sm sm:text-base font-semibold tracking-wide">
+                  <div className={cn("px-20")}>
+                    <h2 className="mb-0 text-sm sm:text-3xl font-semibold tracking-wide">
                       {project.title}
                     </h2>
-                    <p className="mb-0 text-sm sm:text-base font-semibold tracking-wide">
+                    <p className="mb-0 text-sm sm:text-2xl font-semibold tracking-wide">
                       {project.location}
                     </p>
                     <ul
                       className={cn(
                         "list-disc flex flex-col pt-4  pl-5 space-y-2",
-                        index % 2 !== 0 && "items-end",
                       )}
                     >
                       {project.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="text-xs max-w-sm">
+                        <li
+                          key={detailIndex}
+                          className="text-neutral-300 max-w-sm"
+                        >
                           {detail.text}
                         </li>
                       ))}
@@ -269,3 +277,4 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
     </div>
   );
 };
+
