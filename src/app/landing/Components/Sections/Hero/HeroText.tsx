@@ -99,7 +99,7 @@ export function HeroVideo({
 }
 
 export function HeroText({ title }: { title: string }) {
-  return <div className="text-7xl text-white font-bold tracking-wide leading-tight">{title}</div>;
+  return <div className="text-7xl text-white z-50 font-bold tracking-wide leading-tight">{title}</div>;
 }
 
 export function HeroVideoSection() {
