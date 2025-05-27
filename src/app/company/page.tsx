@@ -55,10 +55,10 @@ export default function CompanyPage() {
               style={textAnimation}
               className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
-              <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm sm:text-base font-semibold tracking-wide">
+              <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm self-start sm:text-2xl pt-10 font-semibold tracking-wide">
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-none sm:max-w-md lg:max-w-lg">
+              <p className="text-xs xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
                 City Professional Trades is a reliable construction service
                 catering to commercial and residential clients in Toronto,
                 Ontario, and its surrounding areas. We specialize in planning
