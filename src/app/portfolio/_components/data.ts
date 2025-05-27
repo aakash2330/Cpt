@@ -38,11 +38,26 @@ export const projects = [
     title: "Hyatt Place",
     location: "33 Carlson Ct, Toronto, ON",
     images: [
-      { src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/1.jpeg", alt: "Hotel exterior" },
-      { src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/2.jpeg", alt: "Hotel exterior" },
-      { src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/3.jpeg", alt: "Hotel exterior" },
-      { src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/4.jpeg", alt: "Hotel exterior" },
-      { src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/5.jpeg", alt: "Hotel exterior" },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/1.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/2.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/3.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/4.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/5.jpeg",
+        alt: "Hotel exterior",
+      },
     ],
     details: [
       {
@@ -57,7 +72,6 @@ export const projects = [
     title: "Comfort Inn & Suits",
     location: "Bradford, ON",
     images: [
-
       { src: "/Inn & Suits - Bradford, ON/5.jpeg", alt: "Hyatt exterior" },
       { src: "/Inn & Suits - Bradford, ON/1.jpeg", alt: "Hyatt exterior" },
       { src: "/Inn & Suits - Bradford, ON/2.jpeg", alt: "Hyatt exterior" },
