@@ -36,7 +36,7 @@ export default function CompanyPage() {
   return (
     <ReactLenis root>
       <div className="w-full bg-background">
-        <div className="relative h-[60vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
+        <div className="relative h-[40vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
           <AnimatedDiv
             style={imageAnimation}
             className="absolute inset-0 bg-black/20"
@@ -69,18 +69,18 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        <div className="bg-background min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+        <div className="bg-background h-[80dvh] mt-20 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 xl:gap-16 ">
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
               <ProjectImage
-                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-124 object-cover rounded-lg"
                 alt="project"
-                url="/3039a1af26a8a92b97f8cc3d71bb8088d296c635.png"
+                url="/CPT(1)/1.png"
               />
             </div>
 
             <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <h2 className="mb-4 sm:mb-6 text-sm sm:text-base font-semibold tracking-wide">
+              <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
               <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
@@ -94,18 +94,18 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        <div className="bg-background min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+        <div className="bg-background h-[80dvh] py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
           <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-8 lg:gap-12 xl:gap-16">
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mt-[-150px]">
               <ProjectImage
-                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-2xl h-64 sm:h-80 lg:h-124 object-cover rounded-lg"
                 alt="project"
-                url="/998213fe7d22125babfc46588e8561bf7f4697d5.png"
+                url="/CPT(1)/2.png"
               />
             </div>
 
             <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <h2 className="mb-4 sm:mb-6 text-sm sm:text-base font-semibold tracking-wide">
+              <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
               <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">

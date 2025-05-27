@@ -7,31 +7,31 @@ import { useScroll } from "motion/react";
 import ReactLenis from "lenis/react";
 const serviceData = [
   {
-    image: "/construction_management.jpg",
+    image: "/Servicepage/1.png",
     heading: "CONSTRUCTION MANAGEMENT",
     description:
       "Overseeing all phases of construction, we coordinate teams and resources to achieve seamless project execution.​​",
   },
   {
-    image: "/general_contracting.jpg",
+    image: "/Servicepage/2.png",
     heading: "GENERAL CONTRACTING",
     description:
       "Managing every aspect of the construction process, we ensure projects are delivered on time, within budget, and to the highest standards.​",
   },
   {
-    image: "/residential.jpg",
+    image: "/Servicepage/3.png",
     heading: "RESIDENTIAL",
     description:
       "Turn your dream home into a reality with our help. We offer comprehensive residential construction services to cater to your every need.",
   },
   {
-    image: "/commercial.jpg",
+    image: "/Servicepage/4.png",
     heading: "COMMERCIAL",
     description:
       "Achieve your ideal look and function for your commercial space with our assistance. We can provide you with exemplary construction solutions to meet your specific needs.",
   },
   {
-    image: "/hospitality.jpg",
+    image: "/Servicepage/5.png",
     heading: "HOSPITALITY",
     description:
       "See your envisioned property design for your hotel or hospitality space come to life with our aid. At City Professional Trades, we offer full-service construction services for this type of real estate.",
