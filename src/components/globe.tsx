@@ -102,6 +102,19 @@ export function Globe({ globeConfig, data, hexBinPointsData }: WorldProps) {
     if (!globeRef.current && groupRef.current) {
       globeRef.current = new ThreeGlobe();
       (groupRef.current as any).add(globeRef.current);
+
+      // Static rotation to face Canada ===
+      const lat = 80.1304;
+      const lng = -90.3468;
+
+      const phi = (90 - lat) * (Math.PI / 180); // from latitude
+      const theta = (lng + 180) * (Math.PI / 180); // from longitude
+
+      if (groupRef.current) {
+        (groupRef.current as any).rotation.y = -theta;
+        (groupRef.current as any).rotation.x = -phi + Math.PI / 2;
+      }
+
       setIsInitialized(true);
     }
   }, []);
@@ -308,8 +321,8 @@ export function World(props: WorldProps) {
         enableZoom={false}
         minDistance={cameraZ}
         maxDistance={cameraZ}
-        autoRotateSpeed={1}
-        autoRotate={true}
+        autoRotateSpeed={0}
+        autoRotate={false}
         minPolarAngle={Math.PI / 3.5}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />

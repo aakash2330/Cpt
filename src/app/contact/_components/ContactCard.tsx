@@ -5,7 +5,7 @@ interface ContactCardProps {
     value: string;
 }
 
-export async function ContactCard({ title, value }: ContactCardProps) {
+export function ContactCard({ title, value }: ContactCardProps) {
     return (
         <div className="bg-[#FFF5EF] w-full h-auto min-h-[150px] flex flex-col justify-start px-4 md:px-6 rounded-xl border border-[#F16407] text-black py-4 md:py-6 gap-3 md:gap-4">
             <div className="flex gap-3 md:gap-4 items-center">
