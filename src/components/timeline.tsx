@@ -229,7 +229,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                 {/*   {project.year} */}
                 {/* </h3> */}
               </div>
-              <div className="relative flex justify-center items-center pl-20 my-[50px] w-full">
+              <div className="relative flex justify-center items-center pl-20 my-[50px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>
                   <div className={cn("px-20")}>
                     <h2 className="mb-0 text-sm sm:text-4xl font-semibold tracking-wide">
