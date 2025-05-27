@@ -50,7 +50,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
 
   return (
     <div
-      className="w-full px-4 sm:px-6 md:px-12 bg-background font-sans"
+      className="w-full px-4 sm:px-6 md:px-12 bg-background"
       ref={containerRef}
     >
       <div ref={ref} className="relative w-full pb-20">
@@ -232,10 +232,10 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
               <div className="relative flex justify-center items-center pl-20 my-[50px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>
                   <div className={cn("px-20")}>
-                    <h2 className="mb-0 text-sm sm:text-3xl font-semibold tracking-wide">
+                    <h2 className="mb-0 text-sm sm:text-4xl font-semibold tracking-wide">
                       {project.title}
                     </h2>
-                    <p className="mb-0 text-sm sm:text-2xl font-semibold tracking-wide">
+                    <p className="mb-0 text-sm sm:text-4xl font-semibold tracking-wide">
                       {project.location}
                     </p>
                     <ul
@@ -244,10 +244,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                       )}
                     >
                       {project.details.map((detail, detailIndex) => (
-                        <li
-                          key={detailIndex}
-                          className="text-neutral-300 max-w-sm"
-                        >
+                        <li key={detailIndex} className="text-white max-w-sm">
                           {detail.text}
                         </li>
                       ))}
