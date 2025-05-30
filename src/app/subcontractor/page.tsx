@@ -98,7 +98,7 @@ export default function Page() {
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-orange-500/10 to-transparent" />
       </div>
 
-      <div className="w-full text-black px-32 shadow-none border-none rounded-2xl">
+      <div className="w-full text-black px-4 sm:px-8 md:px-16 lg:px-32 shadow-none border-none rounded-2xl">
         <CardHeader className="pb-2">
           <CardTitle className="text-2xl md:text-3xl font-bold text-center text-white">
             SUBCONTRACTOR RESOURCES & PRE-QUALIFICATION

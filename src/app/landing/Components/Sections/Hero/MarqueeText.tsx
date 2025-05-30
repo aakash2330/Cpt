@@ -2,40 +2,41 @@
 
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
-import acmeLogo from "../../../../../../public/acme.svg";
-import apexLogo from "../../../../../../public/apex.svg";
-import celestiaLogo from "../../../../../../public/celestia.svg";
-import echoLogo from "../../../../../../public/echo.svg";
-import pulseLogo from "../../../../../../public/pulse.svg";
-import quantumLogo from "../../../../../../public/quantum.svg";
-import { useMediaQuery } from "@/app/Hooks/useMediaQuery";
+import logo from "../../../../../../public/lgos/01.png";
+import logo1 from "../../../../../../public/lgos/02.png";
+import logo2 from "../../../../../../public/lgos/03.png";
+import logo3 from "../../../../../../public/lgos/04.png";
+import logo4 from "../../../../../../public/lgos/05.png";
+import logo5 from "../../../../../../public/lgos/06.png";
+import logo6 from "../../../../../../public/lgos/07.png";
+import logo7 from "../../../../../../public/lgos/08.png";
+import logo8 from "../../../../../../public/lgos/09.png";
+import logo9 from "../../../../../../public/lgos/10.png";
+import logo10 from "../../../../../../public/lgos/11.png";
+import logo11 from "../../../../../../public/lgos/12.png";
+import logo12 from "../../../../../../public/lgos/13.png";
+import logo13 from "../../../../../../public/lgos/14.png";
+import logo14 from "../../../../../../public/lgos/15.png";
+import logo15 from "../../../../../../public/lgos/16.png";
+import { useMediaQuery } from "../../../../Hooks/useMediaQuery";
 
 export const logosTickers: LogoTicker[] = [
-  {
-    id: "1",
-    src: acmeLogo,
-    alt: "Acme Logo",
-  },
-  {
-    id: "2",
-    src: quantumLogo,
-    alt: "Quantum Logo",
-  },
-  {
-    id: "3",
-    src: echoLogo,
-    alt: "Echo Logo",
-  },
-  {
-    id: "4",
-    src: celestiaLogo,
-    alt: "Celestia Logo",
-  },
-  {
-    id: "5",
-    src: pulseLogo,
-    alt: "Pulse Logo",
-  },
+  { id: "1", src: logo, alt: "Logo" },
+  { id: "2", src: logo1, alt: "Logo 1" },
+  { id: "3", src: logo2, alt: "Logo 2" },
+  { id: "4", src: logo3, alt: "Logo 3" },
+  { id: "5", src: logo4, alt: "Logo 4" },
+  { id: "6", src: logo5, alt: "Logo 5" },
+  { id: "7", src: logo6, alt: "Logo 6" },
+  { id: "8", src: logo7, alt: "Logo 7" },
+  { id: "9", src: logo8, alt: "Logo 8" },
+  { id: "10", src: logo9, alt: "Logo 9" },
+  { id: "11", src: logo10, alt: "Logo 10" },
+  { id: "12", src: logo11, alt: "Logo 11" },
+  { id: "13", src: logo12, alt: "Logo 12" },
+  { id: "14", src: logo13, alt: "Logo 13" },
+  { id: "15", src: logo14, alt: "Logo 14" },
+  { id: "16", src: logo15, alt: "Logo 15" },
 ];
 
 type LogoTicker = { id: string; src: StaticImageData; alt: string };

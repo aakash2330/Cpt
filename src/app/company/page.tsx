@@ -50,7 +50,7 @@ export default function CompanyPage() {
             />
           </AnimatedDiv>
 
-          <div className="relative z-10 flex h-full items-end">
+          <div className="relative z-10 flex h-full hidden sm:flex items-end">
             <AnimatedDiv
               style={textAnimation}
               className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
@@ -86,9 +86,9 @@ export default function CompanyPage() {
               <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                 City Professional Trades is a reliable construction service
                 catering to commercial and residential clients in Toronto,
-                Ontario, and its surrounding areas. We specialize in planning and
-                executing large-scale building projects. Whether you need property
-                design or remodeling services, we have you covered.
+                Ontario, and its surrounding areas. We specialize in planning
+                and executing large-scale building projects. Whether you need
+                property design or remodeling services, we have you covered.
               </p>
             </div>
           </div>
@@ -111,9 +111,9 @@ export default function CompanyPage() {
               <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                 City Professional Trades is a reliable construction service
                 catering to commercial and residential clients in Toronto,
-                Ontario, and its surrounding areas. We specialize in planning and
-                executing large-scale building projects. Whether you need property
-                design or remodeling services, we have you covered.
+                Ontario, and its surrounding areas. We specialize in planning
+                and executing large-scale building projects. Whether you need
+                property design or remodeling services, we have you covered.
               </p>
             </div>
           </div>
