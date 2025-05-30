@@ -58,11 +58,20 @@ export function ProjectsSection() {
 }
 const items = [
   {
-    title: "Comfort Inn & Suits - Bradford, ON",
+    title: "Hyatt Place - 33 Carlson Ct, Toronto, ON",
     header: (
       <ProjectImage
-        url="/958ea0c2a5ec62b21d8c31254959f814c6c2a5dd.png"
+        url="/proj/1.png"
         alt="/958ea0c2a5ec62b21d8c31254959f814c6c2a5dd.png"
+      />
+    ),
+  },
+  {
+    title: "Sherway Tower - 205, Sherway Gardens Road, Toronto",
+    header: (
+      <ProjectImage
+        url="/proj/7.png"
+        alt="/0570608cdae20e14061115471361f8bd5a6de1bd.png"
       />
     ),
   },
@@ -70,35 +79,26 @@ const items = [
     title: "Hampton INN and Suites - 201, Mono ON",
     header: (
       <ProjectImage
-        url="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
-        alt="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
-      />
-    ),
-  },
-  {
-    title: "Hullabaloo Autism Centre - Mississauga, ON",
-    header: (
-      <ProjectImage
-        url="/ab0a9969067707e11e676971443433197974e0d0.png"
+        url="/proj/4.png"
         alt="/ab0a9969067707e11e676971443433197974e0d0.png"
       />
     ),
   },
   {
-    title: "Hyatt Place - 33 Carlson Ct, Toronto, ON",
+    title: "Comfort Inn & Suits - Bradford, ON",
     header: (
       <ProjectImage
-        url="/2005cb1422bc9325dbb3051189d840bec42f391b.png"
+        url="/proj/5.png"
         alt="/2005cb1422bc9325dbb3051189d840bec42f391b.png"
       />
     ),
   },
   {
-    title: "Arcavia Long Term Care - Orillia, ON",
+    title: "Align Wellness Centre – Stoney Creek, ON",
     header: (
       <ProjectImage
-        url="/0570608cdae20e14061115471361f8bd5a6de1bd.png"
-        alt="/0570608cdae20e14061115471361f8bd5a6de1bd.png"
+        url="/proj/2.png"
+        alt="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
       />
     ),
   },
