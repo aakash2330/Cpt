@@ -109,7 +109,7 @@ export const projects = [
     location: "Stoney Creek, ON",
     images: [
       {
-        src: "/Align Wellness Centre/1.png",
+        src: "/Screenshot 2025-05-30 at 10.58.40 PM.png",
         alt: "Hotel exterior",
       },
       {
