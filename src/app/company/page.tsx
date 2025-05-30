@@ -69,7 +69,7 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        <div className="bg-background h-[80dvh] mt-20 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+        <div className="bg-background h-[120dvh] mt-20 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 xl:gap-16 ">
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
               <ProjectImage
@@ -85,30 +85,39 @@ export default function CompanyPage() {
               </h2>
               <div className="flex flex-col gap-6">
                 <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                  At City Professional Trades, we don't just build—we bring
-                  visions to life. With over a decade of trusted craftsmanship
-                  across Ontario, we specialize in Design & Build, General
-                  Contracting, and Full-Scope Construction Services. Every
-                  project is handled with precision, pride, and a deep
-                  commitment to quality—because behind every build is a story
-                  that matters.
+                  We are builders, leaders, and problem-solvers. At City
+                  Professional Trades, construction isn’t just our business —
+                  it’s our craft, our responsibility, and our reputation on the
+                  line with every project we take on.
                 </p>
 
                 <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                  What sets us apart? No shortcuts. No compromises. Just honest
-                  work, done right.
+                  For over a decade, we’ve earned the trust of clients by
+                  consistently delivering work that speaks for itself. We manage
+                  every job with precision, care, and a hands-on approach that
+                  ensures nothing is left to chance.
                 </p>
 
                 <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                  We focus on relationships, results, and delivering on every
-                  promise—with professionalism you can see and trust that lasts.
+                  Our strength lies in our people. A team of experienced
+                  professionals who take pride in their work, embrace
+                  challenges, and are committed to doing what’s right — not
+                  what’s easy. We value integrity, reliability, and a culture
+                  where accountability isn’t optional, it’s expected.
+                </p>
+
+                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  City Professional Trades is a company built on strong
+                  relationships, clear leadership, and a results-driven mindset.
+                  We believe in showing up, standing behind our word, and
+                  exceeding expectations on every site we touch.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-background h-[80dvh] py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+        <div className="bg-background h-[130dvh] py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
           <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-8 lg:gap-12 xl:gap-16">
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mt-[-150px]">
               <ProjectImage
@@ -128,8 +137,10 @@ export default function CompanyPage() {
                     <Point />
                   </div>
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                    Transparent and open communication at every stage of the
-                    project
+                    Quality Without Compromise.
+                    <br />
+                    We believe in doing it right the first time — even when no
+                    one’s watching.
                   </p>
                 </div>
 
@@ -138,8 +149,10 @@ export default function CompanyPage() {
                     <Point />
                   </div>
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                    Excellent service and prompt responses to questions and
-                    concerns
+                    Client. Project. Trust.
+                    <br />
+                    Every decision we make, every move we take is built on these
+                    three pillars.
                   </p>
                 </div>
 
@@ -148,8 +161,10 @@ export default function CompanyPage() {
                     <Point />
                   </div>
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                    Outstanding problem-solving and project management skills to
-                    meet all deadlines on schedule
+                    Clear, Honest Communication.
+                    <br />
+                    We keep our clients informed, involved, and confident from
+                    start to finish.
                   </p>
                 </div>
 
@@ -158,8 +173,10 @@ export default function CompanyPage() {
                     <Point />
                   </div>
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                    Hiring licensed, insured, and responsible subcontractors to
-                    guarantee exceptional work
+                    Precision & Craftsmanship.
+                    <br />
+                    Superior materials, skilled trades, and attention to every
+                    detail — no shortcuts, no excuses.
                   </p>
                 </div>
 
@@ -168,8 +185,45 @@ export default function CompanyPage() {
                     <Point />
                   </div>
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                    Dedication to precise work and superior quality in our
-                    building materials and techniques
+                    Ownership & Accountability.
+                    <br />
+                    We take full responsibility for our projects, deadlines, and
+                    outcomes. If we say it, we mean it.
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Safety First, Always.
+                    <br />
+                    Protecting our people, clients, and worksites is
+                    non-negotiable.
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Problem-Solving Expertise.
+                    <br />
+                    We anticipate challenges and deliver smart, effective
+                    solutions that keep projects on track.
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Professionalism You Can Count On.
+                    <br /> We show up prepared, deliver what we promise, and
+                    leave a lasting impression through our work.
                   </p>
                 </div>
               </div>
