@@ -32,15 +32,6 @@ export function HeroTextMain() {
           />
         </div>
       </div>
-
-      <div className="flex mt-8 justify-center  items-center text-center gap-5">
-        <Button className="px-10" variant="cta">
-          Our Portfolio
-        </Button>
-        <Button className="px-10" variant="cta-outline">
-          Free Quotation
-        </Button>
-      </div>
     </div>
   );
 }
@@ -75,7 +66,7 @@ export function HeroVideo({
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (viewportHeight > 0) {
-      if (latest >= 4.5 * viewportHeight) {
+      if (latest >= 4 * viewportHeight) {
         setIsHidden(true);
       } else {
         setIsHidden(false);

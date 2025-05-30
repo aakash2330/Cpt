@@ -57,8 +57,8 @@ export type GlobeConfig = {
   hexBinResolution?: number;
   hexMargin?: number;
   hexAltitude?: (d: { sumWeight: number }) => number;
-  hexTopColor?: (d: { points: any[], sumWeight: number }) => string;
-  hexSideColor?: (d: { points: any[], sumWeight: number }) => string;
+  hexTopColor?: (d: { points: any[]; sumWeight: number }) => string;
+  hexSideColor?: (d: { points: any[]; sumWeight: number }) => string;
 };
 
 interface WorldProps {
@@ -92,8 +92,8 @@ export function Globe({ globeConfig, data, hexBinPointsData }: WorldProps) {
     hexBinResolution: 3,
     hexMargin: 0.2,
     hexAltitude: ({ sumWeight }: { sumWeight: number }) => sumWeight * 0.01,
-    hexTopColor: () => '#00ff00',
-    hexSideColor: () => '#ffffff',
+    hexTopColor: () => "#00ff00",
+    hexSideColor: () => "#ffffff",
     ...globeConfig,
   };
 
@@ -188,16 +188,16 @@ export function Globe({ globeConfig, data, hexBinPointsData }: WorldProps) {
     if (hexBinPointsData && hexBinPointsData.length > 0) {
       globeRef.current
         .hexBinPointsData(hexBinPointsData)
-        .hexBinPointWeight('weight')
+        .hexBinPointWeight("weight")
         .hexBinResolution(defaultProps.hexBinResolution)
         .hexMargin(defaultProps.hexMargin)
         .hexAltitude(defaultProps.hexAltitude)
         .hexTopColor(defaultProps.hexTopColor)
         .hexSideColor(defaultProps.hexSideColor);
-        // Clear other layers if hexbin is active
-        globeRef.current.arcsData([]);
-        globeRef.current.pointsData([]);
-        globeRef.current.ringsData([]);
+      // Clear other layers if hexbin is active
+      globeRef.current.arcsData([]);
+      globeRef.current.pointsData([]);
+      globeRef.current.ringsData([]);
     } else {
       // Existing logic for arcs and points
       globeRef.current
@@ -252,7 +252,13 @@ export function Globe({ globeConfig, data, hexBinPointsData }: WorldProps) {
 
   // Handle rings animation with cleanup
   useEffect(() => {
-    if (!globeRef.current || !isInitialized || !data || (hexBinPointsData && hexBinPointsData.length > 0)) return;
+    if (
+      !globeRef.current ||
+      !isInitialized ||
+      !data ||
+      (hexBinPointsData && hexBinPointsData.length > 0)
+    )
+      return;
 
     const interval = setInterval(() => {
       if (!globeRef.current) return;
@@ -321,8 +327,8 @@ export function World(props: WorldProps) {
         enableZoom={false}
         minDistance={cameraZ}
         maxDistance={cameraZ}
-        autoRotateSpeed={0}
-        autoRotate={false}
+        autoRotateSpeed={1}
+        autoRotate={true}
         minPolarAngle={Math.PI / 3.5}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />

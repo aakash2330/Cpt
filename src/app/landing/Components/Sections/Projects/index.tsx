@@ -59,8 +59,7 @@ export function ProjectsSection() {
 }
 const items = [
   {
-    title: "The Dawn of Innovation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
+    title: "Comfort Inn & Suits - Bradford, ON",
     header: (
       <ProjectImage
         url="/958ea0c2a5ec62b21d8c31254959f814c6c2a5dd.png"
@@ -69,8 +68,7 @@ const items = [
     ),
   },
   {
-    title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
+    title: "Hampton INN and Suites - 201, Mono ON",
     header: (
       <ProjectImage
         url="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
@@ -79,8 +77,7 @@ const items = [
     ),
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
+    title: "Hullabaloo Autism Centre - Mississauga, ON",
     header: (
       <ProjectImage
         url="/ab0a9969067707e11e676971443433197974e0d0.png"
@@ -89,9 +86,7 @@ const items = [
     ),
   },
   {
-    title: "The Power of Communication",
-    description:
-      "Understand the impact of effective communication in our lives.",
+    title: "Hyatt Place - 33 Carlson Ct, Toronto, ON",
     header: (
       <ProjectImage
         url="/2005cb1422bc9325dbb3051189d840bec42f391b.png"
@@ -100,8 +95,7 @@ const items = [
     ),
   },
   {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
+    title: "Arcavia Long Term Care - Orillia, ON",
     header: (
       <ProjectImage
         url="/0570608cdae20e14061115471361f8bd5a6de1bd.png"
