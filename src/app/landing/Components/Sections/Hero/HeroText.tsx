@@ -44,10 +44,6 @@ export function HeroVideo({
   className?: string;
 }) {
   const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress, scrollY } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 70]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 6000]);
-  const x = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   const [isHidden, setIsHidden] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(0);
@@ -64,27 +60,19 @@ export function HeroVideo({
     }
   }, []);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (viewportHeight > 0) {
-      if (latest >= 4 * viewportHeight) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
-    }
-  });
-
   return (
     <motion.div
       ref={targetRef}
-      style={{ scale, y, x }}
+      style={{
+        willChange: "transform",
+      }}
       className={cn(
         " h-[58px] rounded-full z-20 w-24",
         className,
         isHidden ? "hidden" : "",
       )}
     >
-      <HeroVideoSection></HeroVideoSection>
+      <HeroVideoSection url={url}></HeroVideoSection>
     </motion.div>
   );
 }
@@ -97,7 +85,7 @@ export function HeroText({ title }: { title: string }) {
   );
 }
 
-export function HeroVideoSection() {
+export function HeroVideoSection({ url }: { url: string }) {
   return (
     <video
       className="w-full rounded-full"
@@ -108,7 +96,10 @@ export function HeroVideoSection() {
       playsInline
     >
       <source
-        src="https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0In6eF4s0qH9cG4kJlRwMtVCQKijsoLYOD15ae"
+        src={
+          url ||
+          "https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0In6eF4s0qH9cG4kJlRwMtVCQKijsoLYOD15ae"
+        }
         type="video/mp4"
       />
       <track
