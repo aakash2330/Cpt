@@ -45,32 +45,13 @@ export function HeroVideo({
 }) {
   const targetRef = useRef<HTMLDivElement>(null);
 
-  const [isHidden, setIsHidden] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setViewportHeight(window.innerHeight);
-    };
-
-    if (typeof window !== "undefined") {
-      handleResize(); // Initial set
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
-
   return (
     <motion.div
       ref={targetRef}
       style={{
         willChange: "transform",
       }}
-      className={cn(
-        " h-[58px] rounded-full z-20 w-24",
-        className,
-        isHidden ? "hidden" : "",
-      )}
+      className={cn(" h-[58px] rounded-full z-20 w-24", className)}
     >
       <HeroVideoSection url={url}></HeroVideoSection>
     </motion.div>
