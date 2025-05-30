@@ -11,6 +11,7 @@ const NavOptions = [
   { label: "Portfolio", url: "/portfolio" },
   { label: "Services", url: "/services" },
   { label: "Company", url: "/company" },
+  { label: "Subcontractor", url: "/subcontractor" },
   // { label: "Subcontracter", url: "/resource" },
   { label: "Contact", url: "/contact" },
 ];
