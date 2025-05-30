@@ -37,19 +37,19 @@ export const projects = [
         alt: "Hotel exterior",
       },
       {
-        src: "/ArcaviaLong-TermCare/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/ArcaviaLong-TermCare/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/ArcaviaLong-TermCare/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/ArcaviaLong-TermCare/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
     ],
@@ -69,23 +69,23 @@ export const projects = [
     location: "201, Monora Park Dr. Mono",
     images: [
       {
-        src: "/HamptonINNandSuites/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/HamptonINNandSuites/2.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/HamptonINNandSuites/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/HamptonINNandSuites/2.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/HamptonINNandSuites/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
     ],
@@ -147,19 +147,19 @@ export const projects = [
         alt: "Hotel exterior",
       },
       {
-        src: "/Hullabaloo Autism Centre/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/Hullabaloo Autism Centre/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/Hullabaloo Autism Centre/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
       {
-        src: "/Hullabaloo Autism Centre/1.png",
+        src: "/",
         alt: "Hotel exterior",
       },
     ],

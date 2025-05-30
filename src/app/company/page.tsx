@@ -180,7 +180,8 @@ export default function CompanyPage() {
     </ReactLenis>
   );
 }
-export function Point() {
+
+function Point() {
   return (
     <svg width="16" height="15" viewBox="0 0 16 15">
       <path
