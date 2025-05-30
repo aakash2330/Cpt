@@ -5,6 +5,7 @@ import { useSpring, animated, config } from "@react-spring/web";
 import { ServiceCard } from "./_components/ServiceCard";
 import { useScroll } from "motion/react";
 import ReactLenis from "lenis/react";
+
 const serviceData = [
   {
     image: "/Servicepage/1.png",
