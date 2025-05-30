@@ -59,11 +59,16 @@ export default function CompanyPage() {
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
               <p className="text-xs xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
-                City Professional Trades is a reliable construction service
-                catering to commercial and residential clients in Toronto,
-                Ontario, and its surrounding areas. We specialize in planning
-                and executing large-scale building projects. Whether you need
-                property design or remodeling services, we have you covered.
+                With over a decade of experience and a proven team of 100+
+                professionals, we specialize in executing complex, large-scale
+                interior projects with total confidence. From pre-construction
+                planning to final turnover, we take full ownership of every
+                detail — ensuring projects are completed safely, on time, and to
+                the highest standard. Driven by the belief that “Quality means
+                doing it right when no one is looking,” we approach every build
+                with integrity, clear communication, and craftsmanship you can
+                see and trust. Count on us to get it done — and get it done
+                right
               </p>
             </AnimatedDiv>
           </div>
