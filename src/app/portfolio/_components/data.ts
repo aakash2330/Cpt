@@ -33,15 +33,15 @@ export const projects = [
     location: "33 Carlson Ct, Toronto, ON",
     images: [
       {
-        src: "/ArcaviaLong-TermCare/1.png",
+        src: "/arcavia/1.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/arcavia/2.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/arcavia/3.jpg",
         alt: "Hotel exterior",
       },
       {
@@ -177,23 +177,23 @@ export const projects = [
     location: "205, Sherway Gardens Road, Toronto",
     images: [
       {
-        src: "/Sherway Tower/1.png",
+        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/1.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower/2.png",
+        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/2.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower/3.png",
+        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/3.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower/4.png",
+        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/4.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower/5.png",
+        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/5.jpeg",
         alt: "Hotel exterior",
       },
     ],
@@ -250,11 +250,26 @@ export const projects = [
     title: "Comfort Inn & Suits",
     location: "Bradford, ON",
     images: [
-      { src: "/Inn & Suits - Bradford, ON/5.jpeg", alt: "Hyatt exterior" },
-      { src: "/Inn & Suits - Bradford, ON/1.jpeg", alt: "Hyatt exterior" },
-      { src: "/Inn & Suits - Bradford, ON/2.jpeg", alt: "Hyatt exterior" },
-      { src: "/Inn & Suits - Bradford, ON/3.jpeg", alt: "Hyatt exterior" },
-      { src: "/Inn & Suits - Bradford, ON/4.jpeg", alt: "Hyatt exterior" },
+      {
+        src: "/Comfort Inn & Suites – Bradford, ON/1.jpg",
+        alt: "Hyatt exterior",
+      },
+      {
+        src: "/Comfort Inn & Suites – Bradford, ON/2.jpg",
+        alt: "Hyatt exterior",
+      },
+      {
+        src: "/Comfort Inn & Suites – Bradford, ON/3.jpeg",
+        alt: "Hyatt exterior",
+      },
+      {
+        src: "/Comfort Inn & Suites – Bradford, ON/4.jpeg",
+        alt: "Hyatt exterior",
+      },
+      {
+        src: "/Comfort Inn & Suites – Bradford, ON/5.jpeg",
+        alt: "Hyatt exterior",
+      },
     ],
     details: [
       {
