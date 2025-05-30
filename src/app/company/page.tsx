@@ -81,15 +81,29 @@ export default function CompanyPage() {
 
             <div className="w-full lg:w-1/2 text-center lg:text-left">
               <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
-                ABOUT CITY PROFESSIONAL TRADES
+                Who We Are:
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                City Professional Trades is a reliable construction service
-                catering to commercial and residential clients in Toronto,
-                Ontario, and its surrounding areas. We specialize in planning
-                and executing large-scale building projects. Whether you need
-                property design or remodeling services, we have you covered.
-              </p>
+              <div className="flex flex-col gap-6">
+                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  At City Professional Trades, we don't just build—we bring
+                  visions to life. With over a decade of trusted craftsmanship
+                  across Ontario, we specialize in Design & Build, General
+                  Contracting, and Full-Scope Construction Services. Every
+                  project is handled with precision, pride, and a deep
+                  commitment to quality—because behind every build is a story
+                  that matters.
+                </p>
+
+                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  What sets us apart? No shortcuts. No compromises. Just honest
+                  work, done right.
+                </p>
+
+                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  We focus on relationships, results, and delivering on every
+                  promise—with professionalism you can see and trust that lasts.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -106,19 +120,75 @@ export default function CompanyPage() {
 
             <div className="w-full lg:w-1/2 text-center lg:text-left">
               <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
-                ABOUT CITY PROFESSIONAL TRADES
+                Our Values
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                City Professional Trades is a reliable construction service
-                catering to commercial and residential clients in Toronto,
-                Ontario, and its surrounding areas. We specialize in planning
-                and executing large-scale building projects. Whether you need
-                property design or remodeling services, we have you covered.
-              </p>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Transparent and open communication at every stage of the
+                    project
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Excellent service and prompt responses to questions and
+                    concerns
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Outstanding problem-solving and project management skills to
+                    meet all deadlines on schedule
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Hiring licensed, insured, and responsible subcontractors to
+                    guarantee exceptional work
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <div className="mt-1">
+                    <Point />
+                  </div>
+                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                    Dedication to precise work and superior quality in our
+                    building materials and techniques
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </ReactLenis>
+  );
+}
+export function Point() {
+  return (
+    <svg width="16" height="15" viewBox="0 0 16 15">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M15.2761 7.48362C15.2761 7.07285 15.0453 6.71193 14.6779 6.54301L10.8287 4.71714L9.05916 0.924219C8.88747 0.554065 8.52747 0.324219 8.11947 0.324219C7.71147 0.324219 7.35147 0.554065 7.17884 0.924219L5.35391 4.7716L1.56376 6.54116C1.19268 6.71193 0.961914 7.07285 0.961914 7.48362C0.961914 7.89347 1.19268 8.25439 1.56099 8.42331L5.40838 10.2482L7.17884 14.043C7.35147 14.4122 7.71147 14.6412 8.11947 14.6412C8.52655 14.6412 8.88747 14.4122 9.05916 14.0421L10.885 10.1956L14.6742 8.42516C15.0453 8.25439 15.2761 7.89347 15.2761 7.48362Z"
+        fill="#F16407"
+      />
+    </svg>
   );
 }

@@ -41,7 +41,7 @@ export function ProjectsSection() {
       <div className="flex py-36 px-12 justify-center items-center gap-4">
         <HeroNumbers count={16} title="Year experience"></HeroNumbers>
         <Separator orientation="vertical" className="bg-white/50"></Separator>
-        <HeroNumbers count={528} title="Completed Projects"></HeroNumbers>
+        <HeroNumbers count={328} title="Completed Projects"></HeroNumbers>
       </div>
       <BentoGrid className="w-full">
         {items.map((item, i) => (

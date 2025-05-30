@@ -42,7 +42,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 25%"],
+    offset: ["start 10%", "end 60%"],
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
@@ -274,4 +274,3 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
     </div>
   );
 };
-

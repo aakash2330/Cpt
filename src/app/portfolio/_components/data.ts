@@ -21,17 +21,189 @@ export const projects = [
     ],
     details: [
       {
-        text: "Provided expert Metal Stud Framing and Drywall Installation services",
+        text: "Division 9 Project",
       },
-      { text: "Worked on 84 rooms across 4 levels" },
+      { text: "Total Area: 26,969 sq. ft." },
+    ],
+    year: "2020-2021",
+  },
+  {
+    id: "comfort-inn",
+    title: "Arcavia Long-Term Care – Orillia, ON",
+    location: "33 Carlson Ct, Toronto, ON",
+    images: [
       {
-        text: "Ensured precision and attention to detail to meet hospitality industrystandards",
+        src: "/ArcaviaLong-TermCare/1.png",
+        alt: "Hotel exterior",
       },
       {
-        text: "Delivered a high-quality, functional, and visually appealing space",
+        src: "/ArcaviaLong-TermCare/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ArcaviaLong-TermCare/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ArcaviaLong-TermCare/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ArcaviaLong-TermCare/1.png",
+        alt: "Hotel exterior",
       },
     ],
-    year: "2018-2019",
+    details: [
+      {
+        text: "Division 9 Project",
+      },
+      { text: "Total Area: 100,332 sq. ft." },
+      { text: "Floors: 3" },
+      { text: "Beds: 160-bed Facility" },
+    ],
+    year: "2020-2021",
+  },
+  {
+    id: "comfort-inn",
+    title: "Hampton INN and Suites",
+    location: "201, Monora Park Dr. Mono",
+    images: [
+      {
+        src: "/HamptonINNandSuites/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/HamptonINNandSuites/2.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/HamptonINNandSuites/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/HamptonINNandSuites/2.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/HamptonINNandSuites/1.png",
+        alt: "Hotel exterior",
+      },
+    ],
+    details: [
+      {
+        text: "Division 9 Project Scope",
+      },
+      { text: "Total Area: 47,000 sq. ft." },
+      {
+        text: "Floors: 4",
+      },
+      {
+        text: "Rooms: 84",
+      },
+    ],
+    year: "2020-2021",
+  },
+  {
+    id: "comfort-inn",
+    title: "Align Wellness Centre ",
+    location: "Stoney Creek, ON",
+    images: [
+      {
+        src: "/Align Wellness Centre/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Align Wellness Centre/2.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Align Wellness Centre/3.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Align Wellness Centre/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Align Wellness Centre/1.png",
+        alt: "Hotel exterior",
+      },
+    ],
+    details: [
+      {
+        text: "Division 9 Project Scope",
+      },
+      { text: "Total Area: 25,000 sq. ft" },
+    ],
+    year: "2020-2021",
+  },
+  {
+    id: "comfort-inn",
+    title: "Hullabaloo Autism Centre",
+    location: " Mississauga, ON",
+    images: [
+      {
+        src: "/Hullabaloo Autism Centre/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Hullabaloo Autism Centre/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Hullabaloo Autism Centre/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Hullabaloo Autism Centre/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Hullabaloo Autism Centre/1.png",
+        alt: "Hotel exterior",
+      },
+    ],
+    details: [
+      {
+        text: "Division 9 Project Scope",
+      },
+      { text: "Total Area: 7,000+ sq. ft facility" },
+    ],
+    year: "2020-2021",
+  },
+  {
+    id: "comfort-inn",
+    title: "Sherway Tower",
+    location: "205, Sherway Gardens Road, Toronto",
+    images: [
+      {
+        src: "/Sherway Tower/1.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Sherway Tower/2.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Sherway Tower/3.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Sherway Tower/4.png",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/Sherway Tower/5.png",
+        alt: "Hotel exterior",
+      },
+    ],
+    details: [
+      {
+        text: "Flooring Installation (70,000 sq. ft., 24 Floors)",
+      },
+      { text: "Wallpaper Installation (Hallways, 24 Floors)" },
+    ],
+    year: "2020-2021",
   },
   {
     id: "comfort-inn",
@@ -61,11 +233,57 @@ export const projects = [
     ],
     details: [
       {
-        text: "Provided Steel Stud framing, Drywall installation, and rough carpentry",
+        text: "Division 9 Project Scope",
       },
-      { text: "Completed work on 91 rooms across 4 floors" },
+      { text: "Total Area: 148,000 sq. ft." },
+      {
+        text: "Floors: 8",
+      },
+      {
+        text: "Rooms: 196",
+      },
     ],
-    year: "2019-2020",
+    year: "2020-2021",
+  },
+  {
+    id: "comfort-inn",
+    title: "Hyatt Place",
+    location: "33 Carlson Ct, Toronto, ON",
+    images: [
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/1.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/2.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/3.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/4.jpeg",
+        alt: "Hotel exterior",
+      },
+      {
+        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/5.jpeg",
+        alt: "Hotel exterior",
+      },
+    ],
+    details: [
+      {
+        text: "Division 9 Project Scope",
+      },
+      { text: "Total Area: 148,000 sq. ft." },
+      {
+        text: "Floors: 8",
+      },
+      {
+        text: "Rooms: 196",
+      },
+    ],
+    year: "2020-2021",
   },
   {
     id: "hyatt-place",
@@ -80,9 +298,9 @@ export const projects = [
     ],
     details: [
       {
-        text: "Provided expert Steel Stud Framing, Drywall Installation, Insulation, and Acoustic solutions",
+        text: "Division 9 Project",
       },
-      { text: "Worked on an 8-floor, 196-room project" },
+      { text: "Total Area: 49,780 sq. ft." },
     ],
     year: "2020-2021",
   },
