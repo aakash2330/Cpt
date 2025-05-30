@@ -69,7 +69,7 @@ export const projects = [
     location: "201, Monora Park Dr. Mono",
     images: [
       {
-        src: "/",
+        src: "/HamptonINNandSuites/1.png",
         alt: "Hotel exterior",
       },
       {
@@ -202,46 +202,6 @@ export const projects = [
         text: "Flooring Installation (70,000 sq. ft., 24 Floors)",
       },
       { text: "Wallpaper Installation (Hallways, 24 Floors)" },
-    ],
-    year: "2020-2021",
-  },
-  {
-    id: "comfort-inn",
-    title: "Hyatt Place",
-    location: "33 Carlson Ct, Toronto, ON",
-    images: [
-      {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/1.jpeg",
-        alt: "Hotel exterior",
-      },
-      {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/2.jpeg",
-        alt: "Hotel exterior",
-      },
-      {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/3.jpeg",
-        alt: "Hotel exterior",
-      },
-      {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/4.jpeg",
-        alt: "Hotel exterior",
-      },
-      {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/5.jpeg",
-        alt: "Hotel exterior",
-      },
-    ],
-    details: [
-      {
-        text: "Division 9 Project Scope",
-      },
-      { text: "Total Area: 148,000 sq. ft." },
-      {
-        text: "Floors: 8",
-      },
-      {
-        text: "Rooms: 196",
-      },
     ],
     year: "2020-2021",
   },
