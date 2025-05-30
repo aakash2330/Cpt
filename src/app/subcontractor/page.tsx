@@ -107,7 +107,7 @@ export default function Page() {
             Fill out the form below to be added to our list of bidders.
           </p>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pt-10">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div>
