@@ -13,16 +13,16 @@ import Image from "next/image";
 export function HeroTextMain() {
   return (
     <div className="flex mt-48 flex-col gap-6">
-      <div className="flex justify-center items-center text-center gap-5">
+      <div className="flex justify-center items-center text-center gap-3 md:gap-5">
         <HeroText title="YOUR" />
-        <HeroVideo className="w-32" url=""></HeroVideo>
+        <HeroVideo className="w-32 hidden md:block" url=""></HeroVideo>
         <HeroText title="VISION" />
       </div>
 
-      <div className="flex justify-center items-center text-center gap-5">
+      <div className="flex justify-center items-center text-center gap-3 md:gap-5">
         <HeroText title="OUR" />
         <HeroText title="BLUEPRINT" />
-        <div className={cn("relative w-64 h-full")}>
+        <div className={cn("relative hidden md:flex w-64 h-full")}>
           <Image
             src="/WhatsApp Image 2025-05-22 at 2.09.52 AM.jpeg"
             alt="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
@@ -91,7 +91,7 @@ export function HeroVideo({
 
 export function HeroText({ title }: { title: string }) {
   return (
-    <div className="text-7xl text-white z-50 font-bold tracking-wide leading-tight">
+    <div className="text-4xl md:text-7xl text-white z-50 font-bold tracking-wide leading-tight">
       {title}
     </div>
   );

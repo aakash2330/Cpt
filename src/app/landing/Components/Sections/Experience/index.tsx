@@ -2,7 +2,7 @@ import { GlobeDemo } from "./globe";
 
 export default function ExperienceSection() {
   return (
-    <div className="h-[120dvh] mt-48 bg-background z-50 w-full flex flex-col gap-12 justify-center items-center">
+    <div className="h-[150dvh] pt-48 pb-24 bg-background z-50 px-12 w-full flex flex-col gap-12 justify-center items-center">
       <div className="bg-background flex flex-col gap-12 justify-center items-center">
         <div className="text-3xl font-semibold text-center">
           WE PROVIDE YOU <br /> THE BEST EXPERIENCE
