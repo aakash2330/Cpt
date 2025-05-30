@@ -20,13 +20,15 @@ export function ProjectImage({
 }) {
   return (
     <div className={cn("relative w-full rounded-[16px] h-full", className)}>
-      <Image
-        src={url}
-        alt={alt}
-        fill
-        className="object-cover rounded-t-[16px]"
-        priority
-      />
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <Image
+          src={url}
+          alt={alt}
+          fill
+          className="object-cover rounded-t-[16px]"
+          priority
+        />
+      </a>
     </div>
   );
 }

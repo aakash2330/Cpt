@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NavOptions = [
-  { label: "Home", url: "/landing" },
+  { label: "Home", url: "/" },
   { label: "Portfolio", url: "/portfolio" },
   { label: "Services", url: "/services" },
   { label: "Company", url: "/company" },
