@@ -79,7 +79,7 @@ export function HeroVideoSection({ url }: { url: string }) {
       <source
         src={
           url ||
-          "https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0IEquvPzQuXz39IjZgORf6SBxHCq2hTpaFPsQc"
+          "https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0If97Ylhs3QC5L7BNJrZvHfX2TuRSwhGcVDMK8"
         }
         type="video/mp4"
       />

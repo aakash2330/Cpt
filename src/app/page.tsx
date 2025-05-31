@@ -21,7 +21,7 @@ export default function Page() {
             playsInline
           >
             <source
-              src="https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0IEquvPzQuXz39IjZgORf6SBxHCq2hTpaFPsQc"
+              src="https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0If97Ylhs3QC5L7BNJrZvHfX2TuRSwhGcVDMK8"
               type="video/mp4"
             />
             <track
