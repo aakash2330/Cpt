@@ -66,6 +66,8 @@ export default function ServicePage() {
   });
   const AnimatedDiv = animated("div");
 
+
+
   return (
     <ReactLenis root>
       <div className="w-full bg-background mb-72">

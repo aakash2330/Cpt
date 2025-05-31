@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { animated, useSpring } from "@react-spring/web";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,8 +15,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
+const AnimatedDiv = animated("div");
 // Define the form schema
 const SubcontractorFormSchema = z.object({
   company_name: z.string().min(2, {
@@ -90,6 +93,31 @@ export default function Page() {
     // Add your form submission logic here
   }
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const headingAnimation = useSpring({
+    from: { opacity: 0, transform: "translateX(-50px)" },
+    to: {
+      opacity: mounted ? 1 : 0,
+      transform: mounted ? "translateX(0)" : "translateX(-50px)",
+    },
+    config: { tension: 170, friction: 24 },
+    delay: 100,
+  });
+
+  const subheadingAnimation = useSpring({
+    from: { opacity: 0, transform: "translateX(-50px)" },
+    to: {
+      opacity: mounted ? 1 : 0,
+      transform: mounted ? "translateX(0)" : "translateX(-50px)",
+    },
+    config: { tension: 170, friction: 24 },
+    delay: 400,
+  });
+
   return (
     <div className="relative z-10 w-full bg-red-2009 py-32 px-4 md:px-0">
       {/* Orange gradient background */}
@@ -101,11 +129,16 @@ export default function Page() {
       <div className="w-full text-black px-4 sm:px-8 md:px-16 lg:px-32 shadow-none border-none rounded-2xl">
         <CardHeader className="pb-2">
           <CardTitle className="text-2xl md:text-3xl font-bold text-center text-white">
-            SUBCONTRACTOR RESOURCES & PRE-QUALIFICATION
+            <AnimatedDiv style={headingAnimation}>
+              SUBCONTRACTOR RESOURCES & PRE-QUALIFICATION
+            </AnimatedDiv>
           </CardTitle>
-          <p className="text-base text-center text-white">
-            Fill out the form below to be added to our list of bidders.
-          </p>
+
+          <AnimatedDiv style={subheadingAnimation}>
+            <p className="text-base text-center text-white">
+              Fill out the form below to be added to our list of bidders.
+            </p>
+          </AnimatedDiv>
         </CardHeader>
         <CardContent className="pt-10">
           <Form {...form}>
