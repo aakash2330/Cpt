@@ -55,7 +55,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="w-full bg-white text-black rounded-2xl">
+    <Card className="w-full bg-white text-black rounded-[8px]">
       <CardHeader className="pb-2">
         <CardTitle className="text-2xl md:text-3xl font-bold">
           GET IN TOUCH
@@ -77,7 +77,7 @@ export function ContactForm() {
                     <FormControl>
                       <Input
                         placeholder="Full name"
-                        className="p-2 border-gray-500"
+                        className="p-2 border-gray-500 rounded-[8px]"
                         {...field}
                       />
                     </FormControl>
@@ -96,7 +96,7 @@ export function ContactForm() {
                     <FormControl>
                       <Input
                         placeholder="Company name"
-                        className="p-2 border-gray-500"
+                        className="p-2 border-gray-500 rounded-[8px]"
                         {...field}
                       />
                     </FormControl>
@@ -119,7 +119,7 @@ export function ContactForm() {
                       <Input
                         type="email"
                         placeholder="you@company.com"
-                        className="p-2 border-gray-500"
+                        className="p-2 border-gray-500 rounded-[8px]"
                         {...field}
                       />
                     </FormControl>
@@ -132,7 +132,7 @@ export function ContactForm() {
                 name="phone_number"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium">
+                    <FormLabel className="text-sm font-medium rounded-[8px]">
                       PHONE NUMBER <span className="text-orange-500">*</span>
                     </FormLabel>
                     <FormControl>
@@ -160,7 +160,7 @@ export function ContactForm() {
                   <FormControl>
                     <Textarea
                       placeholder="Share your goals, questions, or specific needs with us..."
-                      className="p-3 min-h-20 border-gray-500"
+                      className="p-3 min-h-20 border-gray-500 rounded-[8px]"
                       {...field}
                     />
                   </FormControl>
@@ -192,7 +192,7 @@ export function ContactForm() {
 
             <Button
               type="submit"
-              className="w-full text-white font-medium py-4 md:py-6 rounded-full transition-all duration-300 hover:brightness-110 backdrop-blur-md"
+              className="w-full text-white font-medium py-4 md:py-6 rounded-[8px] transition-all duration-300 hover:brightness-110 backdrop-blur-md"
               style={{
                 background: "linear-gradient(0deg, #A1480E 0%, #F16407 100%)",
                 backdropFilter: "blur(20px)",

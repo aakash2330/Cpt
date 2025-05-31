@@ -17,7 +17,7 @@ const serviceData = [
     image: "/Servicepage/2.png",
     heading: "GENERAL CONTRACTING",
     description:
-      "As your General Contractor, we take total ownership of your project from start to finish. From permits and procurement to subcontractor management and final inspections, we deliver projects on time, on budget, and to exacting standards — every time.",
+      "As your General Contractor, we do design & build and take total ownership of your project from start to finish. From permits and procurement to subcontractor management and final inspections, we deliver projects on time, on budget, and to exacting standards — every time.",
   },
   {
     image: "/Servicepage/3.png",
@@ -70,7 +70,7 @@ export default function ServicePage() {
 
   return (
     <ReactLenis root>
-      <div className="w-full bg-background mb-72">
+      <div className="w-full bg-background mb-10">
         <div className="relative h-[60vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
           <AnimatedDiv
             style={imageAnimation}

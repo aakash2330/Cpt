@@ -224,7 +224,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Company name"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -243,7 +243,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Contact name"
-                              className="p-2 z-50 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 z-50 border-gray-500 !bg-white rounded-[8px] h-10"
                               {...field}
                             />
                           </FormControl>
@@ -267,7 +267,7 @@ export default function Page() {
                             <Input
                               type="tel"
                               placeholder="Phone number"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -286,7 +286,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Fax number"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -309,7 +309,7 @@ export default function Page() {
                             <Input
                               type="email"
                               placeholder="Email address"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -329,7 +329,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Union status"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -352,7 +352,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Bidding area"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -372,7 +372,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Bondable status (e.g., Yes/No, Amount)"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -393,7 +393,7 @@ export default function Page() {
                         <FormControl>
                           <Input
                             placeholder="Division and area of expertise"
-                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                            className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                             {...field}
                           />
                         </FormControl>
@@ -426,7 +426,7 @@ export default function Page() {
                         <FormControl>
                           <Input
                             placeholder="Street address"
-                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                            className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                             {...field}
                           />
                         </FormControl>
@@ -445,7 +445,7 @@ export default function Page() {
                         <FormControl>
                           <Input
                             placeholder="Address line 2"
-                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                            className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                             {...field}
                           />
                         </FormControl>
@@ -465,7 +465,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="City"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -485,7 +485,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="State/province/region"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -506,7 +506,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Country"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -526,7 +526,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Postal/zip code"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
+                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>

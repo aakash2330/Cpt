@@ -32,7 +32,7 @@ export function ProjectImage({
           src={url}
           alt={alt}
           fill
-          className="object-cover rounded-t-[16px]"
+          className="object-fill rounded-t-[16px]"
           priority
         />
       </Link>

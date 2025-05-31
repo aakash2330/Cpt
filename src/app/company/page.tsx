@@ -74,7 +74,7 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        <div className="bg-background h-[120dvh] mt-20 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+        <div className="bg-background min-h-screen mt-20 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 xl:gap-16 ">
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
               <ProjectImage
@@ -122,7 +122,7 @@ export default function CompanyPage() {
           </div>
         </div>
 
-        <div className="bg-background h-[130dvh] py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
+        <div className="bg-background min-h-screen py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-32">
           <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-8 lg:gap-12 xl:gap-16">
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end lg:mt-[-150px]">
               <ProjectImage

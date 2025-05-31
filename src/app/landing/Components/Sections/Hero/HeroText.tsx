@@ -12,7 +12,7 @@ import Image from "next/image";
 
 export function HeroTextMain() {
   return (
-    <div className="flex mt-48 flex-col gap-6">
+    <div className="flex mt-[200px] flex-col gap-6">
       <div className="flex justify-center items-center text-center gap-3 md:gap-5">
         <HeroText title="YOUR" />
         <HeroVideo className="w-32 hidden md:block" url=""></HeroVideo>

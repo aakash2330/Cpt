@@ -27,7 +27,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project",
+        text: "Complete Build",
       },
       { text: "Total Area: 49,780 sq. ft." },
       { text: "Floors: 4" },
@@ -63,7 +63,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project Scope",
+        text: "Complete Build",
       },
       { text: "Total Area: 148,000 sq. ft." },
       {
@@ -103,7 +103,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project",
+        text: "Complete Build",
       },
       { text: "Total Area: 100,332 sq. ft." },
       { text: "Floors: 3" },
@@ -139,7 +139,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project Scope",
+        text: "Complete Build",
       },
       { text: "Total Area: 47,000 sq. ft." },
       {
@@ -179,7 +179,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project Scope",
+        text: "Complete Build",
       },
       { text: "Total Area: 25,000 sq. ft" },
     ],
@@ -213,7 +213,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project Scope",
+        text: "Complete Build",
       },
       { text: "Total Area: 7,000+ sq. ft facility" },
     ],
@@ -246,10 +246,11 @@ export const projects = [
       },
     ],
     details: [
+      { text: "Full design and complete renovation" },
       {
-        text: "Flooring Installation (70,000 sq. ft., 24 Floors)",
+        text: "Flooring Installation (70,000 sq. ft. - 24 Floors)",
       },
-      { text: "Wallpaper Installation (Hallways, 24 Floors)" },
+      { text: "Wallpaper Installation (Hallways - 24 Floors)" }
     ],
     year: "2020-2021",
   },
@@ -281,7 +282,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Division 9 Project",
+        text: "Complete Build",
       },
       { text: "Total Area: 26,969 sq. ft." },
     ],
