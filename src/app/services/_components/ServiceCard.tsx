@@ -36,7 +36,7 @@ export function ServiceCard({
   return (
     <div
       ref={container}
-      className="h-screen flex items-start py-20 justify-center sticky top-0"
+      className="h-screen flex items-start py-2 justify-center sticky top-0"
     >
       <motion.div
         style={{
@@ -45,7 +45,7 @@ export function ServiceCard({
         }}
         className={`flex flex-col relative -top-[25%] h-[450px] w-[100%] rounded-md p-10 origin-top`}
       >
-        <div className="w-full my-6 sm:my-8">
+        <div className="w-full my-6 sm:my-8 bg-background">
           <div className="relative w-full h-56 xs:h-64 sm:h-72 md:h-96 lg:h-[400px]">
             <Image
               src={url}

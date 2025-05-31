@@ -50,9 +50,7 @@ export default function RootLayout({
         >
           <Navbar></Navbar>
           <Suspense fallback={<Loading></Loading>}>
-            <main className="w-full overflow-x-hidden no-scrollbar h-full">
-              {children}
-            </main>
+            <main className="w-full no-scrollbar h-full">{children}</main>
           </Suspense>
           <Footer />
         </ThemeProvider>
