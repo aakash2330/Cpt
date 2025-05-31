@@ -17,11 +17,11 @@ export const projects = [
         alt: "Hyatt exterior",
       },
       {
-        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/3.png",
+        src: "/WhatsApp Image 2025-05-31 at 10.27.14 AM.jpeg",
         alt: "Hyatt exterior",
       },
       {
-        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/5.png",
+        src: "/WhatsApp Image 2025-05-31 at 10.28.13 AM.jpeg",
         alt: "Hyatt exterior",
       },
     ],
