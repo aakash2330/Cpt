@@ -56,7 +56,7 @@ export function ServiceCard({
             />
           </div>
           <div className="text-white flex bg-background mt-6 flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
-            <h3 className="text-base xs:text-lg sm:text-3xl font-semibold">
+            <h3 className="text-base xs:text-lg sm:text-3xl self-start font-semibold">
               {title}
             </h3>
             <p className="text-sm font-inter xs:text-base sm:text-lg max-w-2xl">

@@ -107,7 +107,7 @@ export default function ServicePage() {
         </div>
 
         {serviceData.map((project, i) => {
-          const targetScale = 1 - (serviceData.length - i) * 0.05;
+          const targetScale = 1 - (serviceData.length - i) * 0.1;
           return (
             <ServiceCard
               key={`p_${i}`}
