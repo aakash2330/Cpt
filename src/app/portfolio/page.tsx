@@ -59,7 +59,7 @@ export default function ServicePage() {
               <h2 className="mb-2 self-start text-sm sm:text-3xl font-semibold tracking-wide">
                 OUR WORK SPEAKS FOR ITSELF
               </h2>
-              <p className="text-xs pl-1  self-start xs:text-sm sm:text-base text-left">
+              <p className="text-xs pl-1 font-inter  self-start xs:text-sm sm:text-base text-left">
                 Explore our portfolio of residential and commercial projects,
                 showcasing our commitment to quality, craftsmanship, and client
                 satisfaction.

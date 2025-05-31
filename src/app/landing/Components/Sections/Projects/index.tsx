@@ -13,14 +13,21 @@ export function ProjectImage({
   url,
   alt,
   className,
+  isClickable = false,
+  href,
 }: {
   url: string;
   alt: string;
   className?: string;
+  isClickable?: boolean;
+  href?: string;
 }) {
   return (
     <div className={cn("relative w-full rounded-[16px] h-full", className)}>
-      <Link href={"/portfolio"}>
+      <Link
+        className={cn(!isClickable && "pointer-events-none")}
+        href={"/portfolio"}
+      >
         <Image
           src={url}
           alt={alt}
@@ -64,6 +71,8 @@ const items = [
     title: "Hyatt Place - 33 Carlson Ct, Toronto, ON",
     header: (
       <ProjectImage
+        href="/portfolio"
+        isClickable={true}
         url="/proj/1.png"
         alt="/958ea0c2a5ec62b21d8c31254959f814c6c2a5dd.png"
       />
@@ -73,6 +82,8 @@ const items = [
     title: "Sherway Tower - 205, Sherway Gardens Road, Toronto",
     header: (
       <ProjectImage
+        href="/portfolio"
+        isClickable={true}
         url="/proj/7.png"
         alt="/0570608cdae20e14061115471361f8bd5a6de1bd.png"
       />
@@ -82,6 +93,8 @@ const items = [
     title: "Hampton INN and Suites - 201, Mono ON",
     header: (
       <ProjectImage
+        href="/portfolio"
+        isClickable={true}
         url="/proj/4.png"
         alt="/ab0a9969067707e11e676971443433197974e0d0.png"
       />
@@ -91,6 +104,8 @@ const items = [
     title: "Comfort Inn & Suits - Bradford, ON",
     header: (
       <ProjectImage
+        href="/portfolio"
+        isClickable={true}
         url="/proj/5.png"
         alt="/2005cb1422bc9325dbb3051189d840bec42f391b.png"
       />
@@ -100,6 +115,8 @@ const items = [
     title: "Align Wellness Centre – Stoney Creek, ON",
     header: (
       <ProjectImage
+        href="/portfolio"
+        isClickable={true}
         url="/proj/2.png"
         alt="/1c00dec44743a70fd4aca77e66f8576c329befb4.png"
       />

@@ -207,7 +207,7 @@ export const projects = [
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/WhatsApp Image 2025-05-31 at 9.37.42 AM.jpeg",
         alt: "Hotel exterior",
       },
     ],
@@ -263,19 +263,19 @@ export const projects = [
         alt: "Modern architecture",
       },
       {
-        src: "/",
+        src: "/mono/1.jpeg",
         alt: "Modern architecture",
       },
       {
-        src: "/",
+        src: "/mono/2.jpeg",
         alt: "Modern architecture",
       },
       {
-        src: "/",
+        src: "/mono/3.jpeg",
         alt: "Modern architecture",
       },
       {
-        src: "/",
+        src: "/mono/4.jpeg",
         alt: "Modern architecture",
       },
     ],

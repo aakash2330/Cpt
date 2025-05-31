@@ -1,14 +1,10 @@
 "use client";
 
-import {
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-  motion,
-} from "motion/react";
+import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ImageDialog } from "./dialog";
 
 interface ProjectImage {
   src: string;
@@ -159,25 +155,29 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                   <div className="h-80">
                     <div className="grid grid-cols-6 gap-3 h-[calc(50%-2px)]">
                       <div className="overflow-hidden col-span-4 h-full relative rounded-tl-xl rounded-bl-xl">
-                        <Image
-                          src={project.images[0]?.src}
-                          alt={project.images[0]?.alt || "Project image"}
-                          className="object-cover rounded-[12px]"
-                          fill
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                          priority={index === 0}
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
+                        <ImageDialog imageSrc={project.images[0]?.src ?? ""}>
+                          <Image
+                            src={project.images[0]?.src}
+                            alt={project.images[0]?.alt || "Project image"}
+                            className="object-cover rounded-[12px]"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            priority={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                        </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-2 h-full relative rounded-tr-xl rounded-br-xl">
-                        <Image
-                          src={project.images[1]?.src}
-                          alt={project.images[1]?.alt || "Project image"}
-                          className="object-cover rounded-[12px]"
-                          fill
-                          sizes="(max-width: 768px) 100vw, 16vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog imageSrc={project.images[1]?.src ?? ""}>
+                          <Image
+                            src={project.images[1]?.src}
+                            alt={project.images[1]?.alt || "Project image"}
+                            className="object-cover rounded-[12px]"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 16vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                     </div>
 
@@ -185,34 +185,40 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
 
                     <div className="grid grid-cols-8 gap-3 h-[calc(50%+2px)]">
                       <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
-                        <Image
-                          src={project.images[2]?.src}
-                          alt={project.images[2]?.alt || "Project image"}
-                          className="object-cover rounded-[12px]"
-                          fill
-                          sizes="(max-width: 768px) 100vw, 12vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog imageSrc={project.images[2]?.src ?? ""}>
+                          <Image
+                            src={project.images[2]?.src}
+                            alt={project.images[2]?.alt || "Project image"}
+                            className="object-cover rounded-[12px]"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 12vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-4 h-full relative">
-                        <Image
-                          src={project.images[3]?.src}
-                          alt={project.images[3]?.alt || "Project image"}
-                          className="object-cover rounded-[12px]"
-                          fill
-                          sizes="(max-width: 768px) 100vw, 25vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog imageSrc={project.images[3]?.src ?? ""}>
+                          <Image
+                            src={project.images[3]?.src}
+                            alt={project.images[3]?.alt || "Project image"}
+                            className="object-cover rounded-[12px]"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 25vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-2 h-full relative rounded-br-xl">
-                        <Image
-                          src={project.images[4]?.src}
-                          alt={project.images[4]?.alt || "Project image"}
-                          className="object-cover rounded-[12px]"
-                          fill
-                          sizes="(max-width: 768px) 100vw, 12vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog imageSrc={project.images[4]?.src ?? ""}>
+                          <Image
+                            src={project.images[4]?.src}
+                            alt={project.images[4]?.alt || "Project image"}
+                            className="object-cover rounded-[12px]"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 12vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                     </div>
                   </div>

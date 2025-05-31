@@ -11,7 +11,7 @@ export default function Page() {
       <div className="flex flex-col justify-center items-center">
         <HeroSection></HeroSection>
 
-        <div className="h-[40dvh] md:h-[120dvh]  w-full flex flex-col gap-0 justify-center items-center">
+        <div className="h-[40dvh] md:h-[120dvh] w-full flex flex-col gap-0 justify-center items-center">
           <video
             className="w-full h-full"
             autoPlay={true}

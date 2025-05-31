@@ -58,14 +58,14 @@ export default function CompanyPage() {
               <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm self-start sm:text-2xl pt-12 font-semibold tracking-wide">
                 ABOUT CITY PROFESSIONAL TRADES
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+              <p className="text-xs font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
                 With over a decade of experience and a proven team of 100+
                 professionals, we specialize in executing complex, large-scale
                 interior projects with total confidence. From pre-construction
                 planning to final turnover, we take full ownership of every
                 detail — ensuring projects are completed safely, on time, and to
-                the highest standard. Driven by the belief that “Quality means
-                doing it right when no one is looking,” we approach every build
+                the highest standard. Driven by the belief that "Quality means
+                doing it right when no one is looking," we approach every build
                 with integrity, clear communication, and craftsmanship you can
                 see and trust. Count on us to get it done — and get it done
                 right
@@ -89,29 +89,29 @@ export default function CompanyPage() {
                 Who We Are:
               </h2>
               <div className="flex flex-col gap-6">
-                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                <p className="text-xs xs:text-sm font-inter sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                   We are builders, leaders, and problem-solvers. At City
-                  Professional Trades, construction isn’t just our business —
-                  it’s our craft, our responsibility, and our reputation on the
+                  Professional Trades, construction isn't just our business —
+                  it's our craft, our responsibility, and our reputation on the
                   line with every project we take on.
                 </p>
 
-                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
-                  For over a decade, we’ve earned the trust of clients by
+                <p className="text-xs xs:text-sm sm:text-base font-inter leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  For over a decade, we've earned the trust of clients by
                   consistently delivering work that speaks for itself. We manage
                   every job with precision, care, and a hands-on approach that
                   ensures nothing is left to chance.
                 </p>
 
-                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                <p className="text-xs xs:text-sm sm:text-base leading-relaxed font-inter max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                   Our strength lies in our people. A team of experienced
                   professionals who take pride in their work, embrace
-                  challenges, and are committed to doing what’s right — not
-                  what’s easy. We value integrity, reliability, and a culture
-                  where accountability isn’t optional, it’s expected.
+                  challenges, and are committed to doing what's right — not
+                  what's easy. We value integrity, reliability, and a culture
+                  where accountability isn't optional, it's expected.
                 </p>
 
-                <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                <p className="text-xs xs:text-sm sm:text-base leading-relaxed font-inter max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                   City Professional Trades is a company built on strong
                   relationships, clear leadership, and a results-driven mindset.
                   We believe in showing up, standing behind our word, and
@@ -141,112 +141,112 @@ export default function CompanyPage() {
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Quality Without Compromise.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
+                    <p className="text-sm font-inter text-slate-300">
                       We believe in doing it right the first time — even when no
-                      one’s watching.
-                    </div>
-                  </p>
+                      one's watching.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Client. Project. Trust.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
-                      Every decision we make, every move we take is built on these
-                      three pillars.
-                    </div>
-                  </p>
+                    <p className="text-sm font-inter text-slate-300">
+                      Every decision we make, every move we take is built on
+                      these three pillars.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Clear, Honest Communication.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
+                    <p className="text-sm font-inter text-slate-300">
                       We keep our clients informed, involved, and confident from
                       start to finish.
-                    </div>
-                  </p>
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Precision & Craftsmanship.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
+                    <p className="text-sm font-inter text-slate-300">
                       Superior materials, skilled trades, and attention to every
                       detail — no shortcuts, no excuses.
-                    </div>
-                  </p>
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Ownership & Accountability.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
-                      We take full responsibility for our projects, deadlines, and
-                      outcomes. If we say it, we mean it.
-                    </div>
-                  </p>
+                    <p className="text-sm font-inter text-slate-300">
+                      We take full responsibility for our projects, deadlines,
+                      and outcomes. If we say it, we mean it.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Safety First, Always.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
+                    <p className="text-sm font-inter text-slate-300">
                       Protecting our people, clients, and worksites is
                       non-negotiable.
-                    </div>
-                  </p>
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Problem-Solving Expertise.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
+                    <p className="text-sm font-inter text-slate-300">
                       We anticipate challenges and deliver smart, effective
                       solutions that keep projects on track.
-                    </div>
-                  </p>
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex gap-2">
                   <div className="mt-1">
                     <Point />
                   </div>
-                  <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
+                  <div className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Professionalism You Can Count On.
                     <br />
-                    <div className="text-sm font-inter text-slate-300">
-                      We show up prepared, deliver what we promise, and
-                      leave a lasting impression through our work.
-                    </div>
-                  </p>
+                    <p className="text-sm font-inter text-slate-300">
+                      We show up prepared, deliver what we promise, and leave a
+                      lasting impression through our work.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

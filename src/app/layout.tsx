@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./Navbar/Navbar";
 import { ThemeProvider } from "next-themes";
@@ -15,6 +15,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +41,7 @@ export default function RootLayout({
         <link rel="icon" href="/image 175.png?v=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased screen-image bg-background top-shadow-overlay`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} overflow-x-hidden antialiased screen-image bg-background top-shadow-overlay`}
       >
         <ThemeProvider
           attribute="class"

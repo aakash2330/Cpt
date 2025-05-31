@@ -91,13 +91,13 @@ export default function ServicePage() {
               <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm self-start sm:text-2xl pt-12 font-semibold tracking-wide">
                 WHAT WE DO
               </h2>
-              <p className="text-xs xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+              <p className="text-xs font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
                 At City Professional Trades, we deliver complete, high-quality
                 construction solutions tailored to every project’s unique
                 demands. We lead with precision, experience, and a no-compromise
                 approach to safety, quality, and results.
               </p>
-              <p className="text-xs mt-2 xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+              <p className="text-xs mt-2 font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
                 Our work covers every phase — from pre-construction planning to
                 final turnover — ensuring seamless project delivery, clear
                 communication, and dependable outcomes you can trust.
