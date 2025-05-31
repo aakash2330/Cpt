@@ -87,10 +87,59 @@ export default function Page() {
     },
   });
 
+  // Add state for submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "success" | "error" | null
+  >(null);
+  const [submissionMessage, setSubmissionMessage] = useState<string | null>(
+    null,
+  );
+
   // Submit handler with proper typed parameter
-  function onSubmit(values: z.infer<typeof SubcontractorFormSchema>) {
+  async function onSubmit(values: z.infer<typeof SubcontractorFormSchema>) {
+    setIsSubmitting(true);
+    setSubmissionStatus(null);
+    setSubmissionMessage(null);
     console.log("Subcontractor form submitted:", values);
-    // Add your form submission logic here
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmissionStatus("success");
+        setSubmissionMessage(result.message || "Form submitted successfully!");
+        form.reset(); // Reset form fields
+      } else {
+        setSubmissionStatus("error");
+        setSubmissionMessage(result.message || "An error occurred.");
+        // Optionally, you can set form errors here if your API returns field-specific errors
+        // if (result.errors) {
+        //   Object.keys(result.errors).forEach((key) => {
+        //     form.setError(key as keyof z.infer<typeof SubcontractorFormSchema>, {
+        //       type: 'manual',
+        //       message: result.errors[key]?._errors.join(', '),
+        //     });
+        //   });
+        // }
+      }
+    } catch (error) {
+      setSubmissionStatus("error");
+      const message =
+        error instanceof Error
+          ? error.message
+          : "An unexpected error occurred.";
+      setSubmissionMessage(`Failed to submit form: ${message}`);
+    }
+    setIsSubmitting(false);
   }
 
   const [mounted, setMounted] = useState(false);
@@ -150,6 +199,17 @@ export default function Page() {
                 <p className="text-sm text-gray-600 mb-6 text-white">
                   Company Information
                 </p>
+                {/* Submission Status Messages */}
+                {submissionStatus === "success" && submissionMessage && (
+                  <div className="mb-4 p-3 rounded-md bg-green-100 border border-green-400 text-green-700">
+                    {submissionMessage}
+                  </div>
+                )}
+                {submissionStatus === "error" && submissionMessage && (
+                  <div className="mb-4 p-3 rounded-md bg-red-100 border border-red-400 text-red-700">
+                    {submissionMessage}
+                  </div>
+                )}
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <FormField
@@ -164,7 +224,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Company name"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -183,7 +243,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Contact name"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 z-50 border-gray-500 !bg-white rounded-[14px] h-10"
                               {...field}
                             />
                           </FormControl>
@@ -207,7 +267,7 @@ export default function Page() {
                             <Input
                               type="tel"
                               placeholder="Phone number"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -226,7 +286,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Fax number"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -249,7 +309,7 @@ export default function Page() {
                             <Input
                               type="email"
                               placeholder="Email address"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -269,7 +329,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Union status"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -292,7 +352,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Bidding area"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -312,7 +372,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Bondable status (e.g., Yes/No, Amount)"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -333,7 +393,7 @@ export default function Page() {
                         <FormControl>
                           <Input
                             placeholder="Division and area of expertise"
-                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                             {...field}
                           />
                         </FormControl>
@@ -366,7 +426,7 @@ export default function Page() {
                         <FormControl>
                           <Input
                             placeholder="Street address"
-                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                             {...field}
                           />
                         </FormControl>
@@ -385,7 +445,7 @@ export default function Page() {
                         <FormControl>
                           <Input
                             placeholder="Address line 2"
-                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                            className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                             {...field}
                           />
                         </FormControl>
@@ -405,7 +465,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="City"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -425,7 +485,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="State/province/region"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -446,7 +506,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Country"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -466,7 +526,7 @@ export default function Page() {
                           <FormControl>
                             <Input
                               placeholder="Postal/zip code"
-                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10"
+                              className="p-2 border-gray-500 !bg-white rounded-[14px] h-10 z-50"
                               {...field}
                             />
                           </FormControl>
@@ -485,8 +545,9 @@ export default function Page() {
                   background: "linear-gradient(0deg, #A1480E 0%, #F16407 100%)",
                   backdropFilter: "blur(20px)",
                 }}
+                disabled={isSubmitting} // Disable button while submitting
               >
-                Submit
+                {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
             </form>
           </Form>
