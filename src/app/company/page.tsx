@@ -144,8 +144,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Quality Without Compromise.
                     <br />
-                    We believe in doing it right the first time — even when no
-                    one’s watching.
+                    <div className="text-sm font-inter text-slate-300">
+                      We believe in doing it right the first time — even when no
+                      one’s watching.
+                    </div>
                   </p>
                 </div>
 
@@ -156,8 +158,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Client. Project. Trust.
                     <br />
-                    Every decision we make, every move we take is built on these
-                    three pillars.
+                    <div className="text-sm font-inter text-slate-300">
+                      Every decision we make, every move we take is built on these
+                      three pillars.
+                    </div>
                   </p>
                 </div>
 
@@ -168,8 +172,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Clear, Honest Communication.
                     <br />
-                    We keep our clients informed, involved, and confident from
-                    start to finish.
+                    <div className="text-sm font-inter text-slate-300">
+                      We keep our clients informed, involved, and confident from
+                      start to finish.
+                    </div>
                   </p>
                 </div>
 
@@ -180,8 +186,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Precision & Craftsmanship.
                     <br />
-                    Superior materials, skilled trades, and attention to every
-                    detail — no shortcuts, no excuses.
+                    <div className="text-sm font-inter text-slate-300">
+                      Superior materials, skilled trades, and attention to every
+                      detail — no shortcuts, no excuses.
+                    </div>
                   </p>
                 </div>
 
@@ -192,8 +200,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Ownership & Accountability.
                     <br />
-                    We take full responsibility for our projects, deadlines, and
-                    outcomes. If we say it, we mean it.
+                    <div className="text-sm font-inter text-slate-300">
+                      We take full responsibility for our projects, deadlines, and
+                      outcomes. If we say it, we mean it.
+                    </div>
                   </p>
                 </div>
 
@@ -204,8 +214,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Safety First, Always.
                     <br />
-                    Protecting our people, clients, and worksites is
-                    non-negotiable.
+                    <div className="text-sm font-inter text-slate-300">
+                      Protecting our people, clients, and worksites is
+                      non-negotiable.
+                    </div>
                   </p>
                 </div>
 
@@ -216,8 +228,10 @@ export default function CompanyPage() {
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Problem-Solving Expertise.
                     <br />
-                    We anticipate challenges and deliver smart, effective
-                    solutions that keep projects on track.
+                    <div className="text-sm font-inter text-slate-300">
+                      We anticipate challenges and deliver smart, effective
+                      solutions that keep projects on track.
+                    </div>
                   </p>
                 </div>
 
@@ -227,8 +241,11 @@ export default function CompanyPage() {
                   </div>
                   <p className="text-xs xs:text-sm sm:text-base leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mx-auto lg:mx-0">
                     Professionalism You Can Count On.
-                    <br /> We show up prepared, deliver what we promise, and
-                    leave a lasting impression through our work.
+                    <br />
+                    <div className="text-sm font-inter text-slate-300">
+                      We show up prepared, deliver what we promise, and
+                      leave a lasting impression through our work.
+                    </div>
                   </p>
                 </div>
               </div>

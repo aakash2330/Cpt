@@ -76,40 +76,6 @@ export const projects = [
     year: "2020-2021",
   },
   {
-    id: "hampton-inn",
-    title: "Medical Building ",
-    location: "Mono, ON",
-    images: [
-      {
-        src: "/Building Images/Medical Building – Mono,/17.jpg",
-        alt: "Modern architecture",
-      },
-      {
-        src: "/",
-        alt: "Modern architecture",
-      },
-      {
-        src: "/",
-        alt: "Modern architecture",
-      },
-      {
-        src: "/",
-        alt: "Modern architecture",
-      },
-      {
-        src: "/",
-        alt: "Modern architecture",
-      },
-    ],
-    details: [
-      {
-        text: "Division 9 Project",
-      },
-      { text: "Total Area: 26,969 sq. ft." },
-    ],
-    year: "2020-2021",
-  },
-  {
     id: "comfort-inn",
     title: "Arcavia Long-Term Care – Orillia, ON",
     location: "33 Carlson Ct, Toronto, ON",
@@ -284,6 +250,40 @@ export const projects = [
         text: "Flooring Installation (70,000 sq. ft., 24 Floors)",
       },
       { text: "Wallpaper Installation (Hallways, 24 Floors)" },
+    ],
+    year: "2020-2021",
+  },
+  {
+    id: "hampton-inn",
+    title: "Medical Building ",
+    location: "Mono, ON",
+    images: [
+      {
+        src: "/Building Images/Medical Building – Mono,/17.jpg",
+        alt: "Modern architecture",
+      },
+      {
+        src: "/",
+        alt: "Modern architecture",
+      },
+      {
+        src: "/",
+        alt: "Modern architecture",
+      },
+      {
+        src: "/",
+        alt: "Modern architecture",
+      },
+      {
+        src: "/",
+        alt: "Modern architecture",
+      },
+    ],
+    details: [
+      {
+        text: "Division 9 Project",
+      },
+      { text: "Total Area: 26,969 sq. ft." },
     ],
     year: "2020-2021",
   },
