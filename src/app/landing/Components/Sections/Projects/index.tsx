@@ -68,7 +68,7 @@ export function ProjectsSection() {
 }
 const items = [
   {
-    title: "Hyatt Place - 33 Carlson Ct, Toronto, ON",
+    title: "Hyatt Place-33 Carlson Ct, Toronto, ON",
     header: (
       <ProjectImage
         href="/portfolio"
@@ -79,7 +79,7 @@ const items = [
     ),
   },
   {
-    title: "Sherway Tower - 205, Sherway Gardens Road, Toronto",
+    title: "Sherway Tower-205, Sherway Gardens, Toronto",
     header: (
       <ProjectImage
         href="/portfolio"
@@ -106,7 +106,7 @@ const items = [
       <ProjectImage
         href="/portfolio"
         isClickable={true}
-        url="/proj/5.png"
+        url="/proj/Screenshot 2025-05-31 at 10.23.24 AM.png"
         alt="/2005cb1422bc9325dbb3051189d840bec42f391b.png"
       />
     ),
