@@ -5,23 +5,23 @@ export const projects = [
     location: "Bradford, ON",
     images: [
       {
-        src: "/Comfort Inn & Suites – Bradford, ON/1.jpg",
+        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/4.png",
         alt: "Hyatt exterior",
       },
       {
-        src: "/Comfort Inn & Suites – Bradford, ON/2.jpg",
+        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/1.png",
         alt: "Hyatt exterior",
       },
       {
-        src: "/Comfort Inn & Suites – Bradford, ON/3.jpeg",
+        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/2.png",
         alt: "Hyatt exterior",
       },
       {
-        src: "/Comfort Inn & Suites – Bradford, ON/4.jpeg",
+        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/3.png",
         alt: "Hyatt exterior",
       },
       {
-        src: "/Comfort Inn & Suites – Bradford, ON/5.jpeg",
+        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/5.png",
         alt: "Hyatt exterior",
       },
     ],
@@ -30,6 +30,8 @@ export const projects = [
         text: "Division 9 Project",
       },
       { text: "Total Area: 49,780 sq. ft." },
+      { text: "Floors: 4" },
+      { text: "Rooms: 91" },
     ],
     year: "2020-2021",
   },
@@ -39,23 +41,23 @@ export const projects = [
     location: "33 Carlson Ct, Toronto, ON",
     images: [
       {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/1.jpeg",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/1.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/2.jpeg",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/2.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/3.jpeg",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/3.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/4.jpeg",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/ Hyatt Place - 33 Carlson Ct, Toronto, ON/5.jpeg",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/5.png",
         alt: "Hotel exterior",
       },
     ],
@@ -78,20 +80,26 @@ export const projects = [
     title: "Medical Building ",
     location: "Mono, ON",
     images: [
-      { src: "/Medical Building - Mono, ON/1.jpg", alt: "Modern architecture" },
       {
-        src: "/Medical Building - Mono, ON/2.jpeg",
+        src: "/Building Images/Medical Building – Mono,/17.jpg",
         alt: "Modern architecture",
       },
       {
-        src: "/Medical Building - Mono, ON/3.jpeg",
+        src: "/",
         alt: "Modern architecture",
       },
       {
-        src: "/Medical Building - Mono, ON/4.jpeg",
+        src: "/",
         alt: "Modern architecture",
       },
-      { src: "/Medical Building - Mono, ON/1.jpg", alt: "Modern architecture" },
+      {
+        src: "/",
+        alt: "Modern architecture",
+      },
+      {
+        src: "/",
+        alt: "Modern architecture",
+      },
     ],
     details: [
       {
@@ -107,23 +115,23 @@ export const projects = [
     location: "33 Carlson Ct, Toronto, ON",
     images: [
       {
-        src: "/arcavia/1.jpg",
+        src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/1.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/arcavia/2.jpg",
+        src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/2.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/arcavia/3.jpg",
+        src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/3.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/4.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/5.jpeg",
         alt: "Hotel exterior",
       },
     ],
@@ -143,23 +151,23 @@ export const projects = [
     location: "201, Monora Park Dr. Mono",
     images: [
       {
-        src: "/HamptonINNandSuites/1.png",
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/1.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/2.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/3.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/4.jpeg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/5.jpeg",
         alt: "Hotel exterior",
       },
     ],
@@ -183,23 +191,23 @@ export const projects = [
     location: "Stoney Creek, ON",
     images: [
       {
-        src: "/Screenshot 2025-05-30 at 10.58.40 PM.png",
+        src: "/Building Images/Alignes  Building/1.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Align Wellness Centre/2.png",
+        src: "/Building Images/Alignes  Building/2.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Align Wellness Centre/3.png",
+        src: "/Building Images/Alignes  Building/3.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Align Wellness Centre/1.png",
+        src: "/Building Images/Alignes  Building/4.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Align Wellness Centre/1.png",
+        src: "/Building Images/Alignes  Building/5.png",
         alt: "Hotel exterior",
       },
     ],
@@ -217,19 +225,19 @@ export const projects = [
     location: " Mississauga, ON",
     images: [
       {
-        src: "/Hullabaloo Autism Centre/1.png",
+        src: "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/1.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/2.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/3.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/",
+        src: "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/4.jpg",
         alt: "Hotel exterior",
       },
       {
@@ -251,23 +259,23 @@ export const projects = [
     location: "205, Sherway Gardens Road, Toronto",
     images: [
       {
-        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/1.png",
+        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/1.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/2.jpeg",
+        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/2.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/3.jpeg",
+        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/3.png",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/4.jpeg",
+        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/4.jpg",
         alt: "Hotel exterior",
       },
       {
-        src: "/Sherway Tower - 205, Sherway Gardens Road, Toronto/5.jpeg",
+        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/5.jpg",
         alt: "Hotel exterior",
       },
     ],

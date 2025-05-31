@@ -20,7 +20,7 @@ export function ProjectImage({
 }) {
   return (
     <div className={cn("relative w-full rounded-[16px] h-full", className)}>
-      <a href={url} target="_blank" rel="noopener noreferrer">
+      <Link href={"/portfolio"}>
         <Image
           src={url}
           alt={alt}
@@ -28,7 +28,7 @@ export function ProjectImage({
           className="object-cover rounded-t-[16px]"
           priority
         />
-      </a>
+      </Link>
     </div>
   );
 }
@@ -36,6 +36,7 @@ export function ProjectImage({
 import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/bento-grid";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export function ProjectsSection() {
   return (

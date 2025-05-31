@@ -111,8 +111,9 @@ export function Globe({ globeConfig, data, hexBinPointsData }: WorldProps) {
       const theta = (lng + 180) * (Math.PI / 180); // from longitude
 
       if (groupRef.current) {
-        (groupRef.current as any).rotation.y = -theta;
-        (groupRef.current as any).rotation.x = -phi + Math.PI / 2;
+        (groupRef.current as any).rotation.y = -theta + Math.PI;
+        (groupRef.current as any).rotation.x = -phi + Math.PI / 10;
+        (groupRef.current as any).rotation.z = Math.PI + Math.PI;
       }
 
       setIsInitialized(true);

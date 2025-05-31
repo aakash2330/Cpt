@@ -11,31 +11,31 @@ const serviceData = [
     image: "/Servicepage/1.png",
     heading: "CONSTRUCTION MANAGEMENT",
     description:
-      "Overseeing all phases of construction, we coordinate teams and resources to achieve seamless project execution.​​",
+      "We provide full project oversight, managing all trades, schedules, budgets, and site operations. Our team ensures every phase runs efficiently, with tight coordination and proactive problem-solving to keep your project moving forward, without delays or surprises.",
   },
   {
     image: "/Servicepage/2.png",
     heading: "GENERAL CONTRACTING",
     description:
-      "Managing every aspect of the construction process, we ensure projects are delivered on time, within budget, and to the highest standards.​",
+      "As your General Contractor, we take total ownership of your project from start to finish. From permits and procurement to subcontractor management and final inspections, we deliver projects on time, on budget, and to exacting standards — every time.",
   },
   {
     image: "/Servicepage/3.png",
-    heading: "RESIDENTIAL",
+    heading: "RESIDENTIAL CONSTRUCTION",
     description:
-      "Turn your dream home into a reality with our help. We offer comprehensive residential construction services to cater to your every need.",
+      "We build homes that reflect your vision and lifestyle. From custom builds to multi-unit developments and renovations, our residential services combine quality craftsmanship, project management expertise, and attention to detail at every stage.",
   },
   {
     image: "/Servicepage/4.png",
-    heading: "COMMERCIAL",
+    heading: "COMMERCIAL CONSTRUCTION",
     description:
-      "Achieve your ideal look and function for your commercial space with our assistance. We can provide you with exemplary construction solutions to meet your specific needs.",
+      "Transform your commercial space into a high-performance, functional environment tailored to your business needs. We manage every aspect of commercial builds — from retail spaces and offices to large-scale developments — ensuring quality, compliance, and operational efficiency.",
   },
   {
     image: "/Servicepage/5.png",
-    heading: "HOSPITALITY",
+    heading: "HOSPITALITY CONSTRUCTION",
     description:
-      "See your envisioned property design for your hotel or hospitality space come to life with our aid. At City Professional Trades, we offer full-service construction services for this type of real estate.",
+      "Create hospitality spaces designed to impress and endure. We specialize in building hotels, restaurants, and entertainment venues that capture your brand’s character and deliver unforgettable guest experiences. From concept to completion, we get it done right.",
   },
 ];
 
@@ -83,18 +83,24 @@ export default function ServicePage() {
             />
           </AnimatedDiv>
 
-          <div className="relative z-10 flex h-full items-end">
+          <div className="relative z-10 flex h-full hidden sm:flex items-end">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
-              <h2 className="mb-2 self-start text-sm sm:text-2xl font-semibold tracking-wide">
+              <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm self-start sm:text-2xl pt-12 font-semibold tracking-wide">
                 WHAT WE DO
               </h2>
-              <p className="text-xs pl-1 text-left self-start xs:text-sm sm:text-base">
-                At City Professional Trades, we offer a comprehensive range of
-                construction services tailored to meet the unique needs of each
-                project. Our expertise spans:
+              <p className="text-xs xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+                At City Professional Trades, we deliver complete, high-quality
+                construction solutions tailored to every project’s unique
+                demands. We lead with precision, experience, and a no-compromise
+                approach to safety, quality, and results.
+              </p>
+              <p className="text-xs mt-2 xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+                Our work covers every phase — from pre-construction planning to
+                final turnover — ensuring seamless project delivery, clear
+                communication, and dependable outcomes you can trust.
               </p>
             </AnimatedDiv>
           </div>

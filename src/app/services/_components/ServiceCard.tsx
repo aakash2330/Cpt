@@ -59,7 +59,7 @@ export function ServiceCard({
             <h3 className="text-base xs:text-lg sm:text-3xl font-semibold">
               {title}
             </h3>
-            <p className="text-sm xs:text-base sm:text-lg max-w-md">
+            <p className="text-sm xs:text-base sm:text-lg max-w-2xl">
               {description}
             </p>
           </div>
