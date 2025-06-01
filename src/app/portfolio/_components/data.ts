@@ -80,6 +80,7 @@ export const projects = [
   {
     id: "comfort-inn",
     title: "Arcavia Long-Term Care – Orillia, ON",
+    location: "",
     images: [
       {
         src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/1.png",
