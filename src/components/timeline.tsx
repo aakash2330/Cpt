@@ -155,7 +155,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                   <div className="h-80">
                     <div className="grid grid-cols-6 gap-3 h-[calc(50%-2px)]">
                       <div className="overflow-hidden col-span-4 h-full relative rounded-tl-xl rounded-bl-xl">
-                        <ImageDialog imageSrc={project.images[0]?.src ?? ""}>
+                        <ImageDialog images={project.images} initialIndex={0}>
                           <Image
                             src={project.images[0]?.src}
                             alt={project.images[0]?.alt || "Project image"}
@@ -168,7 +168,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                         </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-2 h-full relative rounded-tr-xl rounded-br-xl">
-                        <ImageDialog imageSrc={project.images[1]?.src ?? ""}>
+                        <ImageDialog images={project.images} initialIndex={1}>
                           <Image
                             src={project.images[1]?.src}
                             alt={project.images[1]?.alt || "Project image"}
@@ -185,7 +185,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
 
                     <div className="grid grid-cols-8 gap-3 h-[calc(50%+2px)]">
                       <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
-                        <ImageDialog imageSrc={project.images[2]?.src ?? ""}>
+                        <ImageDialog images={project.images} initialIndex={2}>
                           <Image
                             src={project.images[2]?.src}
                             alt={project.images[2]?.alt || "Project image"}
@@ -197,7 +197,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                         </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-4 h-full relative">
-                        <ImageDialog imageSrc={project.images[3]?.src ?? ""}>
+                        <ImageDialog images={project.images} initialIndex={3}>
                           <Image
                             src={project.images[3]?.src}
                             alt={project.images[3]?.alt || "Project image"}
@@ -209,7 +209,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                         </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-2 h-full relative rounded-br-xl">
-                        <ImageDialog imageSrc={project.images[4]?.src ?? ""}>
+                        <ImageDialog images={project.images} initialIndex={4}>
                           <Image
                             src={project.images[4]?.src}
                             alt={project.images[4]?.alt || "Project image"}

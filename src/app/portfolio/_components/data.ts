@@ -41,9 +41,10 @@ export const projects = [
     location: "33 Carlson Ct, Toronto, ON",
     images: [
       {
-        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/1.jpg",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
         alt: "Hotel exterior",
       },
+
       {
         src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/2.jpg",
         alt: "Hotel exterior",
@@ -53,9 +54,10 @@ export const projects = [
         alt: "Hotel exterior",
       },
       {
-        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
+        src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/1.jpg",
         alt: "Hotel exterior",
       },
+
       {
         src: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/5.png",
         alt: "Hotel exterior",
@@ -78,7 +80,6 @@ export const projects = [
   {
     id: "comfort-inn",
     title: "Arcavia Long-Term Care – Orillia, ON",
-    location: "33 Carlson Ct, Toronto, ON",
     images: [
       {
         src: "/Building Images/Arcavia Long-Term Care – Orillia, ON/1.png",
@@ -117,17 +118,14 @@ export const projects = [
     location: "201, Monora Park Dr. Mono",
     images: [
       {
-        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/1.jpg",
-        alt: "Hotel exterior",
-      },
-      {
-        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/2.jpeg",
-        alt: "Hotel exterior",
-      },
-      {
         src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/3.jpeg",
         alt: "Hotel exterior",
       },
+      {
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/1.jpg",
+        alt: "Hotel exterior",
+      },
+
       {
         src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/4.jpeg",
         alt: "Hotel exterior",
@@ -136,6 +134,11 @@ export const projects = [
         src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/5.jpeg",
         alt: "Hotel exterior",
       },
+
+      {
+        src: "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/2.jpeg",
+        alt: "Hotel exterior",
+      }
     ],
     details: [
       {

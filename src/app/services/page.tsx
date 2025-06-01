@@ -70,7 +70,7 @@ export default function ServicePage() {
 
   return (
     <ReactLenis root>
-      <div className="w-full bg-background mb-10">
+      <div className="w-full bg-background mb-4 lg:mb-24 2xl:mb-[-300px]">
         <div className="relative h-[60vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
           <AnimatedDiv
             style={imageAnimation}
@@ -88,14 +88,14 @@ export default function ServicePage() {
           <div className="relative z-10 flex h-full hidden sm:flex items-end">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
               <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm self-start sm:text-2xl pt-12 font-semibold tracking-wide">
                 WHAT WE DO
               </h2>
               <p className="text-xs font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
                 At City Professional Trades, we deliver complete, high-quality
-                construction solutions tailored to every project’s unique
+                construction solutions tailored to every project's unique
                 demands. We lead with precision, experience, and a no-compromise
                 approach to safety, quality, and results.
               </p>

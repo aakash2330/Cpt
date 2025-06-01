@@ -5,5 +5,12 @@ export function LogoMain() {
 }
 
 function Logo() {
-  return <Image src="/image 175.png" width={115} height={115} alt="CPT Logo" />;
+  return <div className="w-20 sm:w-24 md:w-28 relative aspect-square">
+    <Image
+      src="/image 175.png"
+      alt="CPT Logo"
+      fill
+      className="object-contain"
+    />
+  </div>
 }
