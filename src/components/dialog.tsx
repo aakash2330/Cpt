@@ -5,6 +5,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Image from "next/image";
+
 export function ImageDialog({
   imageSrc,
   children,
@@ -14,20 +15,20 @@ export function ImageDialog({
 }) {
   return (
     <Dialog>
-      <DialogTrigger>
-        <Image
-          src={imageSrc}
-          alt={imageSrc}
-          className="object-cover rounded-[12px]"
-          fill
-          sizes="(max-width: 640px) 66vw, 50vw"
-          priority={true}
-          loading={"eager"}
-        />
-      </DialogTrigger>
-      <DialogContent className="min-h-[80dvh] rounded-[12px] min-w-[100dvh]">
-        <DialogTitle />
-        {children}
+      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogContent className="min-h-[80dvh] w-auto min-w-[60vw] bg-transparent p-4 sm:p-6 md:p-8 aspect-video">
+        <DialogTitle className="hidden" />
+        <div className="relative w-full h-full">
+          <Image
+            src={imageSrc}
+            alt={imageSrc ? "Enlarged project image" : "Image placeholder"}
+            className="object-contain"
+            fill
+            sizes="100vw"
+            priority
+            loading="eager"
+          />
+        </div>
       </DialogContent>
     </Dialog>
   );

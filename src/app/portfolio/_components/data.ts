@@ -250,7 +250,7 @@ export const projects = [
       {
         text: "Flooring Installation (70,000 sq. ft. - 24 Floors)",
       },
-      { text: "Wallpaper Installation (Hallways - 24 Floors)" }
+      { text: "Wallpaper Installation (Hallways - 24 Floors)" },
     ],
     year: "2020-2021",
   },
