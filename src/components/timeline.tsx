@@ -49,7 +49,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
       className="w-full px-4 sm:px-6 md:px-12 bg-background"
       ref={containerRef}
     >
-      <div ref={ref} className="relative w-full pb-20">
+      <div ref={ref} className="relative w-full pb-20 2xl:pb-12">
         {projects.map((project, index) => (
           <div key={index}>
             {/* Mobile Layout - Fixed with ImageDialog */}
@@ -151,14 +151,14 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
             {/* Desktop Layout - Original with Animations */}
             <div
               className={cn(
-                "hidden md:flex flex-row-reverse justify-center pt-10 md:pt-40",
+                "hidden md:flex flex-row-reverse justify-center pt-10 md:pt-40 2xl:pt-20",
                 index % 2 == 0 && "flex-row",
               )}
             >
-              <div className="relative pl-20 my-[50px] w-full pr-4 md:pl-4">
+              <div className="relative pl-20 my-[50px] 2xl:my-[25px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>
-                  <div className="h-80">
-                    <div className="grid grid-cols-6 gap-3 h-[calc(50%-2px)]">
+                  <div className="h-80 2xl:h-64">
+                    <div className="grid grid-cols-6 gap-3 2xl:gap-2 h-[calc(50%-2px)]">
                       <div className="overflow-hidden col-span-4 h-full relative rounded-tl-xl rounded-bl-xl">
                         <ImageDialog images={project.images} initialIndex={0}>
                           <Image
@@ -186,9 +186,9 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                       </div>
                     </div>
 
-                    <div className="h-3"></div>
+                    <div className="h-3 2xl:h-2"></div>
 
-                    <div className="grid grid-cols-8 gap-3 h-[calc(50%+2px)]">
+                    <div className="grid grid-cols-8 gap-3 2xl:gap-2 h-[calc(50%+2px)]">
                       <div className="overflow-hidden col-span-2 h-full relative rounded-bl-xl">
                         <ImageDialog images={project.images} initialIndex={2}>
                           <Image
@@ -229,25 +229,25 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                   </div>
                 </div>
               </div>
-              <div className="sticky flex flex-col md:flex-row justify-center z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-[40%]">
+              <div className="sticky flex flex-col md:flex-row justify-center z-40 items-center top-40 2xl:top-24 self-start max-w-xs lg:max-w-sm md:w-[40%]">
                 <div className="h-7 w-7 rounded-full bg-neutral-200 dark:bg-white border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <div className="relative flex justify-center items-center pl-20 my-[50px] w-full pr-4 md:pl-4">
+              <div className="relative flex justify-center items-center pl-20 my-[50px] 2xl:my-[25px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>
-                  <div className={cn("px-20")}>
-                    <h2 className="mb-0 text-sm sm:text-4xl font-semibold tracking-wide">
+                  <div className={cn("px-20 2xl:px-12")}>
+                    <h2 className="mb-0 text-sm sm:text-4xl 2xl:text-3xl font-semibold tracking-wide">
                       {project.title}
                     </h2>
-                    <p className="mb-0 text-sm sm:text-4xl font-semibold tracking-wide">
+                    <p className="mb-0 text-sm sm:text-4xl 2xl:text-3xl font-semibold tracking-wide">
                       {project.location}
                     </p>
                     <ul
                       className={cn(
-                        "list-disc flex flex-col pt-4  pl-5 space-y-2",
+                        "list-disc flex flex-col pt-4 2xl:pt-3 pl-5 space-y-2 2xl:space-y-1",
                       )}
                     >
                       {project.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="text-white max-w-sm">
+                        <li key={detailIndex} className="text-white max-w-sm 2xl:text-sm">
                           {detail.text}
                         </li>
                       ))}
