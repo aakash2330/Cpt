@@ -74,7 +74,7 @@ export async function Footer() {
             <a href="/services" className="text-sm hover:text-gray-300 transition-colors">
               Services
             </a>
-            <a href="/sub-contractor" className="text-sm hover:text-gray-300 transition-colors">
+            <a href="/subcontractor" className="text-sm hover:text-gray-300 transition-colors">
               Sub Contractor
             </a>
           </div>
@@ -151,7 +151,7 @@ export async function Footer() {
               <a href="/services" className="text-sm hover:text-gray-300 transition-colors">
                 Services
               </a>
-              <a href="/sub-contractor" className="text-sm hover:text-gray-300 transition-colors">
+              <a href="/subcontractor" className="text-sm hover:text-gray-300 transition-colors">
                 Sub Contractor
               </a>
             </div>
@@ -223,7 +223,7 @@ export async function Footer() {
               <a href="/services" className="text-sm hover:text-gray-300 transition-colors">
                 Services
               </a>
-              <a href="/sub-contractor" className="text-sm hover:text-gray-300 transition-colors">
+              <a href="/subcontractor" className="text-sm hover:text-gray-300 transition-colors">
                 Sub Contractor
               </a>
             </div>

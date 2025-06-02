@@ -38,7 +38,7 @@ export function ServiceCard({
   return (
     <div
       ref={container}
-      className="h-screen flex items-center justify-center sticky top-0 px-4 sm:px-6 lg:px-8"
+      className="h-screen flex items-center justify-center sticky top-0 px-4 sm:px-6 lg:px-8 min-[1440px]:mb-24 min-[1440px]:mt-[-200px]"
     >
       <motion.div
         style={{ scale }}
