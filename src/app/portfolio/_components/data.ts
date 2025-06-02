@@ -5,7 +5,7 @@ export const projects = [
     location: "Bradford, ON",
     images: [
       {
-        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/4.png",
+        src: "/Building Images/Comfort Inn & Suites – Bradford, ON/6.png",
         alt: "Hyatt exterior",
       },
       {
@@ -241,7 +241,7 @@ export const projects = [
         alt: "Hotel exterior",
       },
       {
-        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/4.jpg",
+        src: "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/6.png",
         alt: "Hotel exterior",
       },
       {

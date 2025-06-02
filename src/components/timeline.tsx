@@ -52,69 +52,74 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
       <div ref={ref} className="relative w-full pb-20">
         {projects.map((project, index) => (
           <div key={index}>
+            {/* Mobile Layout - Fixed with ImageDialog */}
             <div className="block md:hidden">
               <div className="flex flex-col items-center pt-8 sm:pt-12">
-                <div className="mb-6">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-neutral-500 dark:text-neutral-500 text-center">
-                    {project.year}
-                  </h3>
-                </div>
-
                 <div className="w-full px-4 mb-8">
                   <div className="h-48 sm:h-64 space-y-2">
                     <div className="grid grid-cols-3 gap-2 h-[60%]">
                       <div className="overflow-hidden col-span-2 h-full relative rounded-lg">
-                        <Image
-                          src={project.images[0]?.src}
-                          alt={project.images[0]?.alt || "Project image"}
-                          className="object-cover"
-                          fill
-                          sizes="(max-width: 640px) 66vw, 50vw"
-                          priority={index === 0}
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
+                        <ImageDialog images={project.images} initialIndex={0}>
+                          <Image
+                            src={project.images[0]?.src}
+                            alt={project.images[0]?.alt || "Project image"}
+                            className="object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                            fill
+                            sizes="(max-width: 640px) 66vw, 50vw"
+                            priority={index === 0}
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                        </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-1 h-full relative rounded-lg">
-                        <Image
-                          src={project.images[1]?.src}
-                          alt={project.images[1]?.alt || "Project image"}
-                          className="object-cover"
-                          fill
-                          sizes="(max-width: 640px) 33vw, 25vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog images={project.images} initialIndex={1}>
+                          <Image
+                            src={project.images[1]?.src}
+                            alt={project.images[1]?.alt || "Project image"}
+                            className="object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                            fill
+                            sizes="(max-width: 640px) 33vw, 25vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                     </div>
                     <div className="grid grid-cols-4 gap-2 h-[35%]">
                       <div className="overflow-hidden col-span-1 h-full relative rounded-lg">
-                        <Image
-                          src={project.images[2]?.src}
-                          alt={project.images[2]?.alt || "Project image"}
-                          className="object-cover"
-                          fill
-                          sizes="(max-width: 640px) 25vw, 20vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog images={project.images} initialIndex={2}>
+                          <Image
+                            src={project.images[2]?.src}
+                            alt={project.images[2]?.alt || "Project image"}
+                            className="object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                            fill
+                            sizes="(max-width: 640px) 25vw, 20vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-2 h-full relative rounded-lg">
-                        <Image
-                          src={project.images[3]?.src}
-                          alt={project.images[3]?.alt || "Project image"}
-                          className="object-cover"
-                          fill
-                          sizes="(max-width: 640px) 50vw, 40vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog images={project.images} initialIndex={3}>
+                          <Image
+                            src={project.images[3]?.src}
+                            alt={project.images[3]?.alt || "Project image"}
+                            className="object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                            fill
+                            sizes="(max-width: 640px) 50vw, 40vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                       <div className="overflow-hidden col-span-1 h-full relative rounded-lg">
-                        <Image
-                          src={project.images[4]?.src}
-                          alt={project.images[4]?.alt || "Project image"}
-                          className="object-cover"
-                          fill
-                          sizes="(max-width: 640px) 25vw, 20vw"
-                          loading="lazy"
-                        />
+                        <ImageDialog images={project.images} initialIndex={4}>
+                          <Image
+                            src={project.images[4]?.src}
+                            alt={project.images[4]?.alt || "Project image"}
+                            className="object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                            fill
+                            sizes="(max-width: 640px) 25vw, 20vw"
+                            loading="lazy"
+                          />
+                        </ImageDialog>
                       </div>
                     </div>
                   </div>
@@ -159,7 +164,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                           <Image
                             src={project.images[0]?.src}
                             alt={project.images[0]?.alt || "Project image"}
-                            className="object-cover rounded-[12px]"
+                            className="object-cover rounded-[12px] cursor-pointer hover:opacity-90 transition-opacity"
                             fill
                             sizes="(max-width: 768px) 100vw, 33vw"
                             priority={index === 0}
@@ -172,7 +177,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                           <Image
                             src={project.images[1]?.src}
                             alt={project.images[1]?.alt || "Project image"}
-                            className="object-cover rounded-[12px]"
+                            className="object-cover rounded-[12px] cursor-pointer hover:opacity-90 transition-opacity"
                             fill
                             sizes="(max-width: 768px) 100vw, 16vw"
                             loading="lazy"
@@ -189,7 +194,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                           <Image
                             src={project.images[2]?.src}
                             alt={project.images[2]?.alt || "Project image"}
-                            className="object-cover rounded-[12px]"
+                            className="object-cover rounded-[12px] cursor-pointer hover:opacity-90 transition-opacity"
                             fill
                             sizes="(max-width: 768px) 100vw, 12vw"
                             loading="lazy"
@@ -201,7 +206,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                           <Image
                             src={project.images[3]?.src}
                             alt={project.images[3]?.alt || "Project image"}
-                            className="object-cover rounded-[12px]"
+                            className="object-cover rounded-[12px] cursor-pointer hover:opacity-90 transition-opacity"
                             fill
                             sizes="(max-width: 768px) 100vw, 25vw"
                             loading="lazy"
@@ -213,7 +218,7 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
                           <Image
                             src={project.images[4]?.src}
                             alt={project.images[4]?.alt || "Project image"}
-                            className="object-cover rounded-[12px]"
+                            className="object-cover rounded-[12px] cursor-pointer hover:opacity-90 transition-opacity"
                             fill
                             sizes="(max-width: 768px) 100vw, 12vw"
                             loading="lazy"
@@ -226,14 +231,6 @@ export const Timeline = ({ projects }: { projects: Project[] }) => {
               </div>
               <div className="sticky flex flex-col md:flex-row justify-center z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-[40%]">
                 <div className="h-7 w-7 rounded-full bg-neutral-200 dark:bg-white border border-neutral-300 dark:border-neutral-700 p-2" />
-                {/* <h3 */}
-                {/*   className={cn( */}
-                {/*     "hidden md:block text-xl w-full md:text-3xl font-bold text-neutral-500 dark:text-neutral-500", */}
-                {/*     index % 2 !== 0 ? "text-left" : "text-right", */}
-                {/*   )} */}
-                {/* > */}
-                {/*   {project.year} */}
-                {/* </h3> */}
               </div>
               <div className="relative flex justify-center items-center pl-20 my-[50px] w-full pr-4 md:pl-4">
                 <div className={`w-full`}>

@@ -13,10 +13,11 @@ interface CardProps {
   title: string;
   description: string;
   url: string;
-  progress: MotionValue<number>;
+  progress: MotionValue;
   range: [number, number];
   targetScale: number;
 }
+
 export function ServiceCard({
   i,
   title,
@@ -33,36 +34,37 @@ export function ServiceCard({
   });
 
   const scale = useTransform(progress, range, [1, targetScale]);
+
   return (
     <div
       ref={container}
-      className="h-screen flex items-start py-2 justify-center sticky top-0"
+      className="h-screen flex items-center justify-center sticky top-0 px-4 sm:px-6 lg:px-8"
     >
       <motion.div
-        style={{
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-        }}
-        className={`flex flex-col relative -top-[25%] h-[450px] w-[100%] rounded-md p-10 origin-top`}
+        style={{ scale }}
+        className="flex flex-col lg:flex-row relative bg-white rounded-[25px] shadow-xl 
+                   w-full max-w-7xl mx-auto overflow-hidden
+                   min-h-[500px] sm:min-h-[600px] lg:min-h-[500px]
+                   p-4 sm:p-6 lg:p-8"
       >
-        <div className="w-full my-6 sm:my-8 bg-background">
-          <div className="relative w-full h-56 xs:h-64 sm:h-72 md:h-96 lg:h-[400px]">
-            <Image
-              src={url}
-              alt="card-image"
-              fill
-              className="object-cover rounded-xl sm:rounded-2xl"
-              loading="lazy"
-            />
-          </div>
-          <div className="text-white flex bg-background mt-6 flex-col gap-2 py-4 sm:flex-row sm:items-center sm:justify-between">
-            <h3 className="text-base xs:text-lg sm:text-3xl self-start font-semibold">
-              {title}
-            </h3>
-            <p className="text-sm font-inter xs:text-base sm:text-lg max-w-2xl">
-              {description}
-            </p>
-          </div>
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2 h-48 sm:h-64 lg:h-auto relative mb-4 lg:mb-0 lg:mr-8">
+          <Image
+            src={url}
+            alt={title}
+            fill
+            className="object-cover rounded-[20px]"
+          />
+        </div>
+
+        {/* Content Section */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight">
+            {title}
+          </h2>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+            {description}
+          </p>
         </div>
       </motion.div>
     </div>

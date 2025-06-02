@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
+import { useState } from "react";
 import logo from "../../../../../../public/lgos/01.png";
 import logo1 from "../../../../../../public/lgos/02.png";
 import logo2 from "../../../../../../public/lgos/03.png";
@@ -43,25 +44,85 @@ type LogoTicker = { id: string; src: StaticImageData; alt: string };
 
 export function LogoTicker() {
   const { isMobile } = useMediaQuery();
+  const [visibleLogos, setVisibleLogos] = useState(5);
 
+  const handleLoadMore = () => {
+    setVisibleLogos(prev => Math.min(prev + 5, logosTickers.length));
+  };
+
+  const showLoadMore = isMobile && visibleLogos < logosTickers.length;
+
+  if (isMobile) {
+    return (
+      <div className="text-white pt-2 pb-8">
+        <div className="container">
+          <motion.div
+            className="flex flex-col items-center gap-6"
+            layout
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <motion.div
+              className="flex flex-col items-center gap-4 w-full"
+              layout
+            >
+              {logosTickers.slice(0, visibleLogos).map((logo, index) => (
+                <motion.div
+                  key={logo.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{
+                    delay: index >= 5 ? (index - 5) * 0.05 : index * 0.1,
+                    duration: 0.3
+                  }}
+                  layout
+                  className="flex justify-center w-full"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-12 w-auto"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {showLoadMore && (
+              <motion.button
+                onClick={handleLoadMore}
+                className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-lg border border-white/20 text-white font-medium transition-colors mt-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                layout
+              >
+                Load More
+              </motion.button>
+            )}
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop layout (existing horizontal ticker)
   return (
     <div className="py-8 text-white">
       <div className="container">
-        <div className="relative mt-9 flex overflow-hidden before:left-0 before:top-0 before:z-10 before:h-full before:w-5 before:bg-[linear-gradient(to_right,#121212,rgba(0,0,0,0))] after:right-0 after:top-0 after:h-full after:w-5 after:bg-[linear-gradient(to_left,#121212,rgba(0,0,0,0))] sm:before:absolute sm:before:content-[''] sm:after:absolute sm:after:content-['']">
+        <div className="relative mt-9 flex overflow-hidden before:left-0 before:top-0 before:z-10 before:h-full before:w-5 before:bg-[linear-gradient(to_right,#121212,rgba(0,0,0,0))] after:right-0 after:top-0 after:h-full after:w-5 after:bg-[linear-gradient(to_left,#121212,rgba(0,0,0,0))] before:absolute before:content-[''] after:absolute after:content-['']">
           <motion.div
             transition={{
               duration: 20,
               ease: "linear",
               repeat: Infinity,
             }}
-            className="grid grid-cols-2 items-start justify-items-center bg-transparent gap-x-4 gap-y-4 sm:flex sm:flex-none sm:justify-center sm:gap-16 sm:pr-16"
-            initial={isMobile ? {} : { translateX: 0 }}
-            animate={isMobile ? {} : { translateX: "-50%" }}
+            className="flex flex-none justify-center gap-16 pr-16"
+            initial={{ translateX: 0 }}
+            animate={{ translateX: "-50%" }}
           >
-            {Array.from({ length: 2 }).map(() =>
+            {Array.from({ length: 2 }).map((_, arrayIndex) =>
               logosTickers.map((logo) => (
                 <Image
-                  key={logo.id}
+                  key={`${logo.id}-${arrayIndex}`}
                   src={logo.src}
                   alt={logo.alt}
                   className="h-12 w-auto flex-none"

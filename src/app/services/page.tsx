@@ -41,12 +41,13 @@ const serviceData = [
 
 export default function ServicePage() {
   const [loaded, setLoaded] = useState(false);
-
   const container = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
+
   useEffect(() => {
     setLoaded(true);
   }, []);
@@ -64,13 +65,32 @@ export default function ServicePage() {
     config: { tension: 170, friction: 22 },
     delay: 300,
   });
+
   const AnimatedDiv = animated("div");
 
-
+  const TextContent = () => (
+    <>
+      <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm sm:text-2xl pt-6 sm:pt-12 font-semibold tracking-wide">
+        WHAT WE DO
+      </h2>
+      <p className="text-xs font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+        At City Professional Trades, we deliver complete, high-quality
+        construction solutions tailored to every project's unique demands. We
+        lead with precision, experience, and a no-compromise approach to safety,
+        quality, and results.
+      </p>
+      <p className="text-xs mt-2 font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
+        Our work covers every phase — from pre-construction planning to final
+        turnover — ensuring seamless project delivery, clear communication, and
+        dependable outcomes you can trust.
+      </p>
+    </>
+  );
 
   return (
     <ReactLenis root>
       <div className="w-full bg-background mb-4 lg:mb-24 2xl:mb-[-300px]">
+        {/* Hero Section */}
         <div className="relative h-[60vh] xs:h-[70vh] sm:h-screen w-full overflow-hidden">
           <AnimatedDiv
             style={imageAnimation}
@@ -85,29 +105,23 @@ export default function ServicePage() {
             />
           </AnimatedDiv>
 
-          <div className="relative z-10 flex h-full hidden sm:flex items-end">
+          {/* Text for Large Screens */}
+          <div className="hidden sm:flex items-end absolute inset-0 z-10">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 sm:py-8 px-4 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
-              <h2 className="mb-3 sm:mb-4 text-xs xs:text-sm self-start sm:text-2xl pt-12 font-semibold tracking-wide">
-                WHAT WE DO
-              </h2>
-              <p className="text-xs font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
-                At City Professional Trades, we deliver complete, high-quality
-                construction solutions tailored to every project's unique
-                demands. We lead with precision, experience, and a no-compromise
-                approach to safety, quality, and results.
-              </p>
-              <p className="text-xs mt-2 font-inter xs:text-sm sm:text-base leading-relaxed text-left max-w-none sm:max-w-md lg:max-w-lg">
-                Our work covers every phase — from pre-construction planning to
-                final turnover — ensuring seamless project delivery, clear
-                communication, and dependable outcomes you can trust.
-              </p>
+              <TextContent />
             </AnimatedDiv>
           </div>
         </div>
 
+        {/* Text for Small Screens */}
+        <div className="sm:hidden px-4 py-6 bg-[#121212] text-white rounded-tr-2xl -mt-6 relative z-20">
+          <TextContent />
+        </div>
+
+        {/* Service Cards */}
         {serviceData.map((project, i) => {
           const targetScale = 1 - (serviceData.length - i) * 0.1;
           return (
