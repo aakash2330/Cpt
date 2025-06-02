@@ -42,7 +42,7 @@ export function ServiceCard({
     >
       <motion.div
         style={{ scale }}
-        className="flex flex-col lg:flex-row relative bg-white rounded-[25px] shadow-xl 
+        className="flex flex-col lg:flex-row relative bg-black rounded-[25px] shadow-xl 
                    w-full max-w-7xl mx-auto overflow-hidden
                    min-h-[500px] sm:min-h-[600px] lg:min-h-[500px]
                    p-4 sm:p-6 lg:p-8"
@@ -59,10 +59,10 @@ export function ServiceCard({
 
         {/* Content Section */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-6">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight">
             {title}
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
             {description}
           </p>
         </div>
