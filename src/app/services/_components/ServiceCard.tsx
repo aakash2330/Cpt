@@ -45,7 +45,7 @@ export function ServiceCard({
         className="flex flex-col lg:flex-row relative bg-black rounded-[25px] shadow-xl 
                    w-full max-w-7xl mx-auto overflow-hidden
                    min-h-[500px] sm:min-h-[600px] lg:min-h-[500px]
-                   p-4 sm:p-6 lg:p-8"
+                   px-4 sm:p-6 lg:p-8"
       >
         {/* Image Section */}
         <div className="w-full lg:w-1/2 h-48 sm:h-64 lg:h-auto relative mb-4 lg:mb-0 lg:mr-8">
@@ -58,7 +58,7 @@ export function ServiceCard({
         </div>
 
         {/* Content Section */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-3 sm:space-y-4 lg:space-y-6">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center sm:space-y-4 lg:space-y-6">
           <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight">
             {title}
           </h2>

@@ -122,6 +122,7 @@ export default function ServicePage() {
         </div>
 
         {/* Service Cards */}
+        <div className="-mt-[100px] -mb-[100px] md:mt-0 lg:-mt-[100px] xl:mt-[100px] 2xl:mb-[200px]">
         {serviceData.map((project, i) => {
           const targetScale = 1 - (serviceData.length - i) * 0.1;
           return (
@@ -137,6 +138,7 @@ export default function ServicePage() {
             />
           );
         })}
+        </div>
       </div>
     </ReactLenis>
   );
