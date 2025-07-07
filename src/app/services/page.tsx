@@ -109,7 +109,7 @@ export default function ServicePage() {
           <div className="hidden sm:flex items-end absolute inset-0 z-10">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#121212] py-6 sm:py-8 px-4 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#12202F] py-6 sm:py-8 px-4 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
               <TextContent />
             </AnimatedDiv>
@@ -117,7 +117,7 @@ export default function ServicePage() {
         </div>
 
         {/* Text for Small Screens */}
-        <div className="sm:hidden px-4 py-6 bg-[#121212] text-white rounded-tr-2xl -mt-6 relative z-20">
+        <div className="sm:hidden px-4 py-6 bg-[#12202F] text-white rounded-tr-2xl -mt-6 relative z-20">
           <TextContent />
         </div>
 

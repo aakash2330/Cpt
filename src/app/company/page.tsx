@@ -111,7 +111,7 @@ export default function CompanyPage() {
           <div className="hidden sm:flex items-end absolute inset-0 z-10">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-4/5 md:w-3/4 lg:w-3/5 xl:w-1/2 h-auto bg-[#121212] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
+              className="w-full sm:w-4/5 md:w-3/4 lg:w-3/5 xl:w-1/2 h-auto bg-[#12202F] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
               <TextContent />
             </AnimatedDiv>
@@ -119,7 +119,7 @@ export default function CompanyPage() {
         </div>
 
         {/* Small Screen Text Below Image */}
-        <div className="sm:hidden px-4 py-6 bg-[#121212] text-white rounded-tr-2xl -mt-6 relative z-20">
+        <div className="sm:hidden px-4 py-6 bg-[#12202F] text-white rounded-tr-2xl -mt-6 relative z-20">
           <TextContent />
         </div>
 

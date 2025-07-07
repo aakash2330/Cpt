@@ -54,7 +54,7 @@ export default function ServicePage() {
           <div className="relative z-10 flex h-full items-end">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
+              className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#12202F] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
             >
               <h2 className="mb-2 self-start text-sm sm:text-3xl font-semibold tracking-wide">
                 Trusted by Industry Leaders Across Sectors

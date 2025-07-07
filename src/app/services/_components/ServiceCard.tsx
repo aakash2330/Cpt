@@ -42,7 +42,7 @@ export function ServiceCard({
     >
       <motion.div
         style={{ scale }}
-        className="flex flex-col lg:flex-row relative bg-black rounded-[25px] shadow-xl 
+        className="flex flex-col lg:flex-row relative bg-gray-800 rounded-[25px] shadow-xl 
                    w-full max-w-7xl mx-auto overflow-hidden
                    min-h-[500px] sm:min-h-[600px] lg:min-h-[500px]
                    px-4 sm:p-6 lg:p-8"
