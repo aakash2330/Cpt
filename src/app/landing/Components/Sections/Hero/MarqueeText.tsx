@@ -47,7 +47,7 @@ export function LogoTicker() {
   const [visibleLogos, setVisibleLogos] = useState(5);
 
   const handleLoadMore = () => {
-    setVisibleLogos(prev => Math.min(prev + 5, logosTickers.length));
+    setVisibleLogos((prev) => Math.min(prev + 5, logosTickers.length));
   };
 
   const showLoadMore = isMobile && visibleLogos < logosTickers.length;
@@ -73,7 +73,7 @@ export function LogoTicker() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{
                     delay: index >= 5 ? (index - 5) * 0.05 : index * 0.1,
-                    duration: 0.3
+                    duration: 0.3,
                   }}
                   layout
                   className="flex justify-center w-full"
@@ -108,7 +108,7 @@ export function LogoTicker() {
   return (
     <div className="py-8 text-white">
       <div className="container">
-        <div className="relative mt-9 flex overflow-hidden before:left-0 before:top-0 before:z-10 before:h-full before:w-5 before:bg-[linear-gradient(to_right,#121212,rgba(0,0,0,0))] after:right-0 after:top-0 after:h-full after:w-5 after:bg-[linear-gradient(to_left,#121212,rgba(0,0,0,0))] before:absolute before:content-[''] after:absolute after:content-['']">
+        <div className="relative mt-9 flex overflow-hidden before:left-0 before:top-0 before:z-10 before:h-full before:w-5 before:bg-[linear-gradient(to_right,#12202F,rgba(0,0,0,0))] after:right-0 after:top-0 after:h-full after:w-5 after:bg-[linear-gradient(to_left,#12202F,rgba(0,0,0,0))] before:absolute before:content-[''] after:absolute after:content-['']">
           <motion.div
             transition={{
               duration: 20,
@@ -135,3 +135,4 @@ export function LogoTicker() {
     </div>
   );
 }
+

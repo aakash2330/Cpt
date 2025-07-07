@@ -71,7 +71,7 @@ export function NavLinks() {
             href={item.url}
             className={cn(
               "text-lg hover:text-gray-400",
-              pathname == item.url && "text-hero-orange",
+              pathname == item.url && "text-blue-400",
             )}
           >
             {item.label}

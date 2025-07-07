@@ -194,7 +194,7 @@ export function ContactForm() {
               type="submit"
               className="w-full text-white font-medium py-4 md:py-6 rounded-[8px] transition-all duration-300 hover:brightness-110 backdrop-blur-md"
               style={{
-                background: "linear-gradient(0deg, #A1480E 0%, #F16407 100%)",
+                background: "#12202F",
                 backdropFilter: "blur(20px)",
               }}
             >
@@ -206,4 +206,3 @@ export function ContactForm() {
     </Card>
   );
 }
-

@@ -76,14 +76,15 @@ export default function CompanyPage() {
         ABOUT CITY PROFESSIONAL TRADES
       </h2>
       <p className="text-xs xs:text-sm sm:text-base leading-relaxed text-left font-inter">
-        With over a decade of experience and a proven team of 100+ professionals,
-        we specialize in executing complex, large-scale interior projects with
-        total confidence. From pre-construction planning to final turnover, we
-        take full ownership of every detail — ensuring projects are completed
-        safely, on time, and to the highest standard. Driven by the belief that
-        "Quality means doing it right when no one is looking," we approach every
-        build with integrity, clear communication, and craftsmanship you can see
-        and trust. Count on us to get it done — and get it done right.
+        With over a decade of experience and a proven team of 100+
+        professionals, we specialize in executing complex, large-scale interior
+        projects with total confidence. From pre-construction planning to final
+        turnover, we take full ownership of every detail — ensuring projects are
+        completed safely, on time, and to the highest standard. Driven by the
+        belief that "Quality means doing it right when no one is looking," we
+        approach every build with integrity, clear communication, and
+        craftsmanship you can see and trust. Count on us to get it done — and
+        get it done right.
       </p>
     </>
   );
@@ -98,7 +99,7 @@ export default function CompanyPage() {
             className="absolute inset-0 bg-black/20"
           >
             <Image
-              src="/WhatsApp Image 2025-05-22 at 2.09.52 AM.jpeg"
+              src="/new-img/0627(8).png"
               alt="Construction workers at site"
               fill
               className="object-cover"
@@ -157,7 +158,7 @@ export default function CompanyPage() {
         </SectionWrapper>
 
         {/* Section: Our Values */}
-        <SectionWrapper reverse={true} imageUrl="/CPT(1)/2.png">
+        <SectionWrapper reverse={true} imageUrl="/new-img/0627(6).png">
           <div className="lg:ml-8 xl:ml-12 2xl:ml-48">
             <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
               Our Values
@@ -196,8 +197,9 @@ function SectionWrapper({
   return (
     <div className="bg-background py-12 sm:py-14 lg:py-10 xl:py-8 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
       <div
-        className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-          } justify-between items-center gap-8 lg:gap-16 xl:gap-20 2xl:gap-24`}
+        className={`flex flex-col ${
+          reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+        } justify-between items-center gap-8 lg:gap-16 xl:gap-20 2xl:gap-24`}
       >
         <div className="w-full lg:w-2/5 flex justify-center">
           <ProjectImage
@@ -224,12 +226,17 @@ function TextParagraph({ children }: { children: React.ReactNode }) {
 
 function Point() {
   return (
-    <svg width="16" height="15" viewBox="0 0 16 15" className="flex-shrink-0 mt-1">
+    <svg
+      width="16"
+      height="15"
+      viewBox="0 0 16 15"
+      className="flex-shrink-0 mt-1"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M15.2761 7.48362C15.2761 7.07285 15.0453 6.71193 14.6779 6.54301L10.8287 4.71714L9.05916 0.924219C8.88747 0.554065 8.52747 0.324219 8.11947 0.324219C7.71147 0.324219 7.35147 0.554065 7.17884 0.924219L5.35391 4.7716L1.56376 6.54116C1.19268 6.71193 0.961914 7.07285 0.961914 7.48362C0.961914 7.89347 1.19268 8.25439 1.56099 8.42331L5.40838 10.2482L7.17884 14.043C7.35147 14.4122 7.71147 14.6412 8.11947 14.6412C8.52655 14.6412 8.88747 14.4122 9.05916 14.0421L10.885 10.1956L14.6742 8.42516C15.0453 8.25439 15.2761 7.89347 15.2761 7.48362Z"
-        fill="#F16407"
+        fill="#ffffff"
       />
     </svg>
   );

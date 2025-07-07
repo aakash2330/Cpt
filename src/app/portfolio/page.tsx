@@ -57,12 +57,13 @@ export default function ServicePage() {
               className="w-full flex justify-center items-center flex-col sm:w-3/4 md:w-2/3 lg:w-1/2 h-auto sm:h-1/3 bg-[#121212] py-8 px-4 xs:px-6 sm:px-12 md:px-16 text-white rounded-tr-3xl"
             >
               <h2 className="mb-2 self-start text-sm sm:text-3xl font-semibold tracking-wide">
-                OUR WORK SPEAKS FOR ITSELF
+                Trusted by Industry Leaders Across Sectors
               </h2>
               <p className="text-xs pl-1 font-inter  self-start xs:text-sm sm:text-base text-left">
-                Explore our portfolio of residential and commercial projects,
-                showcasing our commitment to quality, craftsmanship, and client
-                satisfaction.
+                We’ve had the privilege of contributing to some of the most
+                recognized destinations in hospitality and commerce. Our
+                portfolio reflects a quiet confidence in our work — defined by
+                precision, reliability, and long-standing client trust.
               </p>
             </AnimatedDiv>
           </div>

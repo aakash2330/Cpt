@@ -8,19 +8,19 @@ import ReactLenis from "lenis/react";
 
 const serviceData = [
   {
-    image: "/Servicepage/1.png",
+    image: "/new-img/const.png",
     heading: "CONSTRUCTION MANAGEMENT",
     description:
       "We provide full project oversight, managing all trades, schedules, budgets, and site operations. Our team ensures every phase runs efficiently, with tight coordination and proactive problem-solving to keep your project moving forward, without delays or surprises.",
   },
   {
-    image: "/Servicepage/2.png",
+    image: "/new-img/gen.png",
     heading: "GENERAL CONTRACTING",
     description:
       "As your General Contractor, we do design & build and take total ownership of your project from start to finish. From permits and procurement to subcontractor management and final inspections, we deliver projects on time, on budget, and to exacting standards — every time.",
   },
   {
-    image: "/Servicepage/3.png",
+    image: "/new-img/res.png",
     heading: "RESIDENTIAL CONSTRUCTION",
     description:
       "We build homes that reflect your vision and lifestyle. From custom builds to multi-unit developments and renovations, our residential services combine quality craftsmanship, project management expertise, and attention to detail at every stage.",
@@ -97,7 +97,7 @@ export default function ServicePage() {
             className="absolute inset-0 bg-black/20"
           >
             <Image
-              src="/service_bg.jpg"
+              src="/new-img/0627.png"
               alt="Construction workers at site"
               fill
               className="object-cover -z-1"
