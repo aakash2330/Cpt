@@ -124,7 +124,7 @@ export default function CompanyPage() {
         </div>
 
         {/* Section: Who We Are */}
-        <SectionWrapper reverse={false} imageUrl="/CPT(1)/1.png">
+        <SectionWrapper reverse={false} imageUrl="/CPT(1)/new_image.png">
           <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
             Who We Are:
           </h2>
@@ -197,9 +197,8 @@ function SectionWrapper({
   return (
     <div className="bg-background py-12 sm:py-14 lg:py-10 xl:py-8 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
       <div
-        className={`flex flex-col ${
-          reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-        } justify-between items-center gap-8 lg:gap-16 xl:gap-20 2xl:gap-24`}
+        className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+          } justify-between items-center gap-8 lg:gap-16 xl:gap-20 2xl:gap-24`}
       >
         <div className="w-full lg:w-2/5 flex justify-center">
           <ProjectImage

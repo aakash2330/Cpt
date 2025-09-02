@@ -27,7 +27,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Complete Build",
+        text: "Complete Interiors - Divison 9",
       },
       { text: "Total Area: 49,780 sq. ft." },
       { text: "Floors: 4" },
@@ -65,7 +65,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Complete Build",
+        text: "Complete Interiors - Division 9",
       },
       { text: "Total Area: 148,000 sq. ft." },
       {
@@ -105,7 +105,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Complete Build",
+        text: "Complete Interiors - Division 9",
       },
       { text: "Total Area: 100,332 sq. ft." },
       { text: "Floors: 3" },
@@ -143,7 +143,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Complete Build",
+        text: "Complete Interiors - Division 9",
       },
       { text: "Total Area: 47,000 sq. ft." },
       {
@@ -185,7 +185,7 @@ export const projects = [
       {
         text: "Complete Build",
       },
-      { text: "Total Area: 25,000 sq. ft" },
+      { text: "Total Area: 8,000 sq. ft" },
     ],
     year: "2020-2021",
   },
@@ -286,7 +286,7 @@ export const projects = [
     ],
     details: [
       {
-        text: "Complete Build",
+        text: "Complete Interiors - Division 9",
       },
       { text: "Total Area: 26,969 sq. ft." },
     ],
