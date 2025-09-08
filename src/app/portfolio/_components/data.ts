@@ -292,4 +292,276 @@ export const projects = [
     ],
     year: "2020-2021",
   },
+  {
+    id: "fresh-line-foods",
+    title: "FRESH LINE FOODS LTD.",
+    location: "2504 Stanfield Rd, Mississsauga, ON",
+    images: [
+      { src: "/Fresh Line Foods/image1.webp", alt: "Image first" },
+      { src: "/Fresh Line Foods/image1.webp", alt: "Image second" },
+      { src: "/Fresh Line Foods/image1.webp", alt: "Image third" },
+      { src: "/Fresh Line Foods/image1.webp", alt: "Image fourth" },
+      { src: "/Fresh Line Foods/image1.webp", alt: "Image fifth" },
+    ],
+    details: [
+      { text: "Complete Renovation" },
+    ],
+    year: "",
+  },
+  {
+    id: "sweet-shady-shack",
+    title: "SWEET SHADY SHACK BUBBLE TEA",
+    location: "220 Eglinton Ave E, Toronto, ON M4P 1K4",
+    images: [
+      { src: "/Sweet shady shack/image1.webp", alt: "Image first" },
+      { src: "/Sweet shady shack/image2.webp", alt: "Image second" },
+      { src: "/Sweet shady shack/image3.webp", alt: "Image third" },
+      { src: "/Sweet shady shack/image4.webp", alt: "Image fourth" },
+      { src: "/Sweet shady shack/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Build",
+      },
+      { text: "Total Area: 8,000 sq. ft." },
+    ],
+    year: "",
+  },
+  {
+    id: "high-park-village",
+    title: "HIGH PARK VILLAGE",
+    location: "111 Pacific Avenue, Toronto, ON M6P 2P2",
+    images: [
+      { src: "/High park village/image1.webp", alt: "Image first" },
+      { src: "/High park village/image2.webp", alt: "Image second" },
+      { src: "/High park village/image1.webp", alt: "Image third" },
+      { src: "/High park village/image1.webp", alt: "Image fourth" },
+      { src: "/High park village/image1.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "irillia-soldiers-memorial",
+    title: "IRILLIA SOLDIERS MEMORIAL HOSPITAL",
+    location: "170 Colborne St W, Orillia, ON L3V 2Z3",
+    images: [
+      { src: "/Irillia Soldiers Memorial Hospital/image1.webp", alt: "Image first" },
+      { src: "/Irillia Soldiers Memorial Hospital/image2.webp", alt: "Image second" },
+      { src: "/Irillia Soldiers Memorial Hospital/image1.webp", alt: "Image third" },
+      { src: "/Irillia Soldiers Memorial Hospital/image1.webp", alt: "Image fourth" },
+      { src: "/Irillia Soldiers Memorial Hospital/image1.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "kelsey-mapleview",
+    title: "Kelsey’s Original Roadhouse",
+    location: "27 Mapleview Dr W, Barrie, ON",
+    images: [
+      { src: "/Kelsey/Mapleview/image1.webp", alt: "Image first" },
+      { src: "/Kelsey/Mapleview/image2.webp", alt: "Image second" },
+      { src: "/Kelsey/Mapleview/image3.webp", alt: "Image third" },
+      { src: "/Kelsey/Mapleview/image4.webp", alt: "Image fourth" },
+      { src: "/Kelsey/Mapleview/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "kelsey-guelph",
+    title: "Kelsey’s Original Roadhouse",
+    location: "256 Guelph St, Georgetown, ON",
+    images: [
+      { src: "/Kelsey/Guelph/image1.webp", alt: "Image first" },
+      { src: "/Kelsey/Guelph/image2.webp", alt: "Image second" },
+      { src: "/Kelsey/Guelph/image3.webp", alt: "Image third" },
+      { src: "/Kelsey/Guelph/image4.webp", alt: "Image fourth" },
+      { src: "/Kelsey/Guelph/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "kelsey-consumers",
+    title: "Kelsey’s Original Roadhouse",
+    location: "195 Consumers Dr, Whitby, ON",
+    images: [
+      { src: "/Kelsey/Consumers/image1.webp", alt: "Image first" },
+      { src: "/Kelsey/Consumers/image2.webp", alt: "Image second" },
+      { src: "/Kelsey/Consumers/image3.webp", alt: "Image third" },
+      { src: "/Kelsey/Consumers/image4.webp", alt: "Image fourth" },
+      { src: "/Kelsey/Consumers/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "kelsey-king",
+    title: "Kelsey’s Original Roadhouse",
+    location: "576 King St N, Waterloo, ON",
+    images: [
+      { src: "/Kelsey/King/image1.webp", alt: "Image first" },
+      { src: "/Kelsey/King/image2.webp", alt: "Image second" },
+      { src: "/Kelsey/King/image3.webp", alt: "Image third" },
+      { src: "/Kelsey/King/image4.webp", alt: "Image fourth" },
+      { src: "/Kelsey/King/image4.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "kelsey-harmony",
+    title: "Kelsey’s Original Roadhouse",
+    location: "1312 Harmony Rd N, Oshawa, ON",
+    images: [
+      { src: "/Kelsey/Harmony/image1.webp", alt: "Image first" },
+      { src: "/Kelsey/Harmony/image2.webp", alt: "Image second" },
+      { src: "/Kelsey/Harmony/image3.webp", alt: "Image third" },
+      { src: "/Kelsey/Harmony/image4.webp", alt: "Image fourth" },
+      { src: "/Kelsey/Harmony/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "kelsey-hwy",
+    title: "Kelsey’s Original Roadhouse",
+    location: "3131 Hwy 7, Markham, ON",
+    images: [
+      { src: "/Kelsey/Hwy/image1.webp", alt: "Image first" },
+      { src: "/Kelsey/Hwy/image2.webp", alt: "Image second" },
+      { src: "/Kelsey/Hwy/image3.webp", alt: "Image third" },
+      { src: "/Kelsey/Hwy/image4.webp", alt: "Image fourth" },
+      { src: "/Kelsey/Hwy/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "pogue-mahone",
+    title: "Pogue Mahone Pub & Kitchen",
+    location: "777 Bay St, Toronto, ON M5B 2H7",
+    images: [
+      { src: "/Pouge Mahone/image1.webp", alt: "Image first" },
+      { src: "/Pouge Mahone/image2.webp", alt: "Image second" },
+      { src: "/Pouge Mahone/image3.webp", alt: "Image third" },
+      { src: "/Pouge Mahone/image4.webp", alt: "Image fourth" },
+      { src: "/Pouge Mahone/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "ross-and-lindsay",
+    title: "Ross and Lindsay’s No Frills",
+    location: "1515 King St E, Cambridge, ON",
+    images: [
+      { src: "/Ross and Lindsay/Cambridge/image1.webp", alt: "Image first" },
+      { src: "/Ross and Lindsay/Cambridge/image2.webp", alt: "Image second" },
+      { src: "/Ross and Lindsay/Cambridge/image3.webp", alt: "Image third" },
+      { src: "/Ross and Lindsay/Cambridge/image4.webp", alt: "Image fourth" },
+      { src: "/Ross and Lindsay/Cambridge/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "ross-and-lindsay",
+    title: "Ross and Lindsay’s No Frills",
+    location: "99 Lakeshore, Mississauga, ON",
+    images: [
+      { src: "/Ross and Lindsay/Mississsauga/image1.webp", alt: "Image first" },
+      { src: "/Ross and Lindsay/Mississsauga/image2.webp", alt: "Image second" },
+      { src: "/Ross and Lindsay/Mississsauga/image3.webp", alt: "Image third" },
+      { src: "/Ross and Lindsay/Mississsauga/image4.webp", alt: "Image fourth" },
+      { src: "/Ross and Lindsay/Mississsauga/image4.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "hendriks",
+    title: "Hendriks Restaurant and Bar",
+    location: "218 Yonge St, Toronto, ON",
+    images: [
+      { src: "/Hendriks/image1.webp", alt: "Image first" },
+      { src: "/Hendriks/image2.webp", alt: "Image second" },
+      { src: "/Hendriks/image3.webp", alt: "Image third" },
+      { src: "/Hendriks/image4.webp", alt: "Image fourth" },
+      { src: "/Hendriks/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9",
+      },
+    ],
+    year: "",
+  },
+  {
+    id: "16-towering-highs",
+    title: "16 Towering Highs",
+    location: "Saint Catherine",
+    images: [
+      { src: "/16 Towering Highs/image1.webp", alt: "Image first" },
+      { src: "/16 Towering Highs/image2.webp", alt: "Image second" },
+      { src: "/16 Towering Highs/image3.webp", alt: "Image third" },
+      { src: "/16 Towering Highs/image4.webp", alt: "Image fourth" },
+      { src: "/16 Towering Highs/image5.webp", alt: "Image fifth" },
+    ],
+    details: [
+      {
+        text: "Complete Interiors - Division 9"
+      },
+      {
+        text: "Painting and wallpaper"
+      },
+    ],
+    year: "",
+  },
 ];

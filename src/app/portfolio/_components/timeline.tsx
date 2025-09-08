@@ -201,7 +201,7 @@ export default function ProjectTimeline() {
         },
         { text: "Work at the Medical Building in Mono" },
       ],
-    },
+    }
   ];
 
   return (
