@@ -476,11 +476,11 @@ export const projects = [
     title: "Pogue Mahone Pub & Kitchen",
     location: "777 Bay St, Toronto, ON M5B 2H7",
     images: [
-      { src: "/Pouge Mahone/image1.webp", alt: "Image first" },
-      { src: "/Pouge Mahone/image2.webp", alt: "Image second" },
-      { src: "/Pouge Mahone/image3.webp", alt: "Image third" },
-      { src: "/Pouge Mahone/image4.webp", alt: "Image fourth" },
-      { src: "/Pouge Mahone/image5.webp", alt: "Image fifth" },
+      { src: "/Pogue Mahone/image1.webp", alt: "Image first" },
+      { src: "/Pogue Mahone/image2.webp", alt: "Image second" },
+      { src: "/Pogue Mahone/image3.webp", alt: "Image third" },
+      { src: "/Pogue Mahone/image4.webp", alt: "Image fourth" },
+      { src: "/Pogue Mahone/image5.webp", alt: "Image fifth" },
     ],
     details: [
       {
