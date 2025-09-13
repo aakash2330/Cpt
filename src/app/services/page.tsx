@@ -9,33 +9,45 @@ import ReactLenis from "lenis/react";
 const serviceData = [
   {
     image: "/new-img/const.png",
-    heading: "CONSTRUCTION MANAGEMENT",
+    heading: "DRYWALL & STEEL STUD FRAMING",
     description:
-      "We provide full project oversight, managing all trades, schedules, budgets, and site operations. Our team ensures every phase runs efficiently, with tight coordination and proactive problem-solving to keep your project moving forward, without delays or surprises.",
+      "We supply and install high-performance drywall systems, including steel stud framing, shaft walls, and complex assemblies for commercial, institutional, and residential applications. Fire-rated and acoustic assemblies? We've got it covered.",
   },
   {
     image: "/new-img/gen.png",
-    heading: "GENERAL CONTRACTING",
+    heading: "ACOUSTIC & SPECIALTY CEILINGS",
     description:
-      "As your General Contractor, we do design & build and take total ownership of your project from start to finish. From permits and procurement to subcontractor management and final inspections, we deliver projects on time, on budget, and to exacting standards — every time.",
+      "From suspended T-bar ceilings to specialty acoustic panels, we deliver flawless ceilings that enhance performance, acoustics, and aesthetics.",
   },
   {
     image: "/new-img/res.png",
-    heading: "RESIDENTIAL CONSTRUCTION",
+    heading: "INTERIOR & EXTERIOR PAINTING",
     description:
-      "We build homes that reflect your vision and lifestyle. From custom builds to multi-unit developments and renovations, our residential services combine quality craftsmanship, project management expertise, and attention to detail at every stage.",
+      "We handle everything from primer to finish coats with commercial-grade precision. Our scope includes elastomeric coatings, epoxy floors, and detailed architectural finishes.",
   },
   {
     image: "/Servicepage/4.png",
-    heading: "COMMERCIAL CONSTRUCTION",
+    heading: "TAPING & FINISHING (LEVELS 1–5)",
     description:
-      "Transform your commercial space into a high-performance, functional environment tailored to your business needs. We manage every aspect of commercial builds — from retail spaces and offices to large-scale developments — ensuring quality, compliance, and operational efficiency.",
+      "Level 4 and Level 5 finishes for smooth, seamless surfaces ready for high-end paint, wallcoverings, or specialty treatments",
   },
   {
     image: "/Servicepage/5.png",
-    heading: "HOSPITALITY CONSTRUCTION",
+    heading: "FRP & SPECIALTY WALL PANELS",
     description:
-      "Create hospitality spaces designed to impress and endure. We specialize in building hotels, restaurants, and entertainment venues that capture your brand’s character and deliver unforgettable guest experiences. From concept to completion, we get it done right.",
+      "We install Fiberglass Reinforced Panels (FRP), wall guards, and other impact-resistant systems—ideal for healthcare, foodservice, and industrial settings.",
+  },
+  {
+    image: "/Servicepage/6.png",
+    heading: "FLOORING",
+    description:
+      "If applicable: vinyl, rubber, carpet tile, or epoxy floor systems installed to spec and schedule.",
+  },
+  {
+    image: "/Servicepage/7.png",
+    heading: "DIVISION 9 CONSULTING & ESTIMATING",
+    description:
+      "We don't just install - we advise. Our team supports GCs and developers with accurate Division 9 takeoffs, value engineering, and sequencing strategies to stay ahead of schedule.",
   },
 ];
 
@@ -123,21 +135,24 @@ export default function ServicePage() {
 
         {/* Service Cards */}
         <div className="-mt-[100px] -mb-[100px] md:mt-0 lg:-mt-[100px] xl:mt-[100px] 2xl:mb-[200px]">
-        {serviceData.map((project, i) => {
-          const targetScale = 1 - (serviceData.length - i) * 0.1;
-          return (
-            <ServiceCard
-              key={`p_${i}`}
-              i={i}
-              url={project?.image}
-              title={project?.heading}
-              description={project?.description}
-              progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScale}
-            />
-          );
-        })}
+          {serviceData.map((project, i) => {
+            const step = 1 / serviceData.length;
+            const range: [number, number] = [i * step, 1];
+            const targetScale = 1 - (serviceData.length - i) * 0.1; // gentler shrink
+
+            return (
+              <ServiceCard
+                key={`p_${i}`}
+                i={i}
+                url={project.image}
+                title={project.heading}
+                description={project.description}
+                progress={scrollYProgress}
+                range={range}
+                targetScale={targetScale}
+              />
+            );
+          })}
         </div>
       </div>
     </ReactLenis>
