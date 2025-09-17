@@ -8,13 +8,13 @@ import ReactLenis from "lenis/react";
 
 const serviceData = [
   {
-    image: "/new-img/const.png",
+    image: "/ServicePage/new/1.webp",
     heading: "DRYWALL & STEEL STUD FRAMING",
     description:
       "We supply and install high-performance drywall systems, including steel stud framing, shaft walls, and complex assemblies for commercial, institutional, and residential applications. Fire-rated and acoustic assemblies? We've got it covered.",
   },
   {
-    image: "/new-img/gen.png",
+    image: "/ServicePage/new/2.webp",
     heading: "ACOUSTIC & SPECIALTY CEILINGS",
     description:
       "From suspended T-bar ceilings to specialty acoustic panels, we deliver flawless ceilings that enhance performance, acoustics, and aesthetics.",
@@ -26,13 +26,13 @@ const serviceData = [
       "We handle everything from primer to finish coats with commercial-grade precision. Our scope includes elastomeric coatings, epoxy floors, and detailed architectural finishes.",
   },
   {
-    image: "/Servicepage/4.png",
+    image: "/Servicepage/new/4.webp",
     heading: "TAPING & FINISHING (LEVELS 1–5)",
     description:
       "Level 4 and Level 5 finishes for smooth, seamless surfaces ready for high-end paint, wallcoverings, or specialty treatments",
   },
   {
-    image: "/Servicepage/5.png",
+    image: "/Servicepage/new/5.webp",
     heading: "FRP & SPECIALTY WALL PANELS",
     description:
       "We install Fiberglass Reinforced Panels (FRP), wall guards, and other impact-resistant systems—ideal for healthcare, foodservice, and industrial settings.",
