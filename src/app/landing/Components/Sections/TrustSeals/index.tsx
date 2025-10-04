@@ -7,7 +7,7 @@ export default function TrustSeals() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h3 className="text-2xl font-semibold text-foreground mb-2">
-            Trusted & Certified
+            Trusted, Certified & Member
           </h3>
           <p className="text-muted-foreground">
             Your confidence in our expertise
@@ -19,10 +19,14 @@ export default function TrustSeals() {
           <iframe
             src="https://seal-mwco.bbb.org/frame/blue-seal-187-130-whitetxt-bbb-1415392.png?chk=C77FDEE282"
             title="BBB Seal"
-            style={{ border: "none", width: "80px", height: "130px", borderRadius: "8px" }}
+            style={{
+              border: "none",
+              width: "80px",
+              height: "130px",
+              borderRadius: "8px",
+            }}
             scrolling="no"
           />
-
 
           {/* Trust Seal 2 - TCA */}
           <Link
@@ -39,7 +43,6 @@ export default function TrustSeals() {
             />
           </Link>
 
-
           {/* Trust Seal 3 - CCA */}
           <Link
             href="https://www.cca-acc.com/"
@@ -55,6 +58,19 @@ export default function TrustSeals() {
             />
           </Link>
 
+          <Link
+            href="https://www.cagbc.org/showcase/member-spotlight/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/Seals/cagbc_member_logo_2025.png"
+              alt="cagbc_member_logo"
+              width={90}
+              height={90}
+              className="object-contain"
+            />
+          </Link>
         </div>
       </div>
     </div>

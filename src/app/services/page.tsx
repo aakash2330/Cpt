@@ -8,43 +8,43 @@ import ReactLenis from "lenis/react";
 
 const serviceData = [
   {
-    image: "/ServicePage/new/1.webp",
+    image: "/ServicePage/new/15.jpg",
     heading: "DRYWALL & STEEL STUD FRAMING",
     description:
       "We supply and install high-performance drywall systems, including steel stud framing, shaft walls, and complex assemblies for commercial, institutional, and residential applications. Fire-rated and acoustic assemblies? We've got it covered.",
   },
   {
-    image: "/ServicePage/new/2.webp",
+    image: "/ServicePage/new/10.jpg",
     heading: "ACOUSTIC & SPECIALTY CEILINGS",
     description:
       "From suspended T-bar ceilings to specialty acoustic panels, we deliver flawless ceilings that enhance performance, acoustics, and aesthetics.",
   },
   {
-    image: "/new-img/res.png",
+    image: "/ServicePage/new/14.jpg",
     heading: "INTERIOR & EXTERIOR PAINTING",
     description:
       "We handle everything from primer to finish coats with commercial-grade precision. Our scope includes elastomeric coatings, epoxy floors, and detailed architectural finishes.",
   },
   {
-    image: "/Servicepage/new/4.webp",
+    image: "/Servicepage/new/9.webp",
     heading: "TAPING & FINISHING (LEVELS 1–5)",
     description:
-      "Level 4 and Level 5 finishes for smooth, seamless surfaces ready for high-end paint, wallcoverings, or specialty treatments",
+      "We provide expert taping and finishing across all levels, delivering perfectly smooth surfaces that meet the highest industry standards. Whether for paint, wallcoverings, or specialty finishes, our work ensures a flawless foundation for every project",
   },
   {
-    image: "/Servicepage/new/5.webp",
+    image: "/Servicepage/new/11.jpg",
     heading: "FRP & SPECIALTY WALL PANELS",
     description:
-      "We install Fiberglass Reinforced Panels (FRP), wall guards, and other impact-resistant systems—ideal for healthcare, foodservice, and industrial settings.",
+      "We specialize in the installation of Fiberglass Reinforced Panels (FRP), wall guards, and other durable wall systems designed to withstand everyday wear and tear. Perfect for healthcare, foodservice, and industrial spaces, our solutions combine strength, hygiene, and long-lasting protection.",
   },
   {
-    image: "/Servicepage/6.png",
+    image: "/Servicepage/new/12.jpg",
     heading: "FLOORING",
     description:
       "If applicable: vinyl, rubber, carpet tile, or epoxy floor systems installed to spec and schedule.",
   },
   {
-    image: "/Servicepage/7.png",
+    image: "/Servicepage/new/13.JPG",
     heading: "DIVISION 9 CONSULTING & ESTIMATING",
     description:
       "We don't just install - we advise. Our team supports GCs and developers with accurate Division 9 takeoffs, value engineering, and sequencing strategies to stay ahead of schedule.",
@@ -108,20 +108,35 @@ export default function ServicePage() {
             style={imageAnimation}
             className="absolute inset-0 bg-black/20"
           >
-            <Image
-              src="/new-img/0627.png"
-              alt="Construction workers at site"
-              fill
-              className="object-cover -z-1"
-              priority
-            />
+            <video
+              className="w-full h-full object-cover"
+              autoPlay={true}
+              preload="auto"
+              muted
+              loop
+              playsInline
+            >
+              <source
+                src={
+                  "https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0I9tEJkMDzKJTjHN3zxLqRt2wg0r8U4almPVvY"
+                }
+                type="video/mp4"
+              />
+              <track
+                src="/path/to/captions.vtt"
+                kind="subtitles"
+                srcLang="en"
+                label="English"
+              />
+              Your browser does not support the video tag.
+            </video>
           </AnimatedDiv>
 
           {/* Text for Large Screens */}
           <div className="hidden sm:flex items-end absolute inset-0 z-10">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-[#12202F] py-6 sm:py-8 px-4 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
+              className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 h-auto bg-background py-6 sm:py-8 px-4 sm:px-8 md:px-12 lg:px-20 2xl:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
               <TextContent />
             </AnimatedDiv>

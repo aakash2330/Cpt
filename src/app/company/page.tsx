@@ -111,7 +111,7 @@ export default function CompanyPage() {
           <div className="hidden sm:flex items-end absolute inset-0 z-10">
             <AnimatedDiv
               style={textAnimation}
-              className="w-full sm:w-4/5 md:w-3/4 lg:w-3/5 xl:w-1/2 h-auto bg-[#12202F] py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
+              className="w-full sm:w-4/5 md:w-3/4 lg:w-3/5 xl:w-1/2 h-auto bg-background py-6 xs:py-8 px-4 xs:px-6 sm:px-8 md:px-12 lg:px-16 text-white rounded-tr-2xl sm:rounded-tr-3xl"
             >
               <TextContent />
             </AnimatedDiv>
@@ -158,7 +158,10 @@ export default function CompanyPage() {
         </SectionWrapper>
 
         {/* Section: Our Values */}
-        <SectionWrapper reverse={true} imageUrl="/new-img/0627(6).png">
+        <SectionWrapper
+          reverse={true}
+          videoUrl="https://2cf0i1r2ez.ufs.sh/f/CUistsOk9f0IBcuie4vTdtpSAGaNxb4nQHRjsv3MT2DCw19K"
+        >
           <div className="lg:ml-8 xl:ml-12 2xl:ml-48">
             <h2 className="mb-4 sm:mb-6 text-sm sm:text-2xl font-semibold tracking-wide">
               Our Values
@@ -189,24 +192,50 @@ function SectionWrapper({
   children,
   reverse = false,
   imageUrl,
+  videoUrl,
 }: {
   children: React.ReactNode;
   reverse?: boolean;
-  imageUrl: string;
+  imageUrl?: string;
+  videoUrl?: string;
 }) {
   return (
     <div className="bg-background py-12 sm:py-14 lg:py-10 xl:py-8 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
       <div
-        className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-          } justify-between items-center gap-8 lg:gap-16 xl:gap-20 2xl:gap-24`}
+        className={`flex flex-col ${
+          reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+        } justify-between items-center gap-8 lg:gap-16 xl:gap-20 2xl:gap-24`}
       >
-        <div className="w-full lg:w-2/5 flex justify-center">
-          <ProjectImage
-            className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
-            alt="project image"
-            url={imageUrl}
-          />
-        </div>
+        {imageUrl && (
+          <div className="w-full lg:w-2/5 flex justify-center">
+            <ProjectImage
+              className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
+              alt="project image"
+              url={imageUrl}
+            />
+          </div>
+        )}
+        {videoUrl && (
+          <div className="h-[40dvh] md:h-[50dvh] hidden lg:flex rounded-lg overflow-hidden flex flex-col gap-0 justify-center items-center">
+            <video
+              className="w-full h-full object-cover"
+              autoPlay={true}
+              preload="auto"
+              muted
+              loop
+              playsInline
+            >
+              <source src={videoUrl} type="video/mp4" />
+              <track
+                src="/path/to/captions.vtt"
+                kind="subtitles"
+                srcLang="en"
+                label="English"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        )}
         <div className="w-full lg:w-2/5 text-center lg:text-left">
           {children}
         </div>

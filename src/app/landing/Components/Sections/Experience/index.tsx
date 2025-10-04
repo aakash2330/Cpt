@@ -10,11 +10,13 @@ export default function ExperienceSection() {
           BUILDING BETTER <br /> DELIVERING DIFFERENT
         </div>
         <div className="text-center font-semibold font-inter">
-          At Division 9, construction isn't just a service — it's a seamless experience. With over
+          When it comes to Division 9 construction, we go beyond the build. With
+          over a decade of
           <br />
-          a decade of expertise in commercial and residential construction across Toronto and the GTA,
+          experience in commercial and residential projects across Toronto and
+          the GTA, our focus is
           <br />
-          we bring precision, professionalism, and partnership to every project.
+          on precision, professionalism, and lasting results.
           <br />
           <Link href="/contact" className="text-blue-400 hover:text-blue-200">
             Let's Build Something Better →
