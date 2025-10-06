@@ -313,11 +313,11 @@ export const projects = [
     title: "SWEET SHADY SHACK BUBBLE TEA",
     location: "220 Eglinton Ave E, Toronto, ON M4P 1K4",
     images: [
-      { src: "/Sweet shady shack/image1.webp", alt: "Image first" },
-      { src: "/Sweet shady shack/image2.webp", alt: "Image second" },
-      { src: "/Sweet shady shack/image3.webp", alt: "Image third" },
-      { src: "/Sweet shady shack/image4.webp", alt: "Image fourth" },
-      { src: "/Sweet shady shack/image5.webp", alt: "Image fifth" },
+      { src: "/Sweet Shady Shack/image1.webp", alt: "Image first" },
+      { src: "/Sweet Shady Shack/image2.webp", alt: "Image second" },
+      { src: "/Sweet Shady Shack/image3.webp", alt: "Image third" },
+      { src: "/Sweet Shady Shack/image4.webp", alt: "Image fourth" },
+      { src: "/Sweet Shady Shack/image5.webp", alt: "Image fifth" },
     ],
     details: [
       {
@@ -332,11 +332,11 @@ export const projects = [
     title: "HIGH PARK VILLAGE",
     location: "111 Pacific Avenue, Toronto, ON M6P 2P2",
     images: [
-      { src: "/High park village/image1.webp", alt: "Image first" },
-      { src: "/High park village/image2.webp", alt: "Image second" },
-      { src: "/High park village/image1.webp", alt: "Image third" },
-      { src: "/High park village/image1.webp", alt: "Image fourth" },
-      { src: "/High park village/image1.webp", alt: "Image fifth" },
+      { src: "/High Park Village/image1.webp", alt: "Image first" },
+      { src: "/High Park Village/image2.webp", alt: "Image second" },
+      { src: "/High Park Village/image1.webp", alt: "Image third" },
+      { src: "/High Park Village/image1.webp", alt: "Image fourth" },
+      { src: "/High Park Village/image1.webp", alt: "Image fifth" },
     ],
     details: [
       {

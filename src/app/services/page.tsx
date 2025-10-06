@@ -8,19 +8,19 @@ import ReactLenis from "lenis/react";
 
 const serviceData = [
   {
-    image: "/ServicePage/new/15.jpg",
+    image: "/Servicepage/new/15.jpg",
     heading: "DRYWALL & STEEL STUD FRAMING",
     description:
       "We supply and install high-performance drywall systems, including steel stud framing, shaft walls, and complex assemblies for commercial, institutional, and residential applications. Fire-rated and acoustic assemblies? We've got it covered.",
   },
   {
-    image: "/ServicePage/new/10.jpg",
+    image: "/Servicepage/new/10.jpg",
     heading: "ACOUSTIC & SPECIALTY CEILINGS",
     description:
       "From suspended T-bar ceilings to specialty acoustic panels, we deliver flawless ceilings that enhance performance, acoustics, and aesthetics.",
   },
   {
-    image: "/ServicePage/new/14.jpg",
+    image: "/Servicepage/new/14.jpg",
     heading: "INTERIOR & EXTERIOR PAINTING",
     description:
       "We handle everything from primer to finish coats with commercial-grade precision. Our scope includes elastomeric coatings, epoxy floors, and detailed architectural finishes.",
