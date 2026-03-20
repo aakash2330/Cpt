@@ -7,7 +7,7 @@ export function LogoMain() {
 function Logo() {
   return <div className="w-20 sm:w-24 md:w-28 relative aspect-square">
     <Image
-      src="/image 175.png"
+      src="/Newlogoupdate/CPT_PS Version.png"
       alt="CPT Logo"
       fill
       className="object-contain"
