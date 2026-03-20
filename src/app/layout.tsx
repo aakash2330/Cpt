@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "CPT",
   description: "City Professional Trades",
   icons: {
-    icon: "/image 175.png?v=1",
+    icon: "/Newlogoupdate/CPT_PS%20Version.png",
   },
 };
 
@@ -37,9 +37,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/image 175.png?v=1" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} overflow-x-hidden antialiased screen-image bg-background top-shadow-overlay`}
       >
