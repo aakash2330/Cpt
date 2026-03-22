@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "CPT",
   description: "City Professional Trades",
   icons: {
-    icon: "/Newlogoupdate/CPT_PS%20Version.png",
+    icon: "/Newlogoupdate/ProfileCPT.png",
   },
 };
 
