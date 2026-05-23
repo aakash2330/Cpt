@@ -1301,10 +1301,10 @@ export function ServicesContent() {
       </section>
 
       <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-12 xl:grid-cols-[0.86fr_1.14fr] xl:items-start">
-          <div className="xl:sticky xl:top-28">
+        <div className="site-container grid gap-10 lg:grid-cols-[minmax(300px,0.74fr)_minmax(0,1.26fr)] lg:items-start xl:gap-12">
+          <div className="lg:sticky lg:top-28">
             <p className="section-label">Complete Scope</p>
-            <h2 className="max-w-2xl text-5xl leading-[1.02] text-white md:text-7xl">
+            <h2 className="max-w-2xl text-5xl leading-[1.02] text-white md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
               Built as one controlled interior sequence.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/64">
@@ -1337,7 +1337,7 @@ export function ServicesContent() {
               {services.map((service, index) => (
                 <article
                   key={service.title}
-                  className="group grid bg-black transition duration-300 hover:bg-[var(--surface)] lg:grid-cols-[minmax(0,0.84fr)_minmax(360px,0.66fr)]"
+                  className="group grid bg-black transition duration-300 hover:bg-[var(--surface)] 2xl:grid-cols-[minmax(0,0.84fr)_minmax(320px,0.66fr)]"
                 >
                   <div className="flex min-w-0 flex-col justify-between p-6 md:p-8 lg:p-10">
                     <div>
@@ -1359,7 +1359,7 @@ export function ServicesContent() {
                       <DossierItem label="Accountability" value="CPT crew" />
                     </div>
                   </div>
-                  <div className="min-h-[320px] border-t border-white/10 lg:border-l lg:border-t-0">
+                  <div className="min-h-[320px] border-t border-white/10 2xl:border-l 2xl:border-t-0">
                     <ImageFrame
                       src={service.image}
                       alt={`${service.title} on-site trade work`}
