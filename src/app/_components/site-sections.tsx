@@ -701,7 +701,7 @@ export function PageHero({
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-end">
             <div className="max-w-5xl">
               {eyebrow && <p className="section-label">{eyebrow}</p>}
-              <h1 className="break-words text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-8xl">
+              <h1 className="max-w-[980px] text-balance text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl">
                 {title}
               </h1>
               {intro && (
