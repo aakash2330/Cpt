@@ -1716,7 +1716,7 @@ function RequestOnlyProjectRecord({
               Records available on request
             </span>
           </div>
-          <h2 className="mt-8 max-w-4xl text-4xl leading-tight text-white md:text-5xl">
+          <h2 className="mt-8 max-w-3xl text-balance text-3xl leading-tight text-white md:text-4xl xl:text-5xl">
             {project.name}
           </h2>
           {project.location && (
@@ -1732,9 +1732,9 @@ function RequestOnlyProjectRecord({
           </p>
         </div>
         <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-          <DossierItem label="Access" value="Qualified review" />
-          <DossierItem label="Release" value="Client controlled" />
-          <DossierItem label="Next Step" value="Discuss scope fit" />
+          <DossierItem label="Access" value="Qualified teams" />
+          <DossierItem label="Release" value="Approval controlled" />
+          <DossierItem label="Next Step" value="Request record review" />
         </div>
       </div>
     </article>
