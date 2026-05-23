@@ -468,10 +468,10 @@ export function PortfolioGrid({
           <ImageFrame src={project.image} alt={`${project.name} project`} />
           <div className="space-y-5 border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full border border-[var(--gold)]/45 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
+              <span className="border border-[var(--gold)]/45 bg-[var(--gold)]/8 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
                 {project.sector}
               </span>
-              <span className="rounded-full border border-white/15 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-white/58">
+              <span className="border border-white/15 bg-white/[0.025] px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-white/58">
                 {project.status}
               </span>
             </div>
@@ -1715,10 +1715,10 @@ export function PortfolioContent() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" />
             <div className="absolute inset-x-0 bottom-0 space-y-6 p-6 md:p-10">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-[var(--gold)]/50 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-[var(--gold)]">
+                <span className="border border-[var(--gold)]/50 bg-[var(--gold)]/8 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-[var(--gold)]">
                   Featured
                 </span>
-                <span className="rounded-full border border-white/20 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-white/70">
+                <span className="border border-white/20 bg-white/[0.025] px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-white/70">
                   {featuredProject.status}
                 </span>
               </div>
