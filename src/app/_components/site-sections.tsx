@@ -487,38 +487,40 @@ export function TeamContent() {
         intro="Every name below is reachable and accountable. There is no management layer between this team and the work."
       />
       <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
-          {team.map((person) => (
-            <article key={person.name} className="bg-black p-6">
-              <div className="relative aspect-square overflow-hidden bg-[var(--surface)]">
-                {person.image ? (
-                  <Image
-                    src={person.image}
-                    alt={person.name}
-                    fill
-                    className="object-cover grayscale-[55%]"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_50%_35%,rgba(199,164,107,0.18),transparent_42%),#080807]">
-                    <span className="text-7xl text-white/82">
-                      {person.initials}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <div className="border-t border-white/10 pt-6">
-                <h2 className="text-3xl text-white">{person.name}</h2>
-                <p className="mt-2 text-sm uppercase tracking-[0.14em] text-[var(--gold)]">
-                  {person.role}
-                </p>
-                {person.bio && (
-                  <p className="mt-6 text-sm leading-6 text-white/58">
-                    {person.bio}
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+            {team.map((person) => (
+              <article key={person.name} className="bg-black p-6">
+                <div className="relative aspect-square overflow-hidden bg-[var(--surface)]">
+                  {person.image ? (
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      fill
+                      className="object-cover grayscale-[55%]"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_50%_35%,rgba(199,164,107,0.18),transparent_42%),#080807]">
+                      <span className="text-7xl text-white/82">
+                        {person.initials}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="border-t border-white/10 pt-6">
+                  <h2 className="text-3xl text-white">{person.name}</h2>
+                  <p className="mt-2 text-sm uppercase tracking-[0.14em] text-[var(--gold)]">
+                    {person.role}
                   </p>
-                )}
-              </div>
-            </article>
-          ))}
+                  {person.bio && (
+                    <p className="mt-6 text-sm leading-6 text-white/58">
+                      {person.bio}
+                    </p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </div>
@@ -535,26 +537,28 @@ export function CredentialsContent() {
         intro="Available to any GC, developer, or institutional procurement team on request."
       />
       <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
-          <RecordBlock title="Safety">
-            <p>Lost-Time Incident Frequency Rate: 0.00.</p>
-            <p>Zero lost-time incidents, four consecutive years.</p>
-            <p>Zero WSIB claims, all operating years.</p>
-            <p>The record holds across every environment in the portfolio.</p>
-          </RecordBlock>
-          <RecordBlock title="Insurance & Bonding">
-            <p>
-              General liability insurance in place. Certificate available on
-              request.
-            </p>
-            <p>
-              Performance bonds and labour and material payment bonds available
-              for qualifying projects. Bond documentation available on request.
-            </p>
-          </RecordBlock>
-          <RecordBlock title="WSIB">
-            <p>Active and in good standing. Clearance certificate available on request.</p>
-          </RecordBlock>
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+            <RecordBlock title="Safety">
+              <p>Lost-Time Incident Frequency Rate: 0.00.</p>
+              <p>Zero lost-time incidents, four consecutive years.</p>
+              <p>Zero WSIB claims, all operating years.</p>
+              <p>The record holds across every environment in the portfolio.</p>
+            </RecordBlock>
+            <RecordBlock title="Insurance & Bonding">
+              <p>
+                General liability insurance in place. Certificate available on
+                request.
+              </p>
+              <p>
+                Performance bonds and labour and material payment bonds available
+                for qualifying projects. Bond documentation available on request.
+              </p>
+            </RecordBlock>
+            <RecordBlock title="WSIB">
+              <p>Active and in good standing. Clearance certificate available on request.</p>
+            </RecordBlock>
+          </div>
         </div>
       </section>
       <section className="site-section border-t border-white/10">
