@@ -203,7 +203,7 @@ function InquiryForm({
             </span>
             <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
           </div>
-          <h2 className="mt-8 max-w-xl break-words text-2xl leading-tight text-white">
+          <h2 className="mt-8 max-w-xl text-balance text-2xl leading-tight text-white">
             {title}
           </h2>
           <p className="mt-4 text-sm leading-6 text-white/58">{description}</p>

@@ -287,7 +287,7 @@ export default function Page() {
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
             <div className="max-w-5xl">
               <p className="section-label">Subcontractor Resources</p>
-              <h1 className="break-words text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-8xl">
+              <h1 className="max-w-[980px] text-balance text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl">
                 Pre-Qualification Intake.
               </h1>
               <p className="mt-7 max-w-3xl text-xl leading-9 text-white/66">
