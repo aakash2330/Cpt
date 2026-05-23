@@ -5,12 +5,15 @@ export function LogoMain() {
 }
 
 function Logo() {
-  return <div className="w-20 sm:w-24 md:w-28 relative aspect-square">
-    <Image
-      src="/Newlogoupdate/CPT_PS Version.png"
-      alt="CPT Logo"
-      fill
-      className="object-contain"
-    />
-  </div>
+  return (
+    <div className="relative h-12 w-20 sm:h-14 sm:w-24">
+      <Image
+        src="/Newlogoupdate/CPT_PS Version.png"
+        alt="CPT Construction"
+        fill
+        className="object-contain object-left"
+        priority
+      />
+    </div>
+  );
 }

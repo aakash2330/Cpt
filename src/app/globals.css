@@ -45,10 +45,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-hero-orange: #f16407;
 }
 
-/* Add Nord font definitions */
 @font-face {
   font-family: "Nord";
   src:
@@ -56,19 +54,8 @@
       format("woff2"),
     url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-Regular.woff")
       format("woff");
-  font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Nord";
-  src:
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-Italic.woff2")
-      format("woff2"),
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-Italic.woff")
-      format("woff");
-  font-weight: normal;
-  font-style: italic;
+  font-weight: 400;
 }
 
 @font-face {
@@ -78,196 +65,228 @@
       format("woff2"),
     url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-Bold.woff")
       format("woff");
-  font-weight: bold;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "Nord";
-  src:
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-BoldItalic.woff2")
-      format("woff2"),
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-BoldItalic.woff")
-      format("woff");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Nord";
-  src:
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-Light.woff2")
-      format("woff2"),
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-Light.woff")
-      format("woff");
-  font-weight: 300; /* Light */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Nord";
-  src:
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-LightItalic.woff2")
-      format("woff2"),
-    url("/nord-minimal-display-headline-logo-typeface-2024-06-28-15-59-42-utc/Web Fonts/NORD-LightItalic.woff")
-      format("woff");
-  font-weight: 300; /* Light */
-  font-style: italic;
+  font-weight: 700;
 }
 
 :root {
-  --background: #0A1F44;
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #030303;
+  --foreground: #f4efe7;
+  --surface: #0b0b0a;
+  --surface-2: #12110f;
+  --gold: #c7a46b;
+  --card: #0b0b0a;
+  --card-foreground: #f4efe7;
+  --popover: #0b0b0a;
+  --popover-foreground: #f4efe7;
+  --primary: #f4efe7;
+  --primary-foreground: #030303;
+  --secondary: #171717;
+  --secondary-foreground: #f4efe7;
+  --muted: #171717;
+  --muted-foreground: #a8a29a;
+  --accent: #c7a46b;
+  --accent-foreground: #030303;
+  --destructive: #ef4444;
+  --border: rgb(255 255 255 / 0.12);
+  --input: rgb(255 255 255 / 0.15);
+  --ring: #c7a46b;
+  --chart-1: #c7a46b;
+  --chart-2: #9ca3af;
+  --chart-3: #525252;
+  --chart-4: #f4efe7;
+  --chart-5: #78716c;
+  --sidebar: #0b0b0a;
+  --sidebar-foreground: #f4efe7;
+  --sidebar-primary: #c7a46b;
+  --sidebar-primary-foreground: #030303;
+  --sidebar-accent: #171717;
+  --sidebar-accent-foreground: #f4efe7;
+  --sidebar-border: rgb(255 255 255 / 0.12);
+  --sidebar-ring: #c7a46b;
+  --radius: 0.5rem;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    background: #030303;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.035), transparent 520px),
+      #030303;
+    color: var(--foreground);
+    font-family: var(--font-geist-sans), sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  nav,
+  button,
+  .section-label {
+    font-family: "Nord", var(--font-geist-sans), sans-serif;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: #030303;
+  }
+}
+
+@layer components {
+  .site-page {
+    background: #030303;
+    color: var(--foreground);
+  }
+
+  .site-container {
+    margin-inline: auto;
+    max-width: 1480px;
+    min-width: 0;
+    padding-inline: 1rem;
+  }
+
+  .site-container > * {
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .site-container {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-container {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .site-section {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-section {
+      padding-block: 7rem;
+    }
+  }
+
+  .site-band {
+    background: #030303;
+  }
+
+  .hero-shell {
     position: relative;
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
-    font-family: "Nord", sans-serif;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: #030303;
   }
 
-  .background-image-hero {
+  .hero-content {
     position: relative;
-    /* other styles if needed */
-  }
-
-  .background-image-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+    z-index: 1;
+    margin-inline: auto;
     width: 100%;
-    height: 100%;
-    background-image: url("/8c640316346e2f5b15c48ecfca1219677d7b1092.png");
-    background-size: cover; /* or contain, as you prefer */
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.1;
-    z-index: -1;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    max-width: 1480px;
+    padding: 10rem 1rem 5rem;
   }
 
-  .top-shadow-overlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10%; /* 5% of screen height */
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.6),
-      transparent
-    ); /* Black to transparent */
-    z-index: 10; /* Ensure it's on top */
-    pointer-events: none; /* Make sure it doesn't interfere with mouse events */
-  }
-}
-
-.screen-image {
-  background-image: url("https://images.unsplash.com/photo-1718889848733-590481af3767?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* background-attachment: fixed; */
-}
-
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  border-top: 4px solid #fff;
-  border-right: 4px solid transparent;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-.loader::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border-left: 4px solid #ff3d00;
-  border-bottom: 4px solid transparent;
-  animation: rotation 0.5s linear infinite reverse;
-}
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-/* add the code bellow */
-@layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  @media (min-width: 640px) {
+    .hero-content {
+      padding-inline: 1.5rem;
+    }
   }
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+  @media (min-width: 1024px) {
+    .hero-content {
+      padding: 11rem 2.5rem 6.5rem;
+    }
+  }
+
+  .hero-content h1 {
+    max-width: 980px;
+    color: #fff;
+    font-size: 4.5rem;
+    line-height: 0.98;
+    overflow-wrap: normal;
+  }
+
+  .hero-content p:not(.section-label) {
+    margin-top: 1.5rem;
+    max-width: 680px;
+    color: rgb(255 255 255 / 0.72);
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .hero-content > div {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    .hero-content h1 {
+      font-size: 2.75rem;
+      line-height: 1.02;
+    }
+
+    .hero-content p:not(.section-label) {
+      font-size: 1.05rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-content h1 {
+      font-size: 2.45rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .hero-content h1 {
+      font-size: 2.15rem;
+    }
+  }
+
+  .section-label {
+    margin-bottom: 1rem;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .section-intro {
+    max-width: 790px;
+  }
+
+  .section-intro h2 {
+    color: #fff;
+    font-size: 3.5rem;
+    line-height: 1.04;
+  }
+
+  .section-copy {
+    margin-top: 1.25rem;
+    color: rgb(255 255 255 / 0.62);
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 767px) {
+    .section-intro h2 {
+      font-size: 2.75rem;
+    }
   }
 }
