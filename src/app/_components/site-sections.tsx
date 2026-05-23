@@ -75,6 +75,44 @@ const serviceControls = [
   },
 ];
 
+const companySignals = [
+  {
+    label: "Founded",
+    value: "2009",
+  },
+  {
+    label: "Operating Model",
+    value: "One contract",
+  },
+  {
+    label: "Labour",
+    value: "Direct crews",
+  },
+  {
+    label: "Accountability",
+    value: "No handoff point",
+  },
+];
+
+const companyContrasts = [
+  {
+    label: "Split Trade Scope",
+    points: [
+      "Multiple independent contracts",
+      "Separate supervision by trade",
+      "Coordination pressure left with the GC",
+    ],
+  },
+  {
+    label: "CPT Model",
+    points: [
+      "One Division 9 contract",
+      "Directly employed interior crews",
+      "Schedule, quality, and closeout stay with CPT",
+    ],
+  },
+];
+
 const industryDossiers = [
   {
     title: "Hospitality",
@@ -688,39 +726,92 @@ export function CompanyContent() {
         title="Sixteen Years. One Operating Model."
         intro="CPT Construction has been delivering Division 9 interior scopes across Ontario since 2009. The operating model has not changed."
       />
-      <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-12 xl:grid-cols-[0.88fr_1.12fr] xl:items-center">
-          <div>
-            <SectionIntro
-              eyebrow="Who We Are"
-              title="One accountable interior contractor."
-              body="Most Division 9 scopes are split across independent trades. CPT replaces that structure with one contract, one in-house sequence, and one accountable team."
-            />
-            <div className="mt-8 space-y-7 text-lg leading-8 text-white/70">
-              <p>
-                Most Division 9 scopes are split across multiple independent
-                trades. Each trade has its own contract, its own supervision,
-                and its own accountability limit. When something goes wrong, the
-                GC resolves it.
-              </p>
-              <p>
-                CPT replaces that structure. One contract covers every trade in
-                the interior scope. The same organisation that frames the walls
-                tapes, paints, and installs the floors. There is no handoff
-                point where accountability transfers. Or disappears.
-              </p>
-              <p>
+      <section className="border-t border-white/10 bg-black py-10">
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-4">
+            {companySignals.map((item) => (
+              <DossierItem
+                key={item.label}
+                label={item.label}
+                value={item.value}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="site-section relative overflow-hidden border-t border-white/10">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-35" />
+        <div className="site-container relative grid gap-12 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
+          <aside className="self-start border-y border-white/10 py-8 xl:sticky xl:top-28">
+            <p className="section-label">Who We Are</p>
+            <h2 className="max-w-xl text-4xl leading-[1.04] text-white sm:text-5xl md:text-6xl">
+              One accountable interior contractor.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white/64">
+              Most Division 9 scopes are split across independent trades. CPT
+              replaces that structure with one contract, one in-house sequence,
+              and one accountable team.
+            </p>
+            <div className="mt-10 border-t border-[var(--gold)]/65 pt-6">
+              <p className="text-sm uppercase tracking-[0.16em] text-white/46">
                 Developers and GCs who award a Division 9 scope to CPT do not
                 manage it. CPT does.
               </p>
             </div>
-          </div>
-          <div className="space-y-6">
-            <ImageFrame
-              src="/CPT(1)/new_image.png"
-              alt="Interior construction in progress"
-              priority
-            />
+          </aside>
+
+          <div className="grid gap-8">
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="relative min-h-[460px] overflow-hidden bg-black">
+                <Image
+                  src="/CPT(1)/new_image.png"
+                  alt="CPT operating model reference"
+                  fill
+                  priority
+                  sizes="(min-width: 1280px) 38vw, 100vw"
+                  className="object-cover grayscale-[42%] saturate-[0.8]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/16 to-transparent" />
+                <div className="pointer-events-none absolute inset-5 border border-white/10" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                    Operating Model
+                  </p>
+                  <p className="mt-3 max-w-md text-lg leading-7 text-white/76">
+                    The same organisation that frames the walls tapes, paints,
+                    and installs the floors.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-black p-6 md:p-8 lg:p-10">
+                <p className="section-label">Accountability Transfer</p>
+                <h3 className="max-w-2xl text-4xl leading-[1.04] text-white md:text-6xl">
+                  The handoff point is where quality disappears.
+                </h3>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
+                  CPT removes that handoff. The crew that establishes the
+                  substrate stays accountable through the finish standard and
+                  final inspection.
+                </p>
+                <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                  {companyContrasts.map((item, index) => (
+                    <article key={item.label} className="bg-black p-6">
+                      <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                        {String(index + 1).padStart(2, "0")} / {item.label}
+                      </p>
+                      <ul className="mt-5 space-y-3 text-sm leading-6 text-white/62">
+                        {item.points.map((point) => (
+                          <li key={point} className="border-t border-white/10 pt-3">
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
             <OperatingModelPanel />
           </div>
         </div>
@@ -757,7 +848,7 @@ function OperatingModelPanel() {
   ];
 
   return (
-    <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3 xl:grid-cols-1">
+    <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
       {operatingModel.map((item, index) => (
         <div key={item.label} className="bg-black p-5">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
@@ -772,26 +863,39 @@ function OperatingModelPanel() {
 
 export function PrinciplesSection() {
   return (
-    <section className="site-section border-t border-white/10">
-      <div className="site-container">
-        <SectionIntro
-          eyebrow="How We Work"
-          title="Five Principles. No Exceptions."
-        />
-        <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-5">
+    <section className="site-section border-t border-white/10 bg-black">
+      <div className="site-container grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)]">
+        <aside className="self-start border-y border-white/10 py-8 lg:sticky lg:top-28">
+          <p className="section-label">How We Work</p>
+          <h2 className="text-4xl leading-[1.04] text-white">
+            Five principles. No exceptions.
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-white/62">
+            The company model only works when the field standard is consistent:
+            direct communication, early ownership, and safe execution.
+          </p>
+        </aside>
+
+        <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
           {principles.map((principle, index) => (
             <article
               key={principle.title}
-              className="group relative bg-black p-6 transition duration-300 hover:bg-[var(--surface)]"
+              className="group grid bg-black p-6 transition duration-300 hover:bg-[var(--surface)] md:grid-cols-[160px_minmax(0,1fr)] md:p-8"
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]/80">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-2xl text-white">{principle.title}</h3>
-              <p className="mt-5 text-sm leading-6 text-white/62">
-                {principle.body}
-              </p>
-              <div className="mt-8 h-px w-10 bg-[var(--gold)]/50 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+              <div className="border-t border-[var(--gold)]/60 pt-5">
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]/80">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <div className="min-w-0 border-t border-white/10 pt-5 md:border-[var(--gold)]/60">
+                <h3 className="text-3xl leading-tight text-white md:text-4xl">
+                  {principle.title}
+                </h3>
+                <p className="mt-5 max-w-3xl text-base leading-7 text-white/62">
+                  {principle.body}
+                </p>
+                <div className="mt-8 h-px w-10 bg-[var(--gold)]/50 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+              </div>
             </article>
           ))}
         </div>
