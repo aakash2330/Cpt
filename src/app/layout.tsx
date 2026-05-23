@@ -23,8 +23,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CPT",
-  description: "City Professional Trades",
+  title: "City Professional Trades",
+  description:
+    "Division 9 interior scopes self-performed across Ontario by CPT Construction.",
   icons: {
     icon: "/Newlogoupdate/ProfileCPT.png",
   },
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} overflow-x-hidden antialiased screen-image bg-background top-shadow-overlay`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} overflow-x-hidden bg-black antialiased`}
       >
         <ThemeProvider
           attribute="class"

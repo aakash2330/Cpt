@@ -1,87 +1,173 @@
-"use client";
-
-import { ContactCard } from "./_components/ContactCard";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import type { ReactNode } from "react";
+import { contactDetails } from "../_data/site";
+import { PageHero } from "../_components/site-sections";
 import { ContactForm } from "./_components/ContactForm";
-import { useSpring, animated } from "@react-spring/web";
-import { useEffect, useState } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
 
-const AnimatedDiv = animated("div");
+const inquiryRoutes = [
+  {
+    index: "01",
+    title: "New Project Discussion",
+    body: "Use this path when there is an active scope, upcoming tender, schedule pressure, or a Division 9 package to price.",
+  },
+  {
+    index: "02",
+    title: "Prequalification & Documentation",
+    body: "Use this path when procurement needs WSIB clearance, insurance, bonding information, or a formal qualification package.",
+  },
+];
+
+const contactPrep = [
+  { label: "Response Path", value: "Project or documentation" },
+  { label: "Audience", value: "GCs / Developers / Procurement" },
+  { label: "Coverage", value: "Ontario interior scopes" },
+];
 
 export default function ContactPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const headingAnimation = useSpring({
-    from: { opacity: 0, transform: "translateX(-50px)" },
-    to: {
-      opacity: mounted ? 1 : 0,
-      transform: mounted ? "translateX(0)" : "translateX(-50px)",
-    },
-    config: { tension: 170, friction: 24 },
-    delay: 100,
-  });
-
-  const subheadingAnimation = useSpring({
-    from: { opacity: 0, transform: "translateX(-50px)" },
-    to: {
-      opacity: mounted ? 1 : 0,
-      transform: mounted ? "translateX(0)" : "translateX(-50px)",
-    },
-    config: { tension: 170, friction: 24 },
-    delay: 400,
-  });
-
   return (
-    <div className="relative py-32 lg:py-64 px-4 md:px-10 lg:px-16">
-      {/* Orange gradient background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-orange-500/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-orange-500/10 to-transparent" />
-      </div>
+    <div className="site-page">
+      <PageHero
+        noPhoto
+        eyebrow="Contact"
+        title="Start the Right Conversation."
+        intro="Route project scopes and procurement requests directly to the team responsible for CPT's interior delivery."
+      />
+      <section className="site-section border-t border-white/10">
+        <div className="site-container">
+          <div className="mb-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            {contactPrep.map((item) => (
+              <ContactPrep
+                key={item.label}
+                label={item.label}
+                value={item.value}
+              />
+            ))}
+          </div>
 
-      <div className="relative z-10 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 lg:gap-20">
-        <div className="w-full lg:w-1/2">
-          <AnimatedDiv style={headingAnimation}>
-            <h1 className="text-3xl md:text-4xl font-bold">
-              LET'S BUILD SOMETHING <br className="hidden md:block" /> GREAT
-              TOGETHER
-            </h1>
-          </AnimatedDiv>
-          <AnimatedDiv style={subheadingAnimation}>
-            <p className="text-base font-semibold mt-4">
-              Have questions or ready to start your project? Get in touch{" "}
-              <br className="hidden md:block" />
-              with our team—we're here to help every step of the way.
+          <div className="grid gap-10 min-[1180px]:grid-cols-[360px_minmax(0,1fr)] min-[1180px]:items-start xl:gap-12">
+            <aside className="self-start border-y border-white/10 py-8 min-[1180px]:sticky min-[1180px]:top-28">
+              <p className="section-label">Inquiry Routing</p>
+              <h2 className="max-w-xl text-4xl leading-[1.04] text-white">
+                Two paths. Same accountable team.
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-white/62">
+                CPT separates project conversations from procurement
+                documentation so each request reaches the right internal lead
+                without handoffs.
+              </p>
+              <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                {inquiryRoutes.map((route) => (
+                  <article key={route.title} className="group bg-black p-6">
+                    <div className="flex items-center justify-between border-t border-[var(--gold)]/70 pt-5">
+                      <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                        {route.index}
+                      </span>
+                      <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                    </div>
+                    <h3 className="mt-8 text-2xl leading-tight text-white">
+                      {route.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-6 text-white/58">
+                      {route.body}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </aside>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+      <section className="site-section border-t border-white/10">
+        <div className="site-container">
+          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="section-label">Direct Coordinates</p>
+              <h2 className="max-w-3xl text-4xl leading-[1.05] text-white md:text-6xl">
+                Reach the office without a routing layer.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm uppercase tracking-[0.16em] text-white/45 md:text-right">
+              Email, phone, and office address for active scopes and
+              documentation requests.
             </p>
-          </AnimatedDiv>
+          </div>
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            <ContactPoint
+              icon={<Mail size={20} />}
+              label="Email"
+              value={contactDetails.email}
+              href={`mailto:${contactDetails.email}`}
+            />
+            <ContactPoint
+              icon={<Phone size={20} />}
+              label="Phone"
+              value={contactDetails.phone}
+              href="tel:4168383970"
+            />
+            <ContactPoint
+              icon={<MapPin size={20} />}
+              label="Address"
+              value={contactDetails.address}
+            />
+          </div>
         </div>
-
-        <div className="w-full lg:w-1/2">
-          <ContactForm />
-        </div>
-      </div>
-
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-16 md:pt-24 lg:pt-32">
-        <ContactCard
-          icon={<Mail size={22} />}
-          title="EMAIL"
-          value="info@cityprofessionaltrades.com"
-        />
-        <ContactCard
-          icon={<Phone size={22} />}
-          title="PHONE NUMBER"
-          value="(416)838-3970"
-        />
-        <ContactCard
-          icon={<MapPin size={22} />}
-          title="LOCATION"
-          value="974 The Queensway Etobicoke, ON M8Z 1P6"
-        />
-      </div>
+      </section>
     </div>
   );
+}
+
+function ContactPrep({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-black p-6">
+      <p className="text-xs uppercase tracking-[0.18em] text-white/40">
+        {label}
+      </p>
+      <p className="mt-3 text-xl leading-tight text-white">{value}</p>
+    </div>
+  );
+}
+
+function ContactPoint({
+  icon,
+  label,
+  value,
+  href,
+}: {
+  icon: ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+}) {
+  const content = (
+    <>
+      <div className="flex items-start justify-between gap-5 border-t border-white/10 pt-5">
+        <div className="text-[var(--gold)]">{icon}</div>
+        {href && (
+          <ArrowUpRight
+            aria-hidden="true"
+            size={18}
+            className="text-white/35 transition group-hover:text-[var(--gold)]"
+          />
+        )}
+      </div>
+      <p className="mt-10 text-xs uppercase tracking-[0.18em] text-white/42">
+        {label}
+      </p>
+      <p className="mt-3 text-xl leading-7 text-white">{value}</p>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className="group bg-black p-6 transition hover:bg-white/[0.04] md:p-8"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <div className="bg-black p-6 md:p-8">{content}</div>;
 }

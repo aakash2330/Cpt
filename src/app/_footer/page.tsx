@@ -1,232 +1,166 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { contactDetails } from "../_data/site";
 import { LogoMain } from "../Navbar/Logo";
 
-export async function Footer() {
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about/company" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
+];
+
+const footerHighlights = [
+  { label: "Scope", value: "Division 9 interiors" },
+  { label: "Region", value: "Ontario delivery" },
+  { label: "Model", value: "Self-performed crews" },
+  { label: "Point of Contact", value: "One accountable lead" },
+];
+
+const footerContacts = [
+  {
+    label: "Email",
+    value: contactDetails.email,
+    href: `mailto:${contactDetails.email}`,
+    icon: Mail,
+  },
+  {
+    label: "Phone",
+    value: contactDetails.phone,
+    href: "tel:4168383970",
+    icon: Phone,
+  },
+  {
+    label: "Office",
+    value: contactDetails.address,
+    href: null,
+    icon: MapPin,
+  },
+];
+
+export function Footer() {
   return (
-    <footer className="w-full z-50 bg-background text-white py-8 sm:py-12 lg:py-16 border-t border-[#3E3E3E]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Desktop Layout (lg and above) */}
-        <div className="hidden lg:flex flex-row justify-between items-center">
-          <div className="max-w-sm flex-shrink-0">
+    <footer className="relative overflow-hidden border-t border-[var(--gold)]/75 bg-black text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-35" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/80 to-transparent" />
+
+      <div className="site-container relative py-16 md:py-20">
+        <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
+          {footerHighlights.map((item) => (
+            <div key={item.label} className="bg-black p-5">
+              <p className="text-xs uppercase tracking-[0.18em] text-white/38">
+                {item.label}
+              </p>
+              <p className="mt-3 text-lg text-white">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-12 border-b border-white/10 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="max-w-3xl">
             <LogoMain />
-            <p className="text-sm mt-4 mb-6 leading-relaxed">
-              City Professional Trades © 2025. All rights reserved. | Reliable,
-              licensed, and insured trade professionals delivering expert
-              solutions across your city. | Powered by commitment. Driven by
-              quality.
+            <p className="section-label mt-10">City Professional Trades</p>
+            <h2 className="mt-5 text-5xl leading-[1.02] text-white md:text-7xl">
+              Finish Strong.
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/62">
+              Complete interior scopes delivered by one accountable team, from
+              first stud to final sign-off.
             </p>
-            <div className="flex flex-row gap-4">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--gold)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-black transition duration-300 hover:-translate-y-0.5 hover:bg-white"
+              >
+                Start a Conversation
+                <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.8} />
+              </Link>
               <a
-                href="https://www.linkedin.com/company/city-professional-trades/?originalSubdomain=ca"
+                href={contactDetails.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-white/20 px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition duration-300 hover:-translate-y-0.5 hover:border-[var(--gold)] hover:text-[var(--gold)]"
               >
+                LinkedIn
                 <Image
                   src="/linkedIn.svg"
-                  alt="LinkedIn icon"
-                  width={20}
-                  height={20}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="brightness-0 invert"
                 />
               </a>
             </div>
           </div>
 
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-base font-semibold mb-2">Contact</h3>
-            <a
-              href="mailto:Info@cityprofessionaltrades.com"
-              className="text-sm hover:text-gray-300 transition-colors"
-            >
-              Info@cityprofessionaltrades.com
-            </a>
-            <a
-              href="tel:4168383970"
-              className="text-sm hover:text-gray-300 transition-colors"
-            >
-              (416) 838-3970
-            </a>
-            <p className="text-sm">
-              974 The Queensway Etobicoke,
-              <br />
-              ON M8Z 1P6
-            </p>
-          </div>
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+            {footerContacts.map((item) => {
+              const Icon = item.icon;
+              const content = (
+                <>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/15 text-[var(--gold)]">
+                    <Icon aria-hidden="true" size={17} strokeWidth={1.8} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/38">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-base leading-7 text-white">
+                      {item.value}
+                    </p>
+                  </div>
+                </>
+              );
 
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-base font-semibold mb-2">Navigation</h3>
-            <a href="/" className="text-sm hover:text-gray-300 transition-colors">
-              Home
-            </a>
-            <a href="/company" className="text-sm hover:text-gray-300 transition-colors">
-              Company
-            </a>
-            <a href="/contact" className="text-sm hover:text-gray-300 transition-colors">
-              Contact
-            </a>
-          </div>
-
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-base font-semibold mb-2">Services</h3>
-            <a href="/portfolio" className="text-sm hover:text-gray-300 transition-colors">
-              Portfolio
-            </a>
-            <a href="/services" className="text-sm hover:text-gray-300 transition-colors">
-              Services
-            </a>
-            <a href="/subcontractor" className="text-sm hover:text-gray-300 transition-colors">
-              Sub Contractor
-            </a>
-          </div>
-        </div>
-
-        {/* Tablet Layout (md to lg) */}
-        <div className="hidden md:flex lg:hidden flex-col space-y-8">
-          <div className="flex flex-row justify-between items-center gap-8">
-            <div className="flex-1 max-w-md">
-              <LogoMain />
-              <p className="text-sm mt-4 mb-4 leading-relaxed">
-                City Professional Trades © 2025. All rights reserved. | Reliable,
-                licensed, and insured trade professionals delivering expert
-                solutions across your city. | Powered by commitment. Driven by
-                quality.
-              </p>
-              <div className="flex flex-row gap-4">
+              return item.href ? (
                 <a
-                  href="https://www.linkedin.com/company/city-professional-trades/?originalSubdomain=ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-start gap-5 bg-black p-6 transition duration-300 hover:bg-[var(--surface)]"
                 >
-                  <Image
-                    src="/linkedIn.svg"
-                    alt="LinkedIn icon"
-                    width={20}
-                    height={20}
-                  />
+                  {content}
                 </a>
-              </div>
-            </div>
-
-            <div className="flex flex-col space-y-3">
-              <h3 className="text-base font-semibold">Contact</h3>
-              <a
-                href="mailto:Info@cityprofessionaltrades.com"
-                className="text-sm hover:text-gray-300 transition-colors"
-              >
-                Info@cityprofessionaltrades.com
-              </a>
-              <a
-                href="tel:4168383970"
-                className="text-sm hover:text-gray-300 transition-colors"
-              >
-                (416) 838-3970
-              </a>
-              <p className="text-sm">
-                974 The Queensway Etobicoke,
-                <br />
-                ON M8Z 1P6
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-32">
-            <div className="flex flex-col space-y-3">
-              <h3 className="text-base font-semibold">Navigation</h3>
-              <a href="/" className="text-sm hover:text-gray-300 transition-colors">
-                Home
-              </a>
-              <a href="/company" className="text-sm hover:text-gray-300 transition-colors">
-                Company
-              </a>
-              <a href="/contact" className="text-sm hover:text-gray-300 transition-colors">
-                Contact
-              </a>
-            </div>
-            <div className="flex flex-col space-y-3">
-              <h3 className="text-base font-semibold">Services</h3>
-              <a href="/portfolio" className="text-sm hover:text-gray-300 transition-colors">
-                Portfolio
-              </a>
-              <a href="/services" className="text-sm hover:text-gray-300 transition-colors">
-                Services
-              </a>
-              <a href="/subcontractor" className="text-sm hover:text-gray-300 transition-colors">
-                Sub Contractor
-              </a>
-            </div>
+              ) : (
+                <div
+                  key={item.label}
+                  className="flex items-start gap-5 bg-black p-6"
+                >
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Mobile Layout (sm and below) */}
-        <div className="flex md:hidden flex-col space-y-6">
-          <div>
-            <LogoMain />
-            <p className="text-sm mt-4 mb-4 leading-relaxed">
-              City Professional Trades © 2025. All rights reserved. | Reliable,
-              licensed, and insured trade professionals delivering expert
-              solutions across your city. | Powered by commitment. Driven by
-              quality.
-            </p>
-            <div className="flex flex-row gap-4 mt-4">
-              <a
-                href="https://www.linkedin.com/company/city-professional-trades/?originalSubdomain=ca"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
+        <div className="grid gap-8 pt-8 xl:grid-cols-[1fr_auto] xl:items-end">
+          <nav className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="group bg-black px-5 py-4 transition duration-300 hover:bg-[var(--surface)]"
               >
-                <Image
-                  src="/linkedIn.svg"
-                  alt="LinkedIn icon"
-                  width={20}
-                  height={20}
-                />
-              </a>
-            </div>
-          </div>
+                <span className="flex items-center justify-between gap-4 text-xs uppercase tracking-[0.16em] text-white/58 transition group-hover:text-white">
+                  {link.label}
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    size={14}
+                    strokeWidth={1.8}
+                    className="text-[var(--gold)]"
+                  />
+                </span>
+              </Link>
+            ))}
+          </nav>
 
-          <div className="flex flex-col space-y-3">
-            <h3 className="text-base font-semibold">Contact</h3>
-            <a
-              href="mailto:Info@cityprofessionaltrades.com"
-              className="text-sm hover:text-gray-300 transition-colors break-all"
-            >
-              Info@cityprofessionaltrades.com
-            </a>
-            <a
-              href="tel:4168383970"
-              className="text-sm hover:text-gray-300 transition-colors"
-            >
-              (416) 838-3970
-            </a>
-            <p className="text-sm">974 The Queensway Etobicoke, ON M8Z 1P6</p>
-          </div>
-
-          <div className="grid grid-cols-1 xs:grid-cols-2 gap-6">
-            <div className="flex flex-col space-y-3">
-              <h3 className="text-base font-semibold">Navigation</h3>
-              <a href="/" className="text-sm hover:text-gray-300 transition-colors">
-                Home
-              </a>
-              <a href="/company" className="text-sm hover:text-gray-300 transition-colors">
-                Company
-              </a>
-              <a href="/contact" className="text-sm hover:text-gray-300 transition-colors">
-                Contact
-              </a>
-            </div>
-            <div className="flex flex-col space-y-3">
-              <h3 className="text-base font-semibold">Services</h3>
-              <a href="/portfolio" className="text-sm hover:text-gray-300 transition-colors">
-                Portfolio
-              </a>
-              <a href="/services" className="text-sm hover:text-gray-300 transition-colors">
-                Services
-              </a>
-              <a href="/subcontractor" className="text-sm hover:text-gray-300 transition-colors">
-                Sub Contractor
-              </a>
-            </div>
+          <div className="text-sm leading-6 text-white/50 xl:text-right">
+            <p>City Professional Trades &copy; 2026. All rights reserved.</p>
+            <p className="mt-2 uppercase tracking-[0.16em] text-white/35">
+              Ontario / Division 9 / Self performed interiors
+            </p>
           </div>
         </div>
       </div>

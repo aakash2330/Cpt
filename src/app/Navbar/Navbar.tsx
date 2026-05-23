@@ -3,9 +3,13 @@ import { NavLinks } from "./Navlinks/Main";
 
 export function Navbar() {
   return (
-    <div className="absolute top-0 w-full px-12 flex justify-between items-center z-50">
-      <LogoMain />
-      <NavLinks />
-    </div>
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-black/82 shadow-[0_1px_28px_rgba(0,0,0,0.45)]">
+      <div className="pointer-events-none absolute inset-0 bg-black/82 backdrop-blur-xl supports-[backdrop-filter]:bg-black/68" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/70 to-transparent" />
+      <div className="relative z-10 mx-auto flex h-20 w-full max-w-[1480px] items-center justify-between px-4 sm:px-6 lg:px-10">
+        <LogoMain />
+        <NavLinks />
+      </div>
+    </header>
   );
 }
