@@ -76,8 +76,9 @@ const documentFields: FieldConfig[] = [
 
 export function ContactForm() {
   return (
-    <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-2">
+    <div className="grid gap-6 lg:grid-cols-2">
       <InquiryForm
+        index="01"
         title="New Project Discussion"
         description="For developers, general contractors, and asset owners with an active or upcoming scope to discuss."
         submitLabel="Submit Inquiry"
@@ -94,6 +95,7 @@ export function ContactForm() {
         fields={newProjectFields}
       />
       <InquiryForm
+        index="02"
         title="Prequalification & Documentation"
         description="For procurement teams requiring bonding certificates, WSIB clearance, insurance documentation, or a formal prequalification package."
         submitLabel="Request Documents"
@@ -113,6 +115,7 @@ export function ContactForm() {
 }
 
 function InquiryForm({
+  index,
   title,
   description,
   submitLabel,
@@ -120,6 +123,7 @@ function InquiryForm({
   defaultValues,
   fields,
 }: {
+  index: string;
   title: string;
   description: string;
   submitLabel: string;
@@ -170,9 +174,14 @@ function InquiryForm({
   }
 
   return (
-    <section className="bg-black p-6 md:p-8">
+    <section className="relative overflow-hidden border border-white/10 bg-black p-6 transition duration-300 hover:border-white/20 md:p-8">
+      <div className="pointer-events-none absolute right-6 top-6 text-xs uppercase tracking-[0.18em] text-white/22">
+        {index}
+      </div>
       <div className="mb-8 border-t border-[var(--gold)] pt-5">
-        <h2 className="text-3xl text-white">{title}</h2>
+        <h2 className="max-w-xl text-3xl leading-tight text-white md:text-4xl">
+          {title}
+        </h2>
         <p className="mt-4 text-sm leading-6 text-white/58">{description}</p>
       </div>
       <Form {...form}>
@@ -191,13 +200,13 @@ function InquiryForm({
                     {fieldConfig.type === "textarea" ? (
                       <Textarea
                         placeholder={fieldConfig.placeholder}
-                        className="min-h-32 resize-none rounded-none border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus-visible:ring-[var(--gold)]"
+                        className="min-h-32 resize-none rounded-none border-white/15 bg-white/[0.025] text-white placeholder:text-white/30 transition focus:border-[var(--gold)] focus-visible:ring-[var(--gold)]"
                         {...field}
                       />
                     ) : (
                       <Input
                         placeholder={fieldConfig.placeholder}
-                        className="h-12 rounded-none border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus-visible:ring-[var(--gold)]"
+                        className="h-12 rounded-none border-white/15 bg-white/[0.025] text-white placeholder:text-white/30 transition focus:border-[var(--gold)] focus-visible:ring-[var(--gold)]"
                         {...field}
                       />
                     )}
@@ -210,7 +219,7 @@ function InquiryForm({
           <Button
             type="submit"
             disabled={form.formState.isSubmitting}
-            className="h-12 w-full rounded-none bg-[var(--gold)] text-sm font-semibold uppercase tracking-[0.16em] text-black hover:bg-white"
+            className="h-12 w-full rounded-none bg-[var(--gold)] text-sm font-semibold uppercase tracking-[0.16em] text-black transition duration-300 hover:-translate-y-0.5 hover:bg-white disabled:hover:translate-y-0"
           >
             {form.formState.isSubmitting ? "Sending..." : submitLabel}
           </Button>

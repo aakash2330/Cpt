@@ -489,9 +489,17 @@ export function TeamContent() {
       <section className="site-section border-t border-white/10">
         <div className="site-container">
           <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
-            {team.map((person) => (
-              <article key={person.name} className="bg-black p-6">
-                <div className="relative aspect-square overflow-hidden bg-[var(--surface)]">
+            {team.map((person, index) => (
+              <article
+                key={person.name}
+                className="group relative overflow-hidden bg-black p-6 transition duration-300 hover:bg-[var(--surface)]"
+              >
+                <div className="pointer-events-none absolute right-6 top-6 text-xs uppercase tracking-[0.18em] text-white/24">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <div className="relative aspect-square overflow-hidden border border-white/10 bg-[linear-gradient(135deg,#090909,#11100e_48%,#050505)]">
+                  <div className="pointer-events-none absolute inset-5 border border-white/10" />
+                  <div className="pointer-events-none absolute inset-x-5 top-5 h-px bg-[var(--gold)]/50" />
                   {person.image ? (
                     <Image
                       src={person.image}
@@ -500,8 +508,8 @@ export function TeamContent() {
                       className="object-cover grayscale-[55%]"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_50%_35%,rgba(199,164,107,0.18),transparent_42%),#080807]">
-                      <span className="text-7xl text-white/82">
+                    <div className="flex h-full w-full items-center justify-center">
+                      <span className="text-7xl text-white/78 transition duration-300 group-hover:text-white">
                         {person.initials}
                       </span>
                     </div>

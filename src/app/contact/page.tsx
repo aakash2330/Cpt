@@ -14,30 +14,48 @@ export default function ContactPage() {
       />
       <section className="site-section border-t border-white/10">
         <div className="site-container">
+          <div className="mb-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            <ContactPrep label="Response Path" value="Project or documentation" />
+            <ContactPrep label="Audience" value="GCs, developers, procurement" />
+            <ContactPrep label="Coverage" value="Ontario interior scopes" />
+          </div>
           <ContactForm />
         </div>
       </section>
       <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-          <ContactPoint
-            icon={<Mail size={20} />}
-            label="Email"
-            value={contactDetails.email}
-            href={`mailto:${contactDetails.email}`}
-          />
-          <ContactPoint
-            icon={<Phone size={20} />}
-            label="Phone"
-            value={contactDetails.phone}
-            href="tel:4168383970"
-          />
-          <ContactPoint
-            icon={<MapPin size={20} />}
-            label="Address"
-            value={contactDetails.address}
-          />
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            <ContactPoint
+              icon={<Mail size={20} />}
+              label="Email"
+              value={contactDetails.email}
+              href={`mailto:${contactDetails.email}`}
+            />
+            <ContactPoint
+              icon={<Phone size={20} />}
+              label="Phone"
+              value={contactDetails.phone}
+              href="tel:4168383970"
+            />
+            <ContactPoint
+              icon={<MapPin size={20} />}
+              label="Address"
+              value={contactDetails.address}
+            />
+          </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+function ContactPrep({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-black p-5">
+      <p className="text-xs uppercase tracking-[0.18em] text-white/40">
+        {label}
+      </p>
+      <p className="mt-2 text-base text-white">{value}</p>
     </div>
   );
 }
