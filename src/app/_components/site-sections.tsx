@@ -112,6 +112,55 @@ const industryStandards = [
   },
 ];
 
+const credentialProofs = [
+  {
+    label: "LTIFR",
+    value: "0.00",
+    note: "Lost-Time Incident Frequency Rate",
+  },
+  {
+    label: "Lost-Time Incidents",
+    value: "0",
+    note: "Four consecutive years",
+  },
+  {
+    label: "WSIB Claims",
+    value: "0",
+    note: "All operating years",
+  },
+];
+
+const credentialRecords = [
+  {
+    index: "01",
+    title: "Safety Record",
+    measure: "0.00 LTIFR",
+    proof: "Zero lost-time incidents, four consecutive years.",
+    body: "The safety record holds across every operating environment in the portfolio, including regulated healthcare work, occupied residential scopes, and brand-inspected hospitality delivery.",
+  },
+  {
+    index: "02",
+    title: "Insurance & Bonding",
+    measure: "Certificates on request",
+    proof: "General liability insurance is in place.",
+    body: "Performance bonds and labour and material payment bonds are available for qualifying projects, with bond documentation prepared for procurement review when required.",
+  },
+  {
+    index: "03",
+    title: "WSIB Standing",
+    measure: "Active / in good standing",
+    proof: "Clearance certificate available on request.",
+    body: "WSIB status is maintained for GC, developer, and institutional procurement teams that require formal clearance before award or mobilisation.",
+  },
+];
+
+const credentialPacket = [
+  "General liability certificate",
+  "WSIB clearance certificate",
+  "Bonding documentation for qualifying scopes",
+  "Membership and association standing",
+];
+
 const closingProofs = [
   "2027 onward delivery windows",
   "Prequalification documents available",
@@ -925,80 +974,118 @@ export function CredentialsContent() {
         title="The Record Behind the Relationship."
         intro="Available to any GC, developer, or institutional procurement team on request."
       />
-      <section className="site-section border-t border-white/10">
-        <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
-            <RecordBlock index="01" title="Safety">
-              <p>Lost-Time Incident Frequency Rate: 0.00.</p>
-              <p>Zero lost-time incidents, four consecutive years.</p>
-              <p>Zero WSIB claims, all operating years.</p>
-              <p>The record holds across every environment in the portfolio.</p>
-            </RecordBlock>
-            <RecordBlock index="02" title="Insurance & Bonding">
-              <p>
-                General liability insurance in place. Certificate available on
-                request.
+      <section className="site-section relative overflow-hidden border-t border-white/10">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-35" />
+        <div className="site-container relative grid gap-10 xl:grid-cols-[0.92fr_1.08fr] xl:items-stretch">
+          <article className="flex min-h-[520px] flex-col justify-between border border-white/10 bg-black p-6 md:p-10">
+            <div>
+              <p className="section-label">Safety Ledger</p>
+              <h2 className="mt-8 max-w-4xl text-5xl leading-[1.02] text-white md:text-7xl">
+                Zero is the standard that matters.
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
+                CPT keeps safety, insurance, WSIB, and bonding documentation in
+                a procurement-ready state for teams that need evidence before
+                award, mobilisation, or closeout.
               </p>
-              <p>
-                Performance bonds and labour and material payment bonds available
-                for qualifying projects. Bond documentation available on request.
-              </p>
-            </RecordBlock>
-            <RecordBlock index="03" title="WSIB">
-              <p>Active and in good standing. Clearance certificate available on request.</p>
-            </RecordBlock>
+            </div>
+            <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3">
+              {credentialProofs.map((item) => (
+                <div key={item.label} className="bg-black p-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/40">
+                    {item.label}
+                  </p>
+                  <p className="mt-4 text-5xl leading-none text-white md:text-6xl">
+                    {item.value}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/58">
+                    {item.note}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+            {credentialRecords.map((record) => (
+              <article
+                key={record.title}
+                className="group bg-black p-6 transition duration-300 hover:bg-[var(--surface)] md:p-8"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-6 border-t border-[var(--gold)]/70 pt-5">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                      {record.index}
+                    </p>
+                    <h2 className="mt-8 text-3xl leading-tight text-white md:text-4xl">
+                      {record.title}
+                    </h2>
+                  </div>
+                  <p className="max-w-56 text-right text-sm uppercase tracking-[0.16em] text-white/42">
+                    {record.measure}
+                  </p>
+                </div>
+                <p className="mt-8 text-lg font-medium text-[var(--gold)]">
+                  {record.proof}
+                </p>
+                <p className="mt-5 max-w-3xl text-base leading-7 text-white/64">
+                  {record.body}
+                </p>
+                <div className="mt-8 h-px w-12 bg-white/18 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
+              </article>
+            ))}
           </div>
         </div>
       </section>
-      <section className="border-t border-white/10 bg-black py-10">
-        <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-            <DossierItem label="Documents" value="Insurance / WSIB / Bonding" />
-            <DossierItem label="Audience" value="GCs / Developers / Procurement" />
-            <DossierItem label="Availability" value="On Request" />
-          </div>
-        </div>
-      </section>
-      <section className="site-section border-t border-white/10">
-        <div className="site-container">
-          <SectionIntro
-            eyebrow="Memberships & Associations"
-            title="Recognized by the Industry."
-          />
-          <AssociationStrip />
-          <div className="mt-12">
-            <ArrowLink href="/contact" variant="solid">
-              Request Prequalification Documents
-            </ArrowLink>
+
+      <section className="site-section border-t border-white/10 bg-black">
+        <div className="site-container grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)]">
+          <aside className="self-start border-y border-white/10 py-8 lg:sticky lg:top-28">
+            <p className="section-label">Prequalification Packet</p>
+            <h2 className="text-4xl leading-[1.04] text-white">
+              The documents procurement teams ask for first.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white/62">
+              Certificates and formal package material are available directly to
+              GCs, developers, asset owners, and institutional procurement
+              teams reviewing a CPT scope.
+            </p>
+            <div className="mt-8">
+              <ArrowLink href="/contact" variant="solid">
+                Request Documents
+              </ArrowLink>
+            </div>
+          </aside>
+
+          <div>
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
+              {credentialPacket.map((item, index) => (
+                <article
+                  key={item}
+                  className="group bg-black p-6 transition duration-300 hover:bg-[var(--surface)] md:p-7"
+                >
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="mt-6 text-2xl leading-tight text-white">
+                    {item}
+                  </p>
+                  <div className="mt-8 h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                </article>
+              ))}
+            </div>
+            <div className="mt-12">
+              <SectionIntro
+                eyebrow="Memberships & Associations"
+                title="Recognized by the Industry."
+                body="Association standing is presented as part of the same prequalification review surface, so credentials and documentation stay together."
+              />
+              <AssociationStrip />
+            </div>
           </div>
         </div>
       </section>
     </div>
-  );
-}
-
-function RecordBlock({
-  index,
-  title,
-  children,
-}: {
-  index: string;
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <article className="group relative bg-black p-7 transition duration-300 hover:bg-[var(--surface)] md:p-8">
-      <div className="mb-8 flex items-center justify-between border-t border-[var(--gold)] pt-5">
-        <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
-          {index}
-        </span>
-        <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
-      </div>
-      <h2 className="text-3xl text-white">{title}</h2>
-      <div className="mt-6 space-y-4 text-base leading-7 text-white/64">
-        {children}
-      </div>
-    </article>
   );
 }
 
