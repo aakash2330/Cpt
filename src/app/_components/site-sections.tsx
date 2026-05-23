@@ -24,6 +24,27 @@ const heroFacts = [
   "Single accountable lead",
 ];
 
+const deliverySequence = [
+  {
+    label: "Mobilize",
+    body: "Interior scope, supervision, and labour are aligned before the first stud goes in.",
+  },
+  {
+    label: "Execute",
+    body: "Metal framing through flooring stays inside one coordinated production sequence.",
+  },
+  {
+    label: "Closeout",
+    body: "Deficiencies, documentation, and final inspection remain with one accountable team.",
+  },
+];
+
+const closingProofs = [
+  "2027 onward delivery windows",
+  "Prequalification documents available",
+  "Bonding available for qualifying projects",
+];
+
 export function ArrowLink({
   href,
   children,
@@ -150,23 +171,64 @@ export function StatBar() {
 
 export function PositioningBlock() {
   return (
-    <section className="site-section">
-      <div className="site-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-        <SectionIntro
-          eyebrow="One Contract. Complete Scope."
-          title="The Interior Scope, From First Stud to Final Inspection."
-        />
-        <div className="space-y-6 text-lg leading-8 text-white/70">
-          <p>
-            CPT self-performs every Division 9 trade: metal framing, drywall,
-            insulation, acoustic ceilings, taping, painting, and flooring. One
-            contract. Directly employed crews. No work passed to outside labour.
-          </p>
-          <p>
-            From mobilisation to handover, one person is accountable. No
-            handoffs, no confusion.
-          </p>
-          <ArrowLink href="/contact">Discuss Your Scope</ArrowLink>
+    <section className="site-section relative overflow-hidden border-t border-white/10">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:120px_120px] opacity-35" />
+      <div className="site-container relative grid gap-12 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
+        <div className="xl:sticky xl:top-28">
+          <SectionIntro
+            eyebrow="One Contract. Complete Scope."
+            title="The Interior Scope, From First Stud to Final Inspection."
+            body="CPT self-performs every Division 9 trade under one contract and one accountable operating model."
+          />
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <ArrowLink href="/contact" variant="solid">
+              Discuss Your Scope
+            </ArrowLink>
+            <ArrowLink href="/services" variant="outline">
+              View Services
+            </ArrowLink>
+          </div>
+        </div>
+        <div className="border border-white/10 bg-black">
+          <div className="grid gap-px bg-white/10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="bg-black p-6 md:p-8">
+              <p className="section-label">Self-Performed Scope</p>
+              <div className="space-y-6 text-lg leading-8 text-white/68">
+                <p>
+                  Metal framing, drywall, insulation, acoustic ceilings, taping,
+                  painting, and flooring are delivered by directly employed
+                  crews. No work passed to outside labour.
+                </p>
+                <p>
+                  From mobilisation to handover, one person is accountable. No
+                  handoffs, no confusion.
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--surface)]">
+              {deliverySequence.map((item, index) => (
+                <div
+                  key={item.label}
+                  className="group border-b border-white/10 p-6 transition duration-300 last:border-b-0 hover:bg-white/[0.03] md:p-8"
+                >
+                  <div className="flex items-start gap-5">
+                    <span className="min-w-10 text-sm uppercase tracking-[0.18em] text-[var(--gold)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-3xl leading-none text-white">
+                        {item.label}
+                      </h3>
+                      <p className="mt-4 max-w-xl text-sm leading-6 text-white/62">
+                        {item.body}
+                      </p>
+                      <div className="mt-6 h-px w-12 bg-[var(--gold)]/50 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -261,17 +323,34 @@ export function PortfolioGrid({
 
 export function TestimonialsSection() {
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section relative overflow-hidden border-t border-white/10 bg-black">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/70 to-transparent" />
       <div className="site-container">
-        <SectionIntro eyebrow="In Practice" title="What Clients Say." />
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
+        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <SectionIntro
+            eyebrow="In Practice"
+            title="What Clients Say."
+            body="The operating model matters most when project demands change, deadlines compress, and occupied environments need disciplined coordination."
+          />
+          <p className="max-w-2xl text-sm uppercase tracking-[0.16em] text-white/45 lg:justify-self-end lg:text-right">
+            Client references available to qualified GCs, developers, and
+            procurement teams.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
             <figure
               key={testimonial.attribution}
-              className="border-t border-[var(--gold)] pt-6"
+              className="group relative bg-black p-6 transition duration-300 hover:bg-[var(--surface)] md:p-8"
             >
-              <blockquote className="text-lg leading-8 text-white/82">
-                "{testimonial.quote}"
+              <div className="mb-8 flex items-center justify-between border-t border-[var(--gold)] pt-5">
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+              </div>
+              <blockquote className="text-xl leading-8 text-white/82">
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 text-xs uppercase tracking-[0.16em] text-white/45">
                 {testimonial.attribution}
@@ -287,16 +366,36 @@ export function TestimonialsSection() {
 export function CredentialsStrip() {
   return (
     <section className="site-section border-t border-white/10">
-      <div className="site-container">
-        <SectionIntro eyebrow="Standing" title="The Record Behind the Work." />
-        <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
-          {credentials.map((item) => (
-            <div key={item} className="bg-[var(--surface)] p-6">
-              <p className="text-sm font-medium leading-6 text-white">{item}</p>
-            </div>
-          ))}
+      <div className="site-container grid gap-12 xl:grid-cols-[0.62fr_1.38fr] xl:items-start">
+        <div className="xl:sticky xl:top-28">
+          <SectionIntro
+            eyebrow="Standing"
+            title="The Record Behind the Work."
+            body="Insurance, safety, association standing, and bonding readiness are kept visible for procurement review."
+          />
+          <div className="mt-8">
+            <ArrowLink href="/about/credentials-safety" variant="outline">
+              View Credentials
+            </ArrowLink>
+          </div>
         </div>
-        <AssociationStrip />
+        <div>
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
+            {credentials.map((item, index) => (
+              <div
+                key={item}
+                className="group bg-black p-6 transition duration-300 hover:bg-[var(--surface)] md:p-7"
+              >
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-5 text-lg leading-7 text-white">{item}</p>
+                <div className="mt-6 h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+              </div>
+            ))}
+          </div>
+          <AssociationStrip />
+        </div>
       </div>
     </section>
   );
@@ -338,25 +437,38 @@ export function AssociationStrip() {
 
 export function ClosingCta() {
   return (
-    <section className="site-section border-t border-[var(--gold)]">
-      <div className="site-container grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-end">
-        <div>
-          <h2 className="max-w-3xl text-5xl leading-[1.02] text-white md:text-7xl">
-            Your Project. Delivered On Schedule.
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/66">
-            One contract. One crew. One standard, from the first stud to the
-            sign-off. CPT is currently accepting project discussions for 2027
-            onward delivery windows.
-          </p>
-        </div>
-        <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-          <ArrowLink href="/contact" variant="solid">
-            Start a Conversation
-          </ArrowLink>
-          <ArrowLink href="/about/credentials-safety" variant="outline">
-            View Credentials
-          </ArrowLink>
+    <section className="relative overflow-hidden border-t border-[var(--gold)]/80 bg-black py-20 md:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(199,164,107,0.18),transparent_34%),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:100%_100%,120px_120px]" />
+      <div className="site-container relative">
+        <div className="grid gap-10 border border-white/10 bg-black/70 p-6 backdrop-blur md:p-10 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+          <div>
+            <p className="section-label">Start the Right Conversation</p>
+            <h2 className="max-w-4xl text-5xl leading-[1.02] text-white md:text-7xl">
+              Your Project. Delivered On Schedule.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/66">
+              One contract. One crew. One standard, from the first stud to the
+              sign-off. CPT is currently accepting project discussions for 2027
+              onward delivery windows.
+            </p>
+          </div>
+          <div>
+            <div className="mb-8 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              {closingProofs.map((proof) => (
+                <div key={proof} className="bg-black p-4">
+                  <p className="text-sm leading-6 text-white/72">{proof}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <ArrowLink href="/contact" variant="solid">
+                Start a Conversation
+              </ArrowLink>
+              <ArrowLink href="/about/credentials-safety" variant="outline">
+                View Credentials
+              </ArrowLink>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -624,13 +736,13 @@ export function CredentialsContent() {
       <section className="site-section border-t border-white/10">
         <div className="site-container">
           <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
-            <RecordBlock title="Safety">
+            <RecordBlock index="01" title="Safety">
               <p>Lost-Time Incident Frequency Rate: 0.00.</p>
               <p>Zero lost-time incidents, four consecutive years.</p>
               <p>Zero WSIB claims, all operating years.</p>
               <p>The record holds across every environment in the portfolio.</p>
             </RecordBlock>
-            <RecordBlock title="Insurance & Bonding">
+            <RecordBlock index="02" title="Insurance & Bonding">
               <p>
                 General liability insurance in place. Certificate available on
                 request.
@@ -640,9 +752,18 @@ export function CredentialsContent() {
                 for qualifying projects. Bond documentation available on request.
               </p>
             </RecordBlock>
-            <RecordBlock title="WSIB">
+            <RecordBlock index="03" title="WSIB">
               <p>Active and in good standing. Clearance certificate available on request.</p>
             </RecordBlock>
+          </div>
+        </div>
+      </section>
+      <section className="border-t border-white/10 bg-black py-10">
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            <DossierItem label="Documents" value="Insurance / WSIB / Bonding" />
+            <DossierItem label="Audience" value="GCs / Developers / Procurement" />
+            <DossierItem label="Availability" value="On Request" />
           </div>
         </div>
       </section>
@@ -665,19 +786,38 @@ export function CredentialsContent() {
 }
 
 function RecordBlock({
+  index,
   title,
   children,
 }: {
+  index: string;
   title: string;
   children: ReactNode;
 }) {
   return (
-    <article className="bg-[var(--surface)] p-7">
+    <article className="group relative bg-black p-7 transition duration-300 hover:bg-[var(--surface)] md:p-8">
+      <div className="mb-8 flex items-center justify-between border-t border-[var(--gold)] pt-5">
+        <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+          {index}
+        </span>
+        <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+      </div>
       <h2 className="text-3xl text-white">{title}</h2>
       <div className="mt-6 space-y-4 text-base leading-7 text-white/64">
         {children}
       </div>
     </article>
+  );
+}
+
+function DossierItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-black p-5">
+      <p className="text-xs uppercase tracking-[0.18em] text-white/40">
+        {label}
+      </p>
+      <p className="mt-3 text-lg text-white">{value}</p>
+    </div>
   );
 }
 
