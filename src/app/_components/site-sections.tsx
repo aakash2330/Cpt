@@ -40,6 +40,40 @@ const deliverySequence = [
   },
 ];
 
+const serviceSignals = [
+  {
+    label: "Contract Model",
+    value: "One Division 9 scope",
+  },
+  {
+    label: "Trade Coverage",
+    value: "7 self-performed trades",
+  },
+  {
+    label: "Crew Structure",
+    value: "Directly employed labour",
+  },
+  {
+    label: "Accountability",
+    value: "One responsible lead",
+  },
+];
+
+const serviceControls = [
+  {
+    title: "Sequence Control",
+    body: "Framing, boarding, finishing, paint, and floors are scheduled as one production path instead of separate trade packages.",
+  },
+  {
+    title: "Specification Discipline",
+    body: "Fire-rated assemblies, acoustic requirements, finish schedules, and brand standards stay tied to the same accountable team.",
+  },
+  {
+    title: "Closeout Ownership",
+    body: "Deficiencies, documentation, and final inspection are resolved by the crews that executed the work.",
+  },
+];
+
 const closingProofs = [
   "2027 onward delivery windows",
   "Prequalification documents available",
@@ -834,56 +868,123 @@ export function ServicesContent() {
         intro="Metal framing through flooring: every trade self-performed, no portion passed to outside labour."
         image="/service_bg.jpg"
       />
-      <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-12 xl:grid-cols-[340px_minmax(0,1fr)]">
-          <aside className="xl:sticky xl:top-28 xl:self-start">
-            <p className="section-label">Complete Scope</p>
-            <h2 className="text-4xl leading-[1.05] text-white md:text-5xl">
-              Built as one controlled sequence.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-white/62">
-              Each trade hands off to the next inside the same organisation, so
-              layout, substrate, finish, and closeout stay coordinated.
-            </p>
-            <div className="mt-8 space-y-3 border-l border-white/10 pl-5">
-              {services.map((service, index) => (
-                <p
-                  key={service.title}
-                  className="text-xs uppercase tracking-[0.16em] text-white/45"
-                >
-                  {String(index + 1).padStart(2, "0")} / {service.title}
+      <section className="border-t border-white/10 bg-black py-10">
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 xl:grid-cols-4">
+            {serviceSignals.map((signal) => (
+              <div key={signal.label} className="bg-black p-6">
+                <p className="text-xs uppercase tracking-[0.18em] text-white/42">
+                  {signal.label}
                 </p>
-              ))}
-            </div>
-          </aside>
-          <div className="min-w-0">
-            <div className="divide-y divide-white/10 border-y border-white/10">
-              {services.map((service, index) => (
-                <article
-                  key={service.title}
-                  className="group grid gap-8 py-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(320px,0.68fr)] lg:items-center"
-                >
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.2em] text-[var(--gold)]">
+                <p className="mt-4 text-2xl leading-tight text-white md:text-3xl">
+                  {signal.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section border-t border-white/10">
+        <div className="site-container grid gap-12 xl:grid-cols-[0.86fr_1.14fr] xl:items-start">
+          <div className="xl:sticky xl:top-28">
+            <p className="section-label">Complete Scope</p>
+            <h2 className="max-w-2xl text-5xl leading-[1.02] text-white md:text-7xl">
+              Built as one controlled interior sequence.
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/64">
+              Each trade hands off to the next inside the same organisation, so
+              layout, substrate, finish, and closeout stay coordinated from the
+              first layout line to the last deficiency item.
+            </p>
+            <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              {serviceControls.map((control, index) => (
+                <article key={control.title} className="group bg-black p-6">
+                  <div className="flex items-start gap-5">
+                    <span className="min-w-9 text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
                       {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h2 className="mt-4 text-4xl leading-tight text-white md:text-5xl">
-                      {service.title}
-                    </h2>
-                    <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">
-                      {service.body}
-                    </p>
-                    <div className="mt-8 h-px w-12 bg-white/18 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
+                    </span>
+                    <div>
+                      <h3 className="text-2xl text-white">{control.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-white/58">
+                        {control.body}
+                      </p>
+                      <div className="mt-5 h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                    </div>
                   </div>
-                  <ImageFrame
-                    src={service.image}
-                    alt={`${service.title} on-site trade work`}
-                  />
                 </article>
               ))}
             </div>
-            <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <h2 className="text-4xl text-white">One party. One call.</h2>
+          </div>
+
+          <div className="min-w-0">
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              {services.map((service, index) => (
+                <article
+                  key={service.title}
+                  className="group grid bg-black transition duration-300 hover:bg-[var(--surface)] lg:grid-cols-[minmax(0,0.84fr)_minmax(360px,0.66fr)]"
+                >
+                  <div className="flex min-w-0 flex-col justify-between p-6 md:p-8 lg:p-10">
+                    <div>
+                      <div className="flex items-center justify-between gap-5 border-t border-white/10 pt-5">
+                        <p className="text-sm uppercase tracking-[0.2em] text-[var(--gold)]">
+                          Trade {String(index + 1).padStart(2, "0")}
+                        </p>
+                        <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                      </div>
+                      <h2 className="mt-8 text-4xl leading-tight text-white md:text-5xl">
+                        {service.title}
+                      </h2>
+                      <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">
+                        {service.body}
+                      </p>
+                    </div>
+                    <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+                      <DossierItem label="Delivery" value="Self-performed" />
+                      <DossierItem label="Accountability" value="CPT crew" />
+                    </div>
+                  </div>
+                  <div className="min-h-[320px] border-t border-white/10 lg:border-l lg:border-t-0">
+                    <ImageFrame
+                      src={service.image}
+                      alt={`${service.title} on-site trade work`}
+                    />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section border-t border-white/10 bg-black">
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+            {deliverySequence.map((item, index) => (
+              <article key={item.label} className="group bg-black p-7 md:p-9">
+                <div className="flex items-center justify-between border-t border-[var(--gold)]/70 pt-5">
+                  <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                    Phase {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                </div>
+                <h2 className="mt-10 text-4xl leading-tight text-white">
+                  {item.label}
+                </h2>
+                <p className="mt-5 text-base leading-7 text-white/62">
+                  {item.body}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-12 border-t border-[var(--gold)]/65 pt-10">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="section-label">Next Step</p>
+                <h2 className="max-w-3xl text-5xl leading-[1.02] text-white md:text-7xl">
+                  One party. One call.
+                </h2>
+              </div>
               <ArrowLink href="/contact" variant="solid">
                 Discuss Your Scope
               </ArrowLink>
