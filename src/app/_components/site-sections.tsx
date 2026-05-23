@@ -932,7 +932,7 @@ export function ServicesContent() {
                         </p>
                         <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
                       </div>
-                      <h2 className="mt-8 text-4xl leading-tight text-white md:text-5xl">
+                      <h2 className="mt-8 text-3xl leading-tight text-white md:text-4xl">
                         {service.title}
                       </h2>
                       <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">
@@ -1220,7 +1220,7 @@ export function PortfolioContent() {
         <div className="site-container grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)]">
           <aside className="self-start border-y border-white/10 py-8 lg:sticky lg:top-28">
             <p className="section-label">Project Index</p>
-            <h2 className="text-4xl leading-[1.04] text-white md:text-5xl">
+            <h2 className="text-4xl leading-[1.04] text-white">
               Selected deliveries, grouped by operating environment.
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/62">
