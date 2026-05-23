@@ -114,6 +114,7 @@
 
   html {
     background: #030303;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
 
@@ -124,6 +125,7 @@
       #030303;
     color: var(--foreground);
     font-family: var(--font-geist-sans), sans-serif;
+    overflow-x: hidden;
   }
 
   h1,
@@ -150,7 +152,12 @@
   .site-container {
     margin-inline: auto;
     max-width: 1480px;
+    min-width: 0;
     padding-inline: 1rem;
+  }
+
+  .site-container > * {
+    min-width: 0;
   }
 
   @media (min-width: 640px) {
@@ -213,6 +220,7 @@
     color: #fff;
     font-size: 4.5rem;
     line-height: 0.98;
+    overflow-wrap: normal;
   }
 
   .hero-content p:not(.section-label) {
@@ -229,11 +237,24 @@
 
   @media (max-width: 767px) {
     .hero-content h1 {
-      font-size: 3.5rem;
+      font-size: 2.75rem;
+      line-height: 1.02;
     }
 
     .hero-content p:not(.section-label) {
       font-size: 1.05rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-content h1 {
+      font-size: 2.45rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .hero-content h1 {
+      font-size: 2.15rem;
     }
   }
 
