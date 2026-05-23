@@ -124,10 +124,10 @@ export function HomePageContent() {
 export function StatBar() {
   return (
     <section className="site-band py-8">
-      <div className="site-container">
-        <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((item) => (
-            <div key={item.label} className="bg-black px-5 py-7 sm:px-7">
+      <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        {stats.map((item) => (
+          <div key={item.label} className="bg-black px-5 py-7 sm:px-7 lg:px-10">
+            <div className="mx-auto w-full max-w-[320px]">
               <div className="text-4xl font-semibold leading-none text-white md:text-5xl">
                 {item.value}
               </div>
@@ -135,8 +135,8 @@ export function StatBar() {
                 {item.label}
               </p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
