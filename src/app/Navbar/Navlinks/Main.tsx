@@ -6,6 +6,8 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { contactDetails } from "../../_data/site";
+import { LogoMain } from "../Logo";
 
 const aboutLinks = [
   { label: "Company", href: "/about/company" },
@@ -24,6 +26,13 @@ const industryLinks = [
     label: "Commercial & Institutional",
     href: "/industries/commercial-institutional",
   },
+];
+
+const mobilePrimaryLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function NavLinks() {
@@ -82,11 +91,10 @@ export function NavLinks() {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-[80] bg-black lg:hidden">
-          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-            <span className="text-sm uppercase tracking-[0.2em] text-white/50">
-              Menu
-            </span>
+        <div className="fixed inset-0 z-[80] overflow-hidden bg-black lg:hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),radial-gradient(circle_at_80%_0%,rgba(199,164,107,0.18),transparent_34%)] bg-[length:96px_96px,100%_100%] opacity-45" />
+          <div className="relative flex h-20 items-center justify-between border-b border-white/10 px-5">
+            <LogoMain />
             <button
               type="button"
               className="inline-flex h-11 w-11 items-center justify-center border border-white/15 text-white"
@@ -96,34 +104,52 @@ export function NavLinks() {
               <X size={22} />
             </button>
           </div>
-          <div className="flex h-[calc(100svh-80px)] flex-col justify-between overflow-y-auto px-5 py-8">
-            <div className="space-y-8">
-              <MobileLink href="/" active={isActive("/")}>
-                Home
-              </MobileLink>
-              <MobileGroup title="About" links={aboutLinks} pathname={pathname} />
-              <MobileLink href="/services" active={isActive("/services")}>
-                Services
-              </MobileLink>
+          <div className="relative flex h-[calc(100svh-80px)] flex-col justify-between overflow-y-auto px-5 py-8">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
+                City Professional Trades
+              </p>
+              <h2 className="mt-4 max-w-sm text-4xl leading-[1.04] text-white">
+                One Contract. Complete Scope.
+              </h2>
+              <div className="mt-8 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                {mobilePrimaryLinks.map((link, index) => (
+                  <MobileLink
+                    key={link.href}
+                    href={link.href}
+                    active={isActive(link.href)}
+                    index={String(index + 1).padStart(2, "0")}
+                  >
+                    {link.label}
+                  </MobileLink>
+                ))}
+              </div>
+              <MobileGroup
+                title="About"
+                links={aboutLinks}
+                pathname={pathname}
+                className="mt-8"
+              />
               <MobileGroup
                 title="Industries"
                 links={industryLinks}
                 pathname={pathname}
+                className="mt-6"
               />
-              <MobileLink href="/portfolio" active={isActive("/portfolio")}>
-                Portfolio
-              </MobileLink>
-              <MobileLink href="/contact" active={isActive("/contact")}>
-                Contact
-              </MobileLink>
             </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center bg-[var(--gold)] px-5 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-black"
-            >
-              Start a Conversation
-              <ArrowUpRight aria-hidden="true" className="ml-2" size={16} />
-            </Link>
+            <div className="mt-10 space-y-5 border-t border-white/10 pt-6">
+              <div className="grid gap-3 text-sm leading-6 text-white/58">
+                <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
+                <a href="tel:4168383970">{contactDetails.phone}</a>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center bg-[var(--gold)] px-5 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-black"
+              >
+                Start a Conversation
+                <ArrowUpRight aria-hidden="true" className="ml-2" size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       )}
@@ -178,15 +204,30 @@ function Dropdown({
           className="transition group-hover:rotate-180"
         />
       </button>
-      <div className="invisible absolute left-0 top-full min-w-72 translate-y-2 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-        <div className="border border-white/10 bg-black/95 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
-          {links.map((link) => (
+      <div className="invisible absolute left-0 top-full min-w-[21rem] translate-y-2 pt-4 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+        <div className="overflow-hidden border border-white/10 bg-black/95 shadow-2xl shadow-black/30 backdrop-blur-xl">
+          <div className="border-t border-[var(--gold)] px-4 py-3">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--gold)]">
+              {label}
+            </p>
+          </div>
+          {links.map((link, index) => (
             <Link
               key={link.href}
               href={link.href}
-              className="block border-b border-white/10 px-4 py-3 text-sm text-white/66 transition last:border-b-0 hover:bg-white/[0.04] hover:text-white"
+              className="group/link flex items-center justify-between gap-4 border-t border-white/10 px-4 py-4 text-sm text-white/66 transition hover:bg-white/[0.04] hover:text-white"
             >
-              {link.label}
+              <span>
+                <span className="mr-3 text-[11px] uppercase tracking-[0.18em] text-white/30">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {link.label}
+              </span>
+              <ArrowUpRight
+                aria-hidden="true"
+                size={14}
+                className="text-[var(--gold)] opacity-0 transition group-hover/link:opacity-100"
+              />
             </Link>
           ))}
         </div>
@@ -198,21 +239,26 @@ function Dropdown({
 function MobileLink({
   href,
   active,
+  index,
   children,
 }: {
   href: string;
   active: boolean;
+  index: string;
   children: ReactNode;
 }) {
   return (
     <Link
       href={href}
       className={cn(
-        "block text-3xl text-white/80",
+        "flex items-center justify-between bg-black px-4 py-4 text-2xl text-white/80",
         active && "text-[var(--gold)]",
       )}
     >
-      {children}
+      <span>{children}</span>
+      <span className="text-xs uppercase tracking-[0.18em] text-white/30">
+        {index}
+      </span>
     </Link>
   );
 }
@@ -221,27 +267,32 @@ function MobileGroup({
   title,
   links,
   pathname,
+  className,
 }: {
   title: string;
   links: { label: string; href: string }[];
   pathname: string;
+  className?: string;
 }) {
   return (
-    <div>
-      <p className="mb-4 text-xs uppercase tracking-[0.2em] text-white/40">
+    <div className={className}>
+      <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
         {title}
       </p>
-      <div className="space-y-3 border-l border-white/10 pl-4">
-        {links.map((link) => (
+      <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+        {links.map((link, index) => (
           <Link
             key={link.href}
             href={link.href}
             className={cn(
-              "block text-xl text-white/70",
+              "flex items-center justify-between bg-black px-4 py-3 text-base text-white/70",
               pathname.startsWith(link.href) && "text-[var(--gold)]",
             )}
           >
-            {link.label}
+            <span>{link.label}</span>
+            <span className="text-[11px] uppercase tracking-[0.18em] text-white/28">
+              {String(index + 1).padStart(2, "0")}
+            </span>
           </Link>
         ))}
       </div>

@@ -403,32 +403,35 @@ export function CredentialsStrip() {
 
 export function AssociationStrip() {
   return (
-    <div className="mt-10 grid items-center gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="mt-10 grid items-stretch gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
       {associations.map((association) => (
         <div
           key={association.name}
-          className="flex h-20 items-center justify-center border border-white/10 bg-white/[0.03] px-5"
+          className="group flex min-h-28 flex-col items-center justify-center bg-black px-5 py-5 text-center transition duration-300 hover:bg-[var(--surface)]"
         >
-          {association.logo ? (
-            <Image
-              src={association.logo}
-              alt={association.name}
-              width={180}
-              height={40}
-              className="max-h-10 w-auto object-contain brightness-0 invert"
-            />
-          ) : association.mark ? (
-            <span
-              aria-label={association.name}
-              className="text-center text-4xl font-semibold leading-none text-white"
-            >
-              {association.mark}
-            </span>
-          ) : (
-            <span className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/62">
-              {association.name}
-            </span>
-          )}
+          <div className="flex h-10 items-center justify-center">
+            {association.logo ? (
+              <Image
+                src={association.logo}
+                alt=""
+                width={180}
+                height={40}
+                className="max-h-10 w-auto object-contain brightness-0 invert"
+              />
+            ) : association.mark ? (
+              <span className="text-center text-3xl font-semibold leading-none text-white">
+                {association.mark}
+              </span>
+            ) : (
+              <span className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/62">
+                {association.name}
+              </span>
+            )}
+          </div>
+          <p className="mt-4 text-[10px] uppercase tracking-[0.16em] text-white/40 transition duration-300 group-hover:text-white/62">
+            {association.name}
+          </p>
+          <div className="mt-4 h-px w-8 bg-[var(--gold)]/40 transition duration-300 group-hover:w-12 group-hover:bg-[var(--gold)]" />
         </div>
       ))}
     </div>
