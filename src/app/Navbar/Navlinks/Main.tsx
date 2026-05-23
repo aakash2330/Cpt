@@ -178,16 +178,18 @@ function Dropdown({
           className="transition group-hover:rotate-180"
         />
       </button>
-      <div className="invisible absolute left-0 top-full min-w-72 translate-y-4 border border-white/10 bg-black/95 p-2 opacity-0 shadow-2xl shadow-black/30 backdrop-blur-xl transition group-hover:visible group-hover:translate-y-3 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-3 group-focus-within:opacity-100">
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="block border-b border-white/10 px-4 py-3 text-sm text-white/66 transition last:border-b-0 hover:bg-white/[0.04] hover:text-white"
-          >
-            {link.label}
-          </Link>
-        ))}
+      <div className="invisible absolute left-0 top-full min-w-72 translate-y-2 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+        <div className="border border-white/10 bg-black/95 p-2 shadow-2xl shadow-black/30 backdrop-blur-xl">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="block border-b border-white/10 px-4 py-3 text-sm text-white/66 transition last:border-b-0 hover:bg-white/[0.04] hover:text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
