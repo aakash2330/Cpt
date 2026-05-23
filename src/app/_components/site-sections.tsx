@@ -26,6 +26,21 @@ const heroFacts = [
   "Single accountable lead",
 ];
 
+const homeHeroSignals = [
+  {
+    label: "Founded",
+    value: "2009",
+  },
+  {
+    label: "Delivery Region",
+    value: "Ontario",
+  },
+  {
+    label: "Scope Model",
+    value: "Self-performed Division 9",
+  },
+];
+
 const deliverySequence = [
   {
     label: "Mobilize",
@@ -303,6 +318,24 @@ export function HomePageContent() {
               Start a Conversation
             </ArrowLink>
           </div>
+          <aside
+            data-hero-rail
+            className="mt-10 grid max-w-4xl gap-px border border-white/12 bg-white/10 sm:grid-cols-3"
+          >
+            {homeHeroSignals.map((signal) => (
+              <div
+                key={signal.label}
+                className="bg-black/55 px-4 py-4 backdrop-blur-md sm:px-5"
+              >
+                <p className="text-[11px] uppercase tracking-[0.18em] text-white/42">
+                  {signal.label}
+                </p>
+                <p className="mt-2 text-sm font-medium uppercase tracking-[0.12em] text-white">
+                  {signal.value}
+                </p>
+              </div>
+            ))}
+          </aside>
         </div>
       </section>
 
