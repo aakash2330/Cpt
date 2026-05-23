@@ -18,6 +18,12 @@ import {
 
 type IndustryPage = (typeof industryPages)[keyof typeof industryPages];
 
+const heroFacts = [
+  "Self-performed Division 9",
+  "Directly employed crews",
+  "Single accountable lead",
+];
+
 export function ArrowLink({
   href,
   children,
@@ -372,18 +378,41 @@ export function PageHero({
 }) {
   if (noPhoto || !image) {
     return (
-      <section className="site-section pb-16 pt-40 md:pt-48">
-        <div className="site-container">
-          <div className="max-w-5xl">
-            {eyebrow && <p className="section-label">{eyebrow}</p>}
-            <h1 className="break-words text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-8xl">
-              {title}
-            </h1>
-            {intro && (
-              <p className="mt-7 max-w-3xl text-xl leading-9 text-white/66">
-                {intro}
+      <section className="relative overflow-hidden border-b border-white/10 bg-black pb-16 pt-40 md:pb-20 md:pt-48">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(199,164,107,0.09),transparent_36%)] bg-[length:120px_120px,100%_100%] opacity-35" />
+        <div className="site-container relative">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-end">
+            <div className="max-w-5xl">
+              {eyebrow && <p className="section-label">{eyebrow}</p>}
+              <h1 className="break-words text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-8xl">
+                {title}
+              </h1>
+              {intro && (
+                <p className="mt-7 max-w-3xl text-xl leading-9 text-white/66">
+                  {intro}
+                </p>
+              )}
+            </div>
+            <aside className="border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                Delivery Standard
               </p>
-            )}
+              <div className="mt-6 space-y-4">
+                {heroFacts.map((fact, index) => (
+                  <div
+                    key={fact}
+                    className="flex items-center gap-4 border-b border-white/10 pb-4 last:border-b-0 last:pb-0"
+                  >
+                    <span className="text-xs uppercase tracking-[0.18em] text-white/32">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm leading-6 text-white/72">
+                      {fact}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -394,6 +423,7 @@ export function PageHero({
     <section className="hero-shell min-h-[78svh]">
       <Image src={image} alt={title} fill priority className="object-cover" />
       <div className="absolute inset-0 bg-black/65" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-30" />
       <div className="hero-content">
         {eyebrow && <p className="section-label">{eyebrow}</p>}
         <h1>{title}</h1>
@@ -413,30 +443,40 @@ export function CompanyContent() {
         intro="CPT Construction has been delivering Division 9 interior scopes across Ontario since 2009. The operating model has not changed."
       />
       <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-          <div className="space-y-7 text-lg leading-8 text-white/70">
-            <p>
-              Most Division 9 scopes are split across multiple independent
-              trades. Each trade has its own contract, its own supervision, and
-              its own accountability limit. When something goes wrong, the GC
-              resolves it.
-            </p>
-            <p>
-              CPT replaces that structure. One contract covers every trade in
-              the interior scope. The same organisation that frames the walls
-              tapes, paints, and installs the floors. There is no handoff point
-              where accountability transfers. Or disappears.
-            </p>
-            <p>
-              Developers and GCs who award a Division 9 scope to CPT do not
-              manage it. CPT does.
-            </p>
+        <div className="site-container grid gap-12 xl:grid-cols-[0.88fr_1.12fr] xl:items-center">
+          <div>
+            <SectionIntro
+              eyebrow="Who We Are"
+              title="One accountable interior contractor."
+              body="Most Division 9 scopes are split across independent trades. CPT replaces that structure with one contract, one in-house sequence, and one accountable team."
+            />
+            <div className="mt-8 space-y-7 text-lg leading-8 text-white/70">
+              <p>
+                Most Division 9 scopes are split across multiple independent
+                trades. Each trade has its own contract, its own supervision,
+                and its own accountability limit. When something goes wrong, the
+                GC resolves it.
+              </p>
+              <p>
+                CPT replaces that structure. One contract covers every trade in
+                the interior scope. The same organisation that frames the walls
+                tapes, paints, and installs the floors. There is no handoff
+                point where accountability transfers. Or disappears.
+              </p>
+              <p>
+                Developers and GCs who award a Division 9 scope to CPT do not
+                manage it. CPT does.
+              </p>
+            </div>
           </div>
-          <ImageFrame
-            src="/CPT(1)/new_image.png"
-            alt="Interior construction in progress"
-            priority
-          />
+          <div className="space-y-6">
+            <ImageFrame
+              src="/CPT(1)/new_image.png"
+              alt="Interior construction in progress"
+              priority
+            />
+            <OperatingModelPanel />
+          </div>
         </div>
       </section>
       <PrinciplesSection />
@@ -454,6 +494,36 @@ export function CompanyContent() {
   );
 }
 
+function OperatingModelPanel() {
+  const operatingModel = [
+    {
+      label: "One Contract",
+      body: "Every Division 9 trade sits under one CPT scope.",
+    },
+    {
+      label: "Direct Crews",
+      body: "Framing, drywall, ceilings, finishing, painting, and flooring stay in-house.",
+    },
+    {
+      label: "Clear Accountability",
+      body: "Schedule, quality, and closeout stay with one responsible team.",
+    },
+  ];
+
+  return (
+    <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3 xl:grid-cols-1">
+      {operatingModel.map((item, index) => (
+        <div key={item.label} className="bg-black p-5">
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+            {String(index + 1).padStart(2, "0")} / {item.label}
+          </p>
+          <p className="mt-3 text-sm leading-6 text-white/66">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function PrinciplesSection() {
   return (
     <section className="site-section border-t border-white/10">
@@ -463,12 +533,19 @@ export function PrinciplesSection() {
           title="Five Principles. No Exceptions."
         />
         <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-5">
-          {principles.map((principle) => (
-            <article key={principle.title} className="bg-[var(--surface)] p-6">
+          {principles.map((principle, index) => (
+            <article
+              key={principle.title}
+              className="group relative bg-black p-6 transition duration-300 hover:bg-[var(--surface)]"
+            >
+              <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]/80">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3 className="text-2xl text-white">{principle.title}</h3>
               <p className="mt-5 text-sm leading-6 text-white/62">
                 {principle.body}
               </p>
+              <div className="mt-8 h-px w-10 bg-[var(--gold)]/50 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
             </article>
           ))}
         </div>
@@ -614,36 +691,59 @@ export function ServicesContent() {
         image="/service_bg.jpg"
       />
       <section className="site-section border-t border-white/10">
-        <div className="site-container">
-          <div className="divide-y divide-white/10 border-y border-white/10">
-            {services.map((service, index) => (
-              <article
-                key={service.title}
-                className="grid gap-8 py-12 lg:grid-cols-[0.55fr_1fr] lg:items-center"
-              >
-                <div className="order-2 lg:order-1">
-                  <p className="text-sm uppercase tracking-[0.2em] text-[var(--gold)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h2 className="mt-4 text-4xl leading-tight text-white md:text-5xl">
-                    {service.title}
-                  </h2>
-                  <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">
-                    {service.body}
-                  </p>
-                </div>
-                <ImageFrame
-                  src={service.image}
-                  alt={`${service.title} on-site trade work`}
-                />
-              </article>
-            ))}
-          </div>
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-4xl text-white">One party. One call.</h2>
-            <ArrowLink href="/contact" variant="solid">
-              Discuss Your Scope
-            </ArrowLink>
+        <div className="site-container grid gap-12 xl:grid-cols-[340px_minmax(0,1fr)]">
+          <aside className="xl:sticky xl:top-28 xl:self-start">
+            <p className="section-label">Complete Scope</p>
+            <h2 className="text-4xl leading-[1.05] text-white md:text-5xl">
+              Built as one controlled sequence.
+            </h2>
+            <p className="mt-5 text-base leading-7 text-white/62">
+              Each trade hands off to the next inside the same organisation, so
+              layout, substrate, finish, and closeout stay coordinated.
+            </p>
+            <div className="mt-8 space-y-3 border-l border-white/10 pl-5">
+              {services.map((service, index) => (
+                <p
+                  key={service.title}
+                  className="text-xs uppercase tracking-[0.16em] text-white/45"
+                >
+                  {String(index + 1).padStart(2, "0")} / {service.title}
+                </p>
+              ))}
+            </div>
+          </aside>
+          <div className="min-w-0">
+            <div className="divide-y divide-white/10 border-y border-white/10">
+              {services.map((service, index) => (
+                <article
+                  key={service.title}
+                  className="group grid gap-8 py-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(320px,0.68fr)] lg:items-center"
+                >
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-[var(--gold)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h2 className="mt-4 text-4xl leading-tight text-white md:text-5xl">
+                      {service.title}
+                    </h2>
+                    <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">
+                      {service.body}
+                    </p>
+                    <div className="mt-8 h-px w-12 bg-white/18 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
+                  </div>
+                  <ImageFrame
+                    src={service.image}
+                    alt={`${service.title} on-site trade work`}
+                  />
+                </article>
+              ))}
+            </div>
+            <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <h2 className="text-4xl text-white">One party. One call.</h2>
+              <ArrowLink href="/contact" variant="solid">
+                Discuss Your Scope
+              </ArrowLink>
+            </div>
           </div>
         </div>
       </section>
@@ -679,7 +779,9 @@ export function IndustryContent({ page }: { page: IndustryPage }) {
           <div className="site-container">
             <SectionIntro
               eyebrow={group.title}
-              title={group.title}
+              title={
+                group.title === page.eyebrow ? "Selected Deliveries." : group.title
+              }
               body={group.intro || undefined}
             />
             <ProjectRows projects={group.projects} />
@@ -706,14 +808,17 @@ function ProjectRows({
   projects: IndustryPage["groups"][number]["projects"];
 }) {
   return (
-    <div className="mt-12 divide-y divide-white/10 border-y border-white/10">
-      {projects.map((project) => (
+    <div className="mt-12 grid gap-6">
+      {projects.map((project, index) => (
         <article
           key={`${project.name}-${project.location}`}
-          className="grid gap-8 py-10 lg:grid-cols-[0.5fr_1fr] lg:items-center"
+          className="group grid overflow-hidden border border-white/10 bg-black transition duration-300 hover:border-white/20 lg:grid-cols-[0.44fr_minmax(0,1fr)]"
         >
           <ImageFrame src={project.image} alt={`${project.name} interior`} />
-          <div>
+          <div className="relative p-6 md:p-8 lg:p-10">
+            <span className="absolute right-6 top-6 text-xs uppercase tracking-[0.18em] text-white/22 md:right-8 md:top-8">
+              {String(index + 1).padStart(2, "0")}
+            </span>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
               <h2 className="text-3xl text-white md:text-4xl">
                 {project.name}
@@ -730,6 +835,7 @@ function ProjectRows({
             <p className="mt-5 max-w-3xl text-lg leading-8 text-white/66">
               {project.body}
             </p>
+            <div className="mt-8 h-px w-12 bg-[var(--gold)]/55 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
           </div>
         </article>
       ))}
@@ -919,6 +1025,8 @@ export function ImageFrame({
         className="object-cover grayscale-[45%] saturate-[0.82] transition duration-700 group-hover:scale-[1.025] group-hover:grayscale-[12%] group-hover:saturate-100"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+      <div className="pointer-events-none absolute inset-3 border border-white/10 transition duration-300 group-hover:border-[var(--gold)]/45" />
+      <div className="pointer-events-none absolute left-3 top-3 h-px w-12 bg-[var(--gold)]/45 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
     </div>
   );
 }
