@@ -159,7 +159,7 @@ export function Footer() {
           <div className="text-sm leading-6 text-white/50 xl:text-right">
             <p>City Professional Trades &copy; 2026. All rights reserved.</p>
             <p className="mt-2 uppercase tracking-[0.16em] text-white/35">
-              Ontario / Division 9 / Self-performed interiors
+              Ontario / Division 9 / Self performed interiors
             </p>
           </div>
         </div>

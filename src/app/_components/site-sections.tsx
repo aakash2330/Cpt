@@ -240,9 +240,15 @@ const portfolioReviewStandards = [
 ];
 
 const portfolioRegisterNotes = [
-  "Delivered interior scopes only; no conceptual or aspirational work mixed into the register.",
+  "Delivered interior scopes only; conceptual work and active pursuits are kept out of the register.",
   "Sector grouping mirrors how project teams evaluate risk, access, inspection, and finish expectations.",
-  "No project values are published; procurement teams can request formal documentation directly.",
+  "Project values remain private; procurement teams can request formal documentation directly.",
+];
+
+const portfolioReferenceItems = [
+  "Project references",
+  "Prequalification documents",
+  "Sector-specific scope review",
 ];
 
 function isRequestOnlyProject(project: IndustryProject) {
@@ -1800,14 +1806,14 @@ export function PortfolioContent() {
 
             <aside className="flex min-w-0 flex-col justify-between bg-black p-6 md:p-9 lg:p-10">
               <div>
-                <p className="section-label">Why This Page Exists</p>
+                <p className="section-label">Register Method</p>
                 <h2 className="max-w-2xl text-4xl leading-[1.05] text-white md:text-6xl">
-                  A register, not another gallery.
+                  Built for shortlist review.
                 </h2>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
-                  The home page shows a quick visual sample. This page is
-                  structured for shortlist review, with each project organized
-                  by sector, scale, status, location, and scope narrative.
+                  The home page carries the visual sample. This register gives
+                  procurement teams a consistent read of sector, location,
+                  scale, status, and scope for each delivered project.
                 </p>
               </div>
               <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
@@ -1867,8 +1873,7 @@ export function PortfolioContent() {
                 Project information formatted for serious review.
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-white/64">
-                The portfolio page now behaves like a procurement register:
-                project records are grouped by operating environment, then
+                Project records are grouped by operating environment, then
                 broken into consistent evidence fields for faster evaluation.
               </p>
             </div>
@@ -1915,12 +1920,11 @@ export function PortfolioContent() {
           <aside className="self-start border-y border-white/10 py-8 xl:sticky xl:top-28">
             <p className="section-label">Project Directory</p>
             <h2 className="text-4xl leading-[1.04] text-white">
-              Selected deliveries by operating environment.
+              Selected deliveries by sector.
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/62">
-              The record format changes the page from a visual repeat into a
-              working index: image, scope, scale, and sector context sit in the
-              same line of sight.
+              Each entry keeps image, scope, scale, and sector context in the
+              same line of sight for quick qualification.
             </p>
             <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
               {sectorGroups.map((group) => (
@@ -2025,6 +2029,45 @@ export function PortfolioContent() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-t border-[var(--gold)]/70 bg-black py-16 md:py-24">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/80 to-transparent" />
+        <div className="site-container">
+          <div className="grid gap-10 border-y border-white/10 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.5fr)] lg:items-end">
+            <div>
+              <p className="section-label">Formal Review</p>
+              <h2 className="max-w-4xl text-5xl leading-[1.02] text-white md:text-7xl">
+                References and documents available on request.
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
+                Qualified GCs, developers, asset owners, and procurement teams
+                can request deeper project references, credentials, and scope
+                documentation for active pursuits.
+              </p>
+            </div>
+            <div>
+              <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                {portfolioReferenceItems.map((item, index) => (
+                  <div key={item} className="bg-black p-5">
+                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-3 text-lg leading-7 text-white">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:justify-end">
+                <ArrowLink href="/contact" variant="solid">
+                  Request References
+                </ArrowLink>
+                <ArrowLink href="/about/credentials-safety" variant="outline">
+                  View Credentials
+                </ArrowLink>
+              </div>
+            </div>
           </div>
         </div>
       </section>
