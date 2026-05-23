@@ -802,8 +802,8 @@ export function CompanyContent() {
       </section>
       <section className="site-section relative overflow-hidden border-t border-white/10">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-35" />
-        <div className="site-container relative grid gap-12 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
-          <aside className="self-start border-y border-white/10 py-8 xl:sticky xl:top-28">
+        <div className="site-container relative grid gap-10 min-[1180px]:grid-cols-[560px_minmax(0,1fr)] min-[1180px]:items-start xl:gap-12 2xl:grid-cols-[0.78fr_1.22fr]">
+          <aside className="self-start border-y border-white/10 py-8 min-[1180px]:sticky min-[1180px]:top-28">
             <p className="section-label">Who We Are</p>
             <h2 className="max-w-xl text-4xl leading-[1.04] text-white sm:text-5xl md:text-6xl">
               One accountable interior contractor.
@@ -822,14 +822,14 @@ export function CompanyContent() {
           </aside>
 
           <div className="grid gap-8">
-            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 2xl:grid-cols-[0.9fr_1.1fr]">
               <div className="relative min-h-[460px] overflow-hidden bg-black">
                 <Image
                   src="/CPT(1)/new_image.png"
                   alt="CPT operating model reference"
                   fill
                   priority
-                  sizes="(min-width: 1280px) 38vw, 100vw"
+                  sizes="(min-width: 1536px) 38vw, (min-width: 1180px) 43vw, 100vw"
                   className="object-cover grayscale-[42%] saturate-[0.8]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/16 to-transparent" />
@@ -847,7 +847,7 @@ export function CompanyContent() {
 
               <div className="bg-black p-6 md:p-8 lg:p-10">
                 <p className="section-label">Accountability Transfer</p>
-                <h3 className="max-w-2xl text-4xl leading-[1.04] text-white md:text-6xl">
+                <h3 className="max-w-2xl text-4xl leading-[1.04] text-white md:text-5xl 2xl:text-6xl">
                   The handoff point is where quality disappears.
                 </h3>
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">

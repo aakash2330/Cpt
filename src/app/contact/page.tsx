@@ -44,8 +44,8 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="grid gap-12 xl:grid-cols-[390px_minmax(0,1fr)]">
-            <aside className="self-start border-y border-white/10 py-8 xl:sticky xl:top-28">
+          <div className="grid gap-10 min-[1180px]:grid-cols-[360px_minmax(0,1fr)] min-[1180px]:items-start xl:gap-12">
+            <aside className="self-start border-y border-white/10 py-8 min-[1180px]:sticky min-[1180px]:top-28">
               <p className="section-label">Inquiry Routing</p>
               <h2 className="max-w-xl text-4xl leading-[1.04] text-white">
                 Two paths. Same accountable team.
