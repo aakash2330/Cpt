@@ -705,6 +705,13 @@ export function PrinciplesSection() {
 }
 
 export function TeamContent() {
+  const [principal, ...teamRoster] = team;
+  const teamSignals = [
+    { label: "Listed Leads", value: `${team.length}` },
+    { label: "Management Layer", value: "Direct access" },
+    { label: "Accountability", value: "Named ownership" },
+  ];
+
   return (
     <div className="site-page">
       <PageHero
@@ -713,18 +720,115 @@ export function TeamContent() {
         title="The People Responsible for Your Project."
         intro="Every name below is reachable and accountable. There is no management layer between this team and the work."
       />
-      <section className="site-section border-t border-white/10">
+      <section className="border-t border-white/10 bg-black py-10">
         <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
-            {team.map((person, index) => (
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            {teamSignals.map((item) => (
+              <div key={item.label} className="bg-black p-6">
+                <p className="text-xs uppercase tracking-[0.18em] text-white/42">
+                  {item.label}
+                </p>
+                <p className="mt-3 text-2xl leading-tight text-white md:text-3xl">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {principal && (
+        <section className="site-section border-t border-white/10">
+          <div className="site-container">
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[0.9fr_1.1fr]">
+              <article
+                className="group relative min-h-[420px] overflow-hidden bg-black"
+              >
+                {principal.image ? (
+                  <>
+                    <Image
+                      src={principal.image}
+                      alt={principal.name}
+                      fill
+                      className="object-cover grayscale-[55%] transition duration-700 group-hover:scale-[1.02]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,#080808,#12110f_48%,#030303)]" />
+                )}
+                <div className="pointer-events-none absolute inset-6 border border-white/10" />
+                <div className="absolute inset-x-8 top-8 h-px bg-[var(--gold)]/60" />
+                <div className="relative flex min-h-[420px] flex-col justify-between p-8 md:p-10">
+                  <div className="flex items-center justify-between gap-5">
+                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                      Principal
+                    </p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/35">
+                      01
+                    </p>
+                  </div>
+                  <div>
+                    {!principal.image && (
+                      <p className="mb-10 text-8xl leading-none text-white/16 md:text-9xl">
+                        {principal.initials}
+                      </p>
+                    )}
+                    <h2 className="text-5xl leading-[1.02] text-white md:text-7xl">
+                      {principal.name}
+                    </h2>
+                    <p className="mt-4 text-sm uppercase tracking-[0.16em] text-[var(--gold)]">
+                      {principal.role}
+                    </p>
+                  </div>
+                </div>
+              </article>
+              <div className="bg-black p-6 md:p-9">
+                <p className="section-label">Accountability Lead</p>
+                <h2 className="max-w-3xl text-4xl leading-[1.05] text-white md:text-6xl">
+                  Senior responsibility stays close to the work.
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
+                  CPT keeps leadership, project execution, estimating, business
+                  development, finance, and documentation tied to named people
+                  instead of anonymous departments.
+                </p>
+                <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+                  <DossierItem label="Role" value={principal.role} />
+                  <DossierItem label="Focus" value={principal.focus} />
+                </div>
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                  <ArrowLink href="/contact" variant="solid">
+                    Start a Conversation
+                  </ArrowLink>
+                  <ArrowLink href="/about/credentials-safety" variant="outline">
+                    View Credentials
+                  </ArrowLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+      <section className="site-section border-t border-white/10">
+        <div className="site-container grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)]">
+          <aside className="self-start border-y border-white/10 py-8 lg:sticky lg:top-28">
+            <p className="section-label">Team Directory</p>
+            <h2 className="text-4xl leading-[1.04] text-white">
+              Direct roles for the conversations that matter.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white/62">
+              The roster identifies who owns the major workstreams around a CPT
+              scope, from the first project discussion through documentation
+              and closeout.
+            </p>
+          </aside>
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+            {teamRoster.map((person, index) => (
               <article
                 key={person.name}
-                className="group relative overflow-hidden bg-black p-6 transition duration-300 hover:bg-[var(--surface)]"
+                className="group grid bg-black transition duration-300 hover:bg-[var(--surface)] md:grid-cols-[220px_minmax(0,1fr)]"
               >
-                <div className="pointer-events-none absolute right-6 top-6 text-xs uppercase tracking-[0.18em] text-white/24">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <div className="relative aspect-square overflow-hidden border border-white/10 bg-[linear-gradient(135deg,#090909,#11100e_48%,#050505)]">
+                <div className="relative min-h-[220px] overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,#090909,#11100e_48%,#050505)] md:border-b-0 md:border-r">
                   <div className="pointer-events-none absolute inset-5 border border-white/10" />
                   <div className="pointer-events-none absolute inset-x-5 top-5 h-px bg-[var(--gold)]/50" />
                   {person.image ? (
@@ -735,23 +839,35 @@ export function TeamContent() {
                       className="object-cover grayscale-[55%]"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center">
-                      <span className="text-7xl text-white/78 transition duration-300 group-hover:text-white">
+                    <div className="flex h-full min-h-[220px] w-full items-center justify-center">
+                      <span className="text-6xl text-white/72 transition duration-300 group-hover:text-white">
                         {person.initials}
                       </span>
                     </div>
                   )}
                 </div>
-                <div className="border-t border-white/10 pt-6">
-                  <h2 className="text-3xl text-white">{person.name}</h2>
-                  <p className="mt-2 text-sm uppercase tracking-[0.14em] text-[var(--gold)]">
-                    {person.role}
-                  </p>
-                  {person.bio && (
-                    <p className="mt-6 text-sm leading-6 text-white/58">
-                      {person.bio}
+                <div className="flex min-w-0 flex-col justify-between p-6 md:p-8">
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
+                      <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                        {String(index + 2).padStart(2, "0")}
+                      </p>
+                      <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                    </div>
+                    <h3 className="mt-7 text-3xl leading-tight text-white md:text-4xl">
+                      {person.name}
+                    </h3>
+                    <p className="mt-2 text-sm uppercase tracking-[0.14em] text-[var(--gold)]">
+                      {person.role}
                     </p>
-                  )}
+                    <p className="mt-5 max-w-2xl text-base leading-7 text-white/62">
+                      {person.focus}
+                    </p>
+                  </div>
+                  <div className="mt-8 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+                    <DossierItem label="Status" value="Reachable" />
+                    <DossierItem label="Accountability" value="Named role" />
+                  </div>
                 </div>
               </article>
             ))}

@@ -193,6 +193,7 @@ export const team = [
   {
     name: "Papi Kasaj",
     role: "Founder & Chief Executive Officer",
+    focus: "Executive accountability and client relationship ownership.",
     bio: "",
     image: null,
     initials: "PK",
@@ -200,6 +201,7 @@ export const team = [
   {
     name: "Anesti Pejo",
     role: "Project Manager",
+    focus: "Project coordination, site execution, and schedule follow-through.",
     bio: "",
     image: null,
     initials: "AP",
@@ -207,6 +209,7 @@ export const team = [
   {
     name: "Tony Filice",
     role: "Chief Estimator",
+    focus: "Tender review, scope alignment, and pricing oversight.",
     bio: "",
     image: null,
     initials: "TF",
@@ -214,6 +217,7 @@ export const team = [
   {
     name: "Iman Rezaie",
     role: "Senior Estimator",
+    focus: "Estimating support, takeoffs, and trade package detail.",
     bio: "",
     image: null,
     initials: "IR",
@@ -221,6 +225,7 @@ export const team = [
   {
     name: "Enes Mece",
     role: "Director of Business Development",
+    focus: "New relationships, opportunity intake, and client coordination.",
     bio: "",
     image: null,
     initials: "EM",
@@ -228,6 +233,7 @@ export const team = [
   {
     name: "Ankit Mandhra",
     role: "Director of Finance & Technology",
+    focus: "Financial controls, systems, documentation, and reporting.",
     bio: "",
     image: null,
     initials: "AM",
