@@ -221,12 +221,40 @@ const closingProofs = [
   "Bonding available for qualifying projects",
 ];
 
+const portfolioReviewStandards = [
+  {
+    label: "Scope",
+    title: "Division 9 Delivered as One Package",
+    body: "Each record keeps framing, drywall, ceilings, finishing, paint, and flooring tied to one accountable production path.",
+  },
+  {
+    label: "Review",
+    title: "Built for Procurement Scanning",
+    body: "Sector, location, scale, status, and scope notes are separated so GCs and owners can review the work quickly.",
+  },
+  {
+    label: "Proof",
+    title: "References Available on Request",
+    body: "Detailed project references and documentation can be supplied to qualified teams during prequalification.",
+  },
+];
+
+const portfolioRegisterNotes = [
+  "Delivered interior scopes only; no conceptual or aspirational work mixed into the register.",
+  "Sector grouping mirrors how project teams evaluate risk, access, inspection, and finish expectations.",
+  "No project values are published; procurement teams can request formal documentation directly.",
+];
+
 function isRequestOnlyProject(project: IndustryProject) {
   return (
     "status" in project &&
     typeof project.status === "string" &&
     project.status === "Records available on request"
   );
+}
+
+function getSectorHref(sector: string) {
+  return sectors.find((item) => item.title === sector)?.href ?? "/industries";
 }
 
 export function ArrowLink({
@@ -1729,78 +1757,123 @@ export function PortfolioContent() {
     <div className="site-page">
       <PageHero
         eyebrow="Portfolio"
-        title="A Dossier of Delivered Interior Scopes."
-        intro="A focused project index for GCs, developers, and procurement teams reviewing CPT's self-performed Division 9 record across Ontario."
+        title="Delivered Work, Organized for Review."
+        intro="A dedicated project register for GCs, developers, and procurement teams reviewing CPT's self-performed Division 9 record across Ontario."
         image="/portfolio.jpg"
       />
       <section className="site-section relative overflow-hidden border-t border-white/10">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/60 to-transparent" />
-        <div className="site-container grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch">
-          <article className="group relative min-h-[560px] overflow-hidden border border-white/10 bg-black">
-            <Image
-              src={featuredProject.image}
-              alt={`${featuredProject.name} project`}
-              fill
-              priority
-              sizes="(min-width: 1024px) 58vw, 100vw"
-              className="object-cover grayscale-[35%] saturate-[0.9] transition duration-700 group-hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" />
-            <div className="absolute inset-x-0 bottom-0 space-y-6 p-6 md:p-10">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="border border-[var(--gold)]/50 bg-[var(--gold)]/8 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-[var(--gold)]">
-                  Featured
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]">
+            <article className="group relative min-h-[520px] overflow-hidden bg-black">
+              <Image
+                src={featuredProject.image}
+                alt={`${featuredProject.name} project`}
+                fill
+                priority
+                sizes="(min-width: 1024px) 56vw, 100vw"
+                className="object-cover grayscale-[38%] saturate-[0.86] transition duration-700 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/44 to-black/10" />
+              <div className="pointer-events-none absolute inset-5 border border-white/10" />
+              <div className="absolute left-6 top-6 flex items-center gap-3 border border-white/15 bg-black/70 px-4 py-2 backdrop-blur md:left-8 md:top-8">
+                <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                  Record
                 </span>
-                <span className="border border-white/20 bg-white/[0.025] px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-white/70">
-                  {featuredProject.status}
+                <span className="h-px w-8 bg-white/25" />
+                <span className="text-xs uppercase tracking-[0.18em] text-white/64">
+                  01
                 </span>
               </div>
-              <div>
-                <h2 className="max-w-3xl text-5xl leading-[1.02] text-white md:text-7xl">
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                  Featured Dossier
+                </p>
+                <h2 className="mt-4 max-w-3xl text-5xl leading-[1.02] text-white md:text-7xl">
                   {featuredProject.name}
                 </h2>
                 <p className="mt-3 text-sm uppercase tracking-[0.16em] text-white/55">
                   {featuredProject.location}
                 </p>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <div className="flex flex-col justify-between border-y border-white/10 bg-black/60 py-8 lg:py-10">
-            <div>
-              <p className="section-label">Featured Dossier</p>
-              <h2 className="max-w-xl text-4xl leading-[1.05] text-white md:text-6xl">
-                Brand inspection. Interior execution. One accountable crew.
-              </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
-                {featuredProject.summary}
-              </p>
-            </div>
-            <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
-              <PortfolioFact label="Sector" value={featuredProject.sector} />
-              <PortfolioFact label="Scale" value={featuredProject.scale} />
-              <PortfolioFact label="Status" value={featuredProject.status} />
-              <PortfolioFact label="Location" value={featuredProject.location} />
-            </div>
+            <aside className="flex min-w-0 flex-col justify-between bg-black p-6 md:p-9 lg:p-10">
+              <div>
+                <p className="section-label">Why This Page Exists</p>
+                <h2 className="max-w-2xl text-4xl leading-[1.05] text-white md:text-6xl">
+                  A register, not another gallery.
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
+                  The home page shows a quick visual sample. This page is
+                  structured for shortlist review, with each project organized
+                  by sector, scale, status, location, and scope narrative.
+                </p>
+              </div>
+              <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+                <PortfolioFact label="Sector" value={featuredProject.sector} />
+                <PortfolioFact label="Scale" value={featuredProject.scale} />
+                <PortfolioFact label="Status" value={featuredProject.status} />
+                <PortfolioFact
+                  label="Location"
+                  value={featuredProject.location}
+                />
+              </div>
+              <div className="mt-8 border-t border-[var(--gold)]/60 pt-6">
+                <p className="text-lg leading-8 text-white/74">
+                  {featuredProject.summary}
+                </p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section className="site-section border-t border-white/10 bg-black">
+      <section className="border-t border-white/10 bg-black py-10">
         <div className="site-container">
-          <div className="grid gap-px border border-white/10 bg-white/10 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="bg-black p-6 md:p-9">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+            {portfolioReviewStandards.map((standard, index) => (
+              <article
+                key={standard.title}
+                className="group bg-black p-6 transition duration-300 hover:bg-[var(--surface)] md:p-8"
+              >
+                <div className="flex items-center justify-between border-t border-[var(--gold)]/55 pt-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {standard.label}
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.18em] text-white/32">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                </div>
+                <h3 className="mt-8 text-3xl leading-tight text-white">
+                  {standard.title}
+                </h3>
+                <p className="mt-5 text-sm leading-6 text-white/62">
+                  {standard.body}
+                </p>
+                <div className="mt-8 h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section border-t border-white/10">
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 xl:grid-cols-[1.05fr_0.5fr_0.45fr]">
+            <div className="bg-black p-6 md:p-9 lg:p-10">
               <p className="section-label">Portfolio Register</p>
-              <h2 className="max-w-3xl text-4xl leading-[1.05] text-white md:text-6xl">
-                Project records organized for serious review.
+              <h2 className="max-w-4xl text-4xl leading-[1.05] text-white md:text-6xl">
+                Project information formatted for serious review.
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-white/64">
-                Structured for fast prequalification review: sector, location,
-                scale, status, and scope summary are separated for
-                procurement-level scanning.
+                The portfolio page now behaves like a procurement register:
+                project records are grouped by operating environment, then
+                broken into consistent evidence fields for faster evaluation.
               </p>
             </div>
-            <div className="grid gap-px bg-white/10 sm:grid-cols-3 lg:grid-cols-1">
+
+            <div className="grid gap-px bg-white/10 sm:grid-cols-3 xl:grid-cols-1">
               <PortfolioFact
                 label="Project Entries"
                 value={`${portfolioProjects.length}`}
@@ -1813,21 +1886,41 @@ export function PortfolioContent() {
               />
               <PortfolioFact label="Delivery Region" value="Ontario" large />
             </div>
+
+            <aside className="bg-[var(--surface)] p-6 md:p-8">
+              <p className="section-label">Review Notes</p>
+              <div className="mt-7 space-y-5">
+                {portfolioRegisterNotes.map((note, index) => (
+                  <div
+                    key={note}
+                    className="border-t border-white/10 pt-5 first:border-[var(--gold)]/55"
+                  >
+                    <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]/85">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-white/62">
+                      {note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)]">
-          <aside className="self-start border-y border-white/10 py-8 lg:sticky lg:top-28">
-            <p className="section-label">Project Index</p>
+      <section className="site-section relative overflow-hidden border-t border-white/10 bg-black">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-25" />
+        <div className="site-container relative grid gap-12 xl:grid-cols-[340px_minmax(0,1fr)]">
+          <aside className="self-start border-y border-white/10 py-8 xl:sticky xl:top-28">
+            <p className="section-label">Project Directory</p>
             <h2 className="text-4xl leading-[1.04] text-white">
-              Selected deliveries, grouped by operating environment.
+              Selected deliveries by operating environment.
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/62">
-              Each record is formatted as a quick dossier so teams can scan the
-              portfolio by operating environment, project scale, and delivery
-              status.
+              The record format changes the page from a visual repeat into a
+              working index: image, scope, scale, and sector context sit in the
+              same line of sight.
             </p>
             <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
               {sectorGroups.map((group) => (
@@ -1844,76 +1937,94 @@ export function PortfolioContent() {
             </div>
           </aside>
 
-          <div className="grid gap-10">
-            {sectorGroups.map((group) => (
-              <div key={group.sector} className="border-t border-white/10 pt-8">
-                <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <p className="section-label">Sector</p>
-                    <h3 className="text-3xl leading-tight text-white md:text-5xl">
-                      {group.sector}
-                    </h3>
+          <div className="grid gap-14">
+            {sectorGroups.map((group, groupIndex) => {
+              const sectorHref = getSectorHref(group.sector);
+
+              return (
+                <div key={group.sector} className="border-t border-white/10 pt-8">
+                  <div className="mb-6 flex flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="section-label">
+                        Sector {String(groupIndex + 1).padStart(2, "0")}
+                      </p>
+                      <h3 className="text-4xl leading-tight text-white md:text-6xl">
+                        {group.sector}
+                      </h3>
+                    </div>
+                    <div className="flex flex-col gap-4 sm:items-end">
+                      <p className="text-sm uppercase tracking-[0.16em] text-white/45">
+                        {group.projects.length}{" "}
+                        {group.projects.length === 1 ? "record" : "records"}
+                      </p>
+                      <ArrowLink href={sectorHref}>View Sector Context</ArrowLink>
+                    </div>
                   </div>
-                  <p className="text-sm uppercase tracking-[0.16em] text-white/45">
-                    {group.projects.length}{" "}
-                    {group.projects.length === 1 ? "record" : "records"}
-                  </p>
-                </div>
 
-                <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
-                  {group.projects.map((project) => {
-                    const projectIndex = portfolioProjects.indexOf(project) + 1;
+                  <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                    {group.projects.map((project) => {
+                      const projectIndex = portfolioProjects.indexOf(project) + 1;
 
-                    return (
-                      <article
-                        key={`${project.name}-${project.location}`}
-                        className="group grid gap-0 bg-black transition duration-300 hover:bg-[var(--surface)] lg:grid-cols-[0.92fr_1.08fr]"
-                      >
-                        <div className="relative min-h-[280px] overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
-                          <Image
-                            src={project.image}
-                            alt={`${project.name} project`}
-                            fill
-                            sizes="(min-width: 1024px) 38vw, 100vw"
-                            className="object-cover grayscale-[35%] saturate-[0.88] transition duration-700 group-hover:scale-[1.025]"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                          <span className="absolute left-5 top-5 border border-white/20 bg-black/70 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/65">
-                            {String(projectIndex).padStart(2, "0")}
-                          </span>
-                        </div>
-                        <div className="flex min-w-0 flex-col justify-between p-6 md:p-8">
-                          <div>
-                            <div className="flex flex-wrap items-center gap-2">
-                              <span className="border border-[var(--gold)]/45 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
-                                {project.status}
-                              </span>
-                              <span className="border border-white/15 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-white/55">
-                                {project.location}
+                      return (
+                        <article
+                          key={`${project.name}-${project.location}`}
+                          className="group bg-black transition duration-300 hover:bg-[var(--surface)]"
+                        >
+                          <div className="grid lg:grid-cols-[330px_minmax(0,1fr)_280px]">
+                            <div className="relative min-h-[260px] overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
+                              <Image
+                                src={project.image}
+                                alt={`${project.name} project`}
+                                fill
+                                sizes="(min-width: 1280px) 330px, 100vw"
+                                className="object-cover grayscale-[36%] saturate-[0.88] transition duration-700 group-hover:scale-[1.025]"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/18 to-transparent" />
+                              <span className="absolute left-5 top-5 border border-white/20 bg-black/72 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/65">
+                                {String(projectIndex).padStart(2, "0")}
                               </span>
                             </div>
-                            <h4 className="mt-6 text-3xl leading-tight text-white md:text-5xl">
-                              {project.name}
-                            </h4>
-                            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/66">
-                              {project.summary}
-                            </p>
+
+                            <div className="min-w-0 p-6 md:p-8">
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span className="border border-[var(--gold)]/45 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
+                                  {project.status}
+                                </span>
+                                <span className="border border-white/15 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-white/55">
+                                  {project.location}
+                                </span>
+                              </div>
+                              <h4 className="mt-6 text-3xl leading-tight text-white md:text-5xl">
+                                {project.name}
+                              </h4>
+                              <p className="mt-5 max-w-3xl text-lg leading-8 text-white/66">
+                                {project.summary}
+                              </p>
+                              <div className="mt-8 h-px w-12 bg-[var(--gold)]/55 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
+                            </div>
+
+                            <aside className="grid gap-px border-t border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-1 lg:border-l lg:border-t-0">
+                              <PortfolioFact label="Sector" value={project.sector} />
+                              <PortfolioFact label="Scale" value={project.scale} />
+                              <div className="bg-black p-6">
+                                <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                                  Next Review
+                                </p>
+                                <div className="mt-4">
+                                  <ArrowLink href={sectorHref}>
+                                    Sector Details
+                                  </ArrowLink>
+                                </div>
+                              </div>
+                            </aside>
                           </div>
-                          <div className="mt-8 border-t border-white/10 pt-5">
-                            <p className="text-xs uppercase tracking-[0.18em] text-white/38">
-                              Documented Scale
-                            </p>
-                            <p className="mt-2 text-lg font-medium text-white/86">
-                              {project.scale}
-                            </p>
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
+                        </article>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
