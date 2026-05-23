@@ -17,6 +17,7 @@ import {
 } from "../_data/site";
 
 type IndustryPage = (typeof industryPages)[keyof typeof industryPages];
+type IndustryProject = IndustryPage["groups"][number]["projects"][number];
 type PortfolioProject = (typeof portfolioProjects)[number];
 
 const heroFacts = [
@@ -166,6 +167,14 @@ const closingProofs = [
   "Prequalification documents available",
   "Bonding available for qualifying projects",
 ];
+
+function isRequestOnlyProject(project: IndustryProject) {
+  return (
+    "status" in project &&
+    typeof project.status === "string" &&
+    project.status === "Records available on request"
+  );
+}
 
 export function ArrowLink({
   href,
@@ -1388,20 +1397,33 @@ export function IndustryContent({ page }: { page: IndustryPage }) {
         intro={page.intro}
         image={page.image}
       />
-      {page.groups.map((group) => (
-        <section key={group.title} className="site-section border-t border-white/10">
-          <div className="site-container">
-            <SectionIntro
-              eyebrow={group.title}
-              title={
-                group.title === page.eyebrow ? "Selected Deliveries." : group.title
-              }
-              body={group.intro || undefined}
-            />
-            <ProjectRows projects={group.projects} />
-          </div>
-        </section>
-      ))}
+      {page.groups.map((group) => {
+        const hasPublishedProjects = group.projects.some(
+          (project) => !isRequestOnlyProject(project),
+        );
+
+        return (
+          <section
+            key={group.title}
+            className="site-section border-t border-white/10"
+          >
+            <div className="site-container">
+              <SectionIntro
+                eyebrow={group.title}
+                title={
+                  group.title === page.eyebrow
+                    ? hasPublishedProjects
+                      ? "Selected Deliveries."
+                      : "Project Register."
+                    : group.title
+                }
+                body={group.intro || undefined}
+              />
+              <ProjectRows projects={group.projects} />
+            </div>
+          </section>
+        );
+      })}
       <section className="site-section border-t border-white/10">
         <div className="site-container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <p className="text-sm uppercase tracking-[0.18em] text-white/50">
@@ -1428,6 +1450,16 @@ function ProjectRows({
           "status" in project && typeof project.status === "string"
             ? project.status
             : null;
+
+        if (isRequestOnlyProject(project)) {
+          return (
+            <RequestOnlyProjectRecord
+              key={`${project.name}-${project.location}`}
+              project={project}
+              index={index}
+            />
+          );
+        }
 
         return (
           <article
@@ -1468,6 +1500,69 @@ function ProjectRows({
         );
       })}
     </div>
+  );
+}
+
+function RequestOnlyProjectRecord({
+  project,
+  index,
+}: {
+  project: IndustryProject;
+  index: number;
+}) {
+  return (
+    <article className="group grid overflow-hidden border border-white/10 bg-black transition duration-300 hover:border-white/20 lg:grid-cols-[0.56fr_1fr]">
+      <div className="relative min-h-[320px] overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
+        <Image
+          src={project.image}
+          alt={`${project.name} register reference`}
+          fill
+          sizes="(min-width: 1024px) 42vw, 100vw"
+          className="object-cover grayscale-[55%] saturate-[0.72] transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-[28%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/28 to-black/10" />
+        <div className="pointer-events-none absolute inset-5 border border-white/10 transition duration-300 group-hover:border-[var(--gold)]/45" />
+        <div className="absolute bottom-6 left-6 right-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+            Controlled Access Record
+          </p>
+          <p className="mt-3 text-sm leading-6 text-white/62">
+            Full details released through qualified project discussions.
+          </p>
+        </div>
+      </div>
+      <div className="flex min-w-0 flex-col justify-between p-6 md:p-8 lg:p-10">
+        <div>
+          <div className="flex flex-wrap items-start justify-between gap-5 border-t border-[var(--gold)]/65 pt-5">
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+              {String(index + 1).padStart(2, "0")} / Register
+            </p>
+            <span className="max-w-64 border border-[var(--gold)]/40 px-3 py-1 text-right text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
+              Records available on request
+            </span>
+          </div>
+          <h2 className="mt-8 max-w-4xl text-4xl leading-tight text-white md:text-5xl">
+            {project.name}
+          </h2>
+          {project.location && (
+            <p className="mt-3 text-sm uppercase tracking-[0.14em] text-white/45">
+              {project.location}
+            </p>
+          )}
+          <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[var(--gold)]">
+            {project.meta}
+          </p>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-white/66">
+            {project.body}
+          </p>
+        </div>
+        <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+          <DossierItem label="Access" value="Qualified review" />
+          <DossierItem label="Release" value="Client controlled" />
+          <DossierItem label="Next Step" value="Discuss scope fit" />
+        </div>
+      </div>
+    </article>
   );
 }
 
