@@ -1,9 +1,10 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { animated, useSpring } from "@react-spring/web";
+import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { type FieldPath, useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,11 +16,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useEffect, useState } from "react";
 
-const AnimatedDiv = animated("div");
-// Define the form schema
 const SubcontractorFormSchema = z.object({
   company_name: z.string().min(2, {
     message: "Company name must be at least 2 characters.",
@@ -64,9 +61,131 @@ const SubcontractorFormSchema = z.object({
   }),
 });
 
+type SubcontractorFormValues = z.infer<typeof SubcontractorFormSchema>;
+
+type FieldConfig = {
+  name: FieldPath<SubcontractorFormValues>;
+  label: string;
+  placeholder: string;
+  type?: string;
+  required?: boolean;
+  wide?: boolean;
+};
+
+const companyFields: FieldConfig[] = [
+  {
+    name: "company_name",
+    label: "Company Name",
+    placeholder: "Company name",
+    required: true,
+  },
+  {
+    name: "contact",
+    label: "Contact",
+    placeholder: "Contact name",
+    required: true,
+  },
+  {
+    name: "phone_number",
+    label: "Phone Number",
+    placeholder: "Phone number",
+    type: "tel",
+    required: true,
+  },
+  {
+    name: "fax",
+    label: "Fax",
+    placeholder: "Fax number",
+  },
+  {
+    name: "email",
+    label: "Email",
+    placeholder: "Email address",
+    type: "email",
+    required: true,
+  },
+  {
+    name: "union_status",
+    label: "Union Status",
+    placeholder: "Union status",
+    required: true,
+  },
+  {
+    name: "bidding_area",
+    label: "Which Area Are You Looking to Bid?",
+    placeholder: "Bidding area",
+    required: true,
+  },
+  {
+    name: "bondable",
+    label: "Are You Bondable?",
+    placeholder: "Yes / no / amount",
+    required: true,
+  },
+  {
+    name: "expertise",
+    label: "Division and Area of Expertise",
+    placeholder: "Division and area of expertise",
+    required: true,
+    wide: true,
+  },
+];
+
+const addressFields: FieldConfig[] = [
+  {
+    name: "street_address",
+    label: "Street Address",
+    placeholder: "Street address",
+    required: true,
+    wide: true,
+  },
+  {
+    name: "address_line_2",
+    label: "Address Line 2",
+    placeholder: "Address line 2",
+    wide: true,
+  },
+  {
+    name: "city",
+    label: "City",
+    placeholder: "City",
+    required: true,
+  },
+  {
+    name: "state_province_region",
+    label: "State / Province / Region",
+    placeholder: "State / province / region",
+    required: true,
+  },
+  {
+    name: "country",
+    label: "Country",
+    placeholder: "Country",
+    required: true,
+  },
+  {
+    name: "postal_zip_code",
+    label: "Postal / Zip Code",
+    placeholder: "Postal / zip code",
+    required: true,
+  },
+];
+
+const intakeFacts = [
+  { label: "Resource Type", value: "Subcontractor Intake" },
+  { label: "Review Area", value: "Division 9" },
+  { label: "Region", value: "Ontario" },
+];
+
+const formChecklist = [
+  "Company and contact information",
+  "Trade expertise and bidding area",
+  "Bonding and union status",
+  "Mailing address for records",
+];
+
 export default function Page() {
-  // Define form with strict type
-  const form = useForm<z.infer<typeof SubcontractorFormSchema>>({
+  const form = useForm<SubcontractorFormValues>({
     resolver: zodResolver(SubcontractorFormSchema),
     defaultValues: {
       company_name: "",
@@ -87,7 +206,6 @@ export default function Page() {
     },
   });
 
-  // Add state for submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState<
     "success" | "error" | null
@@ -96,12 +214,10 @@ export default function Page() {
     null,
   );
 
-  // Submit handler with proper typed parameter
-  async function onSubmit(values: z.infer<typeof SubcontractorFormSchema>) {
+  async function onSubmit(values: SubcontractorFormValues) {
     setIsSubmitting(true);
     setSubmissionStatus(null);
     setSubmissionMessage(null);
-    console.log("Subcontractor form submitted:", values);
 
     try {
       const response = await fetch("/api/submit-form", {
@@ -116,20 +232,11 @@ export default function Page() {
 
       if (response.ok) {
         setSubmissionStatus("success");
-        setSubmissionMessage(result.message || "Form submitted successfully!");
-        form.reset(); // Reset form fields
+        setSubmissionMessage(result.message || "Form submitted successfully.");
+        form.reset();
       } else {
         setSubmissionStatus("error");
         setSubmissionMessage(result.message || "An error occurred.");
-        // Optionally, you can set form errors here if your API returns field-specific errors
-        // if (result.errors) {
-        //   Object.keys(result.errors).forEach((key) => {
-        //     form.setError(key as keyof z.infer<typeof SubcontractorFormSchema>, {
-        //       type: 'manual',
-        //       message: result.errors[key]?._errors.join(', '),
-        //     });
-        //   });
-        // }
       }
     } catch (error) {
       setSubmissionStatus("error");
@@ -138,421 +245,193 @@ export default function Page() {
           ? error.message
           : "An unexpected error occurred.";
       setSubmissionMessage(`Failed to submit form: ${message}`);
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
   }
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  const headingAnimation = useSpring({
-    from: { opacity: 0, transform: "translateX(-50px)" },
-    to: {
-      opacity: mounted ? 1 : 0,
-      transform: mounted ? "translateX(0)" : "translateX(-50px)",
-    },
-    config: { tension: 170, friction: 24 },
-    delay: 100,
-  });
-
-  const subheadingAnimation = useSpring({
-    from: { opacity: 0, transform: "translateX(-50px)" },
-    to: {
-      opacity: mounted ? 1 : 0,
-      transform: mounted ? "translateX(0)" : "translateX(-50px)",
-    },
-    config: { tension: 170, friction: 24 },
-    delay: 400,
-  });
+  function renderField(fieldConfig: FieldConfig) {
+    return (
+      <FormField
+        key={fieldConfig.name}
+        control={form.control}
+        name={fieldConfig.name}
+        render={({ field }) => (
+          <FormItem className={fieldConfig.wide ? "md:col-span-2" : undefined}>
+            <FormLabel className="text-xs font-semibold uppercase tracking-[0.18em] text-white/58">
+              {fieldConfig.label}
+              {fieldConfig.required && (
+                <span className="ml-1 text-[var(--gold)]">*</span>
+              )}
+            </FormLabel>
+            <FormControl>
+              <Input
+                type={fieldConfig.type}
+                placeholder={fieldConfig.placeholder}
+                className="h-12 rounded-none border-white/15 bg-white/[0.025] px-4 text-white placeholder:text-white/28 transition focus:border-[var(--gold)] focus-visible:ring-[var(--gold)]"
+                {...field}
+              />
+            </FormControl>
+            <FormMessage className="text-sm text-red-300" />
+          </FormItem>
+        )}
+      />
+    );
+  }
 
   return (
-    <div className="relative z-10 w-full bg-red-2009 py-32 px-4 md:px-0">
-      {/* Orange gradient background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-orange-500/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-orange-500/10 to-transparent" />
-      </div>
+    <div className="site-page bg-black">
+      <section className="relative overflow-hidden border-b border-white/10 pb-16 pt-40 md:pb-20 md:pt-48">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(180deg,rgba(199,164,107,0.11),transparent_40%)] bg-[length:120px_120px,100%_100%] opacity-35" />
+        <div className="site-container relative">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
+            <div className="max-w-5xl">
+              <p className="section-label">Subcontractor Resources</p>
+              <h1 className="break-words text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-8xl">
+                Pre-Qualification Intake.
+              </h1>
+              <p className="mt-7 max-w-3xl text-xl leading-9 text-white/66">
+                Complete the intake below to be reviewed for future bidding
+                opportunities with City Professional Trades.
+              </p>
+            </div>
+            <aside className="border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                Intake Record
+              </p>
+              <div className="mt-6 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                {intakeFacts.map((fact) => (
+                  <div key={fact.label} className="bg-black p-5">
+                    <p className="text-xs uppercase tracking-[0.18em] text-white/38">
+                      {fact.label}
+                    </p>
+                    <p className="mt-3 text-lg leading-7 text-white">
+                      {fact.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
 
-      <div className="w-full text-black px-4 sm:px-8 md:px-16 lg:px-32 shadow-none border-none rounded-2xl">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-2xl md:text-3xl font-bold text-center text-white">
-            <AnimatedDiv style={headingAnimation}>
-              SUBCONTRACTOR RESOURCES & PRE-QUALIFICATION
-            </AnimatedDiv>
-          </CardTitle>
-
-          <AnimatedDiv style={subheadingAnimation}>
-            <p className="text-base text-center text-white">
-              Fill out the form below to be added to our list of bidders.
+      <section className="site-section relative overflow-hidden border-t border-white/10">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-30" />
+        <div className="site-container relative grid gap-12 xl:grid-cols-[360px_minmax(0,1fr)] xl:items-start">
+          <aside className="self-start border-y border-white/10 py-8 xl:sticky xl:top-28">
+            <p className="section-label">Before You Submit</p>
+            <h2 className="text-4xl leading-[1.04] text-white">
+              Keep the review information complete.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white/62">
+              Required fields are marked in gold. Submitted details are routed
+              to CPT for bidder-list review.
             </p>
-          </AnimatedDiv>
-        </CardHeader>
-        <CardContent className="pt-10">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <div>
-                <h2 className="text-xl font-semibold mb-4 text-white">
-                  STEP 1
-                </h2>
-                <p className="text-sm text-gray-600 mb-6 text-white">
-                  Company Information
-                </p>
-                {/* Submission Status Messages */}
-                {submissionStatus === "success" && submissionMessage && (
-                  <div className="mb-4 p-3 rounded-md bg-green-100 border border-green-400 text-green-700">
+            <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              {formChecklist.map((item, index) => (
+                <div key={item} className="bg-black p-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-white/66">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </aside>
+
+          <div className="border border-white/10 bg-black">
+            <div className="border-t border-[var(--gold)]/70 p-6 md:p-9">
+              <p className="section-label">Bidder List Form</p>
+              <h2 className="max-w-3xl text-4xl leading-[1.05] text-white md:text-6xl">
+                Subcontractor resources & pre-qualification.
+              </h2>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-white/62">
+                Fill out the form below to be added to the list of bidders.
+              </p>
+            </div>
+
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="border-t border-white/10">
+                {submissionStatus && submissionMessage && (
+                  <div
+                    className={`m-6 border p-4 text-sm leading-6 md:m-9 ${
+                      submissionStatus === "success"
+                        ? "border-[var(--gold)]/55 bg-[var(--gold)]/10 text-white"
+                        : "border-red-400/50 bg-red-500/10 text-red-100"
+                    }`}
+                  >
                     {submissionMessage}
                   </div>
                 )}
-                {submissionStatus === "error" && submissionMessage && (
-                  <div className="mb-4 p-3 rounded-md bg-red-100 border border-red-400 text-red-700">
-                    {submissionMessage}
-                  </div>
-                )}
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="company_name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            COMPANY NAME{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Company name"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="contact"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            CONTACT <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Contact name"
-                              className="p-2 z-50 border-gray-500 !bg-white rounded-[8px] h-10"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
 
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="phone_number"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            PHONE NUMBER{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="tel"
-                              placeholder="Phone number"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="fax"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            FAX
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Fax number"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                <FormSection
+                  index="01"
+                  title="Company Information"
+                  description="Primary contact, trade coverage, and bidding readiness."
+                >
+                  {companyFields.map(renderField)}
+                </FormSection>
 
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            EMAIL <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              placeholder="Email address"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="union_status"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            UNION STATUS{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Union status"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                <FormSection
+                  index="02"
+                  title="Company Mailing Address"
+                  description="Address information used for bidder-list records."
+                >
+                  {addressFields.map(renderField)}
+                </FormSection>
 
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="bidding_area"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            WHICH AREA ARE YOU LOOKING TO BID?{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Bidding area"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="bondable"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            ARE YOU BONDABLE?{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Bondable status (e.g., Yes/No, Amount)"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <FormField
-                    control={form.control}
-                    name="expertise"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-white">
-                          DIVISION AND AREA OF EXPERTISE{" "}
-                          <span className="text-orange-500">*</span>
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Division and area of expertise"
-                            className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <div className="border-t border-white/10 p-6 md:p-9">
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex h-auto w-full items-center justify-center gap-2 rounded-none bg-[var(--gold)] px-5 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-black transition duration-300 hover:-translate-y-0.5 hover:bg-white disabled:translate-y-0 md:w-auto"
+                  >
+                    {isSubmitting ? "Submitting" : "Submit Pre-Qualification"}
+                    <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.8} />
+                  </Button>
                 </div>
-              </div>
-
-              <hr className="border-dashed border-gray-400" />
-
-              <div>
-                <h2 className="text-xl font-semibold mb-4 text-white">
-                  STEP 2
-                </h2>
-                <p className="text-sm text-gray-600 mb-6 text-white">
-                  Company Mailing Address
-                </p>
-                <div className="space-y-4">
-                  <FormField
-                    control={form.control}
-                    name="street_address"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-white">
-                          STREET ADDRESS{" "}
-                          <span className="text-orange-500">*</span>
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Street address"
-                            className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="address_line_2"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-white">
-                          ADDRESS LINE 2
-                        </FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Address line 2"
-                            className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="city"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            CITY <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="City"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="state_province_region"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            STATE / PROVINCE / REGION{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="State/province/region"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <FormField
-                      control={form.control}
-                      name="country"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            COUNTRY <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Country"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="postal_zip_code"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">
-                            POSTAL / ZIP CODE{" "}
-                            <span className="text-orange-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Postal/zip code"
-                              className="p-2 border-gray-500 !bg-white rounded-[8px] h-10 z-50"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full text-white font-medium py-4 md:py-6 rounded-full transition-all duration-300 hover:brightness-110 backdrop-blur-md"
-                style={{
-                  background: "linear-gradient(0deg, #A1480E 0%, #F16407 100%)",
-                  backdropFilter: "blur(20px)",
-                }}
-                disabled={isSubmitting} // Disable button while submitting
-              >
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-      </div>
+              </form>
+            </Form>
+          </div>
+        </div>
+      </section>
     </div>
+  );
+}
+
+function FormSection({
+  index,
+  title,
+  description,
+  children,
+}: {
+  index: string;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="border-t border-white/10 p-6 md:p-9">
+      <div className="mb-8 flex flex-col gap-5 border-t border-white/10 pt-5 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+            Step {index}
+          </p>
+          <h3 className="mt-4 text-3xl leading-tight text-white md:text-4xl">
+            {title}
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-white/58">
+            {description}
+          </p>
+        </div>
+        <span className="text-xs uppercase tracking-[0.18em] text-white/30">
+          {index}
+        </span>
+      </div>
+      <div className="grid gap-5 md:grid-cols-2">{children}</div>
+    </section>
   );
 }
