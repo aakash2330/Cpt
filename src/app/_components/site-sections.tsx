@@ -158,7 +158,7 @@ const industryStandards = [
   },
   {
     label: "Crew Control",
-    body: "Directly employed trades keep production aligned without multiple subcontractor handoffs.",
+    body: "Directly employed trades keep production aligned without fragmented trade handoffs.",
   },
   {
     label: "Finish Standard",
@@ -1314,9 +1314,9 @@ export function ServicesContent() {
               Built as one controlled interior sequence.
             </h2>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/64">
-              Each trade hands off to the next inside the same organisation, so
-              layout, substrate, finish, and closeout stay coordinated from the
-              first layout line to the last deficiency item.
+              Each trade advances inside the same organisation, so layout,
+              substrate, finish, and closeout stay coordinated from the first
+              layout line to the last deficiency item.
             </p>
             <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
               {serviceControls.map((control, index) => (
@@ -1360,9 +1360,13 @@ export function ServicesContent() {
                         {service.body}
                       </p>
                     </div>
-                    <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+                    <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3">
                       <DossierItem label="Delivery" value="Self-performed" />
-                      <DossierItem label="Accountability" value="CPT crew" />
+                      <DossierItem
+                        label="Sequence"
+                        value={`${String(index + 1).padStart(2, "0")} / ${String(services.length).padStart(2, "0")}`}
+                      />
+                      <DossierItem label="Accountability" value="CPT direct" />
                     </div>
                   </div>
                   <div className="min-h-[320px] border-t border-white/10 2xl:border-l 2xl:border-t-0">
