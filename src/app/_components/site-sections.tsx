@@ -74,6 +74,44 @@ const serviceControls = [
   },
 ];
 
+const industryDossiers = [
+  {
+    title: "Hospitality",
+    standard: "Brand inspection discipline",
+    pressure: "Flag requirements, corridor repetition, guest-facing finishes.",
+  },
+  {
+    title: "Long-Term Care & Healthcare",
+    standard: "Regulated environment control",
+    pressure: "Acoustic performance, clinical adjacency, deficiency sensitivity.",
+  },
+  {
+    title: "Multi-Residential",
+    standard: "Floor-cycle consistency",
+    pressure: "Occupied access, repeatable throughput, resident coordination.",
+  },
+  {
+    title: "Commercial & Institutional",
+    standard: "Documentation-led execution",
+    pressure: "Fit-out changes, public-use durability, procurement requirements.",
+  },
+];
+
+const industryStandards = [
+  {
+    label: "Documentation",
+    body: "Scope, specification, and closeout expectations are managed before the crew sequence starts.",
+  },
+  {
+    label: "Crew Control",
+    body: "Directly employed trades keep production aligned without multiple subcontractor handoffs.",
+  },
+  {
+    label: "Finish Standard",
+    body: "Brand, institutional, and residential expectations are carried through to final inspection.",
+  },
+];
+
 const closingProofs = [
   "2027 onward delivery windows",
   "Prequalification documents available",
@@ -1121,7 +1159,135 @@ export function IndustriesOverviewContent() {
         title="Four Sectors. One Operating Standard."
         intro="Hospitality, healthcare, multi-residential, commercial, and institutional environments all receive the same documentation, crew accountability, and finish standard."
       />
-      <SectorOverview />
+      <section className="border-t border-white/10 bg-black py-10">
+        <div className="site-container">
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+            <DossierItem
+              label="Sectors"
+              value={`${sectors.length} operating environments`}
+            />
+            <DossierItem
+              label="Delivery Model"
+              value="Self-performed Division 9"
+            />
+            <DossierItem label="Standard" value="One accountable sequence" />
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section border-t border-white/10">
+        <div className="site-container grid gap-12 lg:grid-cols-[380px_minmax(0,1fr)]">
+          <aside className="self-start border-y border-white/10 py-8 lg:sticky lg:top-28">
+            <p className="section-label">Sector Dossier</p>
+            <h2 className="text-4xl leading-[1.04] text-white">
+              Different environments. Same operating control.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-white/62">
+              CPT separates sector requirements by inspection pressure, access
+              constraints, and finish standard, then runs the same accountable
+              interior sequence through each one.
+            </p>
+            <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              {industryStandards.map((item, index) => (
+                <article key={item.label} className="group bg-black p-6">
+                  <div className="flex items-start gap-5">
+                    <span className="min-w-9 text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-2xl text-white">{item.label}</h3>
+                      <p className="mt-3 text-sm leading-6 text-white/58">
+                        {item.body}
+                      </p>
+                      <div className="mt-5 h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </aside>
+
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+            {sectors.map((sector, index) => {
+              const dossier = industryDossiers.find(
+                (item) => item.title === sector.title,
+              );
+
+              return (
+                <Link
+                  key={sector.title}
+                  href={sector.href}
+                  className="group grid bg-black transition duration-300 hover:bg-[var(--surface)] xl:grid-cols-[0.72fr_1.28fr]"
+                >
+                  <div className="relative min-h-[300px] overflow-hidden border-b border-white/10 xl:border-b-0 xl:border-r">
+                    <Image
+                      src={sector.image}
+                      alt={`${sector.title} interior`}
+                      fill
+                      sizes="(min-width: 1280px) 34vw, 100vw"
+                      className="object-cover grayscale-[42%] saturate-[0.82] transition duration-700 group-hover:scale-[1.025] group-hover:grayscale-[14%] group-hover:saturate-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <span className="absolute left-5 top-5 border border-white/20 bg-black/70 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/65">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div className="flex min-w-0 flex-col justify-between p-6 md:p-8 lg:p-10">
+                    <div>
+                      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
+                        <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                          Operating Environment
+                        </p>
+                        <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
+                      </div>
+                      <h3 className="mt-8 text-4xl leading-tight text-white md:text-5xl">
+                        {sector.title}
+                      </h3>
+                      <p className="mt-5 max-w-2xl text-lg leading-8 text-white/66">
+                        {sector.description}
+                      </p>
+                    </div>
+                    <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
+                      <DossierItem
+                        label="Standard"
+                        value={dossier?.standard || "Same operating standard"}
+                      />
+                      <DossierItem
+                        label="Pressure"
+                        value={
+                          dossier?.pressure || "Sector-specific requirements"
+                        }
+                      />
+                    </div>
+                    <span className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)] transition duration-300 group-hover:text-white">
+                      {sector.cta}
+                      <ArrowUpRight size={15} />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="site-section border-t border-white/10 bg-black">
+        <div className="site-container">
+          <div className="border-t border-[var(--gold)]/65 pt-10">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="section-label">Project Fit</p>
+                <h2 className="max-w-4xl text-4xl leading-[1.04] text-white sm:text-5xl md:text-7xl">
+                  Match the environment. Keep the standard.
+                </h2>
+              </div>
+              <ArrowLink href="/contact" variant="solid">
+                Discuss Your Sector
+              </ArrowLink>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
