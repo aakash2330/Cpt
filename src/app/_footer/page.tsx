@@ -135,8 +135,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-8 pt-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <nav className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="grid gap-8 pt-8 xl:grid-cols-[1fr_auto] xl:items-end">
+          <nav className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
@@ -156,7 +156,7 @@ export function Footer() {
             ))}
           </nav>
 
-          <div className="text-sm leading-6 text-white/50 lg:text-right">
+          <div className="text-sm leading-6 text-white/50 xl:text-right">
             <p>City Professional Trades &copy; 2026. All rights reserved.</p>
             <p className="mt-2 uppercase tracking-[0.16em] text-white/35">
               Ontario / Division 9 / Self-performed interiors
