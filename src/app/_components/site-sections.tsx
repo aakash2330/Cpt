@@ -485,15 +485,15 @@ export function SectorOverview() {
             <Link
               key={sector.title}
               href={sector.href}
-              className="group bg-[var(--surface)] transition duration-300 hover:bg-[var(--surface-2)]"
+              className="group flex min-h-full flex-col bg-[var(--surface)] transition duration-300 hover:bg-[var(--surface-2)]"
             >
               <ImageFrame src={sector.image} alt={`${sector.title} interior`} />
-              <div className="space-y-4 border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
+              <div className="flex flex-1 flex-col border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
                 <h3 className="text-2xl text-white">{sector.title}</h3>
-                <p className="min-h-28 text-sm leading-6 text-white/62">
+                <p className="mt-4 text-sm leading-6 text-white/62">
                   {sector.description}
                 </p>
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)]">
+                <span className="mt-auto inline-flex items-center gap-2 pt-8 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)]">
                   {sector.cta}
                   <ArrowUpRight size={15} />
                 </span>

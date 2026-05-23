@@ -156,8 +156,8 @@ export const associations = [
   },
   {
     name: "Canada Green Building Council",
-    logo: "/Seals/cagbc_member_logo_2025.png",
-    mark: null,
+    logo: null,
+    mark: "CAGBC",
   },
   {
     name: "NAIOP",
