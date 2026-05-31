@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Send } from "lucide-react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -23,7 +22,6 @@ type FieldConfig = {
   label: string;
   placeholder: string;
   type?: "input" | "textarea";
-  wide?: boolean;
 };
 
 const newProjectSchema = z.object({
@@ -51,22 +49,19 @@ const newProjectFields: FieldConfig[] = [
   {
     name: "project_type",
     label: "Project type",
-    placeholder: "Hotel, healthcare, residential...",
-    wide: true,
+    placeholder: "Hospitality, healthcare, multi-residential...",
   },
   { name: "location", label: "Location", placeholder: "Project city or site" },
   {
     name: "scope_size",
     label: "Approximate scope size",
     placeholder: "Rooms, floors, sq ft, or schedule window",
-    wide: true,
   },
   {
     name: "message",
     label: "Message",
     placeholder: "Share the scope, schedule, procurement status, or constraints.",
     type: "textarea",
-    wide: true,
   },
 ];
 
@@ -77,28 +72,24 @@ const documentFields: FieldConfig[] = [
     name: "organisation_type",
     label: "Organisation type",
     placeholder: "GC, developer, procurement team...",
-    wide: true,
   },
   {
     name: "documents_required",
     label: "Documents required",
-    placeholder: "Bonding, WSIB, insurance...",
-    wide: true,
+    placeholder: "Bonding, WSIB, insurance, prequalification package...",
   },
   {
     name: "message",
     label: "Message",
     placeholder: "Tell us what documentation is required and by when.",
     type: "textarea",
-    wide: true,
   },
 ];
 
 export function ContactForm() {
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-2">
       <InquiryForm
-        index="01"
         title="New Project Discussion"
         description="For developers, general contractors, and asset owners with an active or upcoming scope to discuss."
         submitLabel="Submit Inquiry"
@@ -115,7 +106,6 @@ export function ContactForm() {
         fields={newProjectFields}
       />
       <InquiryForm
-        index="02"
         title="Prequalification & Documentation"
         description="For procurement teams requiring bonding certificates, WSIB clearance, insurance documentation, or a formal prequalification package."
         submitLabel="Request Documents"
@@ -135,7 +125,6 @@ export function ContactForm() {
 }
 
 function InquiryForm({
-  index,
   title,
   description,
   submitLabel,
@@ -143,7 +132,6 @@ function InquiryForm({
   defaultValues,
   fields,
 }: {
-  index: string;
   title: string;
   description: string;
   submitLabel: string;
@@ -194,101 +182,71 @@ function InquiryForm({
   }
 
   return (
-    <section className="group relative overflow-hidden border border-white/10 bg-black transition duration-300 hover:border-white/20">
-      <div className="grid gap-px bg-white/10 xl:grid-cols-[320px_minmax(0,1fr)]">
-        <div className="bg-black p-6 md:p-8">
-          <div className="flex items-center justify-between border-t border-[var(--gold)] pt-5">
-            <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
-              Path {index}
-            </span>
-            <span className="h-px w-10 bg-white/18 transition duration-300 group-hover:w-16 group-hover:bg-[var(--gold)]" />
-          </div>
-          <h2 className="mt-8 max-w-xl text-balance text-2xl leading-tight text-white">
-            {title}
-          </h2>
-          <p className="mt-4 text-sm leading-6 text-white/58">{description}</p>
-          <div className="mt-8 border border-white/10 p-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-white/38">
-              Routed To
-            </p>
-            <p className="mt-2 text-base text-white">
-              CPT estimating / project leadership
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-black p-6 md:p-8">
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="grid gap-5 md:grid-cols-2"
-            >
-              {fields.map((fieldConfig) => (
-                <FormField
-                  key={fieldConfig.name}
-                  control={form.control}
-                  name={fieldConfig.name}
-                  render={({ field }) => (
-                    <FormItem
-                      className={
-                        fieldConfig.type === "textarea" || fieldConfig.wide
-                          ? "md:col-span-2"
-                          : undefined
-                      }
-                    >
-                      <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/58">
-                        {fieldConfig.label}
-                      </FormLabel>
-                      <FormControl>
-                        {fieldConfig.type === "textarea" ? (
-                          <Textarea
-                            placeholder={fieldConfig.placeholder}
-                            className="min-h-36 resize-none rounded-none border-white/15 bg-white/[0.025] text-white placeholder:text-white/30 transition focus:border-[var(--gold)] focus-visible:ring-[var(--gold)]"
-                            {...field}
-                          />
-                        ) : (
-                          <Input
-                            placeholder={fieldConfig.placeholder}
-                            className="h-12 rounded-none border-white/15 bg-white/[0.025] text-white placeholder:text-white/30 transition focus:border-[var(--gold)] focus-visible:ring-[var(--gold)]"
-                            {...field}
-                          />
-                        )}
-                      </FormControl>
-                      <FormMessage className="text-xs text-red-300" />
-                    </FormItem>
-                  )}
-                />
-              ))}
-              <Button
-                type="submit"
-                disabled={form.formState.isSubmitting}
-                className="h-12 w-full rounded-none bg-[var(--gold)] text-sm font-semibold uppercase tracking-[0.16em] text-black transition duration-300 hover:-translate-y-0.5 hover:bg-white disabled:hover:translate-y-0 md:col-span-2"
-              >
-                {form.formState.isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    {submitLabel}
-                    <Send aria-hidden="true" size={16} />
-                  </>
-                )}
-              </Button>
-              {submissionMessage && (
-                <p
-                  aria-live="polite"
-                  className={
-                    submissionStatus === "success"
-                      ? "text-sm text-emerald-300 md:col-span-2"
-                      : "text-sm text-red-300 md:col-span-2"
-                  }
-                >
-                  {submissionMessage}
-                </p>
-              )}
-            </form>
-          </Form>
-        </div>
+    <section className="flex h-full flex-col bg-black p-6 md:p-8">
+      <div className="mb-8 border-t border-[var(--gold)] pt-5">
+        <h2 className="text-3xl text-white">{title}</h2>
+        <p className="mt-4 text-sm leading-6 text-white/58">{description}</p>
       </div>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-1 flex-col"
+        >
+          <div className="space-y-5">
+            {fields.map((fieldConfig) => (
+              <FormField
+                key={fieldConfig.name}
+                control={form.control}
+                name={fieldConfig.name}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/58">
+                      {fieldConfig.label}
+                    </FormLabel>
+                    <FormControl>
+                      {fieldConfig.type === "textarea" ? (
+                        <Textarea
+                          placeholder={fieldConfig.placeholder}
+                          className="min-h-32 resize-none rounded-none border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus-visible:ring-[var(--gold)]"
+                          {...field}
+                        />
+                      ) : (
+                        <Input
+                          placeholder={fieldConfig.placeholder}
+                          className="h-12 rounded-none border-white/15 bg-white/[0.03] text-white placeholder:text-white/30 focus-visible:ring-[var(--gold)]"
+                          {...field}
+                        />
+                      )}
+                    </FormControl>
+                    <FormMessage className="text-xs text-red-300" />
+                  </FormItem>
+                )}
+              />
+            ))}
+          </div>
+          <div className="mt-auto pt-7">
+            <Button
+              type="submit"
+              disabled={form.formState.isSubmitting}
+              className="h-12 w-full rounded-none bg-[var(--gold)] text-sm font-semibold uppercase tracking-[0.16em] text-black hover:bg-white"
+            >
+              {form.formState.isSubmitting ? "Sending..." : submitLabel}
+            </Button>
+            {submissionMessage && (
+              <p
+                aria-live="polite"
+                className={
+                  submissionStatus === "success"
+                    ? "mt-4 text-sm text-emerald-300"
+                    : "mt-4 text-sm text-red-300"
+                }
+              >
+                {submissionMessage}
+              </p>
+            )}
+          </div>
+        </form>
+      </Form>
     </section>
   );
 }

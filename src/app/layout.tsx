@@ -23,7 +23,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "City Professional Trades",
+  title: "CPT Construction",
   description:
     "Division 9 interior scopes self-performed across Ontario by CPT Construction.",
   icons: {

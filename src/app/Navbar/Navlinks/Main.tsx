@@ -107,7 +107,7 @@ export function NavLinks() {
           <div className="relative flex h-[calc(100svh-80px)] flex-col justify-between overflow-y-auto px-5 py-8">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
-                City Professional Trades
+                CPT Construction
               </p>
               <h2 className="mt-4 max-w-sm text-4xl leading-[1.04] text-white">
                 One Contract. Complete Scope.
@@ -215,18 +215,18 @@ function Dropdown({
             <Link
               key={link.href}
               href={link.href}
-              className="group/link flex items-center justify-between gap-4 border-t border-white/10 px-4 py-4 text-sm text-white/66 transition hover:bg-white/[0.04] hover:text-white"
+              className="group/link grid grid-cols-[1.5rem_minmax(0,1fr)_1rem] items-center gap-2 border-t border-white/10 px-4 py-4 text-sm leading-5 text-white/66 transition hover:bg-white/[0.04] hover:text-white"
             >
-              <span>
-                <span className="mr-3 text-[11px] uppercase tracking-[0.18em] text-white/30">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+              <span className="self-start pt-0.5 text-[11px] uppercase tracking-[0.18em] text-white/30">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="min-w-0">
                 {link.label}
               </span>
               <ArrowUpRight
                 aria-hidden="true"
                 size={14}
-                className="text-[var(--gold)] opacity-0 transition group-hover/link:opacity-100"
+                className="justify-self-end text-[var(--gold)] opacity-0 transition group-hover/link:opacity-100"
               />
             </Link>
           ))}

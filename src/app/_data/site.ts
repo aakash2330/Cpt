@@ -363,7 +363,7 @@ export const industryPages = {
   },
   healthcare: {
     eyebrow: "Long-Term Care & Healthcare",
-    title: "Zero Deficiencies. No Exceptions.",
+    title: "Room by Room. Phase by Phase.",
     intro:
       "Long-term care and healthcare construction operates under a distinct set of constraints: ICRA compliance, acoustic performance requirements, and phased access in occupied facilities. These are not features. They are the baseline conditions for working in this environment.",
     image: "/Building Images/Arcavia Long-Term Care – Orillia, ON/1.png",
