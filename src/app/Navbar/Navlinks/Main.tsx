@@ -11,7 +11,6 @@ import { LogoMain } from "../Logo";
 
 const aboutLinks = [
   { label: "Company", href: "/about/company" },
-  { label: "Team", href: "/about/team" },
   { label: "Credentials & Safety", href: "/about/credentials-safety" },
 ];
 

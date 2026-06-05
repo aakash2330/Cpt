@@ -76,7 +76,7 @@ const documentFields: FieldConfig[] = [
   {
     name: "documents_required",
     label: "Documents required",
-    placeholder: "Bonding, WSIB, insurance, prequalification package...",
+    placeholder: "CCDC 11, bonding, WSIB, insurance, prequalification package...",
   },
   {
     name: "message",
@@ -107,7 +107,7 @@ export function ContactForm() {
       />
       <InquiryForm
         title="Prequalification & Documentation"
-        description="For procurement teams requiring bonding certificates, WSIB clearance, insurance documentation, or a formal prequalification package."
+        description="For procurement teams requiring CCDC 11, bonding certificates, WSIB clearance, insurance documentation, or a formal prequalification package."
         submitLabel="Request Documents"
         schema={documentSchema}
         defaultValues={{

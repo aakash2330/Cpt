@@ -30,7 +30,7 @@ export const sectors = [
     href: "/industries/long-term-care-healthcare",
     image: "/Building Images/Arcavia Long-Term Care – Orillia, ON/1.png",
     description:
-      "Regulated environments, acoustic performance standards, and zero-deficiency delivery.",
+      "Regulated environments, acoustic performance standards, and disciplined closeout.",
     cta: "View LTC & Healthcare",
   },
   {
@@ -57,7 +57,6 @@ export const portfolioProjects = [
     location: "Etobicoke, ON",
     sector: "Hospitality",
     scale: "196 rooms / 148,000 sq ft / 14 floors",
-    status: "Delivered",
     image: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/2.jpg",
     summary:
       "Full Division 9 scope across guest floors, corridors, and common areas. Delivered to Hyatt Place brand specification.",
@@ -67,8 +66,7 @@ export const portfolioProjects = [
     location: "Thunder Bay, ON",
     sector: "Hospitality",
     scale: "120 rooms / 67,500 sq ft",
-    status: "Delivered",
-    image: "/hospitality.jpg",
+    image: "/project-updates/holiday-inn-express-candlewood.png",
     summary:
       "Dual-brand execution across both flags simultaneously. Delivered to IHG brand specification.",
   },
@@ -77,39 +75,71 @@ export const portfolioProjects = [
     location: "Bradford, ON",
     sector: "Hospitality",
     scale: "91 rooms / 49,780 sq ft / 4 floors",
-    status: "Delivered",
-    image: "/Building Images/Comfort Inn & Suites – Bradford, ON/6.png",
-    summary: "Complete interiors, Division 9, delivered to Choice Hotels brand specification.",
+    image: "/project-updates/comfort-inn-suites.png",
+    summary:
+      "Division 9 scope for a new-build Comfort Inn & Suites including metal framing, drywall, insulation, acoustic ceilings, taping, painting and rough carpentry.",
   },
   {
     name: "Arcavia Living Long-Term Care",
     location: "Orillia, ON",
     sector: "Long-Term Care & Healthcare",
-    scale: "160 beds / 100,000+ sq ft",
-    status: "Zero-deficiency handover",
+    scale: "110,000 sq ft / 160 beds",
     image: "/Building Images/Arcavia Long-Term Care – Orillia, ON/3.jpeg",
     summary:
-      "Full interior scope across resident floors, shared amenity spaces, and clinical areas.",
+      "Complete Division 9 scope across a new long-term care facility. Metal framing, drywall, insulation, acoustic ceiling systems, taping and full interior painting.",
   },
   {
     name: "Align Wellness Centre",
     location: "Stoney Creek, ON",
     sector: "Long-Term Care & Healthcare",
     scale: "8,000 sq ft",
-    status: "Delivered",
     image: "/Building Images/Alignes  Building/1.png",
-    summary: "Multi-discipline healthcare and wellness facility. Full Division 9 scope.",
+    summary:
+      "Complete division 9 scope across a multi-discipline healthcare and wellness facility.",
   },
   {
     name: "Sherway Tower",
     location: "Mississauga, ON",
     sector: "Multi-Residential",
-    scale: "24 floors / 70,000 sq ft flooring",
-    status: "Delivered",
+    scale: "70,000 sq ft / 24 floors",
     image:
       "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/1.png",
     summary:
-      "Occupied high-rise renovation scope delivered floor by floor with resident coordination.",
+      "Interior renovation across a 24-floor occupied residential tower. Scope included flooring replacement, full interior painting and wallcovering installation.",
+  },
+  {
+    name: "High Park Village",
+    location: "Toronto, ON",
+    sector: "Multi-Residential",
+    scale: "180,000 sq ft / 17 floors",
+    image: "/project-updates/high-park-village.png",
+    summary:
+      "Complete division 9 scope of work across 17 floors including painting and wallpaper.",
+  },
+  {
+    name: "Medical Building Complex",
+    location: "Mono, ON",
+    sector: "Commercial & Institutional",
+    scale: "27,000 sq ft",
+    image: "/Building Images/Medical Building – Mono,/17.jpg",
+    summary:
+      "Complete division 9 interiors across a multi-purpose medical facility.",
+  },
+  {
+    name: "Hullabaloo Autism Centre",
+    location: "Mississauga, ON",
+    sector: "Commercial & Institutional",
+    scale: "Division 9 finishes",
+    image: "/project-updates/hullabaloo-autism-centre.png",
+    summary: "Complete Division 9 finishes.",
+  },
+  {
+    name: "No Frills",
+    location: "Several locations across Ontario",
+    sector: "Commercial & Institutional",
+    scale: "Retail program",
+    image: "/project-updates/no-frills.png",
+    summary: "Complete division 9 interiors across several locations.",
   },
 ];
 
@@ -192,8 +222,9 @@ export const principles = [
 export const team = [
   {
     name: "Papi Kasaj",
-    role: "Founder & Chief Executive Officer",
-    focus: "Executive accountability and client relationship ownership.",
+    role: "Founder & CEO",
+    focus:
+      "Papi provides the strategic direction and sets the standard for how CPT operates. He leads with a genuine commitment to his clients and his people. Building CPT into Ontario's leading self-performing Division 9 contractor.",
     bio: "",
     image: null,
     initials: "PK",
@@ -201,7 +232,8 @@ export const team = [
   {
     name: "Anesti Pejo",
     role: "Project Manager",
-    focus: "Project coordination, site execution, and schedule follow-through.",
+    focus:
+      "Anesti is the operational backbone. He brings structure, speed, and accountability to every phase of delivery. Known for his uncompromising standards in the field, he maintains direct oversight until every detail meets expectation.",
     bio: "",
     image: null,
     initials: "AP",
@@ -209,7 +241,8 @@ export const team = [
   {
     name: "Tony Filice",
     role: "Chief Estimator",
-    focus: "Tender review, scope alignment, and pricing oversight.",
+    focus:
+      "Tony is one of Ontario's leading estimators with over 20 years of experience. What he brings can't be replicated: an instinct and precision built through two decades of real conditions.",
     bio: "",
     image: null,
     initials: "TF",
@@ -217,7 +250,8 @@ export const team = [
   {
     name: "Iman Rezaie",
     role: "Senior Estimator",
-    focus: "Estimating support, takeoffs, and trade package detail.",
+    focus:
+      "Iman understands Interior Construction from the ground up. His estimates are built with the same precision CPT brings to the field - detailed, realistic, and structured to deliver on every commitment made at tender.",
     bio: "",
     image: null,
     initials: "IR",
@@ -225,7 +259,8 @@ export const team = [
   {
     name: "Enes Mece",
     role: "Director of Business Development",
-    focus: "New relationships, opportunity intake, and client coordination.",
+    focus:
+      "Enes drives growth across all sectors, leading client development with developers, Construction Managers and general contractors from first conversation through awarded scope. His focus is building relationships that last beyond a single project.",
     bio: "",
     image: null,
     initials: "EM",
@@ -233,7 +268,8 @@ export const team = [
   {
     name: "Ankit Mandhra",
     role: "Director of Finance & Technology",
-    focus: "Financial controls, systems, documentation, and reporting.",
+    focus:
+      "Ankit oversees financial operations and the systems that support them, managing bonding capacity, prequalification submissions, contracts, and the technology infrastructure behind a 120+ person operation.",
     bio: "",
     image: null,
     initials: "AM",
@@ -242,53 +278,57 @@ export const team = [
 
 export const services = [
   {
-    title: "Metal Framing",
+    title: "Metal Framing & Drywall",
     image: "/Servicepage/new/15.jpg",
     body: "Establishes the layout, tolerances, and substrate quality that every subsequent trade depends on. Errors here compound through every finish that follows.",
-  },
-  {
-    title: "Drywall",
-    image: "/Servicepage/new/10.jpg",
-    body: "Standard, fire-rated, or impact-resistant assemblies as specified. Installed by the same crew that completed the framing. No transfer of information. No transfer of accountability.",
+    detail:
+      "Steel stud framing across all configurations: load-bearing and non-load-bearing assemblies, partition walls, shaft walls, and soffits, executed to structural and architectural specification.",
   },
   {
     title: "Insulation",
     image: "/Servicepage/new/11.jpg",
-    body: "Thermal and acoustic performance installed to specification. In regulated environments, acoustic performance is a requirement, not a preference.",
-  },
-  {
-    title: "Acoustic Ceiling Systems",
-    image: "/Servicepage/new/14.jpg",
-    body: "Suspended grids and tile systems installed to brand or institutional specification. Consistent alignment and level tolerance across large floor plates.",
+    body: "Thermal and acoustic performance built into the assembly, not corrected after the fact.",
+    detail:
+      "Batt, rigid, and acoustic systems selected and installed to meet thermal, fire, and sound performance requirements across brand standards and project specifications.",
   },
   {
     title: "Taping & Finishing",
     image: "/Servicepage/new/9.webp",
-    body: "The finish quality here determines the quality of every painted surface that follows. Taping and painting are not separated at CPT. One crew, one standard, one result.",
+    body: "The surface that brand inspectors and everyone entering the room actually see. Applied to specification, across every level.",
+    detail: "Finishes delivered to scope, determined by application, not approximated.",
   },
   {
-    title: "Painting",
+    title: "Acoustic Ceilings",
+    image: "/Servicepage/new/14.jpg",
+    body: "T-bar, specialty, and fire-rated systems installed to precise level, line, and pattern alignment, from commodity grid to custom feature ceilings.",
+    detail:
+      "Tegular and specialty tile systems, clouds, baffles, and bulkheads. Every installation held to dimensional tolerance and pattern alignment required by the design.",
+  },
+  {
+    title: "Painting & FRP Panels",
     image: "/Servicepage/new/12.jpg",
-    body: "All interior surfaces, walls, ceilings, doors, frames, millwork, to the specified paint system. Brand colour schedules executed exactly.",
+    body: "Full interior coverage delivered to the same standard on every project type.",
+    detail:
+      "Brand-standard colour matching, multi-coat application systems, texture painting, decorative feature finishes, wallcovering installation, and FRP panel systems. Colour and finish approvals managed against brand or design documentation.",
   },
   {
     title: "Flooring",
     image: "/Servicepage/new/13.JPG",
-    body: "LVT, carpet tile, hardwood, and epoxy as scoped. The last trade through before handover. Same crew, same standard, same contract.",
+    body: "Vinyl composition tile, luxury vinyl plank and tile, rubber flooring, broadloom and carpet tile, ceramic and porcelain tile, and epoxy systems, all installed to plan, substrate preparation included.",
   },
 ];
 
 export const industryPages = {
   hospitality: {
     eyebrow: "Hospitality",
-    title: "Built to Brand Standard.",
+    title: "The interior is the brand.",
     intro:
-      "CPT has delivered to hotel and food and beverage brand standards across Ontario. Every hotel project in this portfolio passed brand inspection.",
+      "Most interior crews treat hotel work as commercial. Flag inspectors know the difference. CPT has delivered to the brand standard of Hyatt, Comfort Inn, Hilton, IHG, Marriott, and Choice Hotels.",
     image: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
     cta: "Discuss a Hospitality Project",
     groups: [
       {
-        title: "Hotels & Lodging",
+        title: "Hospitality",
         intro: "",
         projects: [
           {
@@ -299,40 +339,25 @@ export const industryPages = {
             body: "Full Division 9 scope across all guest floors, corridors, and common areas. Delivered to Hyatt Place brand specification.",
           },
           {
-            name: "Hyatt House",
-            location: "Ontario",
-            image: "/hyatt1.jpg",
-            meta: "Brand-standard delivery",
-            body: "Delivered to Hyatt House brand specification.",
-          },
-          {
             name: "Hampton Inn & Suites",
             location: "Mono, ON",
-            image:
-              "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/1.jpg",
+            image: "/project-updates/hampton-inn-suites.png",
             meta: "84 rooms / 47,000 sq ft",
-            body: "Delivered to Hilton Hampton brand specification.",
+            body: "Division 9 package for a ground-up Hampton Inn & Suites. Steel stud framing, drywall systems, insulation, acoustic ceiling, taping, and complete interior painting.",
           },
           {
             name: "Holiday Inn Express + Candlewood Suites",
             location: "Thunder Bay, ON",
-            image: "/hampton1.jpg",
+            image: "/project-updates/holiday-inn-express-candlewood.png",
             meta: "120 rooms / 67,500 sq ft",
             body: "Dual-brand execution. Full scope across both flags simultaneously. Delivered to IHG brand specification.",
           },
           {
             name: "Comfort Inn & Suites",
             location: "Bradford, ON",
-            image: "/Building Images/Comfort Inn & Suites – Bradford, ON/1.png",
+            image: "/project-updates/comfort-inn-suites.png",
             meta: "91 rooms / 49,780 sq ft",
-            body: "Delivered to Choice Hotels brand specification.",
-          },
-          {
-            name: "Delta Hotels",
-            location: "Ontario",
-            image: "/comfort1.jpg",
-            meta: "Brand-standard delivery",
-            body: "Delivered to Marriott Delta brand specification.",
+            body: "Division 9 scope for a new-build Comfort Inn & Suites. Including metal framing, drywall, insulation, acoustic ceilings, taping, painting and rough carpentry.",
           },
         ],
       },
@@ -343,19 +368,17 @@ export const industryPages = {
         projects: [
           {
             name: "A&W",
-            location: "Ontario food-service program",
+            location: "Ontario",
             image: "/Pogue Mahone/image1.webp",
-            meta: "Program locations, scope summary, and approved photography available by request",
-            status: "Records available on request",
-            body: "This food and beverage program is held as an active portfolio record for qualified conversations while public-release details remain controlled by client approval.",
+            meta: "Multiple locations across Ontario",
+            body: "Multiple locations across Ontario.",
           },
           {
             name: "Kelsey's",
-            location: "Ontario food-service program",
+            location: "Ontario",
             image: "/Kelsey/Guelph/image1.webp",
-            meta: "Program locations, scope summary, and approved photography available by request",
-            status: "Records available on request",
-            body: "This food and beverage program is held as an active portfolio record for qualified conversations while public-release details remain controlled by client approval.",
+            meta: "Multiple locations across Ontario",
+            body: "Multiple locations across Ontario.",
           },
         ],
       },
@@ -376,30 +399,30 @@ export const industryPages = {
           {
             name: "Oakwood Long-Term Care",
             location: "Niagara Falls, ON",
-            image: "/arcavia1.jpg",
-            meta: "150,000 sq ft / 5 floors",
-            body: "Full scope across all resident floors, shared amenity spaces, and clinical areas.",
+            image: "/project-updates/oakwood-long-term-care.png",
+            meta: "150,000 sq ft / 153 beds",
+            body: "Division 9 scope across a new long-term care facility. Taping, painting and flooring across 5 floors.",
           },
           {
             name: "Arcavia Living Long-Term Care",
             location: "Orillia, ON",
             image: "/Building Images/Arcavia Long-Term Care – Orillia, ON/4.jpeg",
-            meta: "160 beds / 100,000+ sq ft",
-            body: "Zero-deficiency handover.",
+            meta: "110,000 sq ft / 160 beds",
+            body: "Complete Division 9 scope across a new long-term care facility. Metal framing, drywall, insulation, acoustic ceiling systems, taping and full interior painting.",
           },
           {
             name: "Soldiers' Memorial Hospital",
             location: "Orillia, ON",
             image: "/Irillia Soldiers Memorial Hospital/image1.webp",
             meta: "130,000 sq ft",
-            body: "Healthcare interior scope delivered in a regulated environment.",
+            body: "Division 9 finishing across a hospital facility. Framing, drywall, insulation, acoustic ceiling systems, taping, and complete interior painting.",
           },
           {
             name: "Align Wellness Centre",
             location: "Stoney Creek, ON",
             image: "/Building Images/Alignes  Building/3.png",
-            meta: "Multi-discipline healthcare and wellness facility",
-            body: "Multi-discipline healthcare and wellness facility. Full Division 9 scope.",
+            meta: "8,000 sq ft",
+            body: "Complete division 9 scope across a multi-discipline healthcare and wellness facility.",
           },
         ],
       },
@@ -423,23 +446,22 @@ export const industryPages = {
             location: "Mississauga, ON",
             image:
               "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/2.png",
-            meta: "205 Sherway Gardens",
-            body: "Occupied high-rise renovation scope delivered floor by floor.",
+            meta: "70,000 sq ft / 24 floors",
+            body: "Interior renovation across a 24-floor occupied residential tower. Scope included flooring replacement, full interior painting and wallcovering installation.",
           },
           {
-            name: "WestMinister Twin Towers",
+            name: "Westminster Twin Towers",
             location: "Mississauga, ON",
-            image: "/residential.jpg",
-            meta: "251 units",
+            image: "/project-updates/westminster-twin-towers.png",
+            meta: "200,000 sq ft / 251 units",
             body: "Two concurrent towers. Floor-cycle delivery sequenced to GC master schedule.",
           },
           {
-            name: "Multi-Residential Register",
-            location: "Ontario residential work",
-            image: "/sherway2.jpg",
-            meta: "Additional project names, locations, and scale metrics available by request",
-            status: "Records available on request",
-            body: "Additional multi-residential records can be reviewed in qualified conversations while public-release permissions and photography approvals are finalized.",
+            name: "High Park Village",
+            location: "Toronto, ON",
+            image: "/project-updates/high-park-village.png",
+            meta: "180,000 sq ft / 17 floors",
+            body: "Complete division 9 scope of work across 17 floors including painting and wallpaper.",
           },
         ],
       },
@@ -458,12 +480,25 @@ export const industryPages = {
         intro: "",
         projects: [
           {
-            name: "Commercial & Institutional Register",
-            location: "Ontario commercial work",
-            image: "/industrial.jpg",
-            meta: "Project names, scale metrics, and scope summaries available by request",
-            status: "Records available on request",
-            body: "The confirmed commercial and institutional register is shared with qualified procurement teams when project fit, permissions, and documentation requirements are clear.",
+            name: "Medical Building Complex",
+            location: "Mono, ON",
+            image: "/Building Images/Medical Building – Mono,/17.jpg",
+            meta: "27,000 sq ft",
+            body: "Complete division 9 interiors across a multi-purpose medical facility.",
+          },
+          {
+            name: "Hullabaloo Autism Centre",
+            location: "Mississauga, ON",
+            image: "/project-updates/hullabaloo-autism-centre.png",
+            meta: "Division 9 finishes",
+            body: "Complete Division 9 finishes.",
+          },
+          {
+            name: "No Frills",
+            location: "Several locations across Ontario",
+            image: "/project-updates/no-frills.png",
+            meta: "Retail program",
+            body: "Complete division 9 interiors across several locations.",
           },
         ],
       },

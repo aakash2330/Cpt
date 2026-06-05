@@ -63,7 +63,7 @@ const portfolioReviewStandards = [
   {
     label: "Review",
     title: "Built for Procurement Scanning",
-    body: "Sector, location, scale, status, and scope notes are separated so GCs and owners can review the work quickly.",
+    body: "Sector, location, scale, and scope notes are separated so developers, general contractors, construction managers and owners can review the work quickly.",
   },
   {
     label: "Proof",
@@ -73,7 +73,7 @@ const portfolioReviewStandards = [
 ];
 
 const portfolioRegisterNotes = [
-  "Delivered interior scopes only; conceptual work and active pursuits are kept out of the register.",
+  "Full Division 9 interior scopes for delivered and awarded projects.",
   "Sector grouping mirrors how project teams evaluate risk, access, inspection, and finish expectations.",
   "Project values remain private; procurement teams can request formal documentation directly.",
 ];
@@ -81,16 +81,9 @@ const portfolioRegisterNotes = [
 const portfolioReferenceItems = [
   "Project references",
   "Prequalification documents",
+  "CCDC 11",
   "Sector-specific scope review",
 ];
-
-function isRequestOnlyProject(project: IndustryProject) {
-  return (
-    "status" in project &&
-    typeof project.status === "string" &&
-    project.status === "Records available on request"
-  );
-}
 
 function getSectorHref(sector: string) {
   return sectors.find((item) => item.title === sector)?.href ?? "/industries";
@@ -169,9 +162,9 @@ export function HomePageContent() {
         <div className="hero-content">
           <p className="section-label">CPT Construction</p>
           <h1>
-            <span className="block">In-House.</span>
-            <span className="block">Coordinated.</span>
-            <span className="block">Accountable.</span>
+            <span className="block">One team.</span>
+            <span className="block">One Standard.</span>
+            <span className="block">Complete scope.</span>
           </h1>
           <p>
             The complete interior scope, self-performed by directly employed
@@ -319,7 +312,7 @@ export function PortfolioPreview() {
     <section className="site-section border-t border-white/10">
       <div className="site-container">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionIntro eyebrow="Portfolio" title="Delivered Across Ontario." />
+          <SectionIntro eyebrow="Portfolio" title="Delivered Across Canada." />
           <ArrowLink href="/portfolio">View Our Portfolio</ArrowLink>
         </div>
         <PortfolioGrid projects={portfolioProjects.slice(0, 6)} />
@@ -346,9 +339,6 @@ export function PortfolioGrid({
               <span className="border border-[var(--gold)]/45 bg-[var(--gold)]/8 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
                 {project.sector}
               </span>
-              <span className="border border-white/15 bg-white/[0.025] px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-white/58">
-                {project.status}
-              </span>
             </div>
             <div>
               <h3 className="text-2xl text-white">{project.name}</h3>
@@ -370,13 +360,13 @@ export function TestimonialsSection() {
     <section className="site-section relative overflow-hidden border-t border-white/10 bg-black">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/70 to-transparent" />
       <div className="site-container">
-        <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+        <div>
           <SectionIntro
             eyebrow="In Practice"
             title="What Clients Say."
             body="The operating model matters most when project demands change, deadlines compress, and occupied environments need disciplined coordination."
           />
-          <p className="max-w-2xl text-sm uppercase tracking-[0.16em] text-white/45 lg:justify-self-end lg:text-right">
+          <p className="mt-7 max-w-2xl text-sm uppercase tracking-[0.16em] text-white/45">
             Client references available to qualified GCs, developers, and
             procurement teams.
           </p>
@@ -492,8 +482,7 @@ export function ClosingCta() {
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/66">
             One contract. One crew. One standard, from the first stud to the
-            sign-off. CPT is currently accepting project discussions for 2027
-            onward delivery windows.
+            sign-off.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
@@ -563,7 +552,7 @@ export function CompanyContent() {
         noPhoto
         eyebrow="About / Company"
         title="Sixteen Years. One Operating Model."
-        intro="CPT Construction has been delivering Division 9 interior scopes across Ontario since 2009. The operating model has not changed."
+        intro="CPT Construction has spent over a decade building a reputation on a single principle: we do what we say we will do. That means showing up on schedule, delivering to specification, and handing over finishes that last."
       />
       <section className="site-section border-t border-white/10">
         <div className="site-container grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
@@ -575,14 +564,15 @@ export function CompanyContent() {
               resolves it.
             </p>
             <p>
-              CPT replaces that structure. One contract covers every trade in
-              the interior scope. The same organisation that frames the walls
-              tapes, paints, and installs the floors. There is no handoff point
-              where accountability transfers. Or disappears.
+              CPT replaces that structure. We self-perform every division 9
+              scope - metal framing, drywall, insulation, acoustic ceilings,
+              taping, painting and flooring - under a single contract. There
+              is no handoff period where accountability transfers. Or
+              disappears.
             </p>
             <p>
-              Developers and GCs who award a Division 9 scope to CPT do not
-              manage it. CPT does.
+              Developers, General Contractors and Construction management firms
+              who award a Division 9 scope to CPT do not manage it. CPT does.
             </p>
           </div>
           <ImageFrame
@@ -727,15 +717,14 @@ export function CredentialsContent() {
         noPhoto
         eyebrow="About / Credentials & Safety"
         title="The Record Behind the Relationship."
-        intro="Available to any GC, developer, or institutional procurement team on request."
+        intro="Available to Developers, General Contractors, Construction management firms and institutional procurement teams on request."
       />
       <section className="site-section border-t border-white/10">
         <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
           <RecordBlock title="Safety">
-            <p>Lost-Time Incident Frequency Rate: 0.00.</p>
-            <p>Zero lost-time incidents, four consecutive years.</p>
-            <p>Zero WSIB claims, all operating years.</p>
-            <p>The record holds across every environment in the portfolio.</p>
+            <p>0 Lost-Time Incident Frequency Rate</p>
+            <p>0 Fatalities</p>
+            <p>0 WSIB claims</p>
           </RecordBlock>
           <RecordBlock title="Insurance & Bonding">
             <p>
@@ -790,24 +779,13 @@ function RecordBlock({
   );
 }
 
-function DossierItem({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="bg-black p-5">
-      <p className="text-xs uppercase tracking-[0.18em] text-white/40">
-        {label}
-      </p>
-      <p className="mt-3 text-lg text-white">{value}</p>
-    </div>
-  );
-}
-
 export function ServicesContent() {
   return (
     <div className="site-page">
       <PageHero
         eyebrow="Services"
-        title="Division 9. Every Trade. One Contract."
-        intro="Metal framing through flooring: every trade self-performed, no portion passed to outside labour."
+        title="Full Division 9 scope. One contract."
+        intro="From first stud to final inspection."
         image="/service_bg.jpg"
       />
       <section className="site-section border-t border-white/10">
@@ -828,6 +806,11 @@ export function ServicesContent() {
                   <p className="mt-6 max-w-3xl text-lg leading-8 text-white/66">
                     {service.body}
                   </p>
+                  {"detail" in service && service.detail && (
+                    <p className="mt-4 max-w-3xl text-base leading-7 text-white/56">
+                      {service.detail}
+                    </p>
+                  )}
                 </div>
                 <ImageFrame
                   src={service.image}
@@ -899,10 +882,6 @@ export function IndustryContent({ page }: { page: IndustryPage }) {
         image={page.image}
       />
       {page.groups.map((group) => {
-        const hasPublishedProjects = group.projects.some(
-          (project) => !isRequestOnlyProject(project),
-        );
-
         return (
           <section
             key={group.title}
@@ -913,9 +892,7 @@ export function IndustryContent({ page }: { page: IndustryPage }) {
                 eyebrow={group.title}
                 title={
                   group.title === page.eyebrow
-                    ? hasPublishedProjects
-                      ? "Selected Deliveries."
-                      : "Project Register."
+                    ? "Selected Deliveries."
                     : group.title
                 }
                 body={group.intro || undefined}
@@ -947,21 +924,6 @@ function ProjectRows({
   return (
     <div className="mt-12 grid gap-6">
       {projects.map((project, index) => {
-        const projectStatus =
-          "status" in project && typeof project.status === "string"
-            ? project.status
-            : null;
-
-        if (isRequestOnlyProject(project)) {
-          return (
-            <RequestOnlyProjectRecord
-              key={`${project.name}-${project.location}`}
-              project={project}
-              index={index}
-            />
-          );
-        }
-
         return (
           <article
             key={`${project.name}-${project.location}`}
@@ -983,11 +945,6 @@ function ProjectRows({
                     </p>
                   )}
                 </div>
-                {projectStatus && (
-                  <span className="w-fit border border-[var(--gold)]/45 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
-                    {projectStatus}
-                  </span>
-                )}
               </div>
               <p className="mt-5 text-base font-medium text-[var(--gold)]">
                 {project.meta}
@@ -1001,69 +958,6 @@ function ProjectRows({
         );
       })}
     </div>
-  );
-}
-
-function RequestOnlyProjectRecord({
-  project,
-  index,
-}: {
-  project: IndustryProject;
-  index: number;
-}) {
-  return (
-    <article className="group grid overflow-hidden border border-white/10 bg-black transition duration-300 hover:border-white/20 lg:grid-cols-[0.56fr_1fr]">
-      <div className="relative min-h-[320px] overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
-        <Image
-          src={project.image}
-          alt={`${project.name} register reference`}
-          fill
-          sizes="(min-width: 1024px) 42vw, 100vw"
-          className="object-cover grayscale-[55%] saturate-[0.72] transition duration-700 group-hover:scale-[1.02] group-hover:grayscale-[28%]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/28 to-black/10" />
-        <div className="pointer-events-none absolute inset-5 border border-white/10 transition duration-300 group-hover:border-[var(--gold)]/45" />
-        <div className="absolute bottom-6 left-6 right-6">
-          <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
-            Controlled Access Record
-          </p>
-          <p className="mt-3 text-sm leading-6 text-white/62">
-            Full details released through qualified project discussions.
-          </p>
-        </div>
-      </div>
-      <div className="flex min-w-0 flex-col justify-between p-6 md:p-8 lg:p-10">
-        <div>
-          <div className="flex flex-wrap items-start justify-between gap-5 border-t border-[var(--gold)]/65 pt-5">
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
-              {String(index + 1).padStart(2, "0")} / Register
-            </p>
-            <span className="max-w-64 border border-[var(--gold)]/40 px-3 py-1 text-right text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
-              Records available on request
-            </span>
-          </div>
-          <h2 className="mt-8 max-w-3xl text-balance text-3xl leading-tight text-white md:text-4xl xl:text-5xl">
-            {project.name}
-          </h2>
-          {project.location && (
-            <p className="mt-3 text-sm uppercase tracking-[0.14em] text-white/45">
-              {project.location}
-            </p>
-          )}
-          <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[var(--gold)]">
-            {project.meta}
-          </p>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-white/66">
-            {project.body}
-          </p>
-        </div>
-        <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-          <DossierItem label="Access" value="Qualified teams" />
-          <DossierItem label="Release" value="Approval controlled" />
-          <DossierItem label="Next Step" value="Request record review" />
-        </div>
-      </div>
-    </article>
   );
 }
 
@@ -1094,7 +988,7 @@ export function PortfolioContent() {
       <PageHero
         eyebrow="Portfolio"
         title="Delivered Work, Organized for Review."
-        intro="A dedicated project register for GCs, developers, and procurement teams reviewing CPT's self-performed Division 9 record across Ontario."
+        intro="A dedicated project register for developers, General Contractors, Construction managers and procurement teams reviewing CPT's Division 9 record across Canada."
         image="/portfolio.jpg"
       />
       <section className="site-section relative overflow-hidden border-t border-white/10">
@@ -1143,13 +1037,12 @@ export function PortfolioContent() {
                 <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
                   The home page carries the visual sample. This register gives
                   procurement teams a consistent read of sector, location,
-                  scale, status, and scope for each delivered project.
+                  scale, and scope for each project.
                 </p>
               </div>
               <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
                 <PortfolioFact label="Sector" value={featuredProject.sector} />
                 <PortfolioFact label="Scale" value={featuredProject.scale} />
-                <PortfolioFact label="Status" value={featuredProject.status} />
                 <PortfolioFact
                   label="Location"
                   value={featuredProject.location}
@@ -1219,7 +1112,7 @@ export function PortfolioContent() {
                 value={`${sectorsRepresented}`}
                 large
               />
-              <PortfolioFact label="Delivery Region" value="Ontario" large />
+              <PortfolioFact label="Delivery Region" value="Canada" large />
             </div>
 
             <aside className="bg-[var(--surface)] p-6 md:p-8">
@@ -1297,9 +1190,6 @@ export function PortfolioContent() {
 
                             <div className="flex min-w-0 flex-col justify-center p-6 md:p-8 xl:h-[390px]">
                               <div className="flex flex-wrap items-center gap-2">
-                                <span className="border border-[var(--gold)]/45 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
-                                  {project.status}
-                                </span>
                                 <span className="border border-white/15 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-white/55">
                                   {project.location}
                                 </span>
@@ -1349,9 +1239,10 @@ export function PortfolioContent() {
                 References and documents available on request.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/64">
-                Qualified GCs, developers, asset owners, and procurement teams
-                can request deeper project references, credentials, and scope
-                documentation for active pursuits.
+                Qualified developers, general contractors, construction
+                managers, asset owners and procurement teams can request
+                references, credentials, further documentation and CCDC 11 for
+                active pursuits.
               </p>
             </div>
             <div>
