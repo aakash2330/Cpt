@@ -367,8 +367,8 @@ export function TestimonialsSection() {
             body="The operating model matters most when project demands change, deadlines compress, and occupied environments need disciplined coordination."
           />
           <p className="mt-7 max-w-2xl text-sm uppercase tracking-[0.16em] text-white/45">
-            Client references available to qualified GCs, developers, and
-            procurement teams.
+            Client references available to qualified GCs, developers,
+            construction managers, and procurement teams.
           </p>
         </div>
         <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
@@ -503,15 +503,19 @@ export function PageHero({
   title,
   intro,
   image,
+  videoSrc,
+  poster,
   noPhoto = false,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
   image?: string;
+  videoSrc?: string;
+  poster?: string;
   noPhoto?: boolean;
 }) {
-  if (noPhoto || !image) {
+  if (!videoSrc && (noPhoto || !image)) {
     return (
       <section className="site-section border-b border-white/10 pb-16 pt-40 md:pt-48">
         <div className="site-container">
@@ -533,7 +537,22 @@ export function PageHero({
 
   return (
     <section className="hero-shell min-h-[78svh]">
-      <Image src={image} alt={title} fill priority className="object-cover" />
+      {image && (
+        <Image src={image} alt={title} fill priority className="object-cover" />
+      )}
+      {videoSrc && (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={poster ?? image}
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      )}
       <div className="absolute inset-0 bg-black/65" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-30" />
       <div className="hero-content">
@@ -549,10 +568,10 @@ export function CompanyContent() {
   return (
     <div className="site-page">
       <PageHero
-        noPhoto
         eyebrow="About / Company"
         title="Sixteen Years. One Operating Model."
         intro="CPT Construction has spent over a decade building a reputation on a single principle: we do what we say we will do. That means showing up on schedule, delivering to specification, and handing over finishes that last."
+        videoSrc="/comment-assets/company-background.mp4"
       />
       <section className="site-section border-t border-white/10">
         <div className="site-container grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
@@ -714,10 +733,10 @@ export function CredentialsContent() {
   return (
     <div className="site-page">
       <PageHero
-        noPhoto
         eyebrow="About / Credentials & Safety"
         title="The Record Behind the Relationship."
         intro="Available to Developers, General Contractors, Construction management firms and institutional procurement teams on request."
+        videoSrc="/comment-assets/credentials-safety-background.mp4"
       />
       <section className="site-section border-t border-white/10">
         <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
@@ -732,8 +751,8 @@ export function CredentialsContent() {
               request.
             </p>
             <p>
-              Performance bonds and labour and material payment bonds available
-              for qualifying projects. Bond documentation available on request.
+              Performance and payment bonds available upon request for
+              qualifying projects.
             </p>
           </RecordBlock>
           <RecordBlock title="WSIB">
@@ -1043,10 +1062,12 @@ export function PortfolioContent() {
               <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
                 <PortfolioFact label="Sector" value={featuredProject.sector} />
                 <PortfolioFact label="Scale" value={featuredProject.scale} />
-                <PortfolioFact
-                  label="Location"
-                  value={featuredProject.location}
-                />
+                <div className="sm:col-span-2">
+                  <PortfolioFact
+                    label="Location"
+                    value={featuredProject.location}
+                  />
+                </div>
               </div>
               <div className="mt-8 border-t border-[var(--gold)]/60 pt-6">
                 <p className="text-lg leading-8 text-white/74">

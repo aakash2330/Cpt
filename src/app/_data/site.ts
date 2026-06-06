@@ -11,7 +11,7 @@ export const homeHeroVideo =
 
 export const stats = [
   { value: "16+", label: "Years in Business" },
-  { value: "900,000+", label: "Sq Ft Delivered" },
+  { value: "1,000,000+", label: "Sq Ft Delivered" },
   { value: "120+", label: "In-House Tradespeople" },
   { value: "0", label: "Lost-Time Incidents on Record" },
 ];
@@ -84,7 +84,7 @@ export const portfolioProjects = [
     location: "Orillia, ON",
     sector: "Long-Term Care & Healthcare",
     scale: "110,000 sq ft / 160 beds",
-    image: "/Building Images/Arcavia Long-Term Care – Orillia, ON/3.jpeg",
+    image: "/comment-assets/arcavia-project.jpeg",
     summary:
       "Complete Division 9 scope across a new long-term care facility. Metal framing, drywall, insulation, acoustic ceiling systems, taping and full interior painting.",
   },
@@ -299,7 +299,7 @@ export const services = [
   },
   {
     title: "Acoustic Ceilings",
-    image: "/Servicepage/new/14.jpg",
+    image: "/comment-assets/acoustic-ceilings.jpeg",
     body: "T-bar, specialty, and fire-rated systems installed to precise level, line, and pattern alignment, from commodity grid to custom feature ceilings.",
     detail:
       "Tegular and specialty tile systems, clouds, baffles, and bulkheads. Every installation held to dimensional tolerance and pattern alignment required by the design.",
@@ -369,7 +369,7 @@ export const industryPages = {
           {
             name: "A&W",
             location: "Ontario",
-            image: "/Pogue Mahone/image1.webp",
+            image: "/comment-assets/aw-project.jpeg",
             meta: "Multiple locations across Ontario",
             body: "Multiple locations across Ontario.",
           },
@@ -406,7 +406,7 @@ export const industryPages = {
           {
             name: "Arcavia Living Long-Term Care",
             location: "Orillia, ON",
-            image: "/Building Images/Arcavia Long-Term Care – Orillia, ON/4.jpeg",
+            image: "/comment-assets/arcavia-project.jpeg",
             meta: "110,000 sq ft / 160 beds",
             body: "Complete Division 9 scope across a new long-term care facility. Metal framing, drywall, insulation, acoustic ceiling systems, taping and full interior painting.",
           },
