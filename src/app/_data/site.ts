@@ -20,7 +20,7 @@ export const sectors = [
   {
     title: "Hospitality",
     href: "/industries/hospitality",
-    image: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
+    image: "/comment-assets/hyatt-place.jpeg",
     description:
       "From branded hotel flags to national food and beverage chains, every project in this portfolio passed brand or franchise inspection.",
     cta: "View Hospitality Experience",
@@ -57,7 +57,7 @@ export const portfolioProjects = [
     location: "Etobicoke, ON",
     sector: "Hospitality",
     scale: "196 rooms / 148,000 sq ft / 14 floors",
-    image: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/2.jpg",
+    image: "/comment-assets/hyatt-place.jpeg",
     summary:
       "Full Division 9 scope across guest floors, corridors, and common areas. Delivered to Hyatt Place brand specification.",
   },
@@ -324,7 +324,7 @@ export const industryPages = {
     title: "The interior is the brand.",
     intro:
       "Most interior crews treat hotel work as commercial. Flag inspectors know the difference. CPT has delivered to the brand standard of Hyatt, Comfort Inn, Hilton, IHG, Marriott, and Choice Hotels.",
-    image: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
+    image: "/comment-assets/hyatt-place.jpeg",
     cta: "Discuss a Hospitality Project",
     groups: [
       {
@@ -334,7 +334,7 @@ export const industryPages = {
           {
             name: "Hyatt Place",
             location: "Etobicoke, ON",
-            image: "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/1.jpg",
+            image: "/comment-assets/hyatt-place.jpeg",
             meta: "196 rooms / 148,000 sq ft / 14 floors",
             body: "Full Division 9 scope across all guest floors, corridors, and common areas. Delivered to Hyatt Place brand specification.",
           },
