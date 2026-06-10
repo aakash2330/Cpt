@@ -12,7 +12,7 @@ export const homeHeroVideo =
 export const stats = [
   { value: "16+", label: "Years in Business" },
   { value: "1,000,000+", label: "Sq Ft Delivered" },
-  { value: "120+", label: "In-House Tradespeople" },
+  { value: "120+", label: "Tradespeople" },
   { value: "0", label: "Lost-Time Incidents on Record" },
 ];
 
@@ -163,7 +163,7 @@ export const testimonials = [
 
 export const credentials = [
   "General Liability Insurance in Place",
-  "Zero Lost-Time Incidents, Four Consecutive Years",
+  "Zero Lost-Time Incidents",
   "WSIB Active & In Good Standing, Zero Claims",
   "Bonding Available for Qualifying Projects",
 ];

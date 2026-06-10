@@ -167,8 +167,8 @@ export function HomePageContent() {
             <span className="block">Complete scope.</span>
           </h1>
           <p>
-            The complete interior scope, self-performed by directly employed
-            crews. One point of contact from first stud to final inspection.
+            The complete Division 9, under one roof. One point of contact from
+            first stud to final inspection.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <ArrowLink href="/portfolio" variant="solid">
@@ -186,7 +186,6 @@ export function HomePageContent() {
       <SectorOverview />
       <PortfolioPreview />
       <TestimonialsSection />
-      <CredentialsStrip />
       <ClosingCta />
     </div>
   );
@@ -234,14 +233,14 @@ export function PositioningBlock() {
         <div className="space-y-10">
           <div className="space-y-6 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
             <p>
-              CPT self-performs every Division 9 trade: metal framing, drywall,
+              CPT delivers every Division 9 trade: metal framing, drywall,
               insulation, acoustic ceilings, taping, painting, and flooring.
               One contract. Directly employed crews. No work passed to outside
               labour.
             </p>
             <p>
-              From mobilisation to handover, one person is accountable. No
-              handoffs, no confusion.
+              From mobilisation to handover, one point of contact. No handoffs,
+              no confusion.
             </p>
           </div>
 
@@ -291,9 +290,6 @@ export function SectorOverview() {
               <ImageFrame src={sector.image} alt={`${sector.title} interior`} />
               <div className="flex flex-1 flex-col border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
                 <h3 className="text-2xl text-white">{sector.title}</h3>
-                <p className="mt-4 text-sm leading-6 text-white/62">
-                  {sector.description}
-                </p>
                 <span className="mt-auto inline-flex items-center gap-2 pt-8 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)]">
                   {sector.cta}
                   <ArrowUpRight size={15} />
@@ -334,20 +330,8 @@ export function PortfolioGrid({
           className="group bg-black transition duration-300 hover:bg-[var(--surface)]"
         >
           <ImageFrame src={project.image} alt={`${project.name} project`} />
-          <div className="space-y-5 border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="border border-[var(--gold)]/45 bg-[var(--gold)]/8 px-3 py-1 text-[11px] uppercase tracking-[0.15em] text-[var(--gold)]">
-                {project.sector}
-              </span>
-            </div>
-            <div>
-              <h3 className="text-2xl text-white">{project.name}</h3>
-              <p className="mt-1 text-sm uppercase tracking-[0.14em] text-white/45">
-                {project.location}
-              </p>
-            </div>
-            <p className="text-sm font-medium text-white/82">{project.scale}</p>
-            <p className="text-sm leading-6 text-white/58">{project.summary}</p>
+          <div className="border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
+            <h3 className="text-2xl text-white">{project.name}</h3>
           </div>
         </article>
       ))}
@@ -874,9 +858,6 @@ export function IndustriesOverviewContent() {
                 />
                 <div className="flex flex-1 flex-col border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
                   <h3 className="text-2xl text-white">{sector.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-white/62">
-                    {sector.description}
-                  </p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-8 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)]">
                     {sector.cta}
                     <ArrowUpRight size={15} />
