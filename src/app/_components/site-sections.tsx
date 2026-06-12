@@ -185,7 +185,6 @@ export function HomePageContent() {
       <PositioningBlock />
       <SectorOverview />
       <PortfolioPreview />
-      <TestimonialsSection />
       <ClosingCta />
     </div>
   );

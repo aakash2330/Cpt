@@ -13,7 +13,7 @@ export const stats = [
   { value: "16+", label: "Years in Business" },
   { value: "1,000,000+", label: "Sq Ft Delivered" },
   { value: "120+", label: "Tradespeople" },
-  { value: "0", label: "Lost-Time Incidents on Record" },
+  { value: "330+", label: "Projects Delivered" },
 ];
 
 export const sectors = [
