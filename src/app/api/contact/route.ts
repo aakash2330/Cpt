@@ -8,6 +8,7 @@ const ContactFormSchema = z
   .object({
     form_type: z.string().min(1),
     name: z.string().min(2),
+    email: z.string().optional(),
     company: z.string().optional(),
     project_type: z.string().optional(),
     location: z.string().optional(),
@@ -81,6 +82,7 @@ export async function POST(request: NextRequest) {
     const textLines = [
       `Form Type: ${data.form_type}`,
       `Name: ${data.name}`,
+      formatOptional("Email", data.email),
       formatOptional("Company", data.company),
       formatOptional("Project Type", data.project_type),
       formatOptional("Location", data.location),

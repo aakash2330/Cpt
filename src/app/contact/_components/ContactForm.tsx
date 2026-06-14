@@ -27,6 +27,7 @@ type FieldConfig = {
 const newProjectSchema = z.object({
   form_type: z.literal("New Project Discussion"),
   name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().optional(),
   company: z.string().optional(),
   project_type: z.string().min(1, "Project type is required."),
   location: z.string().min(1, "Location is required."),
@@ -37,6 +38,7 @@ const newProjectSchema = z.object({
 const documentSchema = z.object({
   form_type: z.literal("Prequalification & Documentation"),
   name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().optional(),
   company: z.string().optional(),
   organisation_type: z.string().min(1, "Organisation type is required."),
   documents_required: z.string().min(1, "Documents required is required."),
@@ -45,6 +47,7 @@ const documentSchema = z.object({
 
 const newProjectFields: FieldConfig[] = [
   { name: "name", label: "Name", placeholder: "Your name" },
+  { name: "email", label: "Email", placeholder: "Where we can reach you" },
   { name: "company", label: "Company", placeholder: "Company name" },
   {
     name: "project_type",
@@ -67,6 +70,7 @@ const newProjectFields: FieldConfig[] = [
 
 const documentFields: FieldConfig[] = [
   { name: "name", label: "Name", placeholder: "Your name" },
+  { name: "email", label: "Email", placeholder: "Where we can reach you" },
   { name: "company", label: "Company", placeholder: "Company name" },
   {
     name: "organisation_type",
@@ -97,6 +101,7 @@ export function ContactForm() {
         defaultValues={{
           form_type: "New Project Discussion",
           name: "",
+          email: "",
           company: "",
           project_type: "",
           location: "",
@@ -113,6 +118,7 @@ export function ContactForm() {
         defaultValues={{
           form_type: "Prequalification & Documentation",
           name: "",
+          email: "",
           company: "",
           organisation_type: "",
           documents_required: "",
