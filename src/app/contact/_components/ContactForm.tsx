@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,6 +36,13 @@ const FormSchema = z.object({
 });
 
 export function ContactForm() {
+  const [submissionMessage, setSubmissionMessage] = useState<string | null>(
+    null,
+  );
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "success" | "error" | null
+  >(null);
+
   // Define form with strict type
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -49,9 +57,37 @@ export function ContactForm() {
   });
 
   // Submit handler with proper typed parameter
-  function onSubmit(values: z.infer<typeof FormSchema>) {
-    console.log("Form submitted:", values);
-    // Add your form submission logic here
+  async function onSubmit(values: z.infer<typeof FormSchema>) {
+    setSubmissionMessage(null);
+    setSubmissionStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...values,
+          form_type: "Contact Form",
+        }),
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(result?.message || "Unable to submit the form.");
+      }
+
+      setSubmissionStatus("success");
+      setSubmissionMessage("Thanks. Your message has been sent.");
+      form.reset();
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to submit the form.";
+
+      setSubmissionStatus("error");
+      setSubmissionMessage(message);
+    }
   }
 
   return (
@@ -192,14 +228,27 @@ export function ContactForm() {
 
             <Button
               type="submit"
+              disabled={form.formState.isSubmitting}
               className="w-full text-white font-medium py-4 md:py-6 rounded-[8px] transition-all duration-300 hover:brightness-110 backdrop-blur-md"
               style={{
                 background: "#12202F",
                 backdropFilter: "blur(20px)",
               }}
             >
-              Get in Touch
+              {form.formState.isSubmitting ? "Sending..." : "Get in Touch"}
             </Button>
+            {submissionMessage && (
+              <p
+                aria-live="polite"
+                className={
+                  submissionStatus === "success"
+                    ? "text-sm text-green-700"
+                    : "text-sm text-red-700"
+                }
+              >
+                {submissionMessage}
+              </p>
+            )}
           </form>
         </Form>
       </CardContent>
