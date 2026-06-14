@@ -28,6 +28,7 @@ const newProjectSchema = z.object({
   form_type: z.literal("New Project Discussion"),
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().min(1, "Email is required."),
+  phone: z.string().min(1, "Phone number is required."),
   company: z.string().optional(),
   project_type: z.string().min(1, "Project type is required."),
   location: z.string().min(1, "Location is required."),
@@ -39,6 +40,7 @@ const documentSchema = z.object({
   form_type: z.literal("Prequalification & Documentation"),
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().min(1, "Email is required."),
+  phone: z.string().min(1, "Phone number is required."),
   company: z.string().optional(),
   organisation_type: z.string().min(1, "Organisation type is required."),
   documents_required: z.string().min(1, "Documents required is required."),
@@ -48,6 +50,7 @@ const documentSchema = z.object({
 const newProjectFields: FieldConfig[] = [
   { name: "name", label: "Name", placeholder: "Your name" },
   { name: "email", label: "Email", placeholder: "Where we can reach you" },
+  { name: "phone", label: "Phone number", placeholder: "Phone number" },
   { name: "company", label: "Company", placeholder: "Company name" },
   {
     name: "project_type",
@@ -71,6 +74,7 @@ const newProjectFields: FieldConfig[] = [
 const documentFields: FieldConfig[] = [
   { name: "name", label: "Name", placeholder: "Your name" },
   { name: "email", label: "Email", placeholder: "Where we can reach you" },
+  { name: "phone", label: "Phone number", placeholder: "Phone number" },
   { name: "company", label: "Company", placeholder: "Company name" },
   {
     name: "organisation_type",
@@ -102,6 +106,7 @@ export function ContactForm() {
           form_type: "New Project Discussion",
           name: "",
           email: "",
+          phone: "",
           company: "",
           project_type: "",
           location: "",
@@ -119,6 +124,7 @@ export function ContactForm() {
           form_type: "Prequalification & Documentation",
           name: "",
           email: "",
+          phone: "",
           company: "",
           organisation_type: "",
           documents_required: "",
