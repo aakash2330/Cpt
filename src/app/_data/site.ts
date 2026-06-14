@@ -454,7 +454,7 @@ export const industryPages = {
             location: "Mississauga, ON",
             image: "/project-updates/crown-tower-apartments.jpeg",
             meta: "135,000 sq ft / 17 floors",
-            body: "Interior painting and wallcovering in common areas.",
+            body: "Interior finish work across a 17-floor residential tower. Scope included full painting and wallcovering installation in common areas.",
           },
           {
             name: "High Park Village",
