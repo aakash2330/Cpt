@@ -8,7 +8,7 @@ const ContactFormSchema = z
   .object({
     form_type: z.string().min(1),
     name: z.string().min(2),
-    email: z.string().optional(),
+    email: z.string().min(1),
     company: z.string().optional(),
     project_type: z.string().optional(),
     location: z.string().optional(),

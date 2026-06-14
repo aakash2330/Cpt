@@ -27,7 +27,7 @@ type FieldConfig = {
 const newProjectSchema = z.object({
   form_type: z.literal("New Project Discussion"),
   name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().optional(),
+  email: z.string().min(1, "Email is required."),
   company: z.string().optional(),
   project_type: z.string().min(1, "Project type is required."),
   location: z.string().min(1, "Location is required."),
@@ -38,7 +38,7 @@ const newProjectSchema = z.object({
 const documentSchema = z.object({
   form_type: z.literal("Prequalification & Documentation"),
   name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().optional(),
+  email: z.string().min(1, "Email is required."),
   company: z.string().optional(),
   organisation_type: z.string().min(1, "Organisation type is required."),
   documents_required: z.string().min(1, "Documents required is required."),
