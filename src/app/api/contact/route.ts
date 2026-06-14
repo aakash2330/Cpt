@@ -44,20 +44,33 @@ export async function POST(request: NextRequest) {
     }
 
     const {
+      CONTACT_EMAIL_TO,
+      EMAIL_TO,
       EMAIL_SERVER_HOST,
       EMAIL_SERVER_PORT,
       EMAIL_SERVER_SECURE,
       EMAIL_SERVER_USER,
       EMAIL_SERVER_PASSWORD,
       EMAIL_FROM,
+      GMAIL_APP_PASSWORD,
+      GMAIL_USER,
     } = process.env;
 
-    if (
-      !EMAIL_SERVER_HOST ||
-      !EMAIL_SERVER_PORT ||
-      !EMAIL_SERVER_USER ||
-      !EMAIL_SERVER_PASSWORD
-    ) {
+    const recipient = CONTACT_EMAIL_TO || EMAIL_TO || "enesmece1@gmail.com";
+    const mailUser =
+      EMAIL_SERVER_USER || GMAIL_USER || "aakash2330@gmail.com";
+    const mailPassword = (EMAIL_SERVER_PASSWORD || GMAIL_APP_PASSWORD)?.replace(
+      /\s/g,
+      "",
+    );
+    const mailHost = EMAIL_SERVER_HOST || "smtp.gmail.com";
+    const mailPort = Number(EMAIL_SERVER_PORT || 465);
+    const mailSecure =
+      EMAIL_SERVER_SECURE === undefined
+        ? mailPort === 465
+        : EMAIL_SERVER_SECURE === "true";
+
+    if (!mailUser || !mailPassword) {
       return NextResponse.json(
         { message: "Email service is not configured." },
         { status: 500 },
@@ -85,18 +98,18 @@ export async function POST(request: NextRequest) {
       .join("");
 
     const transporter = nodemailer.createTransport({
-      host: EMAIL_SERVER_HOST,
-      port: Number(EMAIL_SERVER_PORT),
-      secure: EMAIL_SERVER_SECURE === "true",
+      host: mailHost,
+      port: mailPort,
+      secure: mailSecure,
       auth: {
-        user: EMAIL_SERVER_USER,
-        pass: EMAIL_SERVER_PASSWORD,
+        user: mailUser,
+        pass: mailPassword,
       },
     });
 
     await transporter.sendMail({
-      from: EMAIL_FROM || EMAIL_SERVER_USER,
-      to: "info@cityprofessionaltrades.com",
+      from: EMAIL_FROM || mailUser,
+      to: recipient,
       subject: `CPT Website Inquiry: ${data.form_type}`,
       text: textLines.join("\n"),
       html: `
