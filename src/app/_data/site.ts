@@ -450,11 +450,11 @@ export const industryPages = {
             body: "Interior renovation across a 24-floor occupied residential tower. Scope included flooring replacement, full interior painting and wallcovering installation.",
           },
           {
-            name: "Westminster Twin Towers",
+            name: "Crown Tower Apartments",
             location: "Mississauga, ON",
-            image: "/project-updates/westminster-twin-towers.png",
-            meta: "200,000 sq ft / 251 units",
-            body: "Two concurrent towers. Floor-cycle delivery sequenced to GC master schedule.",
+            image: "/project-updates/crown-tower-apartments.jpeg",
+            meta: "135,000 sq ft / 17 floors",
+            body: "Interior painting and wallcovering in common areas.",
           },
           {
             name: "High Park Village",
