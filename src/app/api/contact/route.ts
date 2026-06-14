@@ -10,7 +10,7 @@ const ContactFormSchema = z
     name: z.string().min(2),
     email: z.string().min(1),
     phone: z.string().min(1),
-    company: z.string().optional(),
+    company: z.string().min(1),
     project_type: z.string().optional(),
     location: z.string().optional(),
     scope_size: z.string().optional(),
