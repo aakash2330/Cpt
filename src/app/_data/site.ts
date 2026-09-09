@@ -1,7 +1,7 @@
 export const contactDetails = {
   email: "Info@cityprofessionaltrades.com",
   phone: "(416) 838-3970",
-  address: "974 The Queensway, Etobicoke, ON M8Z 1P6",
+  address: "Suite 302 - 1315 North Service Road East, Oakville, ON L6H 1A7",
   linkedin:
     "https://www.linkedin.com/company/city-professional-trades/?originalSubdomain=ca",
 };
