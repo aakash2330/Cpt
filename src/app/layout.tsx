@@ -23,6 +23,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cptconstruction.com"),
   title: "CPT Construction",
   description:
     "Division 9 interior scopes self-performed across Ontario by CPT Construction.",

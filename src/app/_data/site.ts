@@ -505,3 +505,50 @@ export const industryPages = {
     ],
   },
 };
+
+export const topGrowingSeal = {
+  src: "/Seals/Globe and Mail/top-growing-companies-2026.png",
+  alt: "2026 Winner, Report on Business, Canada’s Top Growing Companies",
+  width: 1053,
+  height: 429,
+};
+
+// Titles stay short and end with a period, like the site's page heroes.
+// The summary carries the specifics.
+export const news = [
+  {
+    slug: "top-growing-companies-2026",
+    date: "2026-09-28",
+    location: "Oakville, ON",
+    category: "Recognition",
+    title: "Named to Canada’s Top Growing Companies.",
+    summary:
+      "Ranked No. 4 in Construction Services with 1,168% three-year revenue growth.",
+    seal: topGrowingSeal,
+    highlights: [
+      { value: "No. 4", label: "Construction Services" },
+      { value: "1,168%", label: "Three-Year Revenue Growth" },
+      { value: "376", label: "Companies Ranked Nationally" },
+    ],
+    body: [
+      "CPT Construction has been named to The Globe and Mail’s 2026 Report on Business ranking of Canada’s Top Growing Companies. The Oakville-based interior contractor ranked No. 4 in the Construction Services category, with 1,168% revenue growth over three years.",
+      "CPT’s growth reflects a straightforward approach to a demanding part of construction: bring the interior trades together and make one team accountable for delivering them. The company self-performs metal framing, insulation, drywall, acoustic ceilings, taping, painting and flooring under one contract.",
+      "For developers, general contractors and construction managers, that means fewer handoffs between interior trades and one point of contact as work moves from framing through final finishes. CPT has applied that model across hospitality, long-term care and healthcare, multi-residential, and commercial and institutional projects.",
+      "The recognition follows more than 16 years in business and more than 330 projects delivered. CPT credits its site crews and office team for the work behind its growth, as well as the clients, suppliers and project partners who have trusted the company with increasingly complex interiors.",
+      "Canada’s Top Growing Companies is an editorial ranking based on three-year revenue growth. A total of 376 companies earned a place on the 2026 list, published online and in the October issue of Report on Business magazine.",
+    ],
+  },
+];
+
+export function getNewsArticle(slug: string) {
+  return news.find((article) => article.slug === slug);
+}
+
+export function formatNewsDate(date: string) {
+  return new Date(`${date}T00:00:00Z`).toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}

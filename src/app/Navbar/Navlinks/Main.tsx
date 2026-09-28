@@ -12,6 +12,7 @@ import { LogoMain } from "../Logo";
 const aboutLinks = [
   { label: "Company", href: "/about/company" },
   { label: "Credentials & Safety", href: "/about/credentials-safety" },
+  { label: "News", href: "/about/news" },
 ];
 
 const industryLinks = [

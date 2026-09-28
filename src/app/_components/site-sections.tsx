@@ -5,7 +5,10 @@ import type { ReactNode } from "react";
 import {
   associations,
   credentials,
+  formatNewsDate,
   homeHeroVideo,
+  news,
+  topGrowingSeal,
   industryPages,
   portfolioProjects,
   principles,
@@ -183,6 +186,7 @@ export function HomePageContent() {
 
       <StatBar />
       <PositioningBlock />
+      <RecognitionBand />
       <SectorOverview />
       <PortfolioPreview />
       <ClosingCta />
@@ -489,6 +493,7 @@ export function PageHero({
   videoSrc,
   poster,
   noPhoto = false,
+  compact = false,
 }: {
   eyebrow?: string;
   title: string;
@@ -497,6 +502,7 @@ export function PageHero({
   videoSrc?: string;
   poster?: string;
   noPhoto?: boolean;
+  compact?: boolean;
 }) {
   if (!videoSrc && (noPhoto || !image)) {
     return (
@@ -504,7 +510,13 @@ export function PageHero({
         <div className="site-container">
           <div className="max-w-5xl">
             {eyebrow && <p className="section-label">{eyebrow}</p>}
-            <h1 className="break-words text-4xl leading-[1.05] text-white sm:text-5xl md:text-7xl lg:text-8xl">
+            <h1
+              className={`break-words leading-[1.05] text-white ${
+                compact
+                  ? "text-[2.45rem] sm:text-[2.75rem] md:text-[4.5rem]"
+                  : "text-4xl sm:text-5xl md:text-7xl lg:text-8xl"
+              }`}
+            >
               {title}
             </h1>
             {intro && (
@@ -746,6 +758,7 @@ export function CredentialsContent() {
           </RecordBlock>
         </div>
       </section>
+      <RecognitionBand />
       <section className="site-section border-t border-white/10">
         <div className="site-container">
           <SectionIntro
@@ -1320,6 +1333,204 @@ export function ImageFrame({
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
       <div className="pointer-events-none absolute inset-3 border border-white/10 transition duration-300 group-hover:border-[var(--gold)]/45" />
       <div className="pointer-events-none absolute left-3 top-3 h-px w-12 bg-[var(--gold)]/45 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
+    </div>
+  );
+}
+
+type NewsArticle = (typeof news)[number];
+
+const topGrowingArticleHref = "/about/news/top-growing-companies-2026";
+
+export function SealPlaque({
+  seal = topGrowingSeal,
+  className = "",
+}: {
+  seal?: typeof topGrowingSeal;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`group relative bg-white p-8 sm:p-10 lg:p-12 ${className}`}
+    >
+      <Image
+        src={seal.src}
+        alt={seal.alt}
+        width={seal.width}
+        height={seal.height}
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        className="h-auto w-full"
+      />
+      <div className="pointer-events-none absolute inset-3 border border-black/[0.08]" />
+      <div className="pointer-events-none absolute left-3 top-3 h-px w-12 bg-[var(--gold)] transition duration-300 group-hover:w-20" />
+    </div>
+  );
+}
+
+export function RecognitionBand() {
+  const article = news.find((item) => item.slug === "top-growing-companies-2026");
+  if (!article) return null;
+
+  return (
+    <section className="site-section border-t border-white/10">
+      <div className="site-container grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center xl:gap-16">
+        <SealPlaque />
+        <div>
+          <p className="section-label">Recognition / 2026</p>
+          <h2 className="max-w-3xl text-[2.125rem] leading-[1.04] text-white sm:text-4xl md:text-5xl xl:text-[3.5rem]">
+            Ranked No. 4 in Construction Services on Canada’s Top Growing
+            Companies.
+          </h2>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+            The Globe and Mail’s Report on Business has named CPT
+            Construction to its 2026 ranking of Canada’s Top Growing
+            Companies, placing the company fourth in Construction Services on
+            three-year revenue growth.
+          </p>
+          <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3">
+            {article.highlights.map((item) => (
+              <div key={item.label} className="bg-black px-5 py-6">
+                <div className="text-3xl font-semibold leading-none text-white md:text-4xl">
+                  {item.value}
+                </div>
+                <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/55">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8">
+            <ArrowLink href={topGrowingArticleHref}>
+              Read the Announcement
+            </ArrowLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function NewsIndexContent() {
+  return (
+    <div className="site-page">
+      <PageHero
+        noPhoto
+        compact
+        eyebrow="About / News"
+        title="Company News."
+        intro="Recognition, milestones, and announcements from CPT Construction."
+      />
+      <section className="site-section">
+        <div className="site-container">
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {news.map((article) => (
+              <article
+                key={article.slug}
+                className="group grid gap-8 py-12 lg:grid-cols-[1fr_0.45fr] lg:items-center"
+              >
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {article.category}
+                    <span className="mx-2 text-white/30">/</span>
+                    <span className="text-white/55">
+                      {formatNewsDate(article.date)}
+                    </span>
+                  </p>
+                  <h2 className="mt-4 max-w-3xl text-4xl leading-[1.05] text-white md:text-5xl">
+                    <Link
+                      href={`/about/news/${article.slug}`}
+                      className="transition hover:text-[var(--gold)]"
+                    >
+                      {article.title}
+                    </Link>
+                  </h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-white/66">
+                    {article.summary}
+                  </p>
+                  <div className="mt-6">
+                    <ArrowLink href={`/about/news/${article.slug}`}>
+                      Read the Announcement
+                    </ArrowLink>
+                  </div>
+                </div>
+                {article.seal && (
+                  <Link
+                    href={`/about/news/${article.slug}`}
+                    aria-label={article.title}
+                  >
+                    <SealPlaque seal={article.seal} />
+                  </Link>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export function NewsArticleContent({ article }: { article: NewsArticle }) {
+  return (
+    <div className="site-page">
+      <PageHero
+        noPhoto
+        compact
+        eyebrow={`About / News / ${formatNewsDate(article.date)}`}
+        title={article.title}
+        intro={article.summary}
+      />
+      <section className="site-section">
+        <div className="site-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+          <aside className="space-y-px lg:sticky lg:top-32">
+            {article.seal && <SealPlaque seal={article.seal} className="mb-8" />}
+            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-1">
+              {article.highlights.map((item) => (
+                <div key={item.label} className="bg-black px-5 py-5">
+                  <div className="text-3xl font-semibold leading-none text-white">
+                    {item.value}
+                  </div>
+                  <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/55">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <dl className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="bg-black px-5 py-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
+                  Published
+                </dt>
+                <dd className="mt-1 text-sm text-white/75">
+                  {formatNewsDate(article.date)}
+                </dd>
+              </div>
+              <div className="bg-black px-5 py-4">
+                <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
+                  Location
+                </dt>
+                <dd className="mt-1 text-sm text-white/75">{article.location}</dd>
+              </div>
+            </dl>
+          </aside>
+          <div>
+            <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
+              {article.body.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="site-section border-t border-white/10">
+        <div className="site-container flex flex-col gap-3 sm:flex-row">
+          <ArrowLink href="/contact" variant="solid">
+            Discuss Your Scope
+          </ArrowLink>
+          <ArrowLink href="/about/news" variant="outline">
+            Back to News
+          </ArrowLink>
+        </div>
+      </section>
     </div>
   );
 }
