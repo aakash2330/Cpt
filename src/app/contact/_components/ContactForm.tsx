@@ -96,7 +96,7 @@ const documentFields: FieldConfig[] = [
 
 export function ContactForm() {
   return (
-    <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-2">
+    <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-2">
       <InquiryForm
         title="New Project Discussion"
         description="For developers, general contractors, and asset owners with an active or upcoming scope to discuss."

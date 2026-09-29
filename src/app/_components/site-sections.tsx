@@ -199,7 +199,7 @@ export function HomePageContent() {
 export function StatBar() {
   return (
     <section className="site-band py-8">
-      <div className="grid gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((item) => (
           <div key={item.label} className="bg-black px-5 py-7 sm:px-7 lg:px-10">
             <div className="mx-auto w-full max-w-[320px]">
@@ -219,7 +219,7 @@ export function StatBar() {
 
 export function PositioningBlock() {
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section">
       <div className="site-container grid gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
         <div>
           <SectionIntro
@@ -249,13 +249,13 @@ export function PositioningBlock() {
             </p>
           </div>
 
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-3">
             {deliverySequence.map((item, index) => (
               <article
                 key={item.label}
                 className="group bg-black p-6 transition duration-300 hover:bg-[var(--surface)]"
               >
-                <div className="flex items-center justify-between border-t border-white/10 pt-5">
+                <div className="flex items-center justify-between pt-5">
                   <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -278,14 +278,14 @@ export function PositioningBlock() {
 
 export function SectorOverview() {
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section">
       <div className="site-container">
         <SectionIntro
           eyebrow="Where CPT Operates"
           title="Four Sectors. One Operating Standard."
           body="The specification requirements change by sector. The crew discipline does not."
         />
-        <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-4">
           {sectors.map((sector) => (
             <Link
               key={sector.title}
@@ -310,7 +310,7 @@ export function SectorOverview() {
 
 export function PortfolioPreview() {
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section">
       <div className="site-container">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionIntro eyebrow="Portfolio" title="Delivered Across Canada." />
@@ -328,7 +328,7 @@ export function PortfolioGrid({
   projects?: typeof portfolioProjects;
 }) {
   return (
-    <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+    <div className="mt-12 grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-3">
       {projects.map((project) => (
         <article
           key={`${project.name}-${project.location}`}
@@ -346,7 +346,7 @@ export function PortfolioGrid({
 
 export function TestimonialsSection() {
   return (
-    <section className="site-section relative overflow-hidden border-t border-white/10 bg-black">
+    <section className="site-section relative overflow-hidden bg-black">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/70 to-transparent" />
       <div className="site-container">
         <div>
@@ -360,7 +360,7 @@ export function TestimonialsSection() {
             construction managers, and procurement teams.
           </p>
         </div>
-        <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <figure
               key={testimonial.attribution}
@@ -388,7 +388,7 @@ export function TestimonialsSection() {
 
 export function CredentialsStrip() {
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section">
       <div className="site-container grid gap-12 xl:grid-cols-[0.62fr_1.38fr] xl:items-start">
         <div className="xl:sticky xl:top-28">
           <SectionIntro
@@ -403,7 +403,7 @@ export function CredentialsStrip() {
           </div>
         </div>
         <div>
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2">
             {credentials.map((item, index) => (
               <div
                 key={item}
@@ -426,7 +426,7 @@ export function CredentialsStrip() {
 
 export function AssociationStrip() {
   return (
-    <div className="mt-10 grid items-stretch gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="mt-10 grid items-stretch gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
       {associations.map((association) => (
         <div
           key={association.name}
@@ -508,7 +508,7 @@ export function PageHero({
 }) {
   if (!videoSrc && (noPhoto || !image)) {
     return (
-      <section className="site-section border-b border-white/10 pb-16 pt-40 md:pt-48">
+      <section className="site-section pb-16 pt-40 md:pt-48">
         <div className="site-container">
           <div className="max-w-5xl">
             {eyebrow && <p className="section-label">{eyebrow}</p>}
@@ -570,7 +570,7 @@ export function CompanyContent() {
         intro="CPT Construction has spent over a decade building a reputation on a single principle: we do what we say we will do. That means showing up on schedule, delivering to specification, and handing over finishes that last."
         videoSrc="/comment-assets/company-background.mp4"
       />
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div className="space-y-7 text-lg leading-8 text-white/70">
             <p>
@@ -598,8 +598,8 @@ export function CompanyContent() {
           />
         </div>
       </section>
-      <section className="border-t border-white/10 bg-black py-12">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-2">
+      <section className="bg-black py-12">
+        <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-2">
           <article className="bg-black p-6 md:p-8">
             <p className="section-label">Operating Model</p>
             <h2 className="max-w-2xl text-4xl leading-[1.04] text-white md:text-5xl">
@@ -622,8 +622,8 @@ export function CompanyContent() {
           </article>
         </div>
       </section>
-      <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-2">
+      <section className="site-section">
+        <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-2">
           {companyContrasts.map((item, index) => (
             <article key={item.label} className="bg-black p-6 md:p-8">
               <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
@@ -631,7 +631,7 @@ export function CompanyContent() {
               </p>
               <ul className="mt-6 space-y-4 text-base leading-7 text-white/64">
                 {item.points.map((point) => (
-                  <li key={point} className="border-t border-white/10 pt-4">
+                  <li key={point} className="pt-4">
                     {point}
                   </li>
                 ))}
@@ -641,7 +641,7 @@ export function CompanyContent() {
         </div>
       </section>
       <PrinciplesSection />
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container flex flex-col gap-3 sm:flex-row">
           <ArrowLink href="/contact" variant="solid">
             Discuss Your Scope
@@ -657,13 +657,13 @@ export function CompanyContent() {
 
 export function PrinciplesSection() {
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section">
       <div className="site-container">
         <SectionIntro
           eyebrow="How We Work"
           title="Five Principles. No Exceptions."
         />
-        <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-5">
+        <div className="mt-12 grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-5">
           {principles.map((principle) => (
             <article key={principle.title} className="bg-[var(--surface)] p-6">
               <h3 className="text-2xl text-white">{principle.title}</h3>
@@ -687,8 +687,8 @@ export function TeamContent() {
         title="The People Responsible for Your Project."
         intro="Large enough to deliver. Flat enough to reach."
       />
-      <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+      <section className="site-section">
+        <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-3">
           {team.map((person) => (
             <article key={person.name} className="bg-black p-6">
               <div className="relative aspect-square overflow-hidden bg-[var(--surface)]">
@@ -707,7 +707,7 @@ export function TeamContent() {
                   </div>
                 )}
               </div>
-              <div className="border-t border-white/10 pt-6">
+              <div className="pt-6">
                 <h2 className="text-3xl text-white">{person.name}</h2>
                 <p className="mt-2 text-sm uppercase tracking-[0.14em] text-[var(--gold)]">
                   {person.role}
@@ -735,8 +735,8 @@ export function CredentialsContent() {
         intro="Available to Developers, General Contractors, Construction management firms and institutional procurement teams on request."
         videoSrc="/comment-assets/credentials-safety-background.mp4"
       />
-      <section className="site-section border-t border-white/10">
-        <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+      <section className="site-section">
+        <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-3">
           <RecordBlock title="Safety">
             <p>0 Lost-Time Incident Frequency Rate</p>
             <p>0 Fatalities</p>
@@ -761,7 +761,7 @@ export function CredentialsContent() {
         </div>
       </section>
       <RecognitionBand />
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container">
           <SectionIntro
             eyebrow="Memberships & Associations"
@@ -805,9 +805,9 @@ export function ServicesContent() {
         intro="From first stud to final inspection."
         image="/service_bg.jpg"
       />
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container">
-          <div className="divide-y divide-white/10 border-y border-white/10">
+          <div>
             {services.map((service, index) => (
               <article
                 key={service.title}
@@ -857,9 +857,9 @@ export function IndustriesOverviewContent() {
         title="Different Environments. Same Operating Control."
         intro="The specification requirements change by sector. The crew discipline does not."
       />
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-4">
             {sectors.map((sector) => (
               <Link
                 key={sector.title}
@@ -899,7 +899,7 @@ export function IndustryContent({ page }: { page: IndustryPage }) {
         return (
           <section
             key={group.title}
-            className="site-section border-t border-white/10"
+            className="site-section"
           >
             <div className="site-container">
               <SectionIntro
@@ -916,7 +916,7 @@ export function IndustryContent({ page }: { page: IndustryPage }) {
           </section>
         );
       })}
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <p className="text-sm uppercase tracking-[0.18em] text-white/50">
             References available on request.
@@ -941,7 +941,7 @@ function ProjectRows({
         return (
           <article
             key={`${project.name}-${project.location}`}
-            className="group grid overflow-hidden border border-white/10 bg-black transition duration-300 hover:border-white/20 lg:grid-cols-[0.44fr_minmax(0,1fr)]"
+            className="group grid overflow-hidden bg-black transition duration-300 lg:grid-cols-[0.44fr_minmax(0,1fr)]"
           >
             <ImageFrame src={project.image} alt={`${project.name} interior`} />
             <div className="relative p-6 md:p-8 lg:p-10">
@@ -1005,10 +1005,10 @@ export function PortfolioContent() {
         intro="A dedicated project register for developers, General Contractors, Construction managers and procurement teams reviewing CPT's Division 9 record across Canada."
         image="/portfolio.jpg"
       />
-      <section className="site-section relative overflow-hidden border-t border-white/10">
+      <section className="site-section relative overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/60 to-transparent" />
         <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]">
             <article className="group relative min-h-[520px] overflow-hidden bg-black">
               <Image
                 src={featuredProject.image}
@@ -1019,7 +1019,6 @@ export function PortfolioContent() {
                 className="object-cover grayscale-[38%] saturate-[0.86] transition duration-700 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/44 to-black/10" />
-              <div className="pointer-events-none absolute inset-5 border border-white/10" />
               <div className="absolute left-6 top-6 flex items-center gap-3 border border-white/15 bg-black/70 px-4 py-2 backdrop-blur md:left-8 md:top-8">
                 <span className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
                   Record
@@ -1054,7 +1053,7 @@ export function PortfolioContent() {
                   scale, and scope for each project.
                 </p>
               </div>
-              <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+              <div className="mt-10 grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2">
                 <PortfolioFact label="Sector" value={featuredProject.sector} />
                 <PortfolioFact label="Scale" value={featuredProject.scale} />
                 <div className="sm:col-span-2">
@@ -1074,9 +1073,9 @@ export function PortfolioContent() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-black py-10">
+      <section className="bg-black py-10">
         <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 lg:grid-cols-3">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-3">
             {portfolioReviewStandards.map((standard, index) => (
               <article
                 key={standard.title}
@@ -1103,9 +1102,9 @@ export function PortfolioContent() {
         </div>
       </section>
 
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 xl:grid-cols-[1.05fr_0.5fr_0.45fr]">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 xl:grid-cols-[1.05fr_0.5fr_0.45fr]">
             <div className="bg-black p-6 md:p-9 lg:p-10">
               <p className="section-label">Portfolio Register</p>
               <h2 className="max-w-4xl text-4xl leading-[1.05] text-white md:text-6xl">
@@ -1117,7 +1116,7 @@ export function PortfolioContent() {
               </p>
             </div>
 
-            <div className="grid gap-px bg-white/10 sm:grid-cols-3 xl:grid-cols-1">
+            <div className="grid gap-x-px bg-clip-content bg-white/10 sm:grid-cols-3 xl:grid-cols-1">
               <PortfolioFact
                 label="Project Entries"
                 value={`${portfolioProjects.length}`}
@@ -1137,7 +1136,7 @@ export function PortfolioContent() {
                 {portfolioRegisterNotes.map((note, index) => (
                   <div
                     key={note}
-                    className="border-t border-white/10 pt-5 first:border-[var(--gold)]/55"
+                    className="pt-5 first:border-[var(--gold)]/55"
                   >
                     <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]/85">
                       {String(index + 1).padStart(2, "0")}
@@ -1153,7 +1152,7 @@ export function PortfolioContent() {
         </div>
       </section>
 
-      <section className="site-section relative overflow-hidden border-t border-white/10 bg-black">
+      <section className="site-section relative overflow-hidden bg-black">
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[length:120px_120px] opacity-25" />
         <div className="site-container relative">
           <div className="grid gap-14">
@@ -1161,8 +1160,8 @@ export function PortfolioContent() {
               const sectorHref = getSectorHref(group.sector);
 
               return (
-                <div key={group.sector} className="border-t border-white/10 pt-8">
-                  <div className="mb-6 flex flex-col gap-5 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
+                <div key={group.sector} className="pt-8">
+                  <div className="mb-6 flex flex-col gap-5 pb-6 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <p className="section-label">
                         Sector {String(groupIndex + 1).padStart(2, "0")}
@@ -1180,7 +1179,7 @@ export function PortfolioContent() {
                     </div>
                   </div>
 
-                  <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+                  <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10">
                     {group.projects.map((project) => {
                       const projectIndex = portfolioProjects.indexOf(project) + 1;
 
@@ -1190,7 +1189,7 @@ export function PortfolioContent() {
                           className="group bg-black transition duration-300 hover:bg-[var(--surface)]"
                         >
                           <div className="grid xl:grid-cols-[minmax(360px,0.44fr)_minmax(0,1fr)_280px]">
-                            <div className="relative aspect-[3/2] overflow-hidden border-b border-white/10 xl:aspect-auto xl:h-[390px] xl:border-b-0 xl:border-r">
+                            <div className="relative aspect-[3/2] overflow-hidden xl:aspect-auto xl:h-[390px]">
                               <Image
                                 src={project.image}
                                 alt={`${project.name} project`}
@@ -1219,7 +1218,7 @@ export function PortfolioContent() {
                               <div className="mt-8 h-px w-12 bg-[var(--gold)]/55 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
                             </div>
 
-                            <aside className="grid gap-px border-t border-white/10 bg-white/10 sm:grid-cols-3 xl:h-[390px] xl:grid-cols-1 xl:border-l xl:border-t-0">
+                            <aside className="grid gap-x-px bg-clip-content bg-white/10 sm:grid-cols-3 xl:h-[390px] xl:grid-cols-1 xl:border-l xl:border-white/10">
                               <PortfolioFact label="Sector" value={project.sector} />
                               <PortfolioFact label="Scale" value={project.scale} />
                               <div className="bg-black p-6">
@@ -1248,7 +1247,7 @@ export function PortfolioContent() {
       <section className="relative overflow-hidden border-t border-[var(--gold)]/70 bg-black py-16 md:py-24">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--gold)]/80 to-transparent" />
         <div className="site-container">
-          <div className="grid gap-10 border-y border-white/10 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.5fr)] lg:items-end">
+          <div className="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.5fr)] lg:items-end">
             <div>
               <p className="section-label">Formal Review</p>
               <h2 className="max-w-4xl text-5xl leading-[1.02] text-white md:text-7xl">
@@ -1262,7 +1261,7 @@ export function PortfolioContent() {
               </p>
             </div>
             <div>
-              <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10">
                 {portfolioReferenceItems.map((item, index) => (
                   <div key={item} className="bg-black p-5">
                     <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
@@ -1333,7 +1332,7 @@ export function ImageFrame({
         className="object-cover grayscale-[45%] saturate-[0.82] transition duration-700 group-hover:scale-[1.025] group-hover:grayscale-[12%] group-hover:saturate-100"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
-      <div className="pointer-events-none absolute inset-3 border border-white/10 transition duration-300 group-hover:border-[var(--gold)]/45" />
+      <div className="pointer-events-none absolute inset-3 border border-transparent transition duration-300 group-hover:border-[var(--gold)]/45" />
       <div className="pointer-events-none absolute left-3 top-3 h-px w-12 bg-[var(--gold)]/45 transition duration-300 group-hover:w-20 group-hover:bg-[var(--gold)]" />
     </div>
   );
@@ -1360,7 +1359,6 @@ export function SealPlaque({
         sizes="(min-width: 1024px) 40vw, 100vw"
         className="h-auto w-full"
       />
-      <div className="pointer-events-none absolute inset-3 border border-black/[0.08]" />
       <div className="pointer-events-none absolute left-3 top-3 h-px w-12 bg-[var(--gold)] transition duration-300 group-hover:w-20" />
     </div>
   );
@@ -1371,7 +1369,7 @@ export function RecognitionBand() {
   if (!article) return null;
 
   return (
-    <section className="site-section border-t border-white/10">
+    <section className="site-section">
       <div className="site-container grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center xl:gap-16">
         <SealPlaque />
         <div>
@@ -1386,7 +1384,7 @@ export function RecognitionBand() {
             Companies, placing the company fourth in Construction Services on
             three-year revenue growth.
           </p>
-          <div className="mt-10 grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3">
+          <div className="mt-10 grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-3">
             {article.highlights.map((item) => (
               <div key={item.label} className="bg-black px-5 py-6">
                 <div className="text-3xl font-semibold leading-none text-white md:text-4xl">
@@ -1421,7 +1419,7 @@ export function NewsIndexContent() {
       />
       <section className="site-section">
         <div className="site-container">
-          <div className="divide-y divide-white/10 border-y border-white/10">
+          <div>
             {news.map((article) => (
               <article
                 key={article.slug}
@@ -1482,7 +1480,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
         intro={article.summary}
       />
 
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
             {article.intro.map((block, index) => (
@@ -1492,7 +1490,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
           {article.seal && (
             <div>
               <SealPlaque seal={article.seal} />
-              <dl className="mt-px grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+              <dl className="mt-px grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2">
                 <div className="bg-black px-5 py-4">
                   <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
                     Published
@@ -1516,10 +1514,10 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       </section>
 
       {article.numbers && (
-        <section className="border-t border-white/10 bg-black py-12">
+        <section className="bg-black py-12">
           <div className="site-container">
             <p className="section-label">{article.numbers.label}</p>
-            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
               {article.numbers.items.map((item) => (
                 <div key={item.label} className="bg-black px-5 py-7 sm:px-7">
                   <div className="text-4xl font-semibold leading-none text-white md:text-5xl">
@@ -1538,7 +1536,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       {article.sections.map((section, index) => (
         <section
           key={section.title}
-          className="site-section border-t border-white/10"
+          className="site-section"
         >
           <div className="site-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionIntro
@@ -1555,8 +1553,8 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       ))}
 
       {hasNotes && (
-        <section className="site-section border-t border-white/10">
-          <div className="site-container grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+        <section className="site-section">
+          <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-3">
             {article.notes?.map((note) => (
               <article key={note.title} className="bg-black p-6 md:p-8">
                 <p className="section-label">{note.title}</p>
@@ -1591,7 +1589,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
         </section>
       )}
 
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container flex flex-col gap-3 sm:flex-row">
           <ArrowLink href="/contact" variant="solid">
             Discuss Your Scope
@@ -1615,7 +1613,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "callout":
       return (
-        <div className="border border-white/10 border-t-[color:var(--gold)] bg-[var(--surface)] p-6 md:p-8">
+        <div className="border-t border-[color:var(--gold)] bg-[var(--surface)] p-6 md:p-8">
           <p className="font-[Nord] text-2xl leading-[1.15] text-white md:text-3xl">
             {block.text}
           </p>
@@ -1638,7 +1636,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       return (
         <ul className="space-y-4">
           {block.items.map((item) => (
-            <li key={item.lead} className="border-t border-white/10 pt-4">
+            <li key={item.lead} className="pt-4">
               <span className="text-white">{item.lead}</span> {item.text}
             </li>
           ))}

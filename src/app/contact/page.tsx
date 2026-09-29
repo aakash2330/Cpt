@@ -12,14 +12,14 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Start the Right Conversation."
       />
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container">
           <ContactForm />
         </div>
       </section>
-      <section className="site-section border-t border-white/10">
+      <section className="site-section">
         <div className="site-container">
-          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
+          <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-3">
             <ContactPoint
               icon={<Mail size={20} />}
               label="Email"

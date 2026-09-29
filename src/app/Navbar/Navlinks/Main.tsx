@@ -93,7 +93,7 @@ export function NavLinks() {
       {isOpen && (
         <div className="fixed inset-0 z-[80] overflow-hidden bg-black lg:hidden">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px),radial-gradient(circle_at_80%_0%,rgba(199,164,107,0.18),transparent_34%)] bg-[length:96px_96px,100%_100%] opacity-45" />
-          <div className="relative flex h-20 items-center justify-between border-b border-white/10 px-5">
+          <div className="relative flex h-20 items-center justify-between px-5">
             <LogoMain />
             <button
               type="button"
@@ -112,7 +112,7 @@ export function NavLinks() {
               <h2 className="mt-4 max-w-sm text-4xl leading-[1.04] text-white">
                 One Contract. Complete Scope.
               </h2>
-              <div className="mt-8 grid gap-px overflow-hidden border border-white/10 bg-white/10">
+              <div className="mt-8 grid gap-x-px overflow-hidden bg-clip-content bg-white/10">
                 {mobilePrimaryLinks.map((link, index) => (
                   <MobileLink
                     key={link.href}
@@ -137,7 +137,7 @@ export function NavLinks() {
                 className="mt-6"
               />
             </div>
-            <div className="mt-10 space-y-5 border-t border-white/10 pt-6">
+            <div className="mt-10 space-y-5 pt-6">
               <div className="grid gap-3 text-sm leading-6 text-white/58">
                 <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>
                 <a href="tel:4168383970">{contactDetails.phone}</a>
@@ -205,7 +205,7 @@ function Dropdown({
         />
       </button>
       <div className="invisible absolute left-0 top-full min-w-[21rem] translate-y-2 pt-4 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-        <div className="overflow-hidden border border-white/10 bg-black/95 shadow-2xl shadow-black/30 backdrop-blur-xl">
+        <div className="overflow-hidden bg-[var(--surface-2)]/95 shadow-2xl shadow-black/30 backdrop-blur-xl">
           <div className="border-t border-[var(--gold)] px-4 py-3">
             <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--gold)]">
               {label}
@@ -215,7 +215,7 @@ function Dropdown({
             <Link
               key={link.href}
               href={link.href}
-              className="group/link grid grid-cols-[1.5rem_minmax(0,1fr)_1rem] items-center gap-2 border-t border-white/10 px-4 py-4 text-sm leading-5 text-white/66 transition hover:bg-white/[0.04] hover:text-white"
+              className="group/link grid grid-cols-[1.5rem_minmax(0,1fr)_1rem] items-center gap-2 px-4 py-4 text-sm leading-5 text-white/66 transition hover:bg-white/[0.04] hover:text-white"
             >
               <span className="self-start pt-0.5 text-[11px] uppercase tracking-[0.18em] text-white/30">
                 {String(index + 1).padStart(2, "0")}
@@ -279,7 +279,7 @@ function MobileGroup({
       <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[var(--gold)]">
         {title}
       </p>
-      <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10">
+      <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10">
         {links.map((link, index) => (
           <Link
             key={link.href}
