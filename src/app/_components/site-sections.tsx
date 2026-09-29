@@ -188,10 +188,10 @@ export function HomePageContent() {
 
       <StatBar />
       <PositioningBlock />
-      <RecognitionBand />
       <SectorOverview />
       <PortfolioPreview />
       <ClosingCta />
+      <RecognitionBand />
     </div>
   );
 }
