@@ -1489,14 +1489,14 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       <section className="site-section pt-10 md:pt-14">
         <div className="site-container">
           {article.seal && (
-            <SealPlaque seal={article.seal} className="mx-auto max-w-5xl" />
+            <SealPlaque seal={article.seal} className="mx-auto max-w-4xl" />
           )}
           <div className="mt-16 space-y-6 md:mt-20">
             {article.intro.map((block, index) => (
               <NewsBlockView key={index} block={block} />
             ))}
             {article.numbers && (
-              <div className="mx-auto max-w-7xl pt-6 pb-2">
+              <div className="mx-auto max-w-6xl pt-6 pb-2 text-center">
                 <p className="section-label">{article.numbers.label}</p>
                 <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
                   {article.numbers.items.map((item) => (
@@ -1525,7 +1525,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       </section>
       {((article.notes?.length ?? 0) > 0 || article.mediaContact) && (
         <section className="site-section pt-0">
-          <div className="site-container grid gap-x-px bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+          <div className="site-container grid gap-x-px bg-clip-content bg-white/10 text-center md:grid-cols-2 xl:grid-cols-3">
             {article.notes?.map((note) => (
               <article key={note.title} className="bg-black p-6 md:p-8">
                 <p className="section-label">{note.title}</p>
@@ -1559,7 +1559,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
           </div>
         </section>
       )}
-      <section className="site-section">
+      <section className="site-section pt-0">
         <div className="site-container flex flex-col gap-3 sm:flex-row sm:justify-center">
           <ArrowLink href="/contact" variant="solid">
             Discuss Your Scope
@@ -1602,8 +1602,8 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "quote":
       return (
-        <blockquote className="mx-auto my-3 max-w-5xl border-l-2 border-[var(--gold)] py-1 pl-6 md:pl-8">
-          <p className="text-xl leading-9 text-white/85 md:text-2xl md:leading-10">
+        <blockquote className="mx-auto max-w-[52rem] border-l-2 border-[var(--gold)] py-1 pl-6 md:pl-8">
+          <p className="text-lg leading-8 text-white/85 md:text-xl md:leading-9">
             &ldquo;{block.text}&rdquo;
           </p>
           {block.attribution && (
