@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import {
   associations,
   credentials,
@@ -496,6 +496,7 @@ export function PageHero({
   poster,
   noPhoto = false,
   compact = false,
+  align = "left",
 }: {
   eyebrow?: string;
   title: string;
@@ -505,12 +506,15 @@ export function PageHero({
   poster?: string;
   noPhoto?: boolean;
   compact?: boolean;
+  align?: "left" | "center";
 }) {
   if (!videoSrc && (noPhoto || !image)) {
     return (
       <section className="site-section pb-16 pt-40 md:pt-48">
         <div className="site-container">
-          <div className="max-w-5xl">
+          <div
+            className={`max-w-5xl ${align === "center" ? "mx-auto text-center" : ""}`}
+          >
             {eyebrow && <p className="section-label">{eyebrow}</p>}
             <h1
               className={`break-words leading-[1.05] text-white ${
@@ -522,7 +526,11 @@ export function PageHero({
               {title}
             </h1>
             {intro && (
-              <p className="mt-7 max-w-3xl text-xl leading-9 text-white/66">
+              <p
+                className={`mt-7 max-w-3xl text-xl leading-9 text-white/66 ${
+                  align === "center" ? "mx-auto" : ""
+                }`}
+              >
                 {intro}
               </p>
             )}
@@ -1468,129 +1476,90 @@ export function NewsIndexContent() {
 }
 
 export function NewsArticleContent({ article }: { article: NewsArticle }) {
-  const hasNotes = (article.notes?.length ?? 0) > 0 || Boolean(article.mediaContact);
-
   return (
     <div className="site-page">
       <PageHero
         noPhoto
         compact
-        eyebrow={`About / News / ${formatNewsDate(article.date)}`}
+        align="center"
+        eyebrow={`CPT Newsroom / ${formatNewsDate(article.date)} / ${article.location}`}
         title={article.title}
         intro={article.summary}
       />
-
       <section className="site-section">
-        <div className="site-container grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-center">
+        <div className="site-container">
           {article.seal && (
-            <div>
-              <SealPlaque seal={article.seal} />
-              <dl className="mt-px grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2">
-                <div className="bg-black px-5 py-4">
-                  <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                    Published
-                  </dt>
-                  <dd className="mt-1 text-sm text-white/75">
-                    {formatNewsDate(article.date)}
-                  </dd>
-                </div>
-                <div className="bg-black px-5 py-4">
-                  <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                    Location
-                  </dt>
-                  <dd className="mt-1 text-sm text-white/75">
-                    {article.location}
-                  </dd>
-                </div>
-              </dl>
-            </div>
+            <SealPlaque seal={article.seal} className="mx-auto max-w-4xl" />
           )}
-          <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
+          <div className="mt-16 space-y-6 md:mt-20">
             {article.intro.map((block, index) => (
               <NewsBlockView key={index} block={block} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {article.numbers && (
-        <section className="bg-black py-12">
-          <div className="site-container">
-            <p className="section-label">{article.numbers.label}</p>
-            <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
-              {article.numbers.items.map((item) => (
-                <div key={item.label} className="bg-black px-5 py-7 sm:px-7">
-                  <div className="text-4xl font-semibold leading-none text-white md:text-5xl">
-                    {item.value}
-                  </div>
-                  <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/55">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {article.sections.map((section, index) => (
-        <section
-          key={section.title}
-          className="site-section"
-        >
-          <div className="site-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <SectionIntro
-              eyebrow={String(index + 1).padStart(2, "0")}
-              title={section.title}
-            />
-            <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
-              {section.blocks.map((block, blockIndex) => (
-                <NewsBlockView key={blockIndex} block={block} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {hasNotes && (
-        <section className="site-section">
-          <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-3">
-            {article.notes?.map((note) => (
-              <article key={note.title} className="bg-black p-6 md:p-8">
-                <p className="section-label">{note.title}</p>
-                <div className="space-y-4 text-base leading-7 text-white/64">
-                  {note.body.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+            {article.numbers && (
+              <div className="mx-auto max-w-5xl pt-6 pb-2">
+                <p className="section-label">{article.numbers.label}</p>
+                <div className="grid gap-x-px overflow-hidden bg-clip-content bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+                  {article.numbers.items.map((item) => (
+                    <div key={item.label} className="bg-black px-5 py-6">
+                      <div className="text-3xl font-semibold leading-none text-white md:text-4xl">
+                        {item.value}
+                      </div>
+                      <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/55">
+                        {item.label}
+                      </p>
+                    </div>
                   ))}
                 </div>
-              </article>
-            ))}
-            {article.mediaContact && (
-              <article className="bg-black p-6 md:p-8">
-                <p className="section-label">Media Contact</p>
-                <div className="text-base leading-7 text-white/64">
-                  <p className="text-white">{article.mediaContact.name}</p>
-                  <a
-                    href={`mailto:${article.mediaContact.email}`}
-                    className="block transition hover:text-[var(--gold)]"
-                  >
-                    {article.mediaContact.email}
-                  </a>
-                  <a
-                    href={`tel:${article.mediaContact.phone.replace(/\s/g, "")}`}
-                    className="block transition hover:text-[var(--gold)]"
-                  >
-                    {article.mediaContact.phone}
-                  </a>
-                </div>
-              </article>
+              </div>
             )}
+            {article.sections.map((section) => (
+              <Fragment key={section.title}>
+                <ArticleHeading text={section.title} />
+                {section.blocks.map((block, index) => (
+                  <NewsBlockView key={index} block={block} />
+                ))}
+              </Fragment>
+            ))}
+            {article.notes?.map((note) => (
+              <Fragment key={note.title}>
+                <ArticleHeading text={note.title} />
+                {note.body.map((paragraph, index) => (
+                  <NewsBlockView
+                    key={index}
+                    block={{ type: "paragraph", text: paragraph }}
+                  />
+                ))}
+              </Fragment>
+            ))}
           </div>
-        </section>
-      )}
-
+          {article.mediaContact && (
+            <div className="mx-auto mt-16 grid max-w-3xl gap-x-px bg-clip-content bg-white/10 md:grid-cols-[0.35fr_1fr]">
+              <div className="bg-[var(--surface)] p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
+                  Media Contact
+                </p>
+              </div>
+              <div className="bg-black p-6 text-base leading-7 text-white/70">
+                <p className="text-white">{article.mediaContact.name}</p>
+                <a
+                  href={`mailto:${article.mediaContact.email}`}
+                  className="block transition hover:text-[var(--gold)]"
+                >
+                  {article.mediaContact.email}
+                </a>
+                <a
+                  href={`tel:${article.mediaContact.phone.replace(/\s/g, "")}`}
+                  className="block transition hover:text-[var(--gold)]"
+                >
+                  {article.mediaContact.phone}
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
       <section className="site-section">
-        <div className="site-container flex flex-col gap-3 sm:flex-row">
+        <div className="site-container flex flex-col gap-3 sm:flex-row sm:justify-center">
           <ArrowLink href="/contact" variant="solid">
             Discuss Your Scope
           </ArrowLink>
@@ -1603,26 +1572,37 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
   );
 }
 
+function ArticleHeading({ text }: { text: string }) {
+  return (
+    <div className="mx-auto max-w-[42rem] pt-10">
+      <span className="mb-5 block h-px w-10 bg-[var(--gold)]" />
+      <h2 className="text-3xl leading-[1.08] text-white md:text-4xl">{text}</h2>
+    </div>
+  );
+}
+
 function NewsBlockView({ block }: { block: NewsBlock }) {
   switch (block.type) {
     case "paragraph":
       return (
-        <p>
+        <p className="mx-auto max-w-[42rem] text-lg leading-8 text-white/70">
           <ParagraphText block={block} />
         </p>
       );
     case "callout":
       return (
-        <div className="border-t border-[color:var(--gold)] pt-6">
-          <p className="font-[Nord] text-2xl leading-[1.15] text-white md:text-3xl">
-            {block.text}
-          </p>
+        <div className="py-4">
+          <div className="mx-auto max-w-4xl border-y border-[var(--gold)]/65 py-8 md:py-10">
+            <p className="mx-auto max-w-2xl text-center font-[Nord] text-2xl leading-[1.15] text-white md:text-3xl">
+              {block.text}
+            </p>
+          </div>
         </div>
       );
     case "quote":
       return (
-        <blockquote className="border-l-2 border-[var(--gold)] pl-6 md:pl-8">
-          <p className="text-xl leading-9 text-white/85">
+        <blockquote className="mx-auto my-3 max-w-3xl border-l-2 border-[var(--gold)] py-1 pl-6 md:pl-8">
+          <p className="text-xl leading-9 text-white/85 md:text-2xl md:leading-10">
             &ldquo;{block.text}&rdquo;
           </p>
           {block.attribution && (
@@ -1634,9 +1614,9 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "list":
       return (
-        <ul className="space-y-4">
+        <ul className="mx-auto max-w-[42rem] space-y-4 text-lg leading-8 text-white/70">
           {block.items.map((item) => (
-            <li key={item.lead} className="pt-4">
+            <li key={item.lead} className="pt-2">
               <span className="text-white">{item.lead}</span> {item.text}
             </li>
           ))}
