@@ -1525,7 +1525,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       </section>
       {((article.notes?.length ?? 0) > 0 || article.mediaContact) && (
         <section className="site-section pt-0">
-          <div className="site-container grid gap-x-px bg-clip-content bg-white/10 md:grid-cols-2 xl:grid-cols-3">
+          <div className="site-container grid gap-x-px bg-clip-content bg-white/10 text-center md:grid-cols-2 xl:grid-cols-3">
             {article.notes?.map((note) => (
               <article key={note.title} className="bg-black p-6 md:p-8">
                 <p className="section-label">{note.title}</p>
