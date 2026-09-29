@@ -1470,6 +1470,15 @@ export function NewsIndexContent() {
 }
 
 export function NewsArticleContent({ article }: { article: NewsArticle }) {
+  // The opening run of paragraphs sits beside the seal; everything from the
+  // first non-paragraph block onward runs in the reading column below.
+  const firstBreak = article.content.findIndex(
+    (block) => block.type !== "paragraph",
+  );
+  const lead =
+    firstBreak === -1 ? article.content : article.content.slice(0, firstBreak);
+  const rest = firstBreak === -1 ? [] : article.content.slice(firstBreak);
+
   return (
     <div className="site-page">
       <PageHero
@@ -1480,57 +1489,66 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
         intro={article.summary}
       />
       <section className="site-section">
-        <div className="site-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-          <aside className="lg:sticky lg:top-32">
-            {article.seal && <SealPlaque seal={article.seal} className="mb-8" />}
-            <dl className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-1">
-              <div className="bg-black px-5 py-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                  Published
-                </dt>
-                <dd className="mt-1 text-sm text-white/75">
-                  {formatNewsDate(article.date)}
-                </dd>
-              </div>
-              <div className="bg-black px-5 py-4">
-                <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                  Location
-                </dt>
-                <dd className="mt-1 text-sm text-white/75">{article.location}</dd>
-              </div>
-            </dl>
-          </aside>
-          <div>
-            <div className="space-y-6 border-t border-[var(--gold)]/65 pt-7">
-              {article.content.map((block, index) => (
+        <div className="site-container">
+          <div className="grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center xl:gap-20">
+            <div className="lg:order-2">
+              {article.seal && <SealPlaque seal={article.seal} />}
+              <dl className="mt-px grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+                <div className="bg-black px-5 py-4">
+                  <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
+                    Published
+                  </dt>
+                  <dd className="mt-1 text-sm text-white/75">
+                    {formatNewsDate(article.date)}
+                  </dd>
+                </div>
+                <div className="bg-black px-5 py-4">
+                  <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
+                    Location
+                  </dt>
+                  <dd className="mt-1 text-sm text-white/75">
+                    {article.location}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+            <div className="space-y-6 border-t border-[var(--gold)]/65 pt-7 lg:order-1">
+              {lead.map((block, index) => (
                 <NewsBlockView key={index} block={block} />
               ))}
             </div>
-            {article.mediaContact && (
-              <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-[0.35fr_1fr]">
-                <div className="bg-[var(--surface)] p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
-                    Media Contact
-                  </p>
-                </div>
-                <div className="bg-black p-6 text-base leading-7 text-white/70">
-                  <p className="text-white">{article.mediaContact.name}</p>
-                  <a
-                    href={`mailto:${article.mediaContact.email}`}
-                    className="block transition hover:text-[var(--gold)]"
-                  >
-                    {article.mediaContact.email}
-                  </a>
-                  <a
-                    href={`tel:${article.mediaContact.phone.replace(/\s/g, "")}`}
-                    className="block transition hover:text-[var(--gold)]"
-                  >
-                    {article.mediaContact.phone}
-                  </a>
-                </div>
-              </div>
-            )}
           </div>
+          {rest.length > 0 && (
+            <div className="mt-16 space-y-6 md:mt-20">
+              {rest.map((block, index) => (
+                <NewsBlockView key={index} block={block} />
+              ))}
+            </div>
+          )}
+          {article.mediaContact && (
+            <div className="mt-14 grid max-w-3xl gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-[0.35fr_1fr]">
+              <div className="bg-[var(--surface)] p-6">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
+                  Media Contact
+                </p>
+              </div>
+              <div className="bg-black p-6 text-base leading-7 text-white/70">
+                <p className="text-white">{article.mediaContact.name}</p>
+                <a
+                  href={`mailto:${article.mediaContact.email}`}
+                  className="block transition hover:text-[var(--gold)]"
+                >
+                  {article.mediaContact.email}
+                </a>
+                <a
+                  href={`tel:${article.mediaContact.phone.replace(/\s/g, "")}`}
+                  className="block transition hover:text-[var(--gold)]"
+                >
+                  {article.mediaContact.phone}
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </section>
       <section className="site-section border-t border-white/10">
@@ -1551,7 +1569,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
   switch (block.type) {
     case "heading":
       return (
-        <div className="pt-8">
+        <div className="max-w-[40rem] pt-8">
           <span className="mb-5 block h-px w-10 bg-[var(--gold)]" />
           <h2 className="text-3xl leading-[1.08] text-white md:text-4xl">
             {block.text}
@@ -1560,13 +1578,13 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "paragraph":
       return (
-        <p className="text-lg leading-8 text-white/70">
+        <p className="max-w-[40rem] text-lg leading-8 text-white/70">
           <ParagraphText block={block} />
         </p>
       );
     case "stats":
       return (
-        <div className="pt-4">
+        <div className="max-w-5xl pt-4">
           <p className="section-label">{block.label}</p>
           <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {block.items.map((item) => (
@@ -1584,7 +1602,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "callout":
       return (
-        <div className="border-y border-[var(--gold)]/65 py-8 md:py-10">
+        <div className="max-w-4xl border-y border-[var(--gold)]/65 py-8 md:py-10">
           <p className="mx-auto max-w-2xl text-center font-[Nord] text-2xl leading-[1.15] text-white md:text-3xl">
             {block.text}
           </p>
@@ -1592,7 +1610,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "quote":
       return (
-        <blockquote className="border-l-2 border-[var(--gold)] py-1 pl-6 md:pl-8">
+        <blockquote className="max-w-3xl border-l-2 border-[var(--gold)] py-1 pl-6 md:pl-8">
           <p className="text-xl leading-9 text-white/85 md:text-2xl md:leading-10">
             &ldquo;{block.text}&rdquo;
           </p>
@@ -1605,7 +1623,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "list":
       return (
-        <ul className="border-t border-white/10">
+        <ul className="max-w-[40rem] border-t border-white/10">
           {block.items.map((item) => (
             <li
               key={item.lead}
