@@ -646,10 +646,6 @@ export const news: NewsArticle[] = [
             text: "For the general contractor or owner, the result is a simpler structure.",
           },
           {
-            type: "callout",
-            text: "One contract. One project team. One point of accountability from first stud to final inspection.",
-          },
-          {
             type: "paragraph",
             text: "That does not eliminate the complexity of interior construction. It changes who is responsible for managing it.",
           },
