@@ -513,30 +513,231 @@ export const topGrowingSeal = {
   height: 429,
 };
 
+export type NewsBlock =
+  | { type: "paragraph"; text: string; link?: { text: string; href: string } }
+  | { type: "heading"; text: string }
+  | { type: "stats"; label: string; items: { value: string; label: string }[] }
+  | { type: "callout"; text: string }
+  | { type: "quote"; text: string; attribution?: string }
+  | { type: "list"; items: { lead: string; text: string }[] };
+
+export type NewsArticle = {
+  slug: string;
+  date: string;
+  location: string;
+  category: string;
+  title: string;
+  summary: string;
+  seal?: typeof topGrowingSeal;
+  highlights: { value: string; label: string }[];
+  content: NewsBlock[];
+  mediaContact?: { name: string; email: string; phone: string };
+};
+
 // Titles stay short and end with a period, like the site's page heroes.
 // The summary carries the specifics.
-export const news = [
+export const news: NewsArticle[] = [
   {
     slug: "top-growing-companies-2026",
-    date: "2026-09-28",
-    location: "Oakville, ON",
+    date: "2026-09-25",
+    location: "Oakville, Ontario",
     category: "Recognition",
     title: "Named to Canada’s Top Growing Companies.",
     summary:
-      "Ranked No. 4 in Construction Services with 1,168% three-year revenue growth.",
+      "With three-year revenue growth of 1,168%, the Oakville contractor has scaled by bringing seven interior construction scopes under one accountable team.",
     seal: topGrowingSeal,
     highlights: [
       { value: "No. 4", label: "Construction Services" },
       { value: "1,168%", label: "Three-Year Revenue Growth" },
       { value: "376", label: "Companies Ranked Nationally" },
     ],
-    body: [
-      "CPT Construction has been named to The Globe and Mail’s 2026 Report on Business ranking of Canada’s Top Growing Companies. The Oakville-based interior contractor ranked No. 4 in the Construction Services category, with 1,168% revenue growth over three years.",
-      "CPT’s growth reflects a straightforward approach to a demanding part of construction: bring the interior trades together and make one team accountable for delivering them. The company self-performs metal framing, insulation, drywall, acoustic ceilings, taping, painting and flooring under one contract.",
-      "For developers, general contractors and construction managers, that means fewer handoffs between interior trades and one point of contact as work moves from framing through final finishes. CPT has applied that model across hospitality, long-term care and healthcare, multi-residential, and commercial and institutional projects.",
-      "The recognition follows more than 16 years in business and more than 330 projects delivered. CPT credits its site crews and office team for the work behind its growth, as well as the clients, suppliers and project partners who have trusted the company with increasingly complex interiors.",
-      "Canada’s Top Growing Companies is an editorial ranking based on three-year revenue growth. A total of 376 companies earned a place on the 2026 list, published online and in the October issue of Report on Business magazine.",
+    content: [
+      {
+        type: "paragraph",
+        text: "On most commercial construction sites, the interior of a building is built by committee.",
+      },
+      {
+        type: "paragraph",
+        text: "Framers, drywallers, insulators, ceiling installers, tapers, painters and flooring crews often work under separate contracts, answer to separate supervisors and hand the project from one trade to the next.",
+      },
+      {
+        type: "paragraph",
+        text: "Every handoff creates another place for schedules to slip, information to get lost and responsibility to blur.",
+      },
+      {
+        type: "paragraph",
+        text: "CPT Construction has spent more than 16 years building around a different model.",
+      },
+      {
+        type: "paragraph",
+        text: "The Oakville, Ontario-based interior contractor has been named to The Globe and Mail’s 2026 Report on Business ranking of Canada’s Top Growing Companies, placing No. 4 in Construction Services with three-year revenue growth of 1,168%.",
+      },
+      {
+        type: "paragraph",
+        text: "The ranking measures revenue growth. For CPT, the more consequential story is what had to be built behind that number: the workforce, supervision, systems and operating capacity required to take responsibility for increasingly large portions of a project’s interior under one contract.",
+      },
+      {
+        type: "stats",
+        label: "By the Numbers",
+        items: [
+          {
+            value: "No. 4",
+            label: "Construction Services, Canada’s Top Growing Companies 2026",
+          },
+          { value: "1,168%", label: "Three-year revenue growth" },
+          { value: "120+", label: "Tradespeople in CPT workforce" },
+          { value: "330+", label: "Projects delivered" },
+          { value: "1,000,000+", label: "Square feet of interiors delivered" },
+          { value: "16+", label: "Years in business" },
+        ],
+      },
+      { type: "heading", text: "The cost of a fragmented interior" },
+      {
+        type: "paragraph",
+        text: "Division 9 is where a building begins to become finished space. It is also one of the most coordination-intensive stages of construction.",
+      },
+      {
+        type: "paragraph",
+        text: "Framing has to be completed before board can progress. Insulation has to be installed before walls are closed. Ceilings depend on preceding work being complete. Taping, painting and flooring follow in sequence, often against fixed turnover dates.",
+      },
+      {
+        type: "paragraph",
+        text: "When each scope sits with a different subcontractor, every transition has to be coordinated between separate companies, crews and project managers. That fragmentation creates more than schedule risk.",
+      },
+      {
+        type: "paragraph",
+        text: "It creates more interfaces where scope gaps, missed assumptions and conflicting interpretations can emerge. The more contracts involved, the more opportunities there are for work to fall between scopes, responsibility to be disputed and additional costs to surface as change orders.",
+      },
+      {
+        type: "paragraph",
+        text: "One trade falling behind can also affect every trade that follows. A framing issue can become a drywall delay. A drywall delay can affect finishing. Finishing delays painting. Painting pushes flooring. A relatively small issue early in the sequence can become a schedule problem several trades later.",
+      },
+      {
+        type: "paragraph",
+        text: "At closeout, the same fragmentation can make deficiencies harder to resolve. When an issue touches more than one scope, determining who owns it can sometimes take longer than correcting the work itself.",
+      },
+      {
+        type: "paragraph",
+        text: "For developers, construction managers and general contractors, the result can be more coordination, greater schedule exposure, a higher risk of change orders and less clarity around accountability.",
+      },
+      { type: "heading", text: "One contract, seven scopes" },
+      {
+        type: "paragraph",
+        text: "CPT’s operating model is built around reducing those interfaces. The company self-performs metal framing, drywall, insulation, acoustic ceilings, taping and finishing, painting and flooring through one organization.",
+      },
+      {
+        type: "paragraph",
+        text: "The objective is straightforward: keep as much of the interior sequence as possible under one accountable team. Instead of coordinating several independent subcontractors across consecutive scopes, sequencing can be managed internally.",
+      },
+      {
+        type: "paragraph",
+        text: "Crews can be deployed based on the needs of the project rather than the boundaries of individual contracts. Problems between scopes can be resolved inside the same organization. Quality expectations remain consistent from framing through finishing.",
+      },
+      {
+        type: "paragraph",
+        text: "For the general contractor or owner, the result is a simpler structure.",
+      },
+      {
+        type: "callout",
+        text: "One contract. One project team. One point of accountability from first stud to final inspection.",
+      },
+      {
+        type: "paragraph",
+        text: "That does not eliminate the complexity of interior construction. It changes who is responsible for managing it.",
+      },
+      { type: "heading", text: "Capacity before scale" },
+      {
+        type: "paragraph",
+        text: "Revenue growth of 1,168% over three years attracts attention. For a self-performing contractor, however, growth cannot come from sales alone. Every additional project still has to be estimated, planned, staffed, supervised and physically built.",
+      },
+      {
+        type: "quote",
+        text: "You cannot scale a self-performing construction company simply by winning more work. You have to build the crews, supervision, systems and management capacity behind it first. The revenue number reflects the amount of responsibility our clients have trusted us to take on. That is what matters to us.",
+      },
+      {
+        type: "paragraph",
+        text: "CPT has spent more than 16 years building that operating base. Today, the company works with more than 120 tradespeople and has completed more than 330 projects representing over one million square feet of interior construction.",
+      },
+      {
+        type: "paragraph",
+        text: "That workforce is central to the model. Because multiple scopes operate within the same company, labour can be coordinated across trades and projects as schedules change. Site supervisors and project managers can see the broader interior sequence rather than managing a single isolated scope.",
+      },
+      {
+        type: "paragraph",
+        text: "The company has also continued investing in estimating, project management, preconstruction and procurement, the functions that allow it to take on larger and more complex projects without breaking the interior scope apart. That investment has extended into its own operating systems.",
+      },
+      {
+        type: "paragraph",
+        text: "CPT developed Operfield, a field operations platform built around the realities of managing a self-performing construction workforce across multiple active sites. The platform connects field and office operations in real time, bringing timesheets, work orders, site reporting, material requests, purchase orders and payroll information into one system.",
+        link: { text: "Operfield", href: "https://operfield.com/" },
+      },
+      {
+        type: "paragraph",
+        text: "For a contractor coordinating more than 120 tradespeople, that connection matters. Labour decisions can be made against current site information. Material requirements are visible earlier. Work orders and reports move between the field and office without relying on paper, spreadsheets or disconnected message threads.",
+      },
+      {
+        type: "paragraph",
+        text: "The objective is not technology for its own sake. It is tighter control over the information required to plan labour, manage changes and keep projects moving.",
+      },
+      {
+        type: "paragraph",
+        text: "That operating depth matters in the sectors CPT serves. Hotels open on fixed dates. Long-term care and healthcare facilities operate under strict standards. Multi-residential, commercial and institutional projects run to tight turnover schedules. None leave much room for rework or a missed handoff.",
+      },
+      { type: "heading", text: "What it means for project teams" },
+      {
+        type: "list",
+        items: [
+          {
+            lead: "Developers and owners",
+            text: "get one accountable contractor for the interior scope, with fewer parties to manage and a more coordinated closeout.",
+          },
+          {
+            lead: "General contractors and construction managers",
+            text: "get fewer interfaces to coordinate and sequencing managed within one team.",
+          },
+          {
+            lead: "Consultants and designers",
+            text: "get one partner across specifications, submittals, coordination and deficiencies involving multiple interior finishes.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "The value is not that the project becomes less complicated. It is that less of that complexity needs to sit with the client.",
+      },
+      { type: "heading", text: "The next chapter" },
+      {
+        type: "paragraph",
+        text: "CPT’s inclusion in the 2026 ranking marks a point in the company’s development, not a finish line.",
+      },
+      {
+        type: "paragraph",
+        text: "The focus ahead is the same one that produced the growth: taking responsibility for larger and more complex interior scopes while maintaining the coordination, standards and accountability required to deliver them.",
+      },
+      {
+        type: "paragraph",
+        text: "For developers, general contractors and construction managers planning upcoming work, the proposition remains straightforward.",
+      },
+      { type: "heading", text: "About the ranking" },
+      {
+        type: "paragraph",
+        text: "Now in its eighth year, The Globe and Mail’s Canada’s Top Growing Companies ranks Canadian businesses based on three-year revenue growth. Companies must complete an application and meet the program’s eligibility requirements. In total, 376 companies earned a place on the 2026 list, published by Report on Business.",
+      },
+      { type: "heading", text: "About CPT Construction" },
+      {
+        type: "paragraph",
+        text: "Based in Oakville, Ontario, CPT Construction is a specialty interior contractor with more than 16 years in business, more than 120 tradespeople, and more than 330 completed projects representing over one million square feet of interior construction.",
+      },
+      {
+        type: "paragraph",
+        text: "The company self-performs metal framing, drywall, insulation, acoustic ceilings, taping and finishing, painting and flooring through its own crews, providing one point of accountability from first stud to final inspection.",
+      },
     ],
+    mediaContact: {
+      name: "CPT Construction",
+      email: "info@cptconstruction.com",
+      phone: "416 838 3970",
+    },
   },
 ];
 

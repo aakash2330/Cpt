@@ -8,6 +8,8 @@ import {
   formatNewsDate,
   homeHeroVideo,
   news,
+  type NewsArticle,
+  type NewsBlock,
   topGrowingSeal,
   industryPages,
   portfolioProjects,
@@ -1337,8 +1339,6 @@ export function ImageFrame({
   );
 }
 
-type NewsArticle = (typeof news)[number];
-
 const topGrowingArticleHref = "/about/news/top-growing-companies-2026";
 
 export function SealPlaque({
@@ -1481,20 +1481,8 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       />
       <section className="site-section">
         <div className="site-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-          <aside className="space-y-px lg:sticky lg:top-32">
+          <aside className="lg:sticky lg:top-32">
             {article.seal && <SealPlaque seal={article.seal} className="mb-8" />}
-            <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-1">
-              {article.highlights.map((item) => (
-                <div key={item.label} className="bg-black px-5 py-5">
-                  <div className="text-3xl font-semibold leading-none text-white">
-                    {item.value}
-                  </div>
-                  <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/55">
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
             <dl className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-1">
               <div className="bg-black px-5 py-4">
                 <dt className="text-[10px] uppercase tracking-[0.18em] text-white/40">
@@ -1513,11 +1501,35 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
             </dl>
           </aside>
           <div>
-            <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
-              {article.body.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+            <div className="space-y-6 border-t border-[var(--gold)]/65 pt-7">
+              {article.content.map((block, index) => (
+                <NewsBlockView key={index} block={block} />
               ))}
             </div>
+            {article.mediaContact && (
+              <div className="mt-14 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-[0.35fr_1fr]">
+                <div className="bg-[var(--surface)] p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
+                    Media Contact
+                  </p>
+                </div>
+                <div className="bg-black p-6 text-base leading-7 text-white/70">
+                  <p className="text-white">{article.mediaContact.name}</p>
+                  <a
+                    href={`mailto:${article.mediaContact.email}`}
+                    className="block transition hover:text-[var(--gold)]"
+                  >
+                    {article.mediaContact.email}
+                  </a>
+                  <a
+                    href={`tel:${article.mediaContact.phone.replace(/\s/g, "")}`}
+                    className="block transition hover:text-[var(--gold)]"
+                  >
+                    {article.mediaContact.phone}
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -1532,5 +1544,101 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
         </div>
       </section>
     </div>
+  );
+}
+
+function NewsBlockView({ block }: { block: NewsBlock }) {
+  switch (block.type) {
+    case "heading":
+      return (
+        <div className="pt-8">
+          <span className="mb-5 block h-px w-10 bg-[var(--gold)]" />
+          <h2 className="text-3xl leading-[1.08] text-white md:text-4xl">
+            {block.text}
+          </h2>
+        </div>
+      );
+    case "paragraph":
+      return (
+        <p className="text-lg leading-8 text-white/70">
+          <ParagraphText block={block} />
+        </p>
+      );
+    case "stats":
+      return (
+        <div className="pt-4">
+          <p className="section-label">{block.label}</p>
+          <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+            {block.items.map((item) => (
+              <div key={item.label} className="bg-black px-5 py-6">
+                <div className="text-3xl font-semibold leading-none text-white md:text-4xl">
+                  {item.value}
+                </div>
+                <p className="mt-3 text-xs uppercase tracking-[0.18em] text-white/55">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case "callout":
+      return (
+        <div className="border-y border-[var(--gold)]/65 py-8 md:py-10">
+          <p className="mx-auto max-w-2xl text-center font-[Nord] text-2xl leading-[1.15] text-white md:text-3xl">
+            {block.text}
+          </p>
+        </div>
+      );
+    case "quote":
+      return (
+        <blockquote className="border-l-2 border-[var(--gold)] py-1 pl-6 md:pl-8">
+          <p className="text-xl leading-9 text-white/85 md:text-2xl md:leading-10">
+            &ldquo;{block.text}&rdquo;
+          </p>
+          {block.attribution && (
+            <footer className="mt-4 text-xs uppercase tracking-[0.18em] text-white/50">
+              {block.attribution}
+            </footer>
+          )}
+        </blockquote>
+      );
+    case "list":
+      return (
+        <ul className="border-t border-white/10">
+          {block.items.map((item) => (
+            <li
+              key={item.lead}
+              className="border-b border-white/10 py-5 text-lg leading-8 text-white/70"
+            >
+              <span className="text-white">{item.lead}</span> {item.text}
+            </li>
+          ))}
+        </ul>
+      );
+  }
+}
+
+function ParagraphText({
+  block,
+}: {
+  block: Extract<NewsBlock, { type: "paragraph" }>;
+}) {
+  if (!block.link) return block.text;
+  const at = block.text.indexOf(block.link.text);
+  if (at < 0) return block.text;
+  return (
+    <>
+      {block.text.slice(0, at)}
+      <a
+        href={block.link.href}
+        target="_blank"
+        rel="noreferrer"
+        className="text-white underline decoration-[var(--gold)]/60 underline-offset-4 transition hover:text-[var(--gold)]"
+      >
+        {block.link.text}
+      </a>
+      {block.text.slice(at + block.link.text.length)}
+    </>
   );
 }
