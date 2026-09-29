@@ -693,6 +693,10 @@ export const news: NewsArticle[] = [
           },
           {
             type: "paragraph",
+            text: "Growth has also come from repeat relationships. 87% of CPT clients have returned for a third project, a measure the company sees as more meaningful than revenue growth alone. In construction, repeat work is earned through execution, consistency and the ability to solve problems without creating new ones.",
+          },
+          {
+            type: "paragraph",
             text: "That operating depth matters in the sectors CPT serves. Hotels open on fixed dates. Long-term care and healthcare facilities operate under strict standards. Multi-residential, commercial and institutional projects run to tight turnover schedules. None leave much room for rework or a missed handoff.",
           },
         ],
