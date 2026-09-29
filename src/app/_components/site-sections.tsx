@@ -1481,12 +1481,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       />
 
       <section className="site-section">
-        <div className="site-container grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-          <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
-            {article.intro.map((block, index) => (
-              <NewsBlockView key={index} block={block} />
-            ))}
-          </div>
+        <div className="site-container grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-center">
           {article.seal && (
             <div>
               <SealPlaque seal={article.seal} />
@@ -1510,6 +1505,11 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
               </dl>
             </div>
           )}
+          <div className="space-y-7 border-t border-[var(--gold)]/65 pt-7 text-lg leading-8 text-white/70">
+            {article.intro.map((block, index) => (
+              <NewsBlockView key={index} block={block} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1613,7 +1613,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "callout":
       return (
-        <div className="border-t border-[color:var(--gold)] bg-[var(--surface)] p-6 md:p-8">
+        <div className="border-t border-[color:var(--gold)] pt-6">
           <p className="font-[Nord] text-2xl leading-[1.15] text-white md:text-3xl">
             {block.text}
           </p>
