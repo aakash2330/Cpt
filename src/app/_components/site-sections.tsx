@@ -1425,7 +1425,7 @@ export function NewsIndexContent() {
         title="Company News."
         intro="Recognition, milestones, and announcements from CPT Construction."
       />
-      <section className="site-section">
+      <section className="site-section pt-0">
         <div className="site-container">
           <div>
             {news.map((article) => (
