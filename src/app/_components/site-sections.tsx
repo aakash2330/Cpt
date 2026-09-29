@@ -1489,7 +1489,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
       <section className="site-section pt-10 md:pt-14">
         <div className="site-container">
           {article.seal && (
-            <SealPlaque seal={article.seal} className="mx-auto max-w-6xl" />
+            <SealPlaque seal={article.seal} className="mx-auto max-w-5xl" />
           )}
           <div className="mt-16 space-y-6 md:mt-20">
             {article.intro.map((block, index) => (
@@ -1575,7 +1575,7 @@ export function NewsArticleContent({ article }: { article: NewsArticle }) {
 
 function ArticleHeading({ text }: { text: string }) {
   return (
-    <div className="mx-auto max-w-[55rem] pt-10">
+    <div className="mx-auto max-w-[52rem] pt-10">
       <span className="mb-5 block h-px w-10 bg-[var(--gold)]" />
       <h2 className="text-3xl leading-[1.08] text-white md:text-4xl">{text}</h2>
     </div>
@@ -1586,7 +1586,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
   switch (block.type) {
     case "paragraph":
       return (
-        <p className="mx-auto max-w-[55rem] text-lg leading-8 text-white/70">
+        <p className="mx-auto max-w-[52rem] text-lg leading-8 text-white/70">
           <ParagraphText block={block} />
         </p>
       );
@@ -1615,7 +1615,7 @@ function NewsBlockView({ block }: { block: NewsBlock }) {
       );
     case "list":
       return (
-        <ul className="mx-auto max-w-[55rem] space-y-4 text-lg leading-8 text-white/70">
+        <ul className="mx-auto max-w-[52rem] space-y-4 text-lg leading-8 text-white/70">
           {block.items.map((item) => (
             <li key={item.lead} className="pt-2">
               <span className="text-white">{item.lead}</span> {item.text}
