@@ -1,5 +1,5 @@
 export const contactDetails = {
-  email: "Info@cityprofessionaltrades.com",
+  email: "info@cptconstruction.com",
   phone: "(416) 838-3970",
   address: "Suite 302 - 1315 North Service Road East, Oakville, ON L6H 1A7",
   linkedin:
