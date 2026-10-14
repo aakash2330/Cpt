@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./Navbar/Navbar";
@@ -22,6 +23,8 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+
+const googleAnalyticsId = "G-MGQ98QT69Q";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cptconstruction.com"),
@@ -55,6 +58,18 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <Analytics />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
       </body>
     </html>
   );

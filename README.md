@@ -40,3 +40,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 Page views are collected by the root Analytics component. Enable Web Analytics in the Vercel project and deploy the app, then filter the Pages report for `/guides` to check guide-page traffic. This counts visits to the page, including direct arrivals and reloads.
 
 See the [Vercel Web Analytics setup guide](https://vercel.com/docs/analytics/quickstart).
+
+The Google tag in `src/app/layout.tsx` sends GA4 page views. Enable **File downloads** under the GA4 web stream's Enhanced Measurement to count PDF link clicks.
