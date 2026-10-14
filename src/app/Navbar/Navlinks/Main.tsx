@@ -32,6 +32,7 @@ const mobilePrimaryLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Guides", href: "/guides" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -67,6 +68,9 @@ export function NavLinks() {
         />
         <NavItem href="/portfolio" active={isActive("/portfolio")}>
           Portfolio
+        </NavItem>
+        <NavItem href="/guides" active={isActive("/guides")}>
+          Guides
         </NavItem>
         <NavItem href="/contact" active={isActive("/contact")}>
           Contact
