@@ -36,7 +36,7 @@ export default function GuidesPage() {
                 <span className="block text-[var(--gold)]">Finishes Guide.</span>
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-white/65 md:text-xl">
-                A practical field guide to Division 9—cost drivers,
+                A practical field guide to Division 9 - cost drivers,
                 specifications, sequence and scope.
               </p>
               <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
