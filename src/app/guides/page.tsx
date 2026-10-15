@@ -42,7 +42,7 @@ export default function GuidesPage() {
               <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <a
                   href={guideFile}
-                  download="CPT-Interior-Finishes-Guide-2026-Landscape.pdf"
+                  download="CPT-Interior-Finishes-Guide-2026.pdf"
                   className="inline-flex min-h-14 items-center justify-center gap-3 bg-[var(--gold)] px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)]"
                 >
                   <Download aria-hidden="true" size={18} strokeWidth={1.8} />
