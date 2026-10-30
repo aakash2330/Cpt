@@ -13,6 +13,7 @@ import {
   topGrowingSeal,
   industryPages,
   portfolioProjects,
+  projectPhotoGalleries,
   principles,
   sectors,
   services,
@@ -20,10 +21,33 @@ import {
   team,
   testimonials,
 } from "../_data/site";
+import {
+  ProjectPhotoGallery,
+  type ProjectPhotoProject,
+} from "./project-photo-gallery";
 
 type IndustryPage = (typeof industryPages)[keyof typeof industryPages];
 type IndustryProject = IndustryPage["groups"][number]["projects"][number];
 type PortfolioProject = (typeof portfolioProjects)[number];
+
+type ProjectPhotoSource = {
+  name: string;
+  image: string;
+};
+
+function getProjectPhotoProject(
+  project: ProjectPhotoSource,
+): ProjectPhotoProject {
+  return {
+    name: project.name,
+    images: [
+      project.image,
+      ...(projectPhotoGalleries[project.name] ?? []).filter(
+        (image) => image !== project.image,
+      ),
+    ],
+  };
+}
 
 const deliverySequence = [
   {
@@ -40,24 +64,29 @@ const deliverySequence = [
   },
 ];
 
-const companyContrasts = [
+const companyComparisonRows = [
   {
-    label: "Split Trade Scope",
-    points: [
-      "Multiple independent contracts",
-      "Separate supervision by trade",
-      "Coordination pressure left with the GC",
-    ],
+    label: "Contract structure",
+    splitTrade: "Multiple independent contracts",
+    cpt: "One Division 9 contract",
   },
   {
-    label: "CPT Model",
-    points: [
-      "One Division 9 contract",
-      "Directly employed interior crews",
-      "Schedule, quality, and closeout stay with CPT",
-    ],
+    label: "Crews & supervision",
+    splitTrade: "Separate supervision by trade",
+    cpt: "Directly employed interior crews",
+  },
+  {
+    label: "Coordination & accountability",
+    splitTrade: "Coordination pressure left with the GC",
+    cpt: "Schedule, quality, and closeout stay with CPT",
   },
 ];
+
+const companyComparisonModels = [
+  { key: "splitTrade", label: "Typical Split-Trade Model" },
+  { key: "cpt", label: "CPT Self-Performing Model" },
+] as const;
+
 
 const portfolioReviewStandards = [
   {
@@ -144,7 +173,7 @@ export function SectionIntro({
 export function HomePageContent() {
   return (
     <div className="site-page">
-      <section className="hero-shell min-h-[100svh]">
+      <section className="hero-shell min-h-[78svh]">
         <Image
           src="/portfolio.jpg"
           alt="CPT interior construction portfolio"
@@ -216,6 +245,47 @@ export function StatBar() {
     </section>
   );
 }
+function OperatingModelComparison() {
+  return (
+    <section className="site-section">
+      <div className="site-container">
+        <SectionIntro
+          eyebrow="Operating Model Comparison"
+          title="One Division 9 scope. Two distinct operating models."
+          body="Compare who contracts and supervises the work, and who carries coordination, quality, and closeout."
+        />
+        <div className="mt-10 grid gap-px overflow-hidden bg-clip-content bg-white/10 md:grid-cols-2">
+          {companyComparisonModels.map((model, index) => (
+            <article
+              key={model.key}
+              className={`${index === 1 ? "border-t-2 border-[var(--gold)] bg-[var(--surface)]" : "border-t-2 border-white/20 bg-black"} p-6 md:p-8`}
+            >
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
+                {String(index + 1).padStart(2, "0")} / {model.label}
+              </p>
+              <dl className="mt-6 divide-y divide-white/10 border-t border-white/10">
+                {companyComparisonRows.map((row) => (
+                  <div
+                    key={row.label}
+                    className="grid gap-2 py-4 sm:grid-cols-[minmax(10rem,0.7fr)_1fr] sm:gap-4"
+                  >
+                    <dt className="text-xs uppercase tracking-[0.16em] text-white/45">
+                      {row.label}
+                    </dt>
+                    <dd className="text-sm leading-6 text-white/70">
+                      {row[model.key]}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 export function PositioningBlock() {
   return (
@@ -334,7 +404,7 @@ export function PortfolioGrid({
           key={`${project.name}-${project.location}`}
           className="group bg-black transition duration-300 hover:bg-[var(--surface)]"
         >
-          <ImageFrame src={project.image} alt={`${project.name} project`} />
+          <ProjectPhotoGallery project={getProjectPhotoProject(project)} />
           <div className="border-t border-transparent p-6 transition duration-300 group-hover:border-[var(--gold)]/50">
             <h3 className="text-2xl text-white">{project.name}</h3>
           </div>
@@ -630,24 +700,7 @@ export function CompanyContent() {
           </article>
         </div>
       </section>
-      <section className="site-section">
-        <div className="site-container grid gap-x-px overflow-hidden bg-clip-content bg-white/10 lg:grid-cols-2">
-          {companyContrasts.map((item, index) => (
-            <article key={item.label} className="bg-black p-6 md:p-8">
-              <p className="text-xs uppercase tracking-[0.18em] text-[var(--gold)]">
-                {String(index + 1).padStart(2, "0")} / {item.label}
-              </p>
-              <ul className="mt-6 space-y-4 text-base leading-7 text-white/64">
-                {item.points.map((point) => (
-                  <li key={point} className="pt-4">
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
+      <OperatingModelComparison />
       <PrinciplesSection />
       <section className="site-section">
         <div className="site-container flex flex-col gap-3 sm:flex-row">
@@ -951,7 +1004,7 @@ function ProjectRows({
             key={`${project.name}-${project.location}`}
             className="group grid overflow-hidden bg-black transition duration-300 lg:grid-cols-[0.44fr_minmax(0,1fr)]"
           >
-            <ImageFrame src={project.image} alt={`${project.name} interior`} />
+            <ProjectPhotoGallery project={getProjectPhotoProject(project)} />
             <div className="relative p-6 md:p-8 lg:p-10">
               <span className="absolute right-6 top-6 text-xs uppercase tracking-[0.18em] text-white/22 md:right-8 md:top-8">
                 {String(index + 1).padStart(2, "0")}
@@ -1198,15 +1251,11 @@ export function PortfolioContent() {
                         >
                           <div className="grid xl:grid-cols-[minmax(360px,0.44fr)_minmax(0,1fr)_280px]">
                             <div className="relative aspect-[3/2] overflow-hidden xl:aspect-auto xl:h-[390px]">
-                              <Image
-                                src={project.image}
-                                alt={`${project.name} project`}
-                                fill
-                                sizes="(min-width: 1280px) 30vw, 100vw"
-                                className="object-cover grayscale-[36%] saturate-[0.88] transition duration-700 group-hover:scale-[1.025]"
+                              <ProjectPhotoGallery
+                                project={getProjectPhotoProject(project)}
+                                className="xl:aspect-auto xl:h-[390px]"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/18 to-transparent" />
-                              <span className="absolute left-5 top-5 border border-white/20 bg-black/72 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/65">
+                              <span className="absolute left-5 top-5 z-20 border border-white/20 bg-black/72 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/65">
                                 {String(projectIndex).padStart(2, "0")}
                               </span>
                             </div>

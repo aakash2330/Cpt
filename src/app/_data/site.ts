@@ -143,6 +143,72 @@ export const portfolioProjects = [
   },
 ];
 
+export const projectPhotoGalleries: Record<string, string[]> = {
+  "Hyatt Place": [
+    "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/1.jpg",
+    "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/2.jpg",
+    "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/3.png",
+    "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/4.png",
+    "/Building Images/Hyatt Place 33 Carlson Ct, Toronto, ON/5.png",
+  ],
+  "Hampton Inn & Suites": [
+    "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/1.jpg",
+    "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/2.jpeg",
+    "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/3.jpeg",
+    "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/4.jpeg",
+    "/Building Images/H ampton INN and Suites - 201, Monora Park Dr. Mono/5.jpeg",
+  ],
+  "Comfort Inn & Suites": [
+    "/Building Images/Comfort Inn & Suites – Bradford, ON/1.png",
+    "/Building Images/Comfort Inn & Suites – Bradford, ON/2.png",
+    "/Building Images/Comfort Inn & Suites – Bradford, ON/3.png",
+    "/Building Images/Comfort Inn & Suites – Bradford, ON/4.png",
+    "/Building Images/Comfort Inn & Suites – Bradford, ON/5.png",
+    "/Building Images/Comfort Inn & Suites – Bradford, ON/6.png",
+  ],
+  "Arcavia Living Long-Term Care": [
+    "/Building Images/Arcavia Long-Term Care – Orillia, ON/1.png",
+    "/Building Images/Arcavia Long-Term Care – Orillia, ON/2.jpeg",
+    "/Building Images/Arcavia Long-Term Care – Orillia, ON/3.jpeg",
+    "/Building Images/Arcavia Long-Term Care – Orillia, ON/4.jpeg",
+    "/Building Images/Arcavia Long-Term Care – Orillia, ON/5.jpeg",
+  ],
+  "Align Wellness Centre": [
+    "/Building Images/Alignes  Building/1.png",
+    "/Building Images/Alignes  Building/2.png",
+    "/Building Images/Alignes  Building/3.png",
+    "/Building Images/Alignes  Building/4.png",
+    "/Building Images/Alignes  Building/5.png",
+  ],
+  "Sherway Tower": [
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/1.png",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/2.png",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/3.png",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/4.jpg",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/5.jpg",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/6.png",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/25-One-Serway-Tower-4-interior-2-1.jpg",
+    "/Building Images/Sherway Tower - 205, Sherway Gardens Road, Toronto/25-One-Serway-Tower-4-interior-3-1.jpg",
+  ],
+  "Kelsey's": [
+    "/Kelsey/Guelph/image1.webp",
+    "/Kelsey/Guelph/image2.webp",
+    "/Kelsey/Guelph/image3.webp",
+    "/Kelsey/Guelph/image4.webp",
+    "/Kelsey/Guelph/image5.webp",
+  ],
+  "Soldiers' Memorial Hospital": [
+    "/Irillia Soldiers Memorial Hospital/image1.webp",
+    "/Irillia Soldiers Memorial Hospital/image2.webp",
+  ],
+  "Hullabaloo Autism Centre": [
+    "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/1.jpg",
+    "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/2.jpg",
+    "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/3.jpg",
+    "/Building Images/facilityHullabaloo Autism Centre – Mississauga, ONScope/4.jpg",
+  ],
+};
+
 export const testimonials = [
   {
     quote:
